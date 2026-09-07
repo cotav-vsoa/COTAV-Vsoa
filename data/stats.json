@@ -1,8 +1,8 @@
 {
   "1282428": {
-    "hours": "825h 2m",
-    "last": "CONDR14 · 29 de ago de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAWC</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAWC</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "hours": "826h 16m",
+    "last": "CONDOR3 · 07 de sept de 2026",
+    "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": []
@@ -31,9 +31,9 @@
     ]
   },
   "1502178": {
-    "hours": "2849h 50m",
-    "last": "LVWEM · 07 de sept de 2026",
-    "lastDetail": "",
+    "hours": "2849h 53m",
+    "last": "CONDOR2 · 07 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SBAN</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SBAN</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SABE",
     "aircraft": "GLF5",
     "lastFlights": []
@@ -55,9 +55,9 @@
     ]
   },
   "1665183": {
-    "hours": "158h 12m",
-    "last": "DELTA · 09 de jun de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAZT</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAZT</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "hours": "159h 43m",
+    "last": "CONDOR1 · 07 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SBAN</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SBAN</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SAZT",
     "aircraft": "F16",
     "lastFlights": [
