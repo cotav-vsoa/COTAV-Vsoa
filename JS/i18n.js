@@ -5,7 +5,7 @@
 
   /* ---------- dictionary (index) ---------- */
   D.DUMMY = { es:'', en:'' };
-  D['idx.title'] = { es:'COTA - VSOA | Comando de Operaciones Tácticas Argentino', en:'COTA - VSOA | Argentine Tactical Operations Command' };
+  D['idx.title'] = { es:'COTA - VSOA | Comando Aéreo Táctico Argentino', en:'COTA - VSOA | Argentine Tactical Air Command' };
   D['idx.desc'] = { es:'comunidad argentina de simulación aérea en VATSIM. Operaciones, pilotos en vivo, calendario de eventos y brigadas de todo el país.', en:'Argentine flight simulation community on VATSIM. Operations, live pilots, events calendar and brigades across the country.' };
 
   D['idx.nav.institucion'] = { es:'Institución', en:'Institution' };

@@ -20,9 +20,9 @@ foreach ($f in $htmlFiles) {
   $t = [System.Text.Encoding]::UTF8.GetString([System.IO.File]::ReadAllBytes($p))
   $orig = $t
 
-  $t = $t.Replace('FUERZAS ARMADAS ARGENTINAS VSOA - VATSIM SPECIAL OPERATION ASOCIATED', 'COMANDO DE OPERACIONES TÁCTICAS ARGENTINO VSOA - VATSIM SPECIAL OPERATION ASOCIATED')
+  $t = $t.Replace('FUERZAS ARMADAS ARGENTINAS VSOA - VATSIM SPECIAL OPERATION ASOCIATED', 'COMANDO AÉREO TÁCTICO ARGENTINO VSOA - VATSIM SPECIAL OPERATION ASOCIATED')
   $t = $t.Replace('FAAV - VSOA', 'COTA - VSOA')
-  $t = $t.Replace('Fuerzas Armadas Argentinas VSOA', 'Comando de Operaciones Tácticas Argentino')
+  $t = $t.Replace('Fuerzas Armadas Argentinas VSOA', 'Comando Aéreo Táctico Argentino')
   $t = [regex]::Replace($t, '(?<!@)(?<!Logo )FAAV', 'COTA')
   $t = $t.Replace('Logo Faav.png?v=3', 'Logo Faav.png?v=4')
 
@@ -37,7 +37,7 @@ $p = "JS\i18n.js"
 $t = [System.Text.Encoding]::UTF8.GetString([System.IO.File]::ReadAllBytes($p))
 $orig = $t
 $t = $t.Replace('FAAV - VSOA', 'COTA - VSOA')
-$t = $t.Replace('Fuerzas Armadas Argentinas VSOA', 'Comando de Operaciones Tácticas Argentino')
+$t = $t.Replace('Fuerzas Armadas Argentinas VSOA', 'Comando Aéreo Táctico Argentino')
 $t = [regex]::Replace($t, '(?<!@)(?<!Logo )FAAV', 'COTA')
 if ($t -ne $orig) { $changed++; if (-not $DryRun) { Write-Bom $p $t }; Write-Output "JS    i18n.js" }
 
