@@ -253,6 +253,8 @@ section{position:relative; z-index:1; padding:104px 0;}
 .op-card:hover{background:var(--panel);}
 .op-card.wide{grid-column:1/-1;}
 .op-icon{width:38px; height:38px; color:var(--blue-light);}
+.op-logo{height:34px; width:auto; object-fit:contain; opacity:0.9;}
+.op-logo-lg{height:38px;}
 .op-card h3{font-size:18px; color:var(--ivory);}
 .op-card p{color:var(--muted); font-size:14px; flex:1;}
 .op-link{font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); display:inline-flex; align-items:center; gap:8px;}

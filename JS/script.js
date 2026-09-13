@@ -91,7 +91,7 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
   { name: 'Joaquín Q.',      cid: 1712199, callsign: 'FAG-236', indicativo: '"DAGA"', brigade: 'VI BAe "Tandil"' },
   { name: 'Agustin L.',    cid: 1282428, callsign: 'FAG-246', indicativo: '"PUMA"', brigade: 'VI BAe "Tandil"' },
   { name: 'Emmanuel D.',    cid: 1835877, callsign: 'FAG-251', indicativo: '"TERO"', brigade: 'I BAe "El Palomar"' },
-  { name: 'Joel C.',  cid: 2005108, callsign: 'FAG-255', indicativo: '"CHAJA"', brigade: 'EAM - Esc. Aviación Militar' },
+  { name: 'Joel C.',  cid: 2005108, callsign: 'FAG-255', indicativo: '"MAMBA"', brigade: 'EAM - Esc. Aviación Militar' },
   { name: 'Facundo B.',    cid: 1785540, callsign: 'FAG-256', indicativo: '"CHIMANGO"', brigade: 'EAM - Esc. Aviación Militar' },
 ];
 
