@@ -21,7 +21,7 @@
 
   D['idx.hero.h1'] = { es:'Volamos por los cielos de <em><br>Argentina</em>, en simulador.', en:'We fly the skies of <em><br>Argentina</em>, in the simulator.' };
   D['idx.hero.lead'] = { es:'Comunidad de simulación aérea virtual dedicada a recrear, con respeto y camaradería, las aeronaves y misiones que a lo largo de la historia formaron a los pilotos de las Fuerzas Armadas. Miembro certificado de VATSIM Special Operations (VSOA).', en:'Virtual flight simulation community dedicated to recreating, with respect and camaraderie, the aircraft and missions that throughout history formed the Armed Forces pilots. Certified member of VATSIM Special Operations (VSOA).' };
-  D['idx.hero.cta.join'] = { es:'Sumarme a la COTA', en:'Join the COTA' };
+  D['idx.hero.cta.join'] = { es:'Sumarme al COTA', en:'Join the COTA' };
   D['idx.hero.cta.ops'] = { es:'Ver operaciones', en:'View operations' };
 
   D['idx.mis.eyebrow'] = { es:'Bienvenida', en:'Welcome' };
@@ -134,7 +134,7 @@
   function ct(es, en){ CONTENT[es] = { es: es, en: en }; }
   ct("Volamos por los cielos de", "We fly through the skies of");
   ct(", en simulador.", ", in the simulator.");
-  ct("Sumarme a la COTA", "Join COTA");
+  ct("Sumarme al COTA", "Join COTA");
   ct("Ver operaciones", "View operations");
   ct("Un lugar de entretenimiento, disciplina y compañerismo", "A place of entertainment, discipline and camaraderie");
   ct("Recreamos procedimientos, operaciones y misiones reales con el máximo respeto, sin perder de vista que esto es un pasatiempo.", "We recreate real procedures, operations and missions with the utmost respect, without losing sight that this is a hobby.");
