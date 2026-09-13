@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -19,7 +19,7 @@
 <link rel="icon" type="image/png" href="../img/Logo FAAV/Logo Faav.png?v=3"><link rel="apple-touch-icon" href="../img/Logo FAAV/Logo Faav.png?v=3">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <link rel="stylesheet" href="../CSS/styles.css?v=6">
+  <link rel="stylesheet" href="../CSS/styles.css?v=7">
 </head>
 <body>
 
@@ -72,18 +72,22 @@
     </a>
     <div class="header-links-row">
       <div class="navlinks" id="navlinks">
-        <a href="#mision">Institución</a>
-        <a href="#operaciones">Operaciones</a>
-        <a href="pilotos-online.html">Pilotos</a>
-        <a href="#brigadas">Brigadas</a>
-        <a href="#comunidad">Comunidad</a>
-        <a href="#calendario">Calendario</a>
-        <a href="reglamento.html">Reglamento</a>
-        <a href="redes.html">REDES</a>
-        <a href="#sumate" class="mobile-nav-btn">Sumarme</a>
+        <a href="#mision" data-i18n="idx.nav.institucion">Institución</a>
+        <a href="#operaciones" data-i18n="idx.nav.operaciones">Operaciones</a>
+        <a href="pilotos-online.html" data-i18n="idx.nav.pilotos">Pilotos</a>
+        <a href="#brigadas" data-i18n="idx.nav.brigadas">Brigadas</a>
+        <a href="#comunidad" data-i18n="idx.nav.comunidad">Comunidad</a>
+        <a href="#calendario" data-i18n="idx.nav.calendario">Calendario</a>
+        <a href="reglamento.html" data-i18n="idx.nav.reglamento">Reglamento</a>
+        <a href="redes.html" data-i18n="idx.nav.redes">REDES</a>
+        <a href="#sumate" class="mobile-nav-btn" data-i18n="idx.nav.sumarme">Sumarme</a>
       </div>
       <div class="navcta">
-        <a href="#sumate" class="btn btn-ghost desktop-only">Sumarme</a>
+        <a href="#sumate" class="btn btn-ghost desktop-only" data-i18n="idx.nav.sumarme">Sumarme</a>
+        <div class="lang-switch" role="group" aria-label="Idioma / Language">
+          <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+          <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        </div>
         <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </nav>
@@ -98,11 +102,11 @@
   <div class="wrap hero-grid">
    <div>
     <div class="hero-coord">FAAV <b> - VSOA </b></div>
-    <h1>Volamos por los cielos de <em><br>Argentina</em>, en simulador.</h1>
-    <p class="lead">Comunidad de simulación aérea virtual dedicada a recrear, con respeto y camaradería, las aeronaves y misiones que a lo largo de la historia formaron a los pilotos de las Fuerzas Armadas. Miembro certificado de VATSIM Special Operations (VSOA).</p>
+    <h1 data-i18n-h="idx.hero.h1">Volamos por los cielos de <em><br>Argentina</em>, en simulador.</h1>
+    <p class="lead" data-i18n="idx.hero.lead">Comunidad de simulación aérea virtual dedicada a recrear, con respeto y camaradería, las aeronaves y misiones que a lo largo de la historia formaron a los pilotos de las Fuerzas Armadas. Miembro certificado de VATSIM Special Operations (VSOA).</p>
     <div class="hero-actions">
-     <a href="#sumate" class="btn btn-primary">Sumarme a la FAAV <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></a>
-     <a href="#operaciones" class="btn btn-ghost">Ver operaciones</a>
+     <a href="#sumate" class="btn btn-primary"><span data-i18n="idx.hero.cta.join">Sumarme a la FAAV</span> <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></a>
+     <a href="#operaciones" class="btn btn-ghost" data-i18n="idx.hero.cta.ops">Ver operaciones</a>
     </div>
 
    </div>
@@ -130,15 +134,15 @@
  <section class="mision" id="mision">
   <div class="wrap mision-grid">
    <div data-reveal>
-    <div class="eyebrow">Bienvenida</div>
-    <h2 style="margin-bottom:24px; font-size:clamp(26px,3vw,36px);">Un lugar de entretenimiento, disciplina y compañerismo</h2>
-    <p>La FAAV es un espacio de simulación aérea sobre Microsoft Flight Simulator, Prepar3D y DCS World, con especial interés en las aeronaves de combate y transporte que visten los colores celeste y blanco tanto en el hoy como en el ayer.</p>
-    <p>Recreamos procedimientos, operaciones y misiones reales con el máximo respeto, sin perder de vista que esto es un pasatiempo.</p>
+    <div class="eyebrow" data-i18n="idx.mis.eyebrow">Bienvenida</div>
+    <h2 style="margin-bottom:24px; font-size:clamp(26px,3vw,36px);" data-i18n="idx.mis.h2">Un lugar de entretenimiento, disciplina y compañerismo</h2>
+    <p data-i18n="idx.mis.p1">La FAAV es un espacio de simulación aérea sobre Microsoft Flight Simulator, Prepar3D y DCS World, con especial interés en las aeronaves de combate y transporte que visten los colores celeste y blanco tanto en el hoy como en el ayer.</p>
+    <p data-i18n="idx.mis.p2">Recreamos procedimientos, operaciones y misiones reales con el máximo respeto, sin perder de vista que esto es un pasatiempo.</p>
    </div>
    <div class="placard lockframe" data-reveal>
     
-    <span class="ptag">⚠ Aviso institucional</span>
-    <p><span>La FAAV es una organización de aviación virtual sin fines de lucro y no posee ningún tipo de relación con ningún organismo oficial de la República Argentina. En caso de buscar algún sitio oficial, visitá el siguiente link </span><a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a><span>.</span></p>
+    <span class="ptag" data-i18n="idx.mis.tag">⚠ Aviso institucional</span>
+    <p data-i18n-h="idx.mis.notice"><span>La FAAV es una organización de aviación virtual sin fines de lucro y no posee ningún tipo de relación con ningún organismo oficial de la República Argentina. En caso de buscar algún sitio oficial, visitá el siguiente link </span><a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a><span>.</span></p>
    </div>
   </div>
  </section>
@@ -146,22 +150,22 @@
  <section id="operaciones">
   <div class="wrap">
    <div class="section-head" data-reveal>
-    <h2>CONOCÉ DONDE, CÓMO Y CON QUÉ,<br>OPERAMOS EN LA FAAV</h2>
+    <h2 data-i18n-h="idx.ops.h2">CONOCÉ DONDE, CÓMO Y CON QUÉ,<br>OPERAMOS EN LA FAAV</h2>
    </div>
    <div class="ops-grid" data-reveal>
 
     <div class="op-card">
      <svg class="op-icon"><use href="#ic-tower"/></svg>
      <h3>VATSIM &amp; VSOA</h3>
-     <p>Registrados como organización de Operaciones Especiales de VATSIM, operando bajo su normativa.</p>
+     <p data-i18n="idx.ops.card1.p">Registrados como organización de Operaciones Especiales de VATSIM, operando bajo su normativa.</p>
      <a href="https://www.vatsim.net/" target="_blank" rel="noopener" class="op-link"><span>vatsim.net</span> <svg><use href="#ic-arrow"/></svg></a>
     </div>
 
     <a href="operaciones.html" class="op-card" style="text-decoration:none;">
      <svg class="op-icon"><use href="#ic-headset"/></svg>
-     <h3>OPERACIONES</h3>
-     <p>Documentación, reglamentos, briefings y todo lo necesario para las operaciones de la FAAV.</p>
-     <span class="op-link"><span>Ver operaciones</span> <svg><use href="#ic-arrow"/></svg></span>
+     <h3 data-i18n="idx.ops.card2.h">OPERACIONES</h3>
+     <p data-i18n="idx.ops.card2.p">Documentación, reglamentos, briefings y todo lo necesario para las operaciones de la FAAV.</p>
+     <span class="op-link"><span data-i18n="idx.ops.card2.link">Ver operaciones</span> <svg><use href="#ic-arrow"/></svg></span>
     </a>
 
    </div>
@@ -171,7 +175,7 @@
  <section class="brigadas" id="brigadas">
   <div class="wrap">
    <div class="section-head" data-reveal>
-    <h2>Conoce nuestras Brigadas</h2>
+    <h2 data-i18n="idx.bri.h2">Conoce nuestras Brigadas</h2>
    </div>
    <div class="brig-row" data-reveal>
     <a draggable="false" href="brigadas/SADP.html" class="brig"><div class="num mono">I</div><div class="city">EL PALOMAR</div></a>
@@ -197,8 +201,8 @@
  <section class="media" id="comunidad">
   <div class="wrap">
    <div class="section-head" data-reveal>
-    <h2>Mirá cómo volamos</h2>
-    <p>Videos recomendados del canal y las últimas publicaciones de Instagram de la FAAV.</p>
+    <h2 data-i18n="idx.com.h2">Mirá cómo volamos</h2>
+    <p data-i18n="idx.com.sub">Videos recomendados del canal y las últimas publicaciones de Instagram de la FAAV.</p>
    </div>
 
    <div class="media-grid" data-reveal>
@@ -208,7 +212,7 @@
       <iframe src="https://www.youtube.com/embed/UUkK-yX8_AU" title="Video FAAV destacado" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
      </div>
      <div class="yt-cap">
-      <b>Video destacado del canal</b>
+      <b data-i18n="idx.com.yt.feat">Video destacado del canal</b>
       <span>@FAAV_ARG</span>
      </div>
     </div>
@@ -216,21 +220,21 @@
     <div class="side-stack">
      <div class="side-card">
       <svg class="sc-icon"><use href="#ic-yt"/></svg>
-      <h4>Canal de YouTube</h4>
-      <p>Vuelos en formación, demos y coberturas de nuestros eventos y operaciones conjuntas.</p>
-      <a href="https://www.youtube.com/@faav_arg" target="_blank" rel="noopener" class="op-link"><span>Ver canal completo</span> <svg><use href="#ic-arrow"/></svg></a>
+      <h4 data-i18n="idx.com.yt.h">Canal de YouTube</h4>
+      <p data-i18n="idx.com.yt.p">Vuelos en formación, demos y coberturas de nuestros eventos y operaciones conjuntas.</p>
+      <a href="https://www.youtube.com/@faav_arg" target="_blank" rel="noopener" class="op-link"><span data-i18n="idx.com.yt.link">Ver canal completo</span> <svg><use href="#ic-arrow"/></svg></a>
      </div>
      <div class="side-card gold">
       <svg class="sc-icon"><use href="#ic-insta"/></svg>
       <h4>Instagram @faav_arg</h4>
-      <p>Capturas de cabina, formaciones y el día a día de las brigadas.</p>
-      <a href="https://www.instagram.com/faav_arg/" target="_blank" rel="noopener" class="op-link"><span>Ir al perfil</span> <svg><use href="#ic-arrow"/></svg></a>
+      <p data-i18n="idx.com.ig.p">Capturas de cabina, formaciones y el día a día de las brigadas.</p>
+      <a href="https://www.instagram.com/faav_arg/" target="_blank" rel="noopener" class="op-link"><span data-i18n="idx.com.ig.link">Ir al perfil</span> <svg><use href="#ic-arrow"/></svg></a>
      </div>
      <div class="side-card">
       <svg class="sc-icon"><use href="#ic-tiktok"/></svg>
       <h4>TikTok @faav_arg</h4>
-      <p>Clips de cabina, formaciones y el día a día en formato corto.</p>
-      <a href="https://www.tiktok.com/@faav_arg" target="_blank" rel="noopener" class="op-link"><span>Ir al perfil</span> <svg><use href="#ic-arrow"/></svg></a>
+      <p data-i18n="idx.com.tt.p">Clips de cabina, formaciones y el día a día en formato corto.</p>
+      <a href="https://www.tiktok.com/@faav_arg" target="_blank" rel="noopener" class="op-link"><span data-i18n="idx.com.ig.link">Ir al perfil</span> <svg><use href="#ic-arrow"/></svg></a>
      </div>
     </div>
    </div>
@@ -259,8 +263,8 @@
 
    <div class="ig-feed" data-reveal>
     <div class="ig-head">
-     <h3>Publicaciones de Instagram</h3>
-     <a href="https://www.instagram.com/faav_arg/" target="_blank" rel="noopener" class="op-link"><span>Ver perfil</span> <svg><use href="#ic-arrow"/></svg></a>
+     <h3 data-i18n="idx.com.igfeed.h">Publicaciones de Instagram</h3>
+     <a href="https://www.instagram.com/faav_arg/" target="_blank" rel="noopener" class="op-link"><span data-i18n="idx.com.igfeed.link">Ver perfil</span> <svg><use href="#ic-arrow"/></svg></a>
     </div>
     <div id="ig-grid" class="ig-grid"></div>
    </div>
@@ -270,55 +274,55 @@
   <section class="calendario" id="calendario">
   <div class="wrap">
    <div class="section-head" data-reveal>
-    <h2>Calendario de eventos</h2>
-    <p>Próximos eventos de VATSIM y operaciones especiales de la FAAV.</p>
+    <h2 data-i18n="idx.cal.h2">Calendario de eventos</h2>
+    <p data-i18n="idx.cal.sub">Próximos eventos de VATSIM y operaciones especiales de la FAAV.</p>
    </div>
 <div data-reveal>
 <div class="cal-tabs">
       <button class="cal-tab active" data-tab="faav">FAAV</button>
-      <button class="cal-tab" data-tab="vsoa">Eventos VSOA</button>
-      <button class="cal-tab" data-tab="argar">VATSIM Argentina</button>
-      <button class="cal-tab" data-tab="past">Finalizados</button>
+      <button class="cal-tab" data-tab="vsoa" data-i18n="idx.cal.tab.vsoa">Eventos VSOA</button>
+      <button class="cal-tab" data-tab="argar" data-i18n="idx.cal.tab.argar">VATSIM Argentina</button>
+      <button class="cal-tab" data-tab="past" data-i18n="idx.cal.tab.past">Finalizados</button>
      </div>
    </div>
    <div class="cal-bar" data-reveal>
     <span id="cal-status" class="cal-status"></span>
-    <a href="../calendario.ics" class="op-link" download>Suscribirme al calendario (.ics) <svg style="width:13px;height:13px"><use href="#ic-arrow"/></svg></a>
+    <a href="../calendario.ics" class="op-link" download><span data-i18n="idx.cal.subscribe">Suscribirme al calendario (.ics)</span> <svg style="width:13px;height:13px"><use href="#ic-arrow"/></svg></a>
    </div>
    <div id="cal-grid-faav" class="cal-grid" data-reveal></div>
    <div id="cal-grid-vsoa" class="cal-grid" data-reveal style="display:none;"></div>
    <div id="cal-grid-argar" class="cal-grid" data-reveal style="display:none;"></div>
     <div id="cal-grid-past" class="cal-grid" data-reveal style="display:none;"></div>
-   <p class="cal-note" data-reveal>Eventos de la FAAV, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).</p>
+   <p class="cal-note" data-reveal data-i18n="idx.cal.note">Eventos de la FAAV, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).</p>
   </div>
  </section>
 
  <section class="sumate" id="sumate">
   <div class="wrap">
    <div class="section-head" data-reveal>
-    <h2>Cómo sumarte a la FAAV</h2>
+    <h2 data-i18n="idx.sum.h2">Cómo sumarte a la FAAV</h2>
    </div>
    <div class="join-grid" data-reveal>
     <div class="join-step">
-     <span class="jn mono">01 — CONTACTO</span>
-     <h4>Seguinos en Instagram</h4>
-     <p>Seguinos para no perderte lo que hacemos en la FAAV, y si tenes alguna consulta, no dudes en escribirnos</p>
+     <span class="jn mono" data-i18n="idx.sum.s1.k">01 — CONTACTO</span>
+     <h4 data-i18n="idx.sum.s1.h">Seguinos en Instagram</h4>
+     <p data-i18n="idx.sum.s1.p">Seguinos para no perderte lo que hacemos en la FAAV, y si tenes alguna consulta, no dudes en escribirnos</p>
     </div>
     <div class="join-step">
-     <span class="jn mono">02 — INSTRUCCIÓN</span>
-     <h4>Formación inicial</h4>
-     <p>Un breve proceso de instrucción para conocer procedimientos, comunicaciones y la organización interna. La formación será en Tecnam P2002 y Texan II.</p>
+     <span class="jn mono" data-i18n="idx.sum.s2.k">02 — INSTRUCCIÓN</span>
+     <h4 data-i18n="idx.sum.s2.h">Formación inicial</h4>
+     <p data-i18n="idx.sum.s2.p">Un breve proceso de instrucción para conocer procedimientos, comunicaciones y la organización interna. La formación será en Tecnam P2002 y Texan II.</p>
     </div>
     <div class="join-step">
-     <span class="jn mono">03 — DESTINO</span>
-     <h4>Asignación de brigada</h4>
-     <p>Vos elegís la brigada que quieras. Si elegís Caza, antes realizás el CEPAC; si elegís Transporte, realizás el CEPAT.</p>
+     <span class="jn mono" data-i18n="idx.sum.s3.k">03 — DESTINO</span>
+     <h4 data-i18n="idx.sum.s3.h">Asignación de brigada</h4>
+     <p data-i18n="idx.sum.s3.p">Vos elegís la brigada que quieras. Si elegís Caza, antes realizás el CEPAC; si elegís Transporte, realizás el CEPAT.</p>
     </div>
    </div>
    <div class="join-cta" data-reveal>
-    <a href="https://www.instagram.com/faav_arg/" target="_blank" rel="noopener" class="btn btn-ghost"><span>Escribir por Instagram</span> <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></a>
-     <a href="reglamento.html" class="btn btn-ghost">Ver reglamento</a>
-     <a href="inscripcion.html" class="btn btn-ghost"><span>Formulario de Inscripción</span> <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></a>
+    <a href="https://www.instagram.com/faav_arg/" target="_blank" rel="noopener" class="btn btn-ghost"><span data-i18n="idx.sum.cta.ig">Escribir por Instagram</span> <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></a>
+     <a href="reglamento.html" class="btn btn-ghost" data-i18n="idx.sum.cta.reg">Ver reglamento</a>
+     <a href="inscripcion.html" class="btn btn-ghost"><span data-i18n="idx.sum.cta.form">Formulario de Inscripción</span> <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></a>
    </div>
 
 
@@ -335,26 +339,26 @@
     <div>
      <b style="font-family:'Oswald',sans-serif; letter-spacing:0.03em; display:block;">FAAV - VSOA</b>
      <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.03em; color:var(--muted); display:block; margin-top:4px; max-width:280px;">FUERZAS ARMADAS ARGENTINAS VSOA - VATSIM SPECIAL OPERATION ASOCIATED</span>
-     <p>Comunidad de simulación aérea sin fines de lucro, con presencia federal en brigadas de todo el país.</p>
+     <p data-i18n="idx.foot.p">Comunidad de simulación aérea sin fines de lucro, con presencia federal en brigadas de todo el país.</p>
     </div>
    </div>
    <div class="foot-col">
-    <h5>Institución</h5>
-    <a href="#mision">Bienvenida</a>
-    <a href="#brigadas">Brigadas</a>
-<a href="reglamento.html">Reglamento</a>
+    <h5 data-i18n="idx.foot.col1.h">Institución</h5>
+    <a href="#mision" data-i18n="idx.foot.col1.a1">Bienvenida</a>
+    <a href="#brigadas" data-i18n="idx.foot.col1.a2">Brigadas</a>
+<a href="reglamento.html" data-i18n="idx.foot.col1.a3">Reglamento</a>
    </div>
    <div class="foot-col">
-    <h5>Operaciones</h5>
-    <a href="#pilotos">Sala de pilotos</a>
-    <a href="#operaciones">Material aéreo</a>
-    <a href="#operaciones">Escenarios</a>
+    <h5 data-i18n="idx.foot.col2.h">Operaciones</h5>
+    <a href="#pilotos" data-i18n="idx.foot.col2.a1">Sala de pilotos</a>
+    <a href="#operaciones" data-i18n="idx.foot.col2.a2">Material aéreo</a>
+    <a href="#operaciones" data-i18n="idx.foot.col2.a3">Escenarios</a>
    </div>
    <div class="foot-col">
-    <h5>Redes</h5>
+    <h5 data-i18n="idx.foot.col3.h">Redes</h5>
     <a href="mailto:vsoafaav@gmail.com">vsoafaav@gmail.com</a>
     <a href="https://www.vatsim.net/" target="_blank" rel="noopener">VATSIM</a>
-     <a href="https://www.argentina.gob.ar/fuerzaaerea" target="_blank" rel="noopener">FAA oficial</a>
+     <a href="https://www.argentina.gob.ar/fuerzaaerea" target="_blank" rel="noopener" data-i18n="idx.foot.col3.a3">FAA oficial</a>
    </div>
   </div>
   <div class="foot-bottom">
@@ -368,5 +372,6 @@
  </div>
 </footer>
 
+<script src="../JS/i18n.js?v=1"></script>
 <script src="../JS/script.js?v=14"></script>
 </body>

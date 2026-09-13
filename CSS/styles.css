@@ -93,6 +93,10 @@ nav{
 .btn-ghost{border:1px solid var(--line-strong); color:var(--ivory);}
 .btn-ghost:hover{border-color:var(--blue-light); background:rgba(127,184,242,0.06);}
 .navcta{display:flex; align-items:center; gap:14px;}
+.lang-switch{display:flex; align-items:stretch; border:1px solid var(--line-strong); border-radius:2px; overflow:hidden; flex-shrink:0;}
+.lang-btn{background:none; border:none; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.09em; padding:0 10px; height:30px; cursor:pointer; transition:color .2s ease, background .2s ease;}
+.lang-btn:hover{color:var(--ivory);}
+.lang-btn.active{background:var(--blue-light); color:#04101f; font-weight:700;}
 
 @media (max-width:1200px){
   .header-links-row{justify-content:space-between; gap:16px;}
