@@ -5,7 +5,7 @@
 
   /* ---------- dictionary (index) ---------- */
   D.DUMMY = { es:'', en:'' };
-  D['idx.title'] = { es:'COTA - VSOA | Comando de Operaciones AÃ©reas TÃ¡cticas Argentinas', en:'COTA - VSOA | Argentine Armed Forces VSOA' };
+  D['idx.title'] = { es:'COTA - VSOA | Comando de Operaciones Aéreas Tácticas Argentinas', en:'COTA - VSOA | Argentine Tactical Air Operations Command' };
   D['idx.desc'] = { es:'comunidad argentina de simulación aérea en VATSIM. Operaciones, pilotos en vivo, calendario de eventos y brigadas de todo el país.', en:'Argentine flight simulation community on VATSIM. Operations, live pilots, events calendar and brigades across the country.' };
 
   D['idx.nav.institucion'] = { es:'Institución', en:'Institution' };
@@ -16,6 +16,7 @@
   D['idx.nav.calendario'] = { es:'Calendario', en:'Calendar' };
   D['idx.nav.reglamento'] = { es:'Reglamento', en:'Regulations' };
   D['idx.nav.redes'] = { es:'REDES', en:'NETWORKS' };
+  D['idx.nav.documentos'] = { es:'DOCUMENTOS', en:'DOCUMENTS' };
   D['idx.nav.sumarme'] = { es:'Sumarme', en:'Join us' };
 
   D['idx.hero.h1'] = { es:'Volamos por los cielos de <em><br>Argentina</em>, en simulador.', en:'We fly the skies of <em><br>Argentina</em>, in the simulator.' };
@@ -85,6 +86,47 @@
   D['idx.foot.col3.h'] = { es:'Redes', en:'Social' };
   D['idx.foot.col3.a3'] = { es:'FAA oficial', en:'Official FAA' };
 
+  /* ---------- shared chrome dictionary (all pages) ---------- */
+  var CHROME = {};
+  function chromePair(key, es, en){ CHROME[key] = { es: es, en: en }; return CHROME[key]; }
+  chromePair('Institución', 'Institución', 'Institution');
+  chromePair('Operaciones', 'Operaciones', 'Operations');
+  chromePair('Pilotos', 'Pilotos', 'Pilots');
+  chromePair('Brigadas', 'Brigadas', 'Brigades');
+  chromePair('Comunidad', 'Comunidad', 'Community');
+  chromePair('Calendario', 'Calendario', 'Calendar');
+  chromePair('Reglamento', 'Reglamento', 'Regulations');
+  chromePair('REDES', 'REDES', 'NETWORKS');
+  chromePair('DOCUMENTOS', 'DOCUMENTOS', 'DOCUMENTS');
+  chromePair('Sumarme', 'Sumarme', 'Join us');
+  chromePair('Bienvenida', 'Bienvenida', 'Welcome');
+  chromePair('Sala de pilotos', 'Sala de pilotos', "Pilots' room");
+  chromePair('Material aéreo', 'Material aéreo', 'Aircraft');
+  chromePair('Escenarios', 'Escenarios', 'Scenarios');
+  chromePair('Redes', 'Redes', 'Social');
+  chromePair('FAA oficial', 'FAA oficial', 'Official FAA');
+  chromePair('Documentos VSOA', 'Documentos VSOA', 'VSOA Documents');
+  chromePair('Volver', 'Volver', 'Back');
+  chromePair('Volver al menú principal', 'Volver al menú principal', 'Back to main menu');
+  chromePair('Volver a operaciones', 'Volver a operaciones', 'Back to operations');
+  chromePair('Volver a Sala de pilotos', 'Volver a Sala de pilotos', 'Back to the Pilots room');
+  chromePair('Comunidad de simulación aérea sin fines de lucro, con presencia federal en brigadas de todo el país.', 'Comunidad de simulación aérea sin fines de lucro, con presencia federal en brigadas de todo el país.', 'Non-profit flight simulation community with federal presence in brigades across the country.');
+
+  function chromePass(){
+    var lang = norm(LANG);
+    var targets = document.querySelectorAll('header .navlinks a, header .navcta a, footer a, footer h5, .foot-brand p, a.back-link span');
+    [].slice.call(targets).forEach(function(el){
+      if (el.childNodes.length !== 1 || el.firstChild.nodeType !== 3) return;
+      var txt = el.firstChild.nodeValue;
+      var trimmed = txt.replace(/^\s+|\s+$/g, '');
+      var entry = CHROME[trimmed];
+      if (!entry) return;
+      var value = entry[lang];
+      if (value == null) { value = entry.es; }
+      if (txt !== value) el.firstChild.nodeValue = value;
+    });
+  }
+
   /* ---------- engine ---------- */
   function norm(v){ return v === 'en' ? 'en' : 'es'; }
   function current(){ try { return norm(localStorage.getItem(STORE)); } catch(e){ return 'es'; } }
@@ -110,6 +152,7 @@
     [].slice.call(document.querySelectorAll('[data-i18n-h]')).forEach(function(el){
       el.innerHTML = I18N.t(el.getAttribute('data-i18n-h'));
     });
+    chromePass();
     if (D['idx.title'] && /index\.html/.test(location.pathname)){
       document.title = I18N.t('idx.title');
       var list = [
