@@ -291,6 +291,8 @@
   ct("No se pudo encontrar el piloto solicitado.", "The requested pilot could not be found.");
   /* pilotos */
   ct("Cerrar sesión", "Log out");
+  ct("Sala de pilotos", "Pilots' room");
+  ct("Ir a descargas", "Go to downloads");
   ct("Ir a login", "Go to login");
   ct("- ACCESO RESTRINGIDO", "- RESTRICTED ACCESS");
   ct("- SALA DE PILOTOS", "- PILOTS' ROOM");

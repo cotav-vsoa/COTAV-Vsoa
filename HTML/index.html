@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>  <link rel="icon" type="image/x-icon" href="../img/Logo FAAV/Logo-Faav.ico?v=4"><link rel="apple-touch-icon" href="../img/Logo FAAV/Logo Faav.png?v=4">
   <meta charset="UTF-8">
@@ -82,9 +82,11 @@
                 <a href="documentos.html" data-i18n="idx.nav.documentos">DOCUMENTOS</a>
         <a href="redes.html" data-i18n="idx.nav.redes">REDES</a>
         <a href="#sumate" class="mobile-nav-btn" data-i18n="idx.nav.sumarme">Sumarme</a>
+        <a href="login.html" class="mobile-nav-btn">Ingresar</a>
       </div>
       <div class="navcta">
         <a href="#sumate" class="btn btn-ghost desktop-only" data-i18n="idx.nav.sumarme">Sumarme</a>
+        <a href="login.html" class="btn btn-ghost desktop-only" id="navLogin">Ingresar</a>
         <div class="lang-switch" role="group" aria-label="Idioma / Language">
           <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
           <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
@@ -154,6 +156,13 @@
     <h2 data-i18n-h="idx.ops.h2">CONOCÉ DONDE, CÓMO Y CON QUÉ,<br>OPERAMOS EN EL COTA</h2>
    </div>
    <div class="ops-grid" data-reveal>
+
+    <a href="login.html" class="op-card wide" style="text-decoration:none;">
+     <svg class="op-icon"><use href="#ic-jet"/></svg>
+     <h3>Ingresar</h3>
+     <p>Accedé con tu usuario del COTA a escenarios, aeronaves, texturas y material exclusivo para pilotos.</p>
+     <span class="op-link"><span>Sala de pilotos</span> <svg><use href="#ic-arrow"/></svg></span>
+    </a>
 
     <div class="op-card">
      <svg class="op-icon"><use href="#ic-tower"/></svg>
@@ -374,6 +383,6 @@
  </div>
 </footer>
 
-<script src="../JS/i18n.js?v=6"></script>
+<script src="../JS/i18n.js?v=7"></script>
 <script src="../JS/script.js?v=15"></script>
 </body>
