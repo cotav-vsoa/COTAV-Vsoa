@@ -1,6 +1,11 @@
-﻿﻿const burger = document.getElementById('burger');
+﻿const burger = document.getElementById('burger');
 const navlinks = document.getElementById('navlinks');
 const mobileOverlay = document.getElementById('mobileMenuOverlay');
+
+function __T(s){
+  try { if (window.I18N && I18N.c) return I18N.c(s); } catch(_){}
+  return s;
+}
 
 function toggleMenu() {
   const isOpen = navlinks.classList.toggle('open');
@@ -461,10 +466,11 @@ function updateMap(livePilots) {
     });
 
     onlineCountEl.textContent = onlineCount;
+    var __LC = function(){ try { if (window.I18N && I18N.locale) return I18N.locale(); } catch(_){} return 'es-AR'; };
     if(statusNote){
-      totalCountEl.textContent = `${PILOTS.length} en el roster · datos de las ${statusNote} (sin conexión)`;
+      totalCountEl.textContent = PILOTS.length + ' ' + __T('en el roster') + ' · ' + __T('datos de las') + ' ' + statusNote + ' (' + __T('sin conexión') + ')';
     } else {
-      totalCountEl.textContent = `${PILOTS.length} en el roster · actualizado ${new Date().toLocaleTimeString('es-AR', {hour:'2-digit', minute:'2-digit'})}`;
+      totalCountEl.textContent = PILOTS.length + ' ' + __T('en el roster') + ' · ' + __T('actualizado') + ' ' + new Date().toLocaleTimeString(__LC(), {hour:'2-digit', minute:'2-digit'});
     }
     if(trackerSection) trackerSection.style.display = onlineCount > 0 ? '' : 'none';
 }
@@ -483,7 +489,7 @@ function updateMap(livePilots) {
       try { cached = JSON.parse(localStorage.getItem('faav_live_cache') || 'null'); } catch(e){}
       const totalCountEl = document.getElementById('tracker-total-count');
       if (cached && Array.isArray(cached.pilots) && (Date.now() - new Date(cached.at).getTime()) < 10*60*1000){
-        const t = new Date(cached.at).toLocaleTimeString('es-AR', {hour:'2-digit', minute:'2-digit'});
+        const t = new Date(cached.at).toLocaleTimeString(__LC(), {hour:'2-digit', minute:'2-digit'});
         renderPilots(cached.pilots, t);
         updateMap(cached.pilots);
       } else {
@@ -547,8 +553,10 @@ const FAAV_EVENTS = [
 
 function formatDateART(iso) {
   const d = new Date(iso);
-  return d.toLocaleDateString('es-AR', { weekday:'short', day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit', timeZone:'America/Argentina/Buenos_Aires' }).toUpperCase();
+  const loc = __LC();
+  return d.toLocaleDateString(loc, { weekday:'short', day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit', timeZone:'America/Argentina/Buenos_Aires' }).toUpperCase();
 }
+function __LC(){ try { if (window.I18N && I18N.locale) return I18N.locale(); } catch(_){} return 'es-AR'; }
 
 function stripHTML(html) {
   const tmp = document.createElement('div');
@@ -695,7 +703,7 @@ function initCalendar() {
       try { localStorage.setItem('faav_events_cache', JSON.stringify({ at: new Date().toISOString(), events: events })); } catch(e){}
       const result = classifyEvents(events);
       renderAll(result);
-      setCalStatus('Sincronizado con VATSIM · ' + new Date().toLocaleTimeString('es-AR', {hour:'2-digit', minute:'2-digit'}));
+      setCalStatus(__T('Sincronizado con VATSIM') + ' · ' + new Date().toLocaleTimeString(__LC(), {hour:'2-digit', minute:'2-digit'}));
     })
     .catch(function() {
       let cached = null;
@@ -703,8 +711,8 @@ function initCalendar() {
       if (cached && Array.isArray(cached.events)) {
         const result = classifyEvents(cached.events);
         renderAll(result);
-        const t = new Date(cached.at).toLocaleTimeString('es-AR', {hour:'2-digit', minute:'2-digit'});
-        setCalStatus('Mostrando eventos guardados de las ' + t + ' (sin conexión)');
+        const t = new Date(cached.at).toLocaleTimeString(__LC(), {hour:'2-digit', minute:'2-digit'});
+        setCalStatus(__T('Mostrando eventos guardados de las') + ' ' + t + ' (' + __T('sin conexión') + ')');
       } else {
         const result = classifyEvents([]);
         renderAll(result);

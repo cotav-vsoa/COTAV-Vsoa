@@ -473,6 +473,64 @@
   dp("Manuales y documentos del COTA - VSOA.", "COTA - VSOA manuals and documents.");
   dp("Procedimientos operativos del COTA - VSOA.", "COTA - VSOA operational procedures.");
 
+  /* ---- cobertura extra (todas las páginas) ---- */
+  ct("15 de marzo de 1949", "March 15, 1949");
+  ct("10 de Agosto de 1912", "August 10, 1912");
+  ct("9 de enero de 1951", "January 9, 1951");
+  ct("10 de agosto de 1944", "August 10, 1944");
+  ct("9 de diciembre de 1975", "December 9, 1975");
+  ct("24 de junio de 1952", "June 24, 1952");
+  ct("Sí", "Yes");
+  ct("No", "No");
+  ct("pilotos", "pilots");
+  ct("redes", "networks");
+  ct("Escenarios", "Scenarios");
+  ct("OPERACIONES", "OPERATIONS");
+  ct(". Sus pilotos llevan a cabo misiones de transporte táctico y estratégico, vuelos logísticos, despliegue de personal y carga, operaciones antárticas, traslados de autoridades, ejercicios conjuntos y misiones de ayuda humanitaria, siguiendo procedimientos inspirados en la doctrina de la Fuerza Aérea Argentina y buscando ofrecer una experiencia de simulación lo más fiel y profesional posible.", ". Its pilots carry out tactical and strategic airlift missions, logistics flights, personnel and cargo deployment, Antarctic operations, VIP transport, joint exercises and humanitarian aid missions, following procedures inspired by the Argentine Air Force doctrine and seeking to offer a simulation experience as faithful and professional as possible.");
+  ct("Formación integral para los futuros pilotos virtuales de la unidad. En esta etapa se instruye sobre procedimientos, fraseología y normativas de vuelo. La instrucción abarca desde la adaptación inicial en aeronaves Tecnam P2002, pasando por la instrucción avanzada y acrobática en Beechcraft T-6C Texan II, preparando al aspirante para las distintas especialidades operativas.", "Comprehensive training for the unit's future virtual pilots. This stage covers procedures, phraseology and flight regulations. Training ranges from initial adaptation on Tecnam P2002 aircraft, through advanced and aerobatic instruction on the Beechcraft T-6C Texan II, preparing the applicant for the different operational specialities.");
+  ct("En vuelo", "In flight");
+  ct("Sin conexión", "Offline");
+  ct("sin conexión", "offline");
+  ct("Sin plan de vuelo", "No flight plan");
+  ct("Sin plan de vuelo cargado", "No flight plan filed");
+  ct("No está volando en este momento.", "Not flying right now.");
+  ct("Ver historial", "View history");
+  ct("Ver evento", "View event");
+  ct("Agregar a Google Calendar", "Add to Google Calendar");
+  ct("COTA PRESENTE", "COTA ATTENDING");
+  ct("Suelo", "Ground");
+  ct("Cargando.", "Loading.");
+  ct("Sin datos", "No data");
+  ct("Error al cargar", "Error loading");
+  ct("Sin conexión a VATSIM", "No VATSIM connection");
+  ct("Error al conectar con VATSIM", "Error connecting to VATSIM");
+  ct("Error de conexión con VATSIM", "VATSIM connection error");
+  ct("Callsign VATSIM", "VATSIM callsign");
+  ct("Aeronave", "Aircraft");
+  ct("Ruta", "Route");
+  ct("Altitud", "Altitude");
+  ct("Velocidad", "Speed");
+  ct("Rumbo", "Heading");
+  ct("Squawk", "Squawk");
+  ct("Enviando...", "Sending...");
+  ct("Enviar solicitud", "Send request");
+  ct("Hubo un error al enviar. Escribinos por Instagram y te ayudamos.", "There was an error sending. Write to us on Instagram and we will help you.");
+  ct("Todavía no hay pilotos cargados en el roster", "No pilots loaded in the roster yet");
+  ct("Agregalos en PILOTS (nombre + CID), dentro del <script> del archivo — ver instrucciones arriba.", "Add them in PILOTS (name + CID), inside the page <script> — see instructions above.");
+  ct("Roster vacío", "Empty roster");
+  ct("No se pudo conectar con VATSIM en este momento — reintentando…", "Could not connect to VATSIM right now — retrying…");
+  ct("en el roster", "in the roster");
+  ct("datos de las", "data from the");
+  ct("actualizado", "updated");
+  ct("No hay eventos programados en este momento.", "No events scheduled at this time.");
+  ct("Sincronizado con VATSIM", "Synced with VATSIM");
+  ct("Mostrando eventos guardados de las", "Showing cached events from");
+  ct("No se pudo sincronizar con VATSIM en este momento.", "Could not sync with VATSIM right now.");
+  ct("Segundo vuelo ferry de los F-16 de la Fuerza Aerea Argentina.", "Second ferry flight of the Argentine Air Force F-16s.");
+  ct("Cruzá los Andes en una de las rutas más impresionantes de Sudamérica. Aeroparque Jorge Newbery (SABE) a Santiago de Chile (SCEL).", "Cross the Andes on one of the most impressive routes in South America. Jorge Newbery Airport (SABE) to Santiago de Chile (SCEL).");
+  ct("Operación en la FIR Resistencia (SARR). Aeropuerto principal: SARI – Cataratas del Iguazú. Cobertura ATC completa y vistas espectaculares.", "Operation in the Resistencia FIR (SARR). Main airport: SARI – Iguazú Falls. Full ATC coverage and spectacular views.");
+  ct("La COTA estará presente", "COTA will be present");
+
   function contentPass(){
     var lang = norm(LANG);
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
@@ -496,7 +554,8 @@
       if (!entry) return;
       var v = entry[lang];
       if (v == null) v = entry.es;
-      n.nodeValue = n.__i18nOrig.replace(trimmed, v);
+      var nv = n.__i18nOrig.replace(trimmed, v);
+      if (n.nodeValue !== nv) n.nodeValue = nv;
     });
   }
 
@@ -592,7 +651,17 @@
     LANG = norm(l);
     try { localStorage.setItem(STORE, LANG); } catch(e){}
     document.documentElement.lang = LANG;
+    I18N.lang = LANG;
     I18N.apply();
+  };
+
+  I18N.c = function(s){
+    if (!s || norm(LANG) !== 'en') return s;
+    return CONTENT[s] ? (CONTENT[s].en || s) : s;
+  };
+
+  I18N.locale = function(){
+    return norm(LANG) === 'en' ? 'en-US' : 'es-AR';
   };
 
   document.addEventListener('click', function(ev){
@@ -603,5 +672,20 @@
 
   var LANG = norm(current());
   document.documentElement.lang = LANG;
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', I18N.apply); else I18N.apply();
+  I18N.lang = LANG;
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ I18N.apply(); startObserver(); }); else { I18N.apply(); startObserver(); }
+
+  function startObserver(){
+    if (!window.MutationObserver || !document.body) return;
+    var timer = 0;
+    new MutationObserver(function(muts){
+      for (var i = 0; i < muts.length; i++){
+        if (muts[i].type === 'childList' || muts[i].type === 'characterData'){
+          if (timer) return;
+          timer = setTimeout(function(){ timer = 0; try { contentPass(); } catch(e){} }, 80);
+          return;
+        }
+      }
+    }).observe(document.body, { childList: true, subtree: true, characterData: true });
+  }
 })();

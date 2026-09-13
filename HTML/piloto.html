@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="es">
 <head>  <link rel="icon" type="image/x-icon" href="../img/Logo FAAV/Logo-Faav.ico?v=4"><link rel="apple-touch-icon" href="../img/Logo FAAV/Logo Faav.png?v=4">
 <meta charset="UTF-8">
@@ -188,8 +188,8 @@
  </div>
 </footer>
 
-<script src="../JS/i18n.js?v=5"></script>
-<script src="../JS/script.js?v=14"></script>
+<script src="../JS/i18n.js?v=6"></script>
+<script src="../JS/script.js?v=15"></script>
 <script>
 (function(){
   var PILOTS = window.PILOTS || [];
@@ -337,7 +337,7 @@
         var onGround = (live.groundspeed || 0) < 40 && (live.altitude || 0) < 1000;
         var aircraft = fp && fp.aircraft_short ? fp.aircraft_short : '—';
         var route = fp ? ((fp.departure || '????') + ' → ' + (fp.arrival || '????')) : 'Sin plan de vuelo';
-        var altitude = onGround ? 'Suelo' : Math.round(live.altitude || 0).toLocaleString('es-AR') + ' ft';
+        var altitude = onGround ? 'Suelo' : Math.round(live.altitude || 0).toLocaleString(__LC()) + ' ft';
         var speed = (live.groundspeed || 0) + ' kt';
         var squawk = live.transponder || '----';
 

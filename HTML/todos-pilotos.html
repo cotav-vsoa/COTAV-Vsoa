@@ -172,8 +172,8 @@
  </div>
 </footer>
 
-<script src="../JS/i18n.js?v=5"></script>
-<script src="../JS/script.js?v=14"></script>
+<script src="../JS/i18n.js?v=6"></script>
+<script src="../JS/script.js?v=15"></script>
 <script>
 (function(){
  var PILOTS = window.PILOTS || [];
@@ -231,7 +231,7 @@
    });
 
    liveCountEl.textContent = onlineCount;
-   updateEl.textContent = 'actualizado ' + new Date().toLocaleTimeString('es-AR', {hour:'2-digit', minute:'2-digit'});
+   updateEl.textContent = __T('actualizado') + ' ' + new Date().toLocaleTimeString(__LC(), {hour:'2-digit', minute:'2-digit'});
   } catch(e){
    updateEl.textContent = 'Error de conexión con VATSIM';
   }
