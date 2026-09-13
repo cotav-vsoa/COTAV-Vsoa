@@ -1,6 +1,6 @@
-﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="es">
-<head>
+<head>  <link rel="icon" type="image/png" href="../img/Logo FAAV/Logo Faav.png?v=4"><link rel="apple-touch-icon" href="../img/Logo FAAV/Logo Faav.png?v=4">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Documentos VSOA · COTA - VSOA</title>  <meta name="description" content="Documentos referidos a VATSIM VSOA: normativa, manuales, formularios y material oficial de la COTA.">
@@ -16,7 +16,7 @@
   <meta name="twitter:description" content="Documentos referidos a VATSIM VSOA: normativa, manuales, formularios y material oficial de la COTA.">
   <meta name="twitter:image" content="https://faav-vsoa.github.io/FAAV-Vsoa/img/og-faav.png">
 
-<link rel="icon" type="image/png" href="../img/Logo FAAV/Logo Faav.png?v=4"><link rel="apple-touch-icon" href="../img/Logo FAAV/Logo Faav.png?v=4">
+
 <link rel="stylesheet" href="../CSS/styles.css?v=8">
 </head>
 <body>
@@ -135,32 +135,60 @@
   function esc(s){
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
+  function fmtSize(b){
+    b = Number(b) || 0;
+    if (b >= 1048576) return (b/1048576).toFixed(1) + ' MB';
+    if (b >= 1024) return Math.round(b/1024) + ' KB';
+    return b + ' B';
+  }
+  function pretty(name){
+    return String(name).replace(/\.(pdf|zip|docx?|xlsx?|txt)$/i,'').replace(/[-_]+/g,' ');
+  }
   var wrap = document.getElementById('docList');
-  fetch('../docs/manifest.json').then(function(r){
-    if (!r.ok) throw new Error('status ' + r.status);
-    return r.json();
-  }).then(function(list){
+
+  function render(list){
     if (!list || !list.length){
-      wrap.innerHTML = '<div class="doc-empty">No hay documentos cargados todavía. Escribinos al correo institucional para publicarlos.</div>';
+      wrap.innerHTML = '<div class="doc-empty">No hay documentos cargados todavía. Envialos al correo institucional para publicarlos.</div>';
+      if (window.I18N && I18N.apply) I18N.apply();
       return;
     }
-    var rows = 'list'.length ? list.map(function(d){
-      var meta = esc(d.date) + (d.size ? ' · ' + esc(d.size) + ' KB' : '');
+    wrap.innerHTML = list.map(function(d){
       return '<div class="doc-row">' +
         '<div class="doc-icon"><svg><use href="#ic-doc"/></svg></div>' +
-        '<div class="doc-main"><div class="doc-name">' + esc(d.name || d.file) + '</div>' +
-        '<div class="doc-meta">' + meta + '</div></div>' +
-        '<a class="doc-dl" href="../docs/' + encodeURI(d.file) + '" download target="_blank" rel="noopener">' +
+        '<div class="doc-main"><div class="doc-name">' + esc(pretty(d.name)) + '</div>' +
+        '<div class="doc-meta">' + fmtSize(d.size) + '</div></div>' +
+        '<a class="doc-dl" href="' + esc(d.url || ('../docs/' + encodeURI(d.name))) + '" target="_blank" rel="noopener">' +
         '<span>Descargar</span><svg style="width:12px;height:12px"><use href="#ic-arrow"/></svg></a>' +
         '</div>';
-    }).join('') : '';
-    wrap.innerHTML = rows;
+    }).join('');
+  }
+
+  fetch('https://api.github.com/repos/faav-vsoa/FAAV-Vsoa/contents/docs').then(function(r){
+    if (!r.ok) throw new Error('api ' + r.status);
+    return r.json();
+  }).then(function(items){
+    var files = items.filter(function(i){
+      return i.type === 'file' && i.name !== 'manifest.json' && i.name !== '.gitkeep';
+    }).map(function(i){
+      return { name: i.name, size: i.size, url: i.download_url };
+    });
+    render(files);
   }).catch(function(){
-    wrap.innerHTML = '<div class="doc-empty">No hay documentos cargados todavía.</div>';
+    fetch('../docs/manifest.json').then(function(r){
+      if (!r.ok) throw new Error('status ' + r.status);
+      return r.json();
+    }).then(function(list){
+      var files = (list || []).map(function(d){
+        return { name: d.file || d.name, size: (Number(d.size) || 0) * 1024, url: null };
+      });
+      render(files);
+    }).catch(function(){
+      wrap.innerHTML = '<div class="doc-empty">No hay documentos cargados todavía.</div>';
+    });
   });
 })();
 </script>
-<script src="../JS/i18n.js?v=4"></script>
+<script src="../JS/i18n.js?v=5"></script>
 <script src="../JS/script.js?v=14"></script>
 </body>
 </html>
