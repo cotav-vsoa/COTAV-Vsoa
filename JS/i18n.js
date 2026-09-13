@@ -26,21 +26,21 @@
 
   D['idx.mis.eyebrow'] = { es:'Bienvenida', en:'Welcome' };
   D['idx.mis.h2'] = { es:'Un lugar de entretenimiento, disciplina y compañerismo', en:'A place of entertainment, discipline and camaraderie' };
-  D['idx.mis.p1'] = { es:'La COTA es un espacio de simulación aérea sobre Microsoft Flight Simulator, Prepar3D y DCS World, con especial interés en las aeronaves de combate y transporte que visten los colores celeste y blanco tanto en el hoy como en el ayer.', en:'The COTA is a flight simulation space on Microsoft Flight Simulator, Prepar3D and DCS World, with a special interest in the combat and transport aircraft that wear the celeste and white colors both today and in the past.' };
+  D['idx.mis.p1'] = { es:'El COTA es un espacio de simulación aérea sobre Microsoft Flight Simulator, Prepar3D y DCS World, con especial interés en las aeronaves de combate y transporte que visten los colores celeste y blanco tanto en el hoy como en el ayer.', en:'The COTA is a flight simulation space on Microsoft Flight Simulator, Prepar3D and DCS World, with a special interest in the combat and transport aircraft that wear the celeste and white colors both today and in the past.' };
   D['idx.mis.p2'] = { es:'Recreamos procedimientos, operaciones y misiones reales con el máximo respeto, sin perder de vista que esto es un pasatiempo.', en:'We recreate real procedures, operations and missions with the utmost respect, keeping in mind that this is a hobby.' };
   D['idx.mis.tag'] = { es:'⚠ Aviso institucional', en:'⚠ Institutional notice' };
-  D['idx.mis.notice'] = { es:'La COTA es una organización de aviación virtual sin fines de lucro y no posee ningún tipo de relación con ningún organismo oficial de la República Argentina. En caso de buscar algún sitio oficial, visitá el siguiente link <a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a>.', en:'COTA is a non-profit virtual aviation organization with no relationship of any kind with any official body of the Argentine Republic. To visit an official website, follow this link: <a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a>.' };
+  D['idx.mis.notice'] = { es:'El COTA es una organización de aviación virtual sin fines de lucro y no posee ningún tipo de relación con ningún organismo oficial de la República Argentina. En caso de buscar algún sitio oficial, visitá el siguiente link <a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a>.', en:'COTA is a non-profit virtual aviation organization with no relationship of any kind with any official body of the Argentine Republic. To visit an official website, follow this link: <a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a>.' };
 
-  D['idx.ops.h2'] = { es:'CONOCÉ DONDE, CÓMO Y CON QUÉ,<br>OPERAMOS EN LA COTA', en:'FIND OUT WHERE, HOW AND WITH WHAT<br>WE OPERATE AT THE COTA' };
+  D['idx.ops.h2'] = { es:'CONOCÉ DONDE, CÓMO Y CON QUÉ,<br>OPERAMOS EN EL COTA', en:'FIND OUT WHERE, HOW AND WITH WHAT<br>WE OPERATE AT THE COTA' };
   D['idx.ops.card1.p'] = { es:'Registrados como organización de Operaciones Especiales de VATSIM, operando bajo su normativa.', en:'Registered as a VATSIM Special Operations organization, operating under its regulations.' };
   D['idx.ops.card2.h'] = { es:'OPERACIONES', en:'OPERATIONS' };
-  D['idx.ops.card2.p'] = { es:'Documentación, reglamentos, briefings y todo lo necesario para las operaciones de la COTA.', en:'Documentation, regulations, briefings and everything needed for COTA operations.' };
+  D['idx.ops.card2.p'] = { es:'Documentación, reglamentos, briefings y todo lo necesario para las operaciones del COTA.', en:'Documentation, regulations, briefings and everything needed for COTA operations.' };
   D['idx.ops.card2.link'] = { es:'Ver operaciones', en:'View operations' };
 
   D['idx.bri.h2'] = { es:'Conoce nuestras Brigadas', en:'Meet our Brigades' };
 
   D['idx.com.h2'] = { es:'Mirá cómo volamos', en:'Watch how we fly' };
-  D['idx.com.sub'] = { es:'Videos recomendados del canal y las últimas publicaciones de Instagram de la COTA.', en:'Recommended videos from the channel and the latest Instagram posts from the COTA.' };
+  D['idx.com.sub'] = { es:'Videos recomendados del canal y las últimas publicaciones de Instagram del COTA.', en:'Recommended videos from the channel and the latest Instagram posts from the COTA.' };
   D['idx.com.yt.feat'] = { es:'Video destacado del canal', en:'Featured channel video' };
   D['idx.com.yt.h'] = { es:'Canal de YouTube', en:'YouTube channel' };
   D['idx.com.yt.p'] = { es:'Vuelos en formación, demos y coberturas de nuestros eventos y operaciones conjuntas.', en:'Formation flights, demos and coverage of our events and joint operations.' };
@@ -52,17 +52,17 @@
   D['idx.com.igfeed.link'] = { es:'Ver perfil', en:'View profile' };
 
   D['idx.cal.h2'] = { es:'Calendario de eventos', en:'Event calendar' };
-  D['idx.cal.sub'] = { es:'Próximos eventos de VATSIM y operaciones especiales de la COTA.', en:'Upcoming VATSIM events and COTA special operations.' };
+  D['idx.cal.sub'] = { es:'Próximos eventos de VATSIM y operaciones especiales del COTA.', en:'Upcoming VATSIM events and COTA special operations.' };
   D['idx.cal.tab.vsoa'] = { es:'Eventos VSOA', en:'VSOA Events' };
   D['idx.cal.tab.argar'] = { es:'VATSIM Argentina', en:'VATSIM Argentina' };
   D['idx.cal.tab.past'] = { es:'Finalizados', en:'Past' };
   D['idx.cal.subscribe'] = { es:'Suscribirme al calendario (.ics)', en:'Subscribe to the calendar (.ics)' };
-  D['idx.cal.note'] = { es:'Eventos de la COTA, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).', en:'Events from the COTA, the VATSIM VSOA network (South America) and VATSIM Argentina. Times are shown in Argentine local time (ART, UTC-3).' };
+  D['idx.cal.note'] = { es:'Eventos del COTA, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).', en:'Events from the COTA, the VATSIM VSOA network (South America) and VATSIM Argentina. Times are shown in Argentine local time (ART, UTC-3).' };
 
-  D['idx.sum.h2'] = { es:'Cómo sumarte a la COTA', en:'How to join the COTA' };
+  D['idx.sum.h2'] = { es:'Cómo sumarte al COTA', en:'How to join the COTA' };
   D['idx.sum.s1.k'] = { es:'01 — CONTACTO', en:'01 — CONTACT' };
   D['idx.sum.s1.h'] = { es:'Seguinos en Instagram', en:'Follow us on Instagram' };
-  D['idx.sum.s1.p'] = { es:'Seguinos para no perderte lo que hacemos en la COTA, y si tenes alguna consulta, no dudes en escribirnos', en:'Follow us so you never miss what we do at the COTA, and if you have any questions, don\'t hesitate to write to us.' };
+  D['idx.sum.s1.p'] = { es:'Seguinos para no perderte lo que hacemos en el COTA, y si tenes alguna consulta, no dudes en escribirnos', en:'Follow us so you never miss what we do at the COTA, and if you have any questions, don\'t hesitate to write to us.' };
   D['idx.sum.s2.k'] = { es:'02 — INSTRUCCIÓN', en:'02 — TRAINING' };
   D['idx.sum.s2.h'] = { es:'Formación inicial', en:'Initial training' };
   D['idx.sum.s2.p'] = { es:'Un breve proceso de instrucción para conocer procedimientos, comunicaciones y la organización interna. La formación será en Tecnam P2002 y Texan II.', en:'A brief training process to learn procedures, communications and the internal organization. Training will be on the Tecnam P2002 and Texan II.' };
@@ -140,12 +140,12 @@
   ct("Recreamos procedimientos, operaciones y misiones reales con el máximo respeto, sin perder de vista que esto es un pasatiempo.", "We recreate real procedures, operations and missions with the utmost respect, without losing sight that this is a hobby.");
   ct("⚠ Aviso institucional", "⚠ Institutional notice");
   ct("CONOCÉ DONDE, CÓMO Y CON QUÉ,", "FIND OUT WHERE, HOW AND WITH WHAT,");
-  ct("OPERAMOS EN LA COTA", "WE OPERATE IN COTA");
+  ct("OPERAMOS EN EL COTA", "WE OPERATE IN COTA");
   ct("Registrados como organización de Operaciones Especiales de VATSIM, operando bajo su normativa.", "Registered as a VATSIM Special Operations organization, operating under its regulations.");
-  ct("Documentación, reglamentos, briefings y todo lo necesario para las operaciones de la COTA.", "Documentation, regulations, briefings and everything needed for COTA operations.");
+  ct("Documentación, reglamentos, briefings y todo lo necesario para las operaciones del COTA.", "Documentation, regulations, briefings and everything needed for COTA operations.");
   ct("Conoce nuestras Brigadas", "Meet our Brigades");
   ct("Mirá cómo volamos", "See how we fly");
-  ct("Videos recomendados del canal y las últimas publicaciones de Instagram de la COTA.", "Recommended channel videos and the latest COTA Instagram posts.");
+  ct("Videos recomendados del canal y las últimas publicaciones de Instagram del COTA.", "Recommended channel videos and the latest COTA Instagram posts.");
   ct("Video destacado del canal", "Featured channel video");
   ct("Canal de YouTube", "YouTube Channel");
   ct("Vuelos en formación, demos y coberturas de nuestros eventos y operaciones conjuntas.", "Formation flights, demos and coverage of our events and joint operations.");
@@ -156,16 +156,16 @@
   ct("Publicaciones de Instagram", "Instagram posts");
   ct("Ver perfil", "View profile");
   ct("Calendario de eventos", "Event calendar");
-  ct("Próximos eventos de VATSIM y operaciones especiales de la COTA.", "Upcoming VATSIM events and COTA special operations.");
+  ct("Próximos eventos de VATSIM y operaciones especiales del COTA.", "Upcoming VATSIM events and COTA special operations.");
   ct("Eventos VSOA", "VSOA Events");
   ct("VATSIM Argentina", "VATSIM Argentina");
   ct("Finalizados", "Finished");
   ct("Suscribirme al calendario (.ics)", "Subscribe to calendar (.ics)");
-  ct("Eventos de la COTA, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).", "COTA events, VATSIM VSOA network (South America) and VATSIM Argentina events. Times are shown in Argentina local time (ART, UTC-3).");
-  ct("Cómo sumarte a la COTA", "How to join COTA");
+  ct("Eventos del COTA, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).", "COTA events, VATSIM VSOA network (South America) and VATSIM Argentina events. Times are shown in Argentina local time (ART, UTC-3).");
+  ct("Cómo sumarte al COTA", "How to join COTA");
   ct("01 — CONTACTO", "01 — CONTACT");
   ct("Seguinos en Instagram", "Follow us on Instagram");
-  ct("Seguinos para no perderte lo que hacemos en la COTA, y si tenes alguna consulta, no dudes en escribirnos", "Follow us so you don't miss what we do in COTA, and if you have any questions, don't hesitate to write to us");
+  ct("Seguinos para no perderte lo que hacemos en el COTA, y si tenes alguna consulta, no dudes en escribirnos", "Follow us so you don't miss what we do in COTA, and if you have any questions, don't hesitate to write to us");
   ct("02 — INSTRUCCIÓN", "02 — TRAINING");
   ct("Formación inicial", "Initial training");
   ct("Un breve proceso de instrucción para conocer procedimientos, comunicaciones y la organización interna. La formación será en Tecnam P2002 y Texan II.", "A brief training process to learn procedures, communications and the internal organization. Training will be in the Tecnam P2002 and Texan II.");
@@ -212,7 +212,7 @@
   ct("Aeropuerto de Tandil, Provincia de Buenos Aires.", "Tandil Airport, Buenos Aires Province.");
   ct("Imagen de la brigada en simulador", "Simulator image of the brigade");
   ct("Reemplazá esta imagen con una captura de la brigada operando", "Replace this image with a screenshot of the brigade in operation");
-  ct("En la COTA, la I Brigada Aérea recrea y amplía las capacidades de la unidad real, operando una flota compuesta por el Lockheed C-130 Hércules,", "In COTA, the 1st Air Brigade recreates and expands the capabilities of the real unit, operating a fleet made up of the Lockheed C-130 Hercules,");
+  ct("En el COTA, la I Brigada Aérea recrea y amplía las capacidades de la unidad real, operando una flota compuesta por el Lockheed C-130 Hércules,", "In COTA, the 1st Air Brigade recreates and expands the capabilities of the real unit, operating a fleet made up of the Lockheed C-130 Hercules,");
   /* documentos */
   ct("DOCUMENTOS VSOA", "VSOA DOCUMENTS");
   ct("Normativa, manuales, formularios y material referido a VATSIM Special Operations (VSOA).", "Regulations, manuals, forms and material related to VATSIM Special Operations (VSOA).");
@@ -224,7 +224,7 @@
   ct("- INSCRIPCIÓN", "- ENROLLMENT");
   ct("Formulario de", "Enrollment");
   ct("inscripción", "form");
-  ct("Completá tus datos para iniciar el proceso de ingreso a la COTA.", "Fill in your details to start the COTA admission process.");
+  ct("Completá tus datos para iniciar el proceso de ingreso al COTA.", "Fill in your details to start the COTA admission process.");
   ct("Datos personales", "Personal details");
   ct("◆ Datos personales", "◆ Personal details");
   ct("Nombre completo *", "Full name *");
@@ -245,18 +245,18 @@
   ct("¿Cómo nos conociste?", "How did you find us?");
   ct("Recomendación de otro piloto", "Recommendation from another pilot");
   ct("Foro / comunidad", "Forum / community");
-  ct("¿Por qué querés unirte a la COTA?", "Why do you want to join COTA?");
+  ct("¿Por qué querés unirte al COTA?", "Why do you want to join COTA?");
   ct("Formulario enviado. Pronto nos pondremos en contacto.", "Form submitted. We'll be in touch soon.");
   ct("Enviar solicitud", "Send request");
   ct("- SOLICITUD RECIBIDA", "- REQUEST RECEIVED");
-  ct("¡Gracias por sumarte a la COTA!", "Thanks for joining COTA!");
+  ct("¡Gracias por sumarte al COTA!", "Thanks for joining COTA!");
   ct("Tu solicitud de inscripción fue enviada con éxito. Un miembro de nuestro equipo se pondrá en contacto con vos para coordinar los próximos pasos de tu ingreso.", "Your enrollment request was sent successfully. A team member will get in touch to coordinate the next steps of your admission.");
   ct("Volver al inicio", "Back to home");
   ct("Volver a pilotos en línea", "Back to pilots online");
   /* login */
   ct("- PILOTOS", "- PILOTS");
   ct("Sala de", "Pilots'");
-  ct("Accedé con tu usuario de la COTA a escenarios, aeronaves, texturas y material exclusivo para pilotos.", "Log in with your COTA account to access scenarios, aircraft, liveries and exclusive pilot material.");
+  ct("Accedé con tu usuario del COTA a escenarios, aeronaves, texturas y material exclusivo para pilotos.", "Log in with your COTA account to access scenarios, aircraft, liveries and exclusive pilot material.");
   ct("Iniciar sesión", "Sign in");
   ct("◆ Iniciar sesión", "◆ Sign in");
   ct("Usuario", "Username");
@@ -294,10 +294,10 @@
   ct("Ir a login", "Go to login");
   ct("- ACCESO RESTRINGIDO", "- RESTRICTED ACCESS");
   ct("- SALA DE PILOTOS", "- PILOTS' ROOM");
-  ct("No tenés acceso a esta sección. Iniciá sesión con tu usuario de la COTA para continuar.", "You don't have access to this section. Sign in with your COTA account to continue.");
+  ct("No tenés acceso a esta sección. Iniciá sesión con tu usuario del COTA para continuar.", "You don't have access to this section. Sign in with your COTA account to continue.");
   ct("Bienvenido,", "Welcome,");
-  ct("Paquetes de aeropuertos y scenery packs para Prepar3D. Incluye bases aéreas, aeropuertos civiles y escenarios especiales de la COTA.", "Airport and scenery packs for Prepar3D. Includes air bases, civil airports and special COTA scenarios.");
-  ct("Paquetes de aeropuertos y scenery packs para Microsoft Flight Simulator 2020/24. Incluye bases aéreas, aeropuertos civiles y escenarios especiales de la COTA.", "Airport and scenery packs for Microsoft Flight Simulator 2020/24. Includes air bases, civil airports and special COTA scenarios.");
+  ct("Paquetes de aeropuertos y scenery packs para Prepar3D. Incluye bases aéreas, aeropuertos civiles y escenarios especiales del COTA.", "Airport and scenery packs for Prepar3D. Includes air bases, civil airports and special COTA scenarios.");
+  ct("Paquetes de aeropuertos y scenery packs para Microsoft Flight Simulator 2020/24. Incluye bases aéreas, aeropuertos civiles y escenarios especiales del COTA.", "Airport and scenery packs for Microsoft Flight Simulator 2020/24. Includes air bases, civil airports and special COTA scenarios.");
   ct("Ir a descargas", "Go to downloads");
   ct("Escenarios Prepar3D", "P3D Scenarios");
   ct("Escenarios MFS 2020/24", "MFS 2020/24 Scenarios");
@@ -309,8 +309,8 @@
   ct("Liveries", "Liveries");
   ct("Liveries Prepar3D", "P3D Liveries");
   ct("Liveries MFS 2020/24", "MFS 2020/24 Liveries");
-  ct("Pinturas oficiales de la COTA y de las brigadas para Prepar3D. Material texturas de alta calidad.", "Official COTA and brigade liveries for Prepar3D. High quality texture material.");
-  ct("Pinturas oficiales de la COTA y de las brigadas para Microsoft Flight Simulator 2020/24.", "Official COTA and brigade liveries for Microsoft Flight Simulator 2020/24.");
+  ct("Pinturas oficiales del COTA y de las brigadas para Prepar3D. Material texturas de alta calidad.", "Official COTA and brigade liveries for Prepar3D. High quality texture material.");
+  ct("Pinturas oficiales del COTA y de las brigadas para Microsoft Flight Simulator 2020/24.", "Official COTA and brigade liveries for Microsoft Flight Simulator 2020/24.");
   ct("MTL's", "MTLs");
   ct("MTL Prepar3D", "P3D MTL");
   ct("MTL MFS 2020/24", "MFS 2020/24 MTL");
@@ -318,26 +318,26 @@
   ct("Modelos de tráfico en línea (MTL) para Microsoft Flight Simulator 2020/24. Material compartido para VATSIM.", "Online traffic models (MTL) for Microsoft Flight Simulator 2020/24. Shared material for VATSIM.");
   ct("Material Aéreo", "Aircraft Material");
   ct("Manuales de vuelo", "Flight manuals");
-  ct("POH, checklists, y guías de operación de algunas aeronaves de la COTA. Material de estudio para pilotos.", "POH, checklists and operation guides for some COTA aircraft. Study material for pilots.");
+  ct("POH, checklists, y guías de operación de algunas aeronaves del COTA. Material de estudio para pilotos.", "POH, checklists and operation guides for some COTA aircraft. Study material for pilots.");
   ct("Procedimientos estándar, cartas de aproximación, y briefings de operaciones para vuelos.", "Standard procedures, approach charts and operation briefings for flights.");
   ct("Material Escuela", "School Material");
   ct("PROGRAMA DE ENTRENAMIENTO", "TRAINING PROGRAM");
   ct("Material de entrenamiento completo: Tecnam P2002 y Texan II. Temarios, procedimientos y guías de estudio.", "Complete training material: Tecnam P2002 and Texan II. Syllabuses, procedures and study guides.");
   ct("Documentación", "Documentation");
   ct("Reglamento de vuelo", "Flight regulations");
-  ct("Normativa interna de la COTA: reglas de vuelo, procedimientos de comunicación, y estándares de operación.", "Internal COTA regulations: flight rules, communication procedures and operation standards.");
+  ct("Normativa interna del COTA: reglas de vuelo, procedimientos de comunicación, y estándares de operación.", "Internal COTA regulations: flight rules, communication procedures and operation standards.");
   ct("Guía del nuevo piloto", "New pilot guide");
-  ct("Tutorial de inicio: cómo configurar tu simulador, unirte a VATSIM, y volar con la COTA paso a paso.", "Getting started tutorial: how to set up your simulator, join VATSIM, and fly with COTA step by step.");
+  ct("Tutorial de inicio: cómo configurar tu simulador, unirte a VATSIM, y volar con el COTA paso a paso.", "Getting started tutorial: how to set up your simulator, join VATSIM, and fly with COTA step by step.");
   ct("Documentación de la división Argentina de VATSIM: reglamentos, procedimientos, y material de referencia.", "Documentation of the VATSIM Argentina division: regulations, procedures and reference material.");
   ct("VATSIM VSOA", "VATSIM VSOA");
   ct("Documentación de VATSIM Special Operations (VSOA): normativa, estándares, y material para operaciones especiales.", "VATSIM Special Operations (VSOA) documentation: regulations, standards and material for special operations.");
   /* pilotos-en-linea / roster */
   ct("Pilotos en línea", "Pilots online");
-  ct("Pilotos de la COTA volando ahora mismo en VATSIM.", "COTA pilots flying right now on VATSIM.");
+  ct("Pilotos del COTA volando ahora mismo en VATSIM.", "COTA pilots flying right now on VATSIM.");
   ct("en vuelo ahora", "flying now");
-  ct("No hay pilotos de la COTA volando en este momento.", "No COTA pilots flying right now.");
+  ct("No hay pilotos del COTA volando en este momento.", "No COTA pilots flying right now.");
   ct("Listado de pilotos", "Pilot roster");
-  ct("Pilotos registrados de la COTA.", "Registered COTA pilots.");
+  ct("Pilotos registrados del COTA.", "Registered COTA pilots.");
   ct("pilotos en el roster", "pilots in the roster");
   ct("Nombre", "Name");
   ct("Indicativo", "Callsign");
@@ -346,14 +346,14 @@
   /* redes */
   ct("- REDES", "- NETWORKS");
   ct("Nuestras", "Our");
-  ct("Seguí a la COTA y enterate de operaciones, eventos y novedades de la comunidad.", "Follow COTA and stay up to date with operations, events and community news.");
+  ct("Seguí al COTA y enterate de operaciones, eventos y novedades de la comunidad.", "Follow COTA and stay up to date with operations, events and community news.");
   ct("Mail", "Email");
   ct("Discord", "Discord");
   ct("Comunidad de simulación Aérea sin fines de lucro, con presencia federal en brigadas de todo el país.", "Non-profit flight simulation community with federal presence in brigades across the country.");
   /* reglamento */
   ct("Normas y", "Regulations and");
   ct("Procedimientos", "Procedures");
-  ct("Reglamento interno de la COTA: las bases que garantizan el respeto, la disciplina y el buen trato dentro de todas nuestras operaciones y brigadas.", "COTA internal regulations: the foundations that guarantee respect, discipline and good treatment in all our operations and brigades.");
+  ct("Reglamento interno del COTA: las bases que garantizan el respeto, la disciplina y el buen trato dentro de todas nuestras operaciones y brigadas.", "COTA internal regulations: the foundations that guarantee respect, discipline and good treatment in all our operations and brigades.");
   ct("Leer el reglamento", "Read the regulations");
   ct("Normas de convivencia", "Code of conduct");
   ct("Respeto y buen trato entre todos los miembros, dentro y fuera de las operaciones.", "Respect and good treatment among all members, inside and outside operations.");
@@ -363,10 +363,10 @@
   ct("Uso responsable del material aéreo y los escenarios compartidos.", "Responsible use of shared aircraft material and scenarios.");
   ct("Ver el reglamento completo", "View full regulations");
   ct("Reglamento básico", "Basic regulations");
-  ct("Normas de convivencia dentro de la COTA.", "Code of conduct within COTA.");
-  ct("Normas de convivencia dentro de la COTA. Este es un punto de partida - reemplazalo por el reglamento interno definitivo cuando lo tengan redactado.", "Code of conduct within COTA. This is a starting point — replace it with the final internal regulations once you have them drafted.");
+  ct("Normas de convivencia dentro del COTA.", "Code of conduct within COTA.");
+  ct("Normas de convivencia dentro del COTA. Este es un punto de partida - reemplazalo por el reglamento interno definitivo cuando lo tengan redactado.", "Code of conduct within COTA. This is a starting point — replace it with the final internal regulations once you have them drafted.");
   ct("Asistencia razonable a los eventos y operaciones de la brigada asignada.", "Reasonable attendance at your assigned brigade events and operations.");
-  ct("Uso responsable del material aéreo y los escenarios compartidos por la COTA.", "Responsible use of the aircraft material and scenarios shared by COTA.");
+  ct("Uso responsable del material aéreo y los escenarios compartidos por el COTA.", "Responsible use of the aircraft material and scenarios shared by COTA.");
   /* storage */
   ct("Archivo", "File");
   ct("Descripción", "Description");
@@ -386,11 +386,11 @@
   ct("Entrenamiento Texan II - Tema 1", "Texan II training - Topic 1");
   ct("Entrenamiento Texan II - Tema 2", "Texan II training - Topic 2");
   ct("Entrenamiento Texan II - Tema 3", "Texan II training - Topic 3");
-  ct("Pinturas oficiales de la COTA y las brigadas.", "Official COTA and brigade liveries.");
+  ct("Pinturas oficiales del COTA y las brigadas.", "Official COTA and brigade liveries.");
   ct("Manuales y documentos", "Manuals and documents");
   ct("Manuales de vuelo, checklist, procedimientos y documentación.", "Flight manuals, checklists, procedures and documentation.");
   ct("Mirage IIIB manual (inglés)", "Mirage IIIB manual (English)");
-  ct("Procedimientos operativos estandar (POE) para vuelos de la COTA.", "Standard operating procedures (SOP) for COTA flights.");
+  ct("Procedimientos operativos estandar (POE) para vuelos del COTA.", "Standard operating procedures (SOP) for COTA flights.");
   ct("Procedimiento operativo estandar - Revista", "Standard operating procedure - Magazine");
   ct("POE - Vuelo en red", "SOP - Network flight");
   ct("POE - Vuelos en alerta", "SOP - Alert flights");
@@ -438,40 +438,40 @@
 
   var DESCS = {};
   function dp(es, en){ DESCS[es] = { es: es, en: en }; }
-  dp("Brigada SAAP de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAAP Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SABE de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SABE Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SACE de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SACE Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SADJ de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SADJ Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SADM de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SADM Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SADP de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SADP Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SAME de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAME Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SAOC de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAOC Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SAOR de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAOR Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SARE de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SARE Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SATR de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SATR Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SAVC de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAVC Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SAWB de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAWB Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SAWG de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAWG Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SAZM de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAZM Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Brigada SAZT de la COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAZT Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
-  dp("Documentos referidos a VATSIM VSOA: normativa, manuales, formularios y material oficial de la COTA.", "Documents related to VATSIM VSOA: regulations, manuals, forms and official COTA material.");
-  dp("Formulario de inscripción a la COTA - VSOA. Sumate a la comunidad argentina de simulación aérea en VATSIM.", "Enrollment form for COTA - VSOA. Join the Argentine flight simulation community on VATSIM.");
-  dp("Acceso al perfil de piloto de la COTA - VSOA.", "Access to the COTA - VSOA pilot profile.");
-  dp("Operaciones de la COTA en VATSIM: misiones, escalas y procedimientos de la comunidad argentina de simulación aérea.", "COTA operations on VATSIM: missions, stopovers and procedures of the Argentine flight simulation community.");
-  dp("Perfil del piloto de la COTA - VSOA: horas de vuelo, aeronaves e historial en la comunidad.", "COTA - VSOA pilot profile: flight hours, aircraft and community history.");
-  dp("Sala de pilotos de la COTA - VSOA: conocé a los pilotos activos de la comunidad y sus horas de vuelo.", "COTA - VSOA pilots' room: meet the community's active pilots and their flight hours.");
-  dp("Pilotos de la COTA volando ahora mismo en VATSIM, en vivo con mapa de Argentina, roster y estadísticas.", "COTA pilots flying right now on VATSIM, live with Argentina map, roster and statistics.");
-  dp("Redes sociales de la COTA - VSOA: Instagram, YouTube y TikTok de la comunidad argentina de simulación aérea.", "COTA - VSOA social networks: Instagram, YouTube and TikTok of the Argentine flight simulation community.");
-  dp("Reglamento de la COTA - VSOA: normas y procedimientos de la comunidad y sus brigadas.", "COTA - VSOA regulations: norms and procedures of the community and its brigades.");
-  dp("Todos los pilotos de la COTA - VSOA con horas de vuelo y registro en VATSIM.", "All COTA - VSOA pilots with flight hours and VATSIM registration.");
-  dp("Aeronaves de la COTA para Microsoft Flight Simulator 2020/2024.", "COTA aircraft for Microsoft Flight Simulator 2020/2024.");
-  dp("Aeronaves de la COTA para Prepar3D.", "COTA aircraft for Prepar3D.");
-  dp("Escenarios de la COTA para Microsoft Flight Simulator 2020/2024.", "COTA scenarios for Microsoft Flight Simulator 2020/2024.");
-  dp("Escenarios de la COTA para Prepar3D.", "COTA scenarios for Prepar3D.");
-  dp("Programa de entrenamiento de la Escuela de Aviación Militar Virtual de la COTA.", "Training program of the COTA Virtual Military Aviation School.");
-  dp("Liveries de la COTA - VSOA: pinturas oficiales de las aeronaves de la comunidad.", "COTA - VSOA liveries: official liveries of the community's aircraft.");
-  dp("Manuales y documentos de la COTA - VSOA.", "COTA - VSOA manuals and documents.");
-  dp("Procedimientos operativos de la COTA - VSOA.", "COTA - VSOA operational procedures.");
+  dp("Brigada SAAP del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAAP Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SABE del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SABE Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SACE del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SACE Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SADJ del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SADJ Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SADM del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SADM Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SADP del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SADP Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SAME del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAME Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SAOC del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAOC Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SAOR del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAOR Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SARE del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SARE Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SATR del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SATR Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SAVC del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAVC Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SAWB del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAWB Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SAWG del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAWG Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SAZM del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAZM Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Brigada SAZT del COTA - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.", "SAZT Brigade of the COTA - VSOA: base, location and units of the Argentine flight simulation community.");
+  dp("Documentos referidos a VATSIM VSOA: normativa, manuales, formularios y material oficial del COTA.", "Documents related to VATSIM VSOA: regulations, manuals, forms and official COTA material.");
+  dp("Formulario de inscripción al COTA - VSOA. Sumate a la comunidad argentina de simulación aérea en VATSIM.", "Enrollment form for COTA - VSOA. Join the Argentine flight simulation community on VATSIM.");
+  dp("Acceso al perfil de piloto del COTA - VSOA.", "Access to the COTA - VSOA pilot profile.");
+  dp("Operaciones del COTA en VATSIM: misiones, escalas y procedimientos de la comunidad argentina de simulación aérea.", "COTA operations on VATSIM: missions, stopovers and procedures of the Argentine flight simulation community.");
+  dp("Perfil del piloto del COTA - VSOA: horas de vuelo, aeronaves e historial en la comunidad.", "COTA - VSOA pilot profile: flight hours, aircraft and community history.");
+  dp("Sala de pilotos del COTA - VSOA: conocé a los pilotos activos de la comunidad y sus horas de vuelo.", "COTA - VSOA pilots' room: meet the community's active pilots and their flight hours.");
+  dp("Pilotos del COTA volando ahora mismo en VATSIM, en vivo con mapa de Argentina, roster y estadísticas.", "COTA pilots flying right now on VATSIM, live with Argentina map, roster and statistics.");
+  dp("Redes sociales del COTA - VSOA: Instagram, YouTube y TikTok de la comunidad argentina de simulación aérea.", "COTA - VSOA social networks: Instagram, YouTube and TikTok of the Argentine flight simulation community.");
+  dp("Reglamento del COTA - VSOA: normas y procedimientos de la comunidad y sus brigadas.", "COTA - VSOA regulations: norms and procedures of the community and its brigades.");
+  dp("Todos los pilotos del COTA - VSOA con horas de vuelo y registro en VATSIM.", "All COTA - VSOA pilots with flight hours and VATSIM registration.");
+  dp("Aeronaves del COTA para Microsoft Flight Simulator 2020/2024.", "COTA aircraft for Microsoft Flight Simulator 2020/2024.");
+  dp("Aeronaves del COTA para Prepar3D.", "COTA aircraft for Prepar3D.");
+  dp("Escenarios del COTA para Microsoft Flight Simulator 2020/2024.", "COTA scenarios for Microsoft Flight Simulator 2020/2024.");
+  dp("Escenarios del COTA para Prepar3D.", "COTA scenarios for Prepar3D.");
+  dp("Programa de entrenamiento de la Escuela de Aviación Militar Virtual del COTA.", "Training program of the COTA Virtual Military Aviation School.");
+  dp("Liveries del COTA - VSOA: pinturas oficiales de las aeronaves de la comunidad.", "COTA - VSOA liveries: official liveries of the community's aircraft.");
+  dp("Manuales y documentos del COTA - VSOA.", "COTA - VSOA manuals and documents.");
+  dp("Procedimientos operativos del COTA - VSOA.", "COTA - VSOA operational procedures.");
 
   function contentPass(){
     var lang = norm(LANG);
