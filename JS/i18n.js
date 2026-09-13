@@ -81,6 +81,7 @@
   D['idx.foot.col2.a1'] = { es:'Sala de pilotos', en:'Pilots\' room' };
   D['idx.foot.col2.a2'] = { es:'Material aéreo', en:'Aircraft' };
   D['idx.foot.col2.a3'] = { es:'Escenarios', en:'Scenarios' };
+  D['idx.foot.col2.a4'] = { es:'Documentos VSOA', en:'VSOA Documents' };
   D['idx.foot.col3.h'] = { es:'Redes', en:'Social' };
   D['idx.foot.col3.a3'] = { es:'FAA oficial', en:'Official FAA' };
 
