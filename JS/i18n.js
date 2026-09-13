@@ -1,11 +1,11 @@
-(function(){
+﻿(function(){
   var I18N = window.I18N = window.I18N || {};
   var D = I18N._dict = I18N._dict || {};
   var STORE = 'faav_lang';
 
   /* ---------- dictionary (index) ---------- */
   D.DUMMY = { es:'', en:'' };
-  D['idx.title'] = { es:'FAAV - VSOA | Fuerzas Armadas Argentinas VSOA', en:'FAAV - VSOA | Argentine Armed Forces VSOA' };
+  D['idx.title'] = { es:'COTA - VSOA | Comando de Operaciones AÃ©reas TÃ¡cticas Argentinas', en:'COTA - VSOA | Argentine Armed Forces VSOA' };
   D['idx.desc'] = { es:'comunidad argentina de simulación aérea en VATSIM. Operaciones, pilotos en vivo, calendario de eventos y brigadas de todo el país.', en:'Argentine flight simulation community on VATSIM. Operations, live pilots, events calendar and brigades across the country.' };
 
   D['idx.nav.institucion'] = { es:'Institución', en:'Institution' };
@@ -20,26 +20,26 @@
 
   D['idx.hero.h1'] = { es:'Volamos por los cielos de <em><br>Argentina</em>, en simulador.', en:'We fly the skies of <em><br>Argentina</em>, in the simulator.' };
   D['idx.hero.lead'] = { es:'Comunidad de simulación aérea virtual dedicada a recrear, con respeto y camaradería, las aeronaves y misiones que a lo largo de la historia formaron a los pilotos de las Fuerzas Armadas. Miembro certificado de VATSIM Special Operations (VSOA).', en:'Virtual flight simulation community dedicated to recreating, with respect and camaraderie, the aircraft and missions that throughout history formed the Armed Forces pilots. Certified member of VATSIM Special Operations (VSOA).' };
-  D['idx.hero.cta.join'] = { es:'Sumarme a la FAAV', en:'Join the FAAV' };
+  D['idx.hero.cta.join'] = { es:'Sumarme a la COTA', en:'Join the COTA' };
   D['idx.hero.cta.ops'] = { es:'Ver operaciones', en:'View operations' };
 
   D['idx.mis.eyebrow'] = { es:'Bienvenida', en:'Welcome' };
   D['idx.mis.h2'] = { es:'Un lugar de entretenimiento, disciplina y compañerismo', en:'A place of entertainment, discipline and camaraderie' };
-  D['idx.mis.p1'] = { es:'La FAAV es un espacio de simulación aérea sobre Microsoft Flight Simulator, Prepar3D y DCS World, con especial interés en las aeronaves de combate y transporte que visten los colores celeste y blanco tanto en el hoy como en el ayer.', en:'The FAAV is a flight simulation space on Microsoft Flight Simulator, Prepar3D and DCS World, with a special interest in the combat and transport aircraft that wear the celeste and white colors both today and in the past.' };
+  D['idx.mis.p1'] = { es:'La COTA es un espacio de simulación aérea sobre Microsoft Flight Simulator, Prepar3D y DCS World, con especial interés en las aeronaves de combate y transporte que visten los colores celeste y blanco tanto en el hoy como en el ayer.', en:'The COTA is a flight simulation space on Microsoft Flight Simulator, Prepar3D and DCS World, with a special interest in the combat and transport aircraft that wear the celeste and white colors both today and in the past.' };
   D['idx.mis.p2'] = { es:'Recreamos procedimientos, operaciones y misiones reales con el máximo respeto, sin perder de vista que esto es un pasatiempo.', en:'We recreate real procedures, operations and missions with the utmost respect, keeping in mind that this is a hobby.' };
   D['idx.mis.tag'] = { es:'⚠ Aviso institucional', en:'⚠ Institutional notice' };
-  D['idx.mis.notice'] = { es:'La FAAV es una organización de aviación virtual sin fines de lucro y no posee ningún tipo de relación con ningún organismo oficial de la República Argentina. En caso de buscar algún sitio oficial, visitá el siguiente link <a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a>.', en:'FAAV is a non-profit virtual aviation organization with no relationship of any kind with any official body of the Argentine Republic. To visit an official website, follow this link: <a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a>.' };
+  D['idx.mis.notice'] = { es:'La COTA es una organización de aviación virtual sin fines de lucro y no posee ningún tipo de relación con ningún organismo oficial de la República Argentina. En caso de buscar algún sitio oficial, visitá el siguiente link <a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a>.', en:'COTA is a non-profit virtual aviation organization with no relationship of any kind with any official body of the Argentine Republic. To visit an official website, follow this link: <a href="https://www.argentina.gob.ar/defensa" target="_blank" rel="noopener">https://www.argentina.gob.ar/defensa</a>.' };
 
-  D['idx.ops.h2'] = { es:'CONOCÉ DONDE, CÓMO Y CON QUÉ,<br>OPERAMOS EN LA FAAV', en:'FIND OUT WHERE, HOW AND WITH WHAT<br>WE OPERATE AT THE FAAV' };
+  D['idx.ops.h2'] = { es:'CONOCÉ DONDE, CÓMO Y CON QUÉ,<br>OPERAMOS EN LA COTA', en:'FIND OUT WHERE, HOW AND WITH WHAT<br>WE OPERATE AT THE COTA' };
   D['idx.ops.card1.p'] = { es:'Registrados como organización de Operaciones Especiales de VATSIM, operando bajo su normativa.', en:'Registered as a VATSIM Special Operations organization, operating under its regulations.' };
   D['idx.ops.card2.h'] = { es:'OPERACIONES', en:'OPERATIONS' };
-  D['idx.ops.card2.p'] = { es:'Documentación, reglamentos, briefings y todo lo necesario para las operaciones de la FAAV.', en:'Documentation, regulations, briefings and everything needed for FAAV operations.' };
+  D['idx.ops.card2.p'] = { es:'Documentación, reglamentos, briefings y todo lo necesario para las operaciones de la COTA.', en:'Documentation, regulations, briefings and everything needed for COTA operations.' };
   D['idx.ops.card2.link'] = { es:'Ver operaciones', en:'View operations' };
 
   D['idx.bri.h2'] = { es:'Conoce nuestras Brigadas', en:'Meet our Brigades' };
 
   D['idx.com.h2'] = { es:'Mirá cómo volamos', en:'Watch how we fly' };
-  D['idx.com.sub'] = { es:'Videos recomendados del canal y las últimas publicaciones de Instagram de la FAAV.', en:'Recommended videos from the channel and the latest Instagram posts from the FAAV.' };
+  D['idx.com.sub'] = { es:'Videos recomendados del canal y las últimas publicaciones de Instagram de la COTA.', en:'Recommended videos from the channel and the latest Instagram posts from the COTA.' };
   D['idx.com.yt.feat'] = { es:'Video destacado del canal', en:'Featured channel video' };
   D['idx.com.yt.h'] = { es:'Canal de YouTube', en:'YouTube channel' };
   D['idx.com.yt.p'] = { es:'Vuelos en formación, demos y coberturas de nuestros eventos y operaciones conjuntas.', en:'Formation flights, demos and coverage of our events and joint operations.' };
@@ -51,17 +51,17 @@
   D['idx.com.igfeed.link'] = { es:'Ver perfil', en:'View profile' };
 
   D['idx.cal.h2'] = { es:'Calendario de eventos', en:'Event calendar' };
-  D['idx.cal.sub'] = { es:'Próximos eventos de VATSIM y operaciones especiales de la FAAV.', en:'Upcoming VATSIM events and FAAV special operations.' };
+  D['idx.cal.sub'] = { es:'Próximos eventos de VATSIM y operaciones especiales de la COTA.', en:'Upcoming VATSIM events and COTA special operations.' };
   D['idx.cal.tab.vsoa'] = { es:'Eventos VSOA', en:'VSOA Events' };
   D['idx.cal.tab.argar'] = { es:'VATSIM Argentina', en:'VATSIM Argentina' };
   D['idx.cal.tab.past'] = { es:'Finalizados', en:'Past' };
   D['idx.cal.subscribe'] = { es:'Suscribirme al calendario (.ics)', en:'Subscribe to the calendar (.ics)' };
-  D['idx.cal.note'] = { es:'Eventos de la FAAV, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).', en:'Events from the FAAV, the VATSIM VSOA network (South America) and VATSIM Argentina. Times are shown in Argentine local time (ART, UTC-3).' };
+  D['idx.cal.note'] = { es:'Eventos de la COTA, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).', en:'Events from the COTA, the VATSIM VSOA network (South America) and VATSIM Argentina. Times are shown in Argentine local time (ART, UTC-3).' };
 
-  D['idx.sum.h2'] = { es:'Cómo sumarte a la FAAV', en:'How to join the FAAV' };
+  D['idx.sum.h2'] = { es:'Cómo sumarte a la COTA', en:'How to join the COTA' };
   D['idx.sum.s1.k'] = { es:'01 — CONTACTO', en:'01 — CONTACT' };
   D['idx.sum.s1.h'] = { es:'Seguinos en Instagram', en:'Follow us on Instagram' };
-  D['idx.sum.s1.p'] = { es:'Seguinos para no perderte lo que hacemos en la FAAV, y si tenes alguna consulta, no dudes en escribirnos', en:'Follow us so you never miss what we do at the FAAV, and if you have any questions, don\'t hesitate to write to us.' };
+  D['idx.sum.s1.p'] = { es:'Seguinos para no perderte lo que hacemos en la COTA, y si tenes alguna consulta, no dudes en escribirnos', en:'Follow us so you never miss what we do at the COTA, and if you have any questions, don\'t hesitate to write to us.' };
   D['idx.sum.s2.k'] = { es:'02 — INSTRUCCIÓN', en:'02 — TRAINING' };
   D['idx.sum.s2.h'] = { es:'Formación inicial', en:'Initial training' };
   D['idx.sum.s2.p'] = { es:'Un breve proceso de instrucción para conocer procedimientos, comunicaciones y la organización interna. La formación será en Tecnam P2002 y Texan II.', en:'A brief training process to learn procedures, communications and the internal organization. Training will be on the Tecnam P2002 and Texan II.' };
