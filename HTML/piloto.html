@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="es">
 <head>  <link rel="icon" type="image/x-icon" href="../img/Logo FAAV/Logo-Faav.ico?v=5"><link rel="apple-touch-icon" href="../img/Logo FAAV/Logo Faav.png?v=4">
 <meta charset="UTF-8">
@@ -226,7 +226,6 @@
 
   var metaParts = [];
   if(pilot.indicativo) metaParts.push(pilot.indicativo);
-  if(pilot.brigade) metaParts.push(pilot.brigade);
   metaEl.textContent = metaParts.join(' · ') || '—';
   var cidLink = document.getElementById('p-cid-link');
   if(cidLink && pilot.cid){

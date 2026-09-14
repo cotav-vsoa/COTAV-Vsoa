@@ -657,14 +657,6 @@
     I18N.apply();
   };
 
-  function guardDocs(){
-    var logged = false;
-    try { logged = !!localStorage.getItem('faav_pilot'); } catch(e){}
-    if (logged) return;
-    var links = document.querySelectorAll('a[href$="documentos.html"], a[href*="documentos.html"]');
-    for (var i=0;i<links.length;i++){ links[i].style.display = 'none'; }
-  }
-
   I18N.c = function(s){
     if (!s || norm(LANG) !== 'en') return s;
     return CONTENT[s] ? (CONTENT[s].en || s) : s;
@@ -683,7 +675,7 @@
   var LANG = norm(current());
   document.documentElement.lang = LANG;
   I18N.lang = LANG;
-  function boot(){ I18N.apply(); guardDocs(); startObserver(); }
+  function boot(){ I18N.apply(); startObserver(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 
   function startObserver(){

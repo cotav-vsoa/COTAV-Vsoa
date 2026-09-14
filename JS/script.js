@@ -82,17 +82,16 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
   ══════════════════════════════════════════════════════════════════ */
  
   var PILOTS = [
-  { name: 'Juan Pablo G.',cid: 1562806, callsign: 'FAG-212', indicativo: '"CONDOR"', brigade: 'I BAe "El Palomar"' },
-  { name: 'Bruno C.',   cid: 1462350, callsign: 'FAG-213', indicativo: '"RAYO"', brigade: 'VI BAe "Tandil"' },
-  { name: 'Alexis A.',       cid: 0,        callsign: 'FAG-222', indicativo: '"LOBO"', brigade: 'VI BAe "Tandil"' },
-  { name: 'Emiliano P.',   cid: 1665183, callsign: 'FAG-228', indicativo: '"DELTA"', brigade: 'VI BAe "Tandil"' },
-  { name: 'Alexis D.',        cid: 1665608, callsign: 'FAG-229', indicativo: '"CUERVO"', brigade: 'I BAe "El Palomar"' },
-  { name: 'Thiago P.',    cid: 1502178, callsign: 'FAG-230', indicativo: '"DRAGON"', brigade: 'I BAe "El Palomar"' },
-  { name: 'Joaquín Q.',      cid: 1712199, callsign: 'FAG-236', indicativo: '"DAGA"', brigade: 'VI BAe "Tandil"' },
-  { name: 'Agustin L.',    cid: 1282428, callsign: 'FAG-246', indicativo: '"PUMA"', brigade: 'VI BAe "Tandil"' },
-  { name: 'Emmanuel D.',    cid: 1835877, callsign: 'FAG-251', indicativo: '"TERO"', brigade: 'I BAe "El Palomar"' },
-  { name: 'Joel C.',  cid: 2005108, callsign: 'FAG-255', indicativo: '"MAMBA"', brigade: 'EAM - Esc. Aviación Militar' },
-  { name: 'Facundo B.',    cid: 1785540, callsign: 'FAG-256', indicativo: '"CHIMANGO"', brigade: 'EAM - Esc. Aviación Militar' },
+  { name: 'Juan Pablo G.',cid: 1562806, callsign: 'FAG-212', indicativo: '"CONDOR"' },
+  { name: 'Bruno C.',   cid: 1462350, callsign: 'FAG-213', indicativo: '"RAYO"' },
+  { name: 'Alexis A.',       cid: 0,        callsign: 'FAG-222', indicativo: '"LOBO"' },
+  { name: 'Emiliano P.',   cid: 1665183, callsign: 'FAG-228', indicativo: '"DELTA"' },
+  { name: 'Alexis D.',        cid: 1665608, callsign: 'FAG-229', indicativo: '"CUERVO"' },
+  { name: 'Thiago P.',    cid: 1502178, callsign: 'FAG-230', indicativo: '"DRAGON"' },
+  { name: 'Joaquín Q.',      cid: 1712199, callsign: 'FAG-236', indicativo: '"DAGA"' },
+  { name: 'Agustin L.',    cid: 1282428, callsign: 'FAG-246', indicativo: '"PUMA"' },
+  { name: 'Emmanuel D.',    cid: 1835877, callsign: 'FAG-251', indicativo: '"TERO"' },
+  { name: 'Facundo B.',    cid: 1785540, callsign: 'FAG-256', indicativo: '"CHIMANGO"' },
 ];
 
 // ═════════════════════════════════════════════════════════════════
@@ -378,8 +377,6 @@ function updateMap(livePilots) {
           <div class="vm-popup-cell"><span>Altitud</span><b>${onGround ? 'Suelo' : Math.round(live.altitude || 0).toLocaleString('es-AR') + ' ft'}</b></div>
           <div class="vm-popup-cell"><span>Velocidad</span><b>${live.groundspeed || 0} kt</b></div>
           <div class="vm-popup-cell"><span>Rumbo</span><b>${Math.round(heading)}°</b></div>
-          <div class="vm-popup-cell"><span>Tendencia</span><b style="color:${trendColor}">${trend} ${altDelta > 150 ? 'Subiendo' : altDelta < -150 ? 'Descendiendo' : 'Nivelado'}</b></div>
-          <div class="vm-popup-cell"><span>Brigada</span><b>${p.brigade || '—'}</b></div>
         </div>
       </div>`, { className: 'vm-popup-wrap', closeButton: true, maxWidth: 320 });
 
@@ -427,8 +424,7 @@ function updateMap(livePilots) {
 
       const callsignBadge = p.callsign ? ` <span style="color: #ff9d00; font-weight: bold; font-size: 0.85em;">[${p.callsign}]</span>` : '';
       const subInfo = [
-        p.indicativo ? `"${p.indicativo}"` : '',
-        p.brigade || ''
+        p.indicativo ? `"${p.indicativo}"` : ''
       ].filter(Boolean).join(' · ');
 
       const metaText = subInfo ? `<div style="font-size: 0.75em; opacity: 0.75; margin-top: 2px;">${subInfo}</div>` : '';

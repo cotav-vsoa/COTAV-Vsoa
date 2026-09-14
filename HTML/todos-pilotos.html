@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="es">
 <head>  <link rel="icon" type="image/x-icon" href="../img/Logo FAAV/Logo-Faav.ico?v=5"><link rel="apple-touch-icon" href="../img/Logo FAAV/Logo Faav.png?v=4">
 <meta charset="UTF-8">
@@ -117,9 +117,8 @@
       <tr style="border-bottom:2px solid var(--line-strong); text-align:center;">
        <th style="padding:14px 16px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Callsign</th>
        <th style="padding:14px 16px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Nombre</th>
-       <th style="padding:14px 16px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Indicativo</th>
-       <th style="padding:14px 16px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Brigada</th>
-       <th style="padding:14px 16px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">CID VATSIM</th>
+        <th style="padding:14px 16px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Indicativo</th>
+        <th style="padding:14px 16px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">CID VATSIM</th>
        <th style="padding:14px 16px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Estado</th>
       </tr>
      </thead>
@@ -223,9 +222,8 @@
     tr.innerHTML =
      '<td style="padding:12px 16px;text-align:center;color:var(--gold);font-weight:600;"><a href="piloto.html?cid=' + p.cid + '" style="color:var(--gold);text-decoration:none;">' + (p.callsign || '—') + '</a></td>' +
      '<td style="padding:12px 16px;text-align:center;color:var(--ivory);">' + p.name + '</td>' +
-     '<td style="padding:12px 16px;text-align:center;color:var(--muted);">' + (p.indicativo || '—') + '</td>' +
-     '<td style="padding:12px 16px;text-align:center;color:var(--muted);">' + (p.brigade || '—') + '</td>' +
-     '<td style="padding:12px 16px;text-align:center;"><a href="https://stats.vatsim.net/stats/' + p.cid + '" target="_blank" rel="noopener" style="color:var(--blue-light);text-decoration:none;border-bottom:1px dotted rgba(0,210,255,0.3);">' + p.cid + '</a></td>' +
+      '<td style="padding:12px 16px;text-align:center;color:var(--muted);">' + (p.indicativo || '—') + '</td>' +
+      '<td style="padding:12px 16px;text-align:center;"><a href="https://stats.vatsim.net/stats/' + p.cid + '" target="_blank" rel="noopener" style="color:var(--blue-light);text-decoration:none;border-bottom:1px dotted rgba(0,210,255,0.3);">' + p.cid + '</a></td>' +
      '<td style="padding:12px 16px;text-align:center;">' + statusHtml + flightInfo + '</td>';
     tbody.appendChild(tr);
    });
