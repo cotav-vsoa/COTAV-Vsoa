@@ -57,7 +57,7 @@
   D['idx.cal.tab.argar'] = { es:'VATSIM Argentina', en:'VATSIM Argentina' };
   D['idx.cal.tab.past'] = { es:'Finalizados', en:'Past' };
   D['idx.cal.subscribe'] = { es:'Suscribirme al calendario (.ics)', en:'Subscribe to the calendar (.ics)' };
-  D['idx.cal.note'] = { es:'Eventos del COTA, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).', en:'Events from the COTA, the VATSIM VSOA network (South America) and VATSIM Argentina. Times are shown in Argentine local time (ART, UTC-3).' };
+  D['idx.cal.note'] = { es:'Eventos del COTA, Eventos de la red VATSIM VSOA (VATSIM SPECIAL OPERATION ASOCIATED) y Eventos de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (UTC-3).', en:'Events from the COTA, the VATSIM VSOA network (South America) and VATSIM Argentina. Times are shown in Argentine local time (ART, UTC-3).' };
 
   D['idx.sum.h2'] = { es:'Cómo sumarte al COTA', en:'How to join the COTA' };
   D['idx.sum.s1.k'] = { es:'01 — CONTACTO', en:'01 — CONTACT' };
@@ -160,7 +160,7 @@
   ct("VATSIM Argentina", "VATSIM Argentina");
   ct("Finalizados", "Finished");
   ct("Suscribirme al calendario (.ics)", "Subscribe to calendar (.ics)");
-  ct("Eventos del COTA, de la red VATSIM VSOA (Sudamérica) y de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (ART, UTC-3).", "COTA events, VATSIM VSOA network (South America) and VATSIM Argentina events. Times are shown in Argentina local time (ART, UTC-3).");
+  ct("Eventos del COTA, Eventos de la red VATSIM VSOA (VATSIM SPECIAL OPERATION ASOCIATED) y Eventos de VATSIM Argentina. Los horarios se muestran en hora local de Argentina (UTC-3).", "COTA events, VATSIM VSOA network (South America) and VATSIM Argentina events. Times are shown in Argentina local time (ART, UTC-3).");
   ct("Cómo sumarte al COTA", "How to join COTA");
   ct("01 — CONTACTO", "01 — CONTACT");
   ct("Seguinos en Instagram", "Follow us on Instagram");
