@@ -40,19 +40,11 @@
   },
   "1562806": {
     "hours": "460h 3m",
-    "last": "ARG1878 · 11 de sept de 2026",
+    "last": "ARG1838 · 15 de sept de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
-    "lastFlights": [
-      {
-        "callsign": "CONDOR",
-        "aircraft": "F16",
-        "route": "SAOC → SAOC",
-        "date": "15 de ago de 2026",
-        "remark": "DOF/260815 REG/M-1020 OPR/FAG RMK/DOF/260815 REG/M1020 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/ /V/"
-      }
-    ]
+    "lastFlights": []
   },
   "1665183": {
     "hours": "159h 43m",
