@@ -16,7 +16,7 @@
   D['idx.nav.calendario'] = { es:'Calendario', en:'Calendar' };
   D['idx.nav.reglamento'] = { es:'Reglamento', en:'Regulations' };
   D['idx.nav.redes'] = { es:'REDES', en:'NETWORKS' };
-  D['idx.nav.documentos'] = { es:'DOCUMENTOS', en:'DOCUMENTS' };
+  /* NOTE: idx.nav.documentos removed with DOCUMENTOS section */
   D['idx.nav.sumarme'] = { es:'Sumarme', en:'Join us' };
 
   D['idx.hero.h1'] = { es:'Volamos por los cielos de <em><br>Argentina</em>, en simulador.', en:'We fly the skies of <em><br>Argentina</em>, in the simulator.' };
@@ -82,7 +82,6 @@
   D['idx.foot.col2.a1'] = { es:'Sala de pilotos', en:'Pilots\' room' };
   D['idx.foot.col2.a2'] = { es:'Material aéreo', en:'Aircraft' };
   D['idx.foot.col2.a3'] = { es:'Escenarios', en:'Scenarios' };
-  D['idx.foot.col2.a4'] = { es:'Documentos VSOA', en:'VSOA Documents' };
   D['idx.foot.col3.h'] = { es:'Redes', en:'Social' };
   D['idx.foot.col3.a3'] = { es:'FAA oficial', en:'Official FAA' };
 

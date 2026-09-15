@@ -91,6 +91,7 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
   { name: 'Joaquín Q.',      cid: 1712199, callsign: 'FAG-236', indicativo: '"DAGA"' },
   { name: 'Agustin L.',    cid: 1282428, callsign: 'FAG-246', indicativo: '"PUMA"' },
   { name: 'Emmanuel D.',    cid: 1835877, callsign: 'FAG-251', indicativo: '"TERO"' },
+  { name: 'Joel C.',  cid: 2005108, callsign: 'FAG-255', indicativo: '"MAMBA"' },
   { name: 'Facundo B.',    cid: 1785540, callsign: 'FAG-256', indicativo: '"CHIMANGO"' },
 ];
 
