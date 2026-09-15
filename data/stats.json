@@ -31,9 +31,9 @@
     ]
   },
   "1502178": {
-    "hours": "2851h 7m",
-    "last": "ARG1301 · 12 de sept de 2026",
-    "lastDetail": "",
+    "hours": "2848h 36m",
+    "last": "ARG1001 · 15 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAZM</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B732</span>",
     "airport": "SABE",
     "aircraft": "GLF5",
     "lastFlights": []
