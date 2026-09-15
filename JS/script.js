@@ -754,14 +754,21 @@ function handleLogin(e) {
   var user = document.getElementById('loginUser').value.trim();
   var pass = document.getElementById('loginPass').value;
   var err = document.getElementById('loginError');
-  if (user === 'fag212' && pass === 'fag212') {
-    localStorage.setItem('faav_pilot', user);
+  var found = null;
+  for (var i = 0; i < PILOTS.length; i++) {
+    var p = PILOTS[i];
+    if (p.callsign && p.callsign.toLowerCase() === user.toLowerCase() && String(p.cid) === pass) { found = p; break; }
+  }
+  if (found) {
+    localStorage.setItem('faav_pilot', found.callsign);
     window.location.href = 'pilotos.html';
   } else {
     err.style.display = 'block';
     document.getElementById('loginPass').value = '';
   }
 }
+
+/* ---------- i18n textos ---------- */
 
 /* ---------- auth navbar (sesion global) ---------- */
 function initAuthNav() {
@@ -798,7 +805,9 @@ function initAuthNav() {
     a.setAttribute('data-auth-nav', '1');
     render(a);
     var burger = cta.querySelector('button.burger, #burger, button[id*="burger"]');
-    if (burger) cta.insertBefore(a, burger);
+    var sumarme = cta.querySelector('a[href*="sumate"], a[data-i18n*="sumarme"], a[data-i18n*="nav.sumarme"]');
+    if (sumarme) cta.insertBefore(a, sumarme);
+    else if (burger) cta.insertBefore(a, burger);
     else cta.appendChild(a);
   }
 
