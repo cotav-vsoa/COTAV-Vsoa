@@ -700,7 +700,9 @@ footer{border-top:1px solid var(--line); padding:64px 0 32px; background:#040914
 .cal-card .op-link{margin-top:4px;}
 .cal-footer{display:flex; flex-direction:column; gap:8px; margin-top:auto;}
 .cal-footer-top{display:flex; justify-content:space-between; align-items:center;}
-.cal-footer-bottom{display:flex; justify-content:space-between; align-items:center; width:100%;}
+.cal-footer-bottom{display:flex; flex-wrap:wrap; gap:6px 18px; align-items:center; width:100%;}
+.cal-footer-bottom .op-link{white-space:nowrap;}
+.cal-footer-bottom .op-link svg{margin-left:0;}
 .cal-logo{width:28px; height:28px; object-fit:contain; opacity:0.6; transition:opacity .25s ease;}
 .cal-logo-lg{width:36px; height:36px;}
 .cal-badge{font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:#4ade80; border:1px solid rgba(74,222,128,0.4); padding:3px 10px; white-space:nowrap; width:fit-content; border-radius:1px;}
