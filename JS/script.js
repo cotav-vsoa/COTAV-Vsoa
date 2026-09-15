@@ -762,3 +762,57 @@ function handleLogin(e) {
     document.getElementById('loginPass').value = '';
   }
 }
+
+/* ---------- auth navbar (sesion global) ---------- */
+function initAuthNav() {
+  var isLoginPage = /login\.html$/i.test(location.pathname);
+  if (isLoginPage) return;
+
+  var logged = !!localStorage.getItem('faav_pilot');
+
+  var old = document.querySelector('.navcta [data-auth]');
+  if (old && old.parentNode) old.parentNode.removeChild(oldbon);
+  var desktop = document.querySelector('.navcta');
+  if (!desktop) return;
+
+  var btn = document.createElement('a');
+  btn.className = 'btn btn-ghost desktop-only';
+  btn.setAttribute('data-auth', '1');
+
+  if (logged) {
+    btn.textContent = 'Cerrar sesión';
+    btn.setAttribute('aria-label', 'Cerrar sesión');
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      localStorage.removeItem('faav_pilot');
+      window.location.href = 'index.html';
+    });
+  } else {
+    btn.textContent = 'Ingresar';
+    btn.href = 'login.html';
+  }
+
+  var burger = desktop.querySelector('button.burger, #burger, button[id*="burger"]');
+  if (burger) desktop.insertBefore(old ?? btn, burger);
+  else desktop.appendChild(btn);
+
+  var mob = document.querySelectorAll('.mobile-nav-btn[data-auth], a.mobile-nav-btn');
+  mob.forEach(function (m) {
+    if (m.getAttribute('data-auth') === '1') return;
+    if (logged) {
+      m.textContent = 'Cerrar sesión';
+      m.removeAttribute('href');
+      m.setAttribute('data-auth', '1');
+      m.addEventListener('click', function (e) {
+        e.preventDefault();
+        localStorage.removeItem('faav_pilot');
+        window.location.href = 'index.html';
+      });
+    } else {
+      m.textContent = 'Ingresar';
+      m.href = 'login.html';
+      m.setAttribute('data-auth', '1');
+    }
+  });
+}
+initAuthNav();
