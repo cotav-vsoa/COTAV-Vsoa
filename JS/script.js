@@ -485,12 +485,15 @@ function updateMap(livePilots) {
       let cached = null;
       try { cached = JSON.parse(localStorage.getItem('faav_live_cache') || 'null'); } catch(e){}
       const totalCountEl = document.getElementById('tracker-total-count');
+      const errMsg = err instanceof TypeError
+        ? 'Sin conexión a Internet — verificá tu red o abrí desde GitHub Pages (file:// bloquea el fetch).'
+        : ('Error de VATSIM: ' + (err.message || 'respuesta inválida — recargá con Ctrl+F5.'));
       if (cached && Array.isArray(cached.pilots) && (Date.now() - new Date(cached.at).getTime()) < 10*60*1000){
         const t = new Date(cached.at).toLocaleTimeString(__LC(), {hour:'2-digit', minute:'2-digit'});
         renderPilots(cached.pilots, t);
         updateMap(cached.pilots);
       } else {
-        if(totalCountEl) totalCountEl.textContent = 'No se pudo conectar con VATSIM en este momento — reintentando…';
+        if(totalCountEl) totalCountEl.textContent = errMsg + ' Reintentando…';
         renderPilots(null);
         updateMap(null);
       }
