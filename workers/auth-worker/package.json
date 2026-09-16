@@ -1,0 +1,17 @@
+{
+  "name": "faav-auth-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend serverless de autenticacion COTA - VSOA (Cloudflare Workers): login con bcrypt + sesion firmada HttpOnly.",
+  "scripts": {
+    "gen:users": "node scripts/gen-users.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "wrangler": "^3.114.0"
+  }
+}

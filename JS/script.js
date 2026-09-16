@@ -757,7 +757,7 @@ function handleLogin(e) {
   var found = null;
   for (var i = 0; i < PILOTS.length; i++) {
     var p = PILOTS[i];
-    if (p.callsign && p.callsign.toLowerCase() === user.toLowerCase() && String(p.cid) === pass) { found = p; break; }
+    if (p.callsign && p.callsign.toLowerCase() === user.toLowerCase() && (String(p.indicativo||'').replace(/"+/g,'').toUpperCase()) === String(pass).toUpperCase()) { found = p; break; }
   }
   if (found) {
     localStorage.setItem('faav_pilot', found.callsign);
