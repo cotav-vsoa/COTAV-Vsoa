@@ -406,8 +406,12 @@
     var flightsEl = document.getElementById('flights-list');
     var container = document.getElementById('last-flights-wrapper');
     var toggleEl = document.getElementById('toggle-flights');
-    if(data.lastFlights && data.lastFlights.length && flightsEl && container){
-      flightsEl.innerHTML = data.lastFlights.map(function(f){
+    var specials = (data.lastFlights || []).filter(function(f){
+      var r = String(f.remark || f.remarks || '').toUpperCase();
+      return /VSOA|FAAV|COTA/.test(r);
+    });
+    if(specials.length){
+      flightsEl.innerHTML = specials.slice(0,5).map(function(f){
         var acIcon = '../icons/aircraft/' + (f.aircraft || '').toLowerCase() + '.svg?v=3';
         return '<div style="display:grid;grid-template-columns:1.2fr 1fr 1.5fr 1fr 1.5fr;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px;color:var(--ivory);align-items:center;">' +
           '<span style="color:var(--gold);font-weight:500;">' + f.callsign + '</span>' +
