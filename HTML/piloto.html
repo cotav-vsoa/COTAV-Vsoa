@@ -218,6 +218,17 @@
     return;
   }
 
+  try {
+    var _myRole = (typeof window.roleOfCallSign === 'function') ? window.roleOfCallSign(pilot.callsign) : null;
+    if(_myRole === 'piloto_escuela'){
+      var _scLink = document.createElement('link');
+      _scLink.rel = 'stylesheet';
+      _scLink.href = '../CSS/styles-escuela.css?v=13';
+      document.head.appendChild(_scLink);
+      document.documentElement.setAttribute('data-theme', 'escuela');
+    }
+  } catch(_e){}
+
   var callsignEl = document.getElementById('p-callsign');
   var nameEl = document.getElementById('p-name');
   var metaEl = document.getElementById('p-meta');

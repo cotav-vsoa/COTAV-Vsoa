@@ -1,0 +1,27 @@
+/* ============================================================
+   styles-escuela.css  ·  COTAV · Escuela de Aviación Militar
+   Mismo diseño que el resto del sitio (misma hoja styles.css),
+   sólo se re-pinta la paleta de :root en tonos NARANJA/COBRE.
+   Se carga DESPUÉS de styles.css para que estas variables
+   ganen la cascada sobre las azules de la sala común.
+   ============================================================ */
+:root{
+  --bg:#140a03;
+  --panel:#1e1005;
+  --panel-alt:#2a170a;
+  --gold:#f4b04a;
+  --ivory:#fff3e2;
+  --muted:#c9a07a;
+  --blue:#ff8c1a;        /* acento principal -> naranja marca */
+  --blue-light:#ffb45e;  /* hover / online */
+  --border-sign:#c94f00;
+  --school:#ff8c1a;      /* badge Piloto Escuela + lockframe escuela */
+}
+/* refinamientos propios de la escuela (solo adornos, misma estructura) */
+.pilot-name .school-tag,
+.pilot-me .pilot-name,
+.role-school{ color:var(--school); }
+.pilot-online .dot,
+.lockframe.pilot-online{ border-color:var(--blue-light); }
+.acc-menu a:hover,
+.pilot-card:hover .pilot-name{ color:var(--blue-light); }
