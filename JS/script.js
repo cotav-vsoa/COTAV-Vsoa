@@ -986,8 +986,10 @@ function buildAccDropdown(p){
 }
 
 function initAuthNav() {
+  console.log('[initAuthNav] starting, pathname:', location.pathname, 'sessionStorage faav_pilot:', sessionStorage.getItem('faav_pilot'));
   if (/login\.html$/i.test(location.pathname)) return;
   var logged = !!sessionStorage.getItem('faav_pilot');
+  console.log('[initAuthNav] logged:', logged);
 
   function render(btn) {
     if (!btn) return;
@@ -1063,9 +1065,11 @@ function initAuthNav() {
   /* Esperamos a que carguen los roles (roles.json) ANTES de armar el menú
      desplegable, así el rol (piloto / piloto_escuela) queda bien resuelto
      desde el primer render y no hace falta "corregir" el menú después. */
+  console.log('[initAuthNav] about to call apply/logged+loadRoles, logged:', logged, 'loadRoles:', typeof loadRoles);
   if (logged && typeof loadRoles === 'function') {
-    loadRoles().then(function(){ apply(); resolveStorageGate(); }).catch(function(){ apply(); resolveStorageGate(); });
+    loadRoles().then(function(){ console.log('[initAuthNav] loadRoles resolved'); apply(); resolveStorageGate(); }).catch(function(){ console.log('[initAuthNav] loadRoles failed'); apply(); resolveStorageGate(); });
   } else {
+    console.log('[initAuthNav] calling apply directly');
     apply();
     resolveStorageGate();
   }
