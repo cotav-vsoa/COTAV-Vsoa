@@ -304,6 +304,8 @@
   ct("Ver perfil VATSIM", "View VATSIM profile");
   ct("Perfil", "Profile");
   ct("Descargas", "Downloads");
+  ct("Subir foto", "Upload photo");
+  ct("Quitar foto", "Remove photo");
   ct("Paquetes de aeropuertos y scenery packs para Prepar3D. Incluye bases aéreas, aeropuertos civiles y escenarios especiales del COTA.", "Airport and scenery packs for Prepar3D. Includes air bases, civil airports and special COTA scenarios.");
   ct("Paquetes de aeropuertos y scenery packs para Microsoft Flight Simulator 2020/24. Incluye bases aéreas, aeropuertos civiles y escenarios especiales del COTA.", "Airport and scenery packs for Microsoft Flight Simulator 2020/24. Includes air bases, civil airports and special COTA scenarios.");
   ct("Ir a descargas", "Go to downloads");

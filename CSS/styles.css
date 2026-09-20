@@ -138,6 +138,18 @@ nav{
 .acc-logout{color:var(--gold);}
 .acc-logout:hover{color:var(--gold); background:rgba(204,156,92,0.08);}
 
+/* ---------- foto de perfil (avatar local) ---------- */
+.p-avatar{display:flex; flex-direction:column; align-items:center; gap:10px;}
+.p-avatar .p-avatar-ph, .p-avatar img{width:84px; height:84px; border-radius:50%; object-fit:cover; border:1px solid var(--line-strong); flex-shrink:0;}
+.p-avatar .p-avatar-ph{display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(127,184,242,0.10), rgba(8,14,26,0.6)); color:var(--muted);}
+.p-avatar .p-avatar-ph svg{width:38px; height:38px;}
+.p-avatar.has-photo .p-avatar-ph{display:none;}
+.p-avatar.has-photo img{display:block;}
+.p-avatar-actions{display:flex; gap:6px; flex-wrap:wrap; justify-content:center;}
+.avatar-cta{background:none; border:1px solid var(--line-strong); color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.06em; padding:5px 10px; border-radius:2px; cursor:pointer; transition:border-color .2s ease, color .2s ease, background .2s ease;}
+.avatar-cta:hover{border-color:var(--blue-light); color:var(--blue-light); background:rgba(127,184,242,0.06);}
+.avatar-cta.danger:hover{border-color:var(--gold); color:var(--gold); background:rgba(204,156,92,0.08);}
+
 @media (max-width:1200px){
   .header-links-row{justify-content:space-between; gap:16px;}
   .brand{flex-direction:column; gap:2px; min-width:0;}
