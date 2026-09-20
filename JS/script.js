@@ -777,6 +777,101 @@ function handleLogin(e) {
 /* ---------- i18n textos ---------- */
 
 /* ---------- auth navbar (sesion global) ---------- */
+function findPilotByCallsign(cs){
+  if(!window.PILOTS || !cs) return null;
+  try {
+    return window.PILOTS.find(function(p){ return p.callsign && normAlnum(p.callsign) === normAlnum(cs); }) || null;
+  } catch(e){ return null; }
+}
+
+function closeAccDropdown(root){
+  root.classList.remove('acc-open');
+  var btn = root.querySelector('.acc-btn');
+  if (btn) btn.setAttribute('aria-expanded', 'false');
+}
+
+function buildAccDropdown(p){
+  var inStorage = /\/storage\//.test(location.pathname);
+  var inSub = inStorage || /\/brigadas\//i.test(location.pathname);
+  var UI = inStorage ? '../HTML/' : (inSub ? '../' : '');
+  var DL = inStorage ? '../' : (inSub ? '../../storage/' : '../storage/');
+  var loginUrl = inStorage ? '../HTML/login.html' : (inSub ? '../login.html' : 'login.html');
+  var cid = p.cid || '';
+  var ic = p.indicativo ? p.indicativo.replace(/"/g,'') : '';
+  var label = p.callsign + (ic ? ' \u00b7 ' + ic : '');
+  var caretd = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="acc-caret-mini"><path d="M6 9l6 6 6-6"/></svg>';
+
+  var root = document.createElement('div');
+  root.className = 'nav-acc desktop-only';
+  root.setAttribute('data-auth-nav', '1');
+
+  root.innerHTML =
+    '<button type="button" class="acc-btn" aria-haspopup="true" aria-expanded="false">' +
+      '<span class="acc-label"></span>' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="acc-caret"><path d="M6 9l6 6 6-6"/></svg>' +
+    '</button>' +
+    '<div class="acc-menu" role="menu">' +
+      '<a href="' + UI + 'piloto.html?cid=' + cid + '" role="menuitem"><span>Perfil</span></a>' +
+      '<div class="acc-sub">' +
+        '<button type="button" class="acc-sub-btn"><span>Descargas</span>' + caretd + '</button>' +
+        '<div class="acc-sub-body">' +
+          '<div class="acc-sub sub2">' +
+            '<button type="button" class="acc-sub-btn"><span>Escenarios</span>' + caretd + '</button>' +
+            '<div class="acc-sub-body">' +
+              '<a href="' + DL + 'escenarios-p3d/"><span>Prepar3D</span></a>' +
+              '<a href="' + DL + 'escenarios-mfs/"><span>MFS 2020/24</span></a>' +
+            '</div>' +
+          '</div>' +
+          '<div class="acc-sub sub2">' +
+            '<button type="button" class="acc-sub-btn"><span>Aviones</span>' + caretd + '</button>' +
+            '<div class="acc-sub-body">' +
+              '<a href="' + DL + 'aviones-p3d/"><span>Prepar3D</span></a>' +
+              '<a href="' + DL + 'aviones-mfs/"><span>MFS 2020/24</span></a>' +
+            '</div>' +
+          '</div>' +
+          '<a href="' + DL + 'liveries/"><span>Liveries</span></a>' +
+          '<a href="' + DL + 'manuales/"><span>MTL\'s</span></a>' +
+        '</div>' +
+      '</div>' +
+      '<a href="' + UI + 'index.html#operaciones"><span>Material Aéreo</span></a>' +
+      '<a href="' + DL + 'manuales/"><span>Documentación</span></a>' +
+      '<button type="button" class="acc-logout"><span>Cerrar sesión</span></button>' +
+    '</div>';
+
+  root.querySelector('.acc-label').textContent = label;
+
+  var menu = root.querySelector('.acc-menu');
+  var btn = root.querySelector('.acc-btn');
+
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = root.classList.toggle('acc-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  menu.addEventListener('click', function(e){
+    e.stopPropagation();
+    var target = e.target;
+    var subBtn = target.closest ? target.closest('.acc-sub-btn') : null;
+    if (subBtn) {
+      subBtn.parentElement.classList.toggle('open');
+      return;
+    }
+    if (target.closest && target.closest('.acc-logout')) {
+      localStorage.removeItem('faav_pilot');
+      window.location.href = loginUrl;
+      return;
+    }
+    closeAccDropdown(root);
+  });
+
+  document.addEventListener('click', function(e){
+    if (root.isConnected && !root.contains(e.target)) closeAccDropdown(root);
+  });
+
+  return root;
+}
+
 function initAuthNav() {
   if (/login\.html$/i.test(location.pathname)) return;
   var logged = !!localStorage.getItem('faav_pilot');
@@ -806,15 +901,22 @@ function initAuthNav() {
   if (cta) {
     var oldBtn = cta.querySelector('[data-auth-nav]');
     if (oldBtn && oldBtn.parentNode) oldBtn.parentNode.removeChild(oldBtn);
-    var a = document.createElement('a');
-    a.className = 'btn btn-ghost desktop-only';
-    a.setAttribute('data-auth-nav', '1');
-    render(a);
+    var el = null;
+    if (logged) {
+      var pilot = findPilotByCallsign(localStorage.getItem('faav_pilot'));
+      if (pilot) el = buildAccDropdown(pilot);
+    }
+    if (!el) {
+      el = document.createElement('a');
+      el.className = 'btn btn-ghost desktop-only';
+      el.setAttribute('data-auth-nav', '1');
+      render(el);
+    }
     var burger = cta.querySelector('button.burger, #burger, button[id*="burger"]');
     var sumarme = cta.querySelector('a[href*="sumate"], a[data-i18n*="sumarme"], a[data-i18n*="nav.sumarme"]');
-    if (sumarme) cta.insertBefore(a, sumarme);
-    else if (burger) cta.insertBefore(a, burger);
-    else cta.appendChild(a);
+    if (sumarme) cta.insertBefore(el, sumarme);
+    else if (burger) cta.insertBefore(el, burger);
+    else cta.appendChild(el);
   }
 
   var mobs = document.querySelectorAll('.mobile-nav-btn');

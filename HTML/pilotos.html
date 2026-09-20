@@ -17,7 +17,7 @@
   <meta name="twitter:image" content="https://faav-vsoa.github.io/FAAV-Vsoa/img/og-faav.png">
 
 
-<link rel="stylesheet" href="../CSS/styles.css?v=11">
+<link rel="stylesheet" href="../CSS/styles.css?v=12">
 </head>
 <body>
 
@@ -116,10 +116,6 @@
       <span class="hero-coord">COTA <b> - SALA DE PILOTOS </b></span>
       <h1 style="font-family:'Oswald',sans-serif; font-size:clamp(28px,3.4vw,42px); text-transform:uppercase; letter-spacing:0.02em; margin-top:8px;">Bienvenido, <em id="pilotName" style="font-style:normal; color:var(--blue-light);"></em></h1>
       <p id="pilotBadge" style="margin:6px 0 0; font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.04em; color:var(--muted);"></p>
-     </div>
-     <div style="display:flex; gap:10px; flex-wrap:wrap;">
-      <a id="pilotCidLink" href="#" target="_blank" rel="noopener" class="btn btn-ghost">Ver perfil VATSIM</a>
-      <button type="button" onclick="logout()" class="btn btn-ghost" style="color:var(--gold);"><span>Cerrar sesión</span></button>
      </div>
     </div>
 
@@ -361,8 +357,8 @@
  </div>
 </footer>
 
-<script src="../JS/i18n.js?v=11"></script>
-<script src="../JS/script.js?v=32"></script>
+<script src="../JS/i18n.js?v=12"></script>
+<script src="../JS/script.js?v=33"></script>
 <script>
 (function(){
  var pilotCallsign = (localStorage.getItem('faav_pilot') || '').trim();
@@ -385,8 +381,6 @@
   if(pilot.callsign) parts.push(pilot.callsign);
   if(pilot.indicativo) parts.push(pilot.indicativo.replace(/"/g,''));
   if(pilot.cid) parts.push('CID ' + pilot.cid);
-  var cidLink = document.getElementById('pilotCidLink');
-  if(pilot.cid) cidLink.href = 'https://stats.vatsim.net/stats/' + pilot.cid;
  } else {
   parts.push(pilotCallsign);
  }
@@ -422,10 +416,6 @@
   }).catch(function(){});
  }
 })();
-function logout() {
- localStorage.removeItem('faav_pilot');
- window.location.href = 'login.html';
-}
 </script>
 
 </body>
