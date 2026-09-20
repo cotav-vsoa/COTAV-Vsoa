@@ -765,3 +765,56 @@ footer{border-top:1px solid var(--line); padding:64px 0 32px; background:#040914
 @media (max-width:760px){.cal-grid{grid-template-columns:1fr;}}
 .ac-cell{display:flex;align-items:center;justify-content:flex-start;gap:8px;text-align:left;}
 .ac-icon{height:14px;width:auto;max-width:none;display:inline-block;flex-shrink:0;}
+
+/* ==========================================
+   Fixes responsive + visor de documentos
+   (documentacion/)
+   ========================================== */
+@media (max-width:1200px){
+  .burger{display:flex;}            /* el .burger base (display:none) ganaba por orden */
+  .nav-acc{display:flex;}
+  .nav-acc .acc-menu{min-width:240px; max-width:88vw; max-height:70vh; overflow-y:auto;}
+}
+
+.doc-view{
+  background:none; border:1px solid var(--line-strong); color:var(--blue-light);
+  width:30px; height:30px; border-radius:2px; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center;
+  transition:border-color .2s ease, background .2s ease, color .2s ease;
+}
+.doc-view:hover{border-color:var(--blue-light); background:rgba(127,184,242,0.08);}
+.doc-view svg{width:15px; height:15px;}
+
+.doc-modal{
+  position:fixed; inset:0; z-index:120; background:rgba(5,11,23,0.94);
+  backdrop-filter:blur(6px);
+  display:none; align-items:center; justify-content:center; padding:24px;
+}
+.doc-modal.open{display:flex;}
+.doc-modal-box{
+  width:100%; max-width:1100px; height:92vh;
+  background:var(--bg); border:1px solid var(--line-strong); border-radius:4px;
+  display:flex; flex-direction:column; overflow:hidden;
+}
+.doc-modal-head{
+  display:flex; align-items:center; justify-content:flex-end; gap:10px;
+  padding:10px 14px; border-bottom:1px solid var(--line); flex-shrink:0;
+}
+.doc-frame{flex:1; width:100%; border:none; background:#fff; min-height:0;}
+.doc-close{
+  background:none; border:1px solid var(--line-strong); color:var(--ivory);
+  font-size:13px; line-height:1; width:32px; height:32px; border-radius:2px; cursor:pointer;
+  font-family:'JetBrains Mono',monospace; transition:border-color .2s ease, color .2s ease;
+}
+.doc-close:hover{border-color:var(--blue-light); color:var(--blue-light);}
+.doc-open{
+  font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; text-transform:uppercase;
+  color:var(--blue-light); text-decoration:none; border:1px solid var(--line-strong);
+  padding:7px 12px; border-radius:2px; margin-right:auto;
+  transition:border-color .2s ease, background .2s ease;
+}
+.doc-open:hover{border-color:var(--blue-light); background:rgba(127,184,242,0.06);}
+@media (max-width:760px){
+  .doc-modal{padding:10px;}
+  .doc-modal-box{height:94vh;}
+}
