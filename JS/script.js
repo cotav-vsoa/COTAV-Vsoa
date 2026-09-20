@@ -795,6 +795,29 @@ function loginFail(){
   if (inp) inp.value = '';
 }
 
+function resetLoginPass(){
+  var user = document.getElementById('loginUser');
+  var un = normAlnum(user ? user.value : '');
+  var err = document.getElementById('loginError');
+  var ferr = document.getElementById('loginError');
+  var resetMsg = document.getElementById('resetMsg');
+  if(!un){
+    if (!resetMsg) {
+      if (err) { err.style.display = 'block'; }
+    }
+    return;
+  }
+  try { localStorage.removeItem('faav_pass_' + un); } catch(e){}
+  if (resetMsg) {
+    resetMsg.style.display = 'block';
+    resetMsg.textContent = __T('Contraseña personalizada eliminada. Ingresá con tu indicativo (ej. COBRA).');
+  }
+  if (err) err.style.display = 'none';
+  var pass = document.getElementById('loginPass');
+  if (pass) pass.value = '';
+}
+
+
 function fnvHex(str){
   var h = 0x811c9dc5;
   for (var i = 0; i < str.length; i++) {
