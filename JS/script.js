@@ -756,22 +756,137 @@ function handleLogin(e) {
   e.preventDefault();
   var user = document.getElementById('loginUser').value.trim();
   var pass = document.getElementById('loginPass').value;
-  var err = document.getElementById('loginError');
-  var found = null;
   var un = normAlnum(user);
-  var pw = normPass(pass);
+  var found = null;
   for (var i = 0; i < PILOTS.length; i++) {
     var p = PILOTS[i];
-    if (un && pw && normAlnum(p.callsign) === un && normPass(p.indicativo) === pw) { found = p; break; }
+    if (un && normAlnum(p.callsign) === un) { found = p; break; }
   }
-  if (found) {
-    localStorage.setItem('faav_pilot', found.callsign);
-    window.location.href = 'pilotos.html';
+  if (!found) { loginFail(); return; }
+  var key = 'faav_pass_' + normAlnum(found.callsign);
+  var stored = null;
+  try { stored = localStorage.getItem(key); } catch(ex){}
+  if (stored) {
+    sha256Hex('faav::' + normAlnum(found.callsign) + '::' + pass).then(function(h){
+      if (h === stored.toLowerCase()) loginOk(found);
+      else loginFail();
+    });
+  } else if (normPass(found.indicativo) === normPass(pass)) {
+    loginOk(found);
   } else {
+    loginFail();
+  }
+}
+function loginOk(p){
+  try { localStorage.setItem('faav_pilot', p.callsign); } catch(e){}
+  window.location.href = 'pilotos.html';
+}
+function loginFail(){
+  var err = document.getElementById('loginError');
+  var inp = document.getElementById('loginPass');
+  if (err) {
     err.style.display = 'block';
     err.textContent = __T('Usuario o contraseña incorrectos.') + ' ' + __T('(usuario: tu callsign FAG-xxx · contraseña: tu indicativo, ej. COBRA)');
-    document.getElementById('loginPass').value = '';
   }
+  if (inp) inp.value = '';
+}
+
+function fnvHex(str){
+  var h = 0x811c9dc5;
+  for (var i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  var s = h.toString(16);
+  while (s.length < 8) s = '0' + s;
+  return s;
+}
+function sha256Hex(str){
+  if (window.crypto && crypto.subtle && crypto.subtle.digest) {
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str)).then(function(buf){
+      var b = new Uint8Array(buf), hex = '';
+      for (var i = 0; i < b.length; i++) hex += ((b[i] >>> 4).toString(16)) + (b[i] & 15).toString(16);
+      return hex;
+    }).catch(function(){ return Promise.resolve(fnvHex(str)); });
+  }
+  return Promise.resolve(fnvHex(str));
+}
+
+/* ---------- roles ---------- */
+var rolesCache = null;
+function rolesJsonUrl(){
+  if (/\/storage\//.test(location.pathname) || /\/brigadas\//i.test(location.pathname)) return '../../data/roles.json';
+  return '../data/roles.json';
+}
+function loadRoles(){
+  if (rolesCache) return Promise.resolve(rolesCache);
+  return fetch(rolesJsonUrl() + '?t=' + Date.now())
+    .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(function(cfg){ rolesCache = cfg || { roles: {}, asignacion: {} }; return rolesCache; })
+    .catch(function(){ rolesCache = { roles: {}, asignacion: {} }; return rolesCache; });
+}
+function roleOfCallSign(cs){
+  if (!cs) return 'anonimo';
+  var r = rolesCache || {};
+  if (r.asignacion && r.asignacion[cs]) return r.asignacion[cs];
+  return 'piloto';
+}
+function categoriesForRole(role){
+  var r = rolesCache || {};
+  return (r.roles && r.roles[role]) || null;
+}
+function applyRolesToMenu(root, pilot){
+  if (!root) return;
+  loadRoles().then(function(){
+    var role = roleOfCallSign(pilot && pilot.callsign);
+    var allowed = categoriesForRole(role);
+    if (!allowed) return;
+    var sub = root.querySelector('.acc-sub-body');
+    if (!sub) return;
+    sub.querySelectorAll('[data-dl]').forEach(function(el){
+      if (allowed.indexOf(el.getAttribute('data-dl')) === -1) el.style.display = 'none';
+    });
+    sub.querySelectorAll(':scope > .acc-sub').forEach(function(s){
+      var anyVisible = false;
+      var links = s.querySelectorAll('a,button');
+      for (var i = 0; i < links.length; i++) { if (links[i].style.display !== 'none') { anyVisible = true; break; } }
+      if (!anyVisible) s.style.display = 'none';
+    });
+    var anyVisible = false;
+    var kids = sub.children;
+    for (var j = 0; j < kids.length; j++) { if (kids[j].style.display !== 'none') { anyVisible = true; break; } }
+    if (!anyVisible) {
+      var dlBtn = root.querySelector('.acc-sub-btn');
+      if (dlBtn && dlBtn.parentElement) dlBtn.parentElement.style.display = 'none';
+    }
+  });
+}
+function enforceStorageAccess(){
+  if (!/\/storage\//.test(location.pathname)) return;
+  var m = location.pathname.match(/\/storage\/([^\/]+)\/?$/);
+  var cat = m ? m[1] : null;
+  if (!cat) return;
+  loadRoles().then(function(){
+    var cs = localStorage.getItem('faav_pilot');
+    var role = roleOfCallSign(cs);
+    var allowed = categoriesForRole(role);
+    if (!allowed || allowed.indexOf(cat) !== -1) return;
+    var mainEl = document.querySelector('main');
+    if (mainEl) mainEl.style.display = 'none';
+    var overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:120;background:rgba(6,10,18,0.98);display:flex;align-items:center;justify-content:center;padding:24px;font-family:\'Barlow\',sans-serif;';
+    overlay.innerHTML =
+      '<div style="text-align:center;max-width:480px;background:var(--card-bg,#0a1120);border:1px solid var(--line-strong,#22314a);border-radius:4px;padding:36px 30px;">' +
+      '<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="var(--gold,#f0b45c)" stroke-width="1.4" style="display:block;margin:0 auto 16px;">' +
+      '<path d="M12 3l10 5-10 5L2 8l10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>' +
+      '<h2 style="margin:0 0 10px;font-family:\'Oswald\',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:var(--ivory,#e8eef4);font-size:22px;">Acceso restringido</h2>' +
+      '<p style="margin:0 auto 22px;max-width:360px;font-size:14px;color:var(--muted,#8fa3b8);line-height:1.7;">Tu rol no tiene permiso para ver esta categoría. Si creés que deberías tener acceso, contactá a la administración del COTA.</p>' +
+      (cs
+        ? '<a href="../../HTML/pilotos.html" class="btn btn-ghost">Sala de pilotos</a>'
+        : '<a href="../../HTML/login.html" class="btn btn-primary">Iniciar sesión</a>');
+    document.body.appendChild(overlay);
+    document.body.style.overflow = 'hidden';
+  });
 }
 
 /* ---------- i18n textos ---------- */
@@ -818,23 +933,23 @@ function buildAccDropdown(p){
           '<div class="acc-sub sub2">' +
             '<button type="button" class="acc-sub-btn"><span>Escenarios</span>' + caretd + '</button>' +
             '<div class="acc-sub-body">' +
-              '<a href="' + DL + 'escenarios-p3d/"><span>Prepar3D</span></a>' +
-              '<a href="' + DL + 'escenarios-mfs/"><span>MFS 2020/24</span></a>' +
+              '<a href="' + DL + 'escenarios-p3d/" data-dl="escenarios-p3d"><span>Prepar3D</span></a>' +
+              '<a href="' + DL + 'escenarios-mfs/" data-dl="escenarios-mfs"><span>MFS 2020/24</span></a>' +
             '</div>' +
           '</div>' +
           '<div class="acc-sub sub2">' +
             '<button type="button" class="acc-sub-btn"><span>Aviones</span>' + caretd + '</button>' +
             '<div class="acc-sub-body">' +
-              '<a href="' + DL + 'aviones-p3d/"><span>Prepar3D</span></a>' +
-              '<a href="' + DL + 'aviones-mfs/"><span>MFS 2020/24</span></a>' +
+              '<a href="' + DL + 'aviones-p3d/" data-dl="aviones-p3d"><span>Prepar3D</span></a>' +
+              '<a href="' + DL + 'aviones-mfs/" data-dl="aviones-mfs"><span>MFS 2020/24</span></a>' +
             '</div>' +
           '</div>' +
-          '<a href="' + DL + 'liveries/"><span>Liveries</span></a>' +
-          '<a href="' + DL + 'manuales/"><span>MTL\'s</span></a>' +
+          '<a href="' + DL + 'liveries/" data-dl="liveries"><span>Liveries</span></a>' +
+          '<a href="' + DL + 'manuales/" data-dl="manuales"><span>MTL\'s</span></a>' +
         '</div>' +
       '</div>' +
       '<a href="' + UI + 'index.html#operaciones"><span>Material Aéreo</span></a>' +
-      '<a href="' + DL + 'manuales/"><span>Documentación</span></a>' +
+      '<a href="' + DL + 'manuales/" data-dl="manuales"><span>Documentación</span></a>' +
       '<button type="button" class="acc-logout"><span>Cerrar sesión</span></button>' +
     '</div>';
 
@@ -868,6 +983,8 @@ function buildAccDropdown(p){
   document.addEventListener('click', function(e){
     if (root.isConnected && !root.contains(e.target)) closeAccDropdown(root);
   });
+
+  applyRolesToMenu(root, p);
 
   return root;
 }
@@ -930,3 +1047,4 @@ function initAuthNav() {
 }
 
 initAuthNav();
+enforceStorageAccess();

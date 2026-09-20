@@ -264,6 +264,24 @@
   ct("(usuario: tu callsign FAG-xxx · contraseña: tu indicativo, ej. COBRA)", "(username: your callsign FAG-xxx · password: your callsign nickname, e.g. COBRA)");
   ct("Usuario: tu callsign (ej. FAG-212) · Contraseña: tu indicativo (ej. COBRA) — sin comillas.", "Username: your callsign (e.g. FAG-212) · Password: your callsign nickname (e.g. COBRA) — without quotes.");
   ct("Ingresar", "Sign in");
+  /* contraseña propia */
+  ct("Cambiar contraseña", "Change password");
+  ct("Contraseña actual", "Current password");
+  ct("Nueva contraseña (mín. 6 caracteres)", "New password (min. 6 characters)");
+  ct("Confirmar nueva contraseña", "Confirm new password");
+  ct("Guardar contraseña", "Save password");
+  ct("Restablecer (usar indicativo)", "Reset (use callsign nickname)");
+  ct("Define una contraseña propia para mayor seguridad. Si no la definís, seguís ingresando con tu indicativo.", "Set your own password for extra security. If you don't, you can still sign in with your callsign nickname.");
+  ct("Contraseña actualizada.", "Password updated.");
+  ct("Contraseña restablecida. Usá tu indicativo para ingresar.", "Password reset. Use your callsign nickname to sign in.");
+  ct("La contraseña actual es incorrecta.", "The current password is incorrect.");
+  ct("Las contraseñas no coinciden.", "The passwords do not match.");
+  ct("La contraseña debe tener al menos 6 caracteres.", "The password must be at least 6 characters long.");
+  ct("Ingresá tu contraseña actual.", "Enter your current password.");
+  ct("El navegador no permitió guardar la contraseña.", "The browser did not allow saving the password.");
+  /* acceso restringido por rol */
+  ct("Acceso restringido", "Restricted access");
+  ct("Tu rol no tiene permiso para ver esta categoría. Si creés que deberías tener acceso, contactá a la administración del COTA.", "Your role does not have permission to view this category. If you believe you should have access, contact the COTA administration.");
   /* operaciones */
   ct("INSTRUCCIÓN - CAZA - TRANSPORTE", "TRAINING - FIGHTER - TRANSPORT");
   ct("INSTRUCCIÓN", "TRAINING");
