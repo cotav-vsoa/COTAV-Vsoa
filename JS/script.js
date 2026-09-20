@@ -749,21 +749,27 @@ document.querySelectorAll('.brig-row').forEach(function(el){
 });
 
 /* ---------- login ---------- */
+function normAlnum(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]/gi,''); }
+function normPass(s){ var t = String(s||'').replace(/["'\s]+/g,''); try { t = t.normalize('NFD').replace(/[\u0300-\u036f]/g,''); } catch(e){} return t.toUpperCase(); }
+
 function handleLogin(e) {
   e.preventDefault();
   var user = document.getElementById('loginUser').value.trim();
   var pass = document.getElementById('loginPass').value;
   var err = document.getElementById('loginError');
   var found = null;
+  var un = normAlnum(user);
+  var pw = normPass(pass);
   for (var i = 0; i < PILOTS.length; i++) {
     var p = PILOTS[i];
-    if (p.callsign && p.callsign.toLowerCase() === user.toLowerCase() && (String(p.indicativo||'').replace(/"+/g,'').toUpperCase()) === String(pass).toUpperCase()) { found = p; break; }
+    if (un && pw && normAlnum(p.callsign) === un && normPass(p.indicativo) === pw) { found = p; break; }
   }
   if (found) {
     localStorage.setItem('faav_pilot', found.callsign);
     window.location.href = 'pilotos.html';
   } else {
     err.style.display = 'block';
+    err.textContent = __T('Usuario o contraseña incorrectos.') + ' ' + __T('(usuario: tu callsign FAG-xxx · contraseña: tu indicativo, ej. COBRA)');
     document.getElementById('loginPass').value = '';
   }
 }
