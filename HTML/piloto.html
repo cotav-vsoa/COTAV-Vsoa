@@ -213,6 +213,7 @@
 
   var pilot = PILOTS.find(function(p){ return p.cid === cid; });
   if(!pilot){
+
     document.getElementById('pilot-error').style.display = 'block';
     document.title = 'Piloto no encontrado · COTAV';
     return;
@@ -230,6 +231,15 @@
   } catch(_e){}
 
   var callsignEl = document.getElementById('p-callsign');
+  try {
+    if (typeof window.roleOfCallSign === 'function' && window.roleOfCallSign(pilot && pilot.callsign) === 'piloto_escuela') {
+      var escuelaTheme = document.createElement('link');
+      escuelaTheme.rel = 'stylesheet';
+      escuelaTheme.href = '../CSS/styles-escuela.css?v=13';
+      document.head.appendChild(escuelaTheme);
+      document.documentElement.setAttribute('data-theme', 'escuela');
+    }
+  } catch(_e){}
   var nameEl = document.getElementById('p-name');
   var metaEl = document.getElementById('p-meta');
   var cidEl = document.getElementById('p-cid');

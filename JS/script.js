@@ -880,9 +880,11 @@ function closeAccDropdown(root){
 
 function buildAccDropdown(p){
   var inStorage = /\/storage\//.test(location.pathname);
-  var inSub = inStorage || /\/brigadas\//i.test(location.pathname);
+  var inSub = inStorage ? false : /\/brigadas\//i.test(location.pathname);
+  var scRole = ''; try { scRole = roleOfCallSign && roleOfCallSign(p.callsign); } catch(e){}
+  var catRoot = (scRole === 'piloto_escuela' ? 'escuela-de-aviacio-n-militar-virtual/' : 'pilotos/');
+  var DL = inStorage ? '../' : (inSub ? '../../storage/' + catRoot : '../storage/' + catRoot);
   var UI = inStorage ? '../HTML/' : (inSub ? '../' : '');
-  var DL = inStorage ? '../' : (inSub ? '../../storage/' : '../storage/');
   var loginUrl = inStorage ? '../HTML/login.html' : (inSub ? '../login.html' : 'login.html');
   var cid = p.cid || '';
   var ic = p.indicativo ? p.indicativo.replace(/"/g,'') : '';
