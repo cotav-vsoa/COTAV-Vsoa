@@ -1,5 +1,19 @@
-{
+﻿{
+  "roles": {
+    "piloto": "Piloto",
+    "piloto_escuela": "Piloto Escuela"
+  },
   "asignacion": {
-    "FAG-213": "piloto_escuela"
+    "FAG-212": "piloto",
+    "FAG-213": "piloto_escuela",
+    "FAG-222": "piloto",
+    "FAG-228": "piloto",
+    "FAG-229": "piloto",
+    "FAG-230": "piloto",
+    "FAG-236": "piloto",
+    "FAG-246": "piloto",
+    "FAG-251": "piloto",
+    "FAG-255": "piloto",
+    "FAG-256": "piloto"
   }
 }

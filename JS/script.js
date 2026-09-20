@@ -426,6 +426,8 @@ function updateMap(livePilots) {
       const corners = '<span class="lc-tl"></span><span class="lc-tr"></span><span class="lc-bl"></span><span class="lc-br"></span>';
 
       const callsignBadge = p.callsign ? ` <span style="color: #ff9d00; font-weight: bold; font-size: 0.85em;">[${p.callsign}]</span>` : '';
+      var roleLabel = roleOfCallSign(p.callsign) === 'piloto_escuela' ? 'Piloto Escuela' : 'Piloto';
+      const roleBadge = ` <span class="pilot-role${roleLabel === 'Piloto Escuela' ? ' role-school' : ''}">${roleLabel}</span>`;
       const subInfo = [
         p.indicativo ? `"${p.indicativo}"` : ''
       ].filter(Boolean).join(' · ');
@@ -440,7 +442,7 @@ function updateMap(livePilots) {
         card.innerHTML = `${corners}
           <div class="pilot-top">
             <div>
-              <div class="pilot-name">${p.name}${callsignBadge}</div>
+              <div class="pilot-name">${p.name}${callsignBadge}${roleBadge}</div>
               <div class="pilot-cid">CID ${p.cid}</div>
               ${metaText}
             </div>
@@ -452,7 +454,7 @@ function updateMap(livePilots) {
         card.innerHTML = `${corners}
           <div class="pilot-top">
             <div>
-              <div class="pilot-name">${p.name}${callsignBadge}</div>
+              <div class="pilot-name">${p.name}${callsignBadge}${roleBadge}</div>
               <div class="pilot-cid">CID ${p.cid}</div>
               ${metaText}
             </div>
