@@ -408,7 +408,7 @@
     var toggleEl = document.getElementById('toggle-flights');
     var specials = (data.lastFlights || []).filter(function(f){
       var r = String(f.remark || f.remarks || '').toUpperCase();
-      return /VSOA|FAAV|COTA/.test(r);
+      return /VSOA|FAAV|COTA|OPR\s*\/\s*FAG/.test(r);
     });
     if(specials.length){
       flightsEl.innerHTML = specials.slice(0,5).map(function(f){

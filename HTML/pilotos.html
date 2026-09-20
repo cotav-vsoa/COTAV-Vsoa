@@ -270,7 +270,7 @@
 
    var flights = (d.lastFlights || []).filter(function(f){
     var r = String(f.remark || f.remarks || '').toUpperCase();
-    return /VSOA|FAAV|COTA/.test(r);
+     return /VSOA|FAAV|COTA|OPR\s*\/\s*FAG/.test(r);
    });
    if(flights.length){
     document.getElementById('flights-v').innerHTML = flights.slice(0,5).map(function(f){
