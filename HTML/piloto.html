@@ -221,7 +221,11 @@
 
   try {
     var _applySchoolTheme = function(){
-      if (typeof window.roleOfCallSign === 'function' && window.roleOfCallSign(pilot && pilot.callsign) === 'piloto_escuela') {
+      console.log('[piloto.html] _applySchoolTheme called, pilot:', pilot && pilot.callsign);
+      var role = typeof window.roleOfCallSign === 'function' ? window.roleOfCallSign(pilot && pilot.callsign) : 'unknown';
+      console.log('[piloto.html] roleOfCallSign result:', role);
+      if (role === 'piloto_escuela') {
+        console.log('[piloto.html] Applying escuela theme');
         var _scLink = document.createElement('link');
         _scLink.rel = 'stylesheet';
         _scLink.href = '../CSS/styles-escuela.css?v=14';
@@ -230,8 +234,15 @@
       }
     };
     if (typeof window.loadRoles === 'function') {
-      window.loadRoles().then(_applySchoolTheme).catch(_applySchoolTheme);
+      window.loadRoles().then(function(){
+        console.log('[piloto.html] loadRoles resolved, applying school theme check');
+        _applySchoolTheme();
+      }).catch(function(e){
+        console.error('[piloto.html] loadRoles failed:', e);
+        _applySchoolTheme();
+      });
     } else {
+      console.warn('[piloto.html] loadRoles not available');
       _applySchoolTheme();
     }
   } catch(_e){}
