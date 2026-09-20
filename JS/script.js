@@ -795,29 +795,6 @@ function loginFail(){
   if (inp) inp.value = '';
 }
 
-function resetLoginPass(){
-  var user = document.getElementById('loginUser');
-  var un = normAlnum(user ? user.value : '');
-  var err = document.getElementById('loginError');
-  var ferr = document.getElementById('loginError');
-  var resetMsg = document.getElementById('resetMsg');
-  if(!un){
-    if (!resetMsg) {
-      if (err) { err.style.display = 'block'; }
-    }
-    return;
-  }
-  try { localStorage.removeItem('faav_pass_' + un); } catch(e){}
-  if (resetMsg) {
-    resetMsg.style.display = 'block';
-    resetMsg.textContent = __T('Contraseña personalizada eliminada. Ingresá con tu indicativo (ej. COBRA).');
-  }
-  if (err) err.style.display = 'none';
-  var pass = document.getElementById('loginPass');
-  if (pass) pass.value = '';
-}
-
-
 function fnvHex(str){
   var h = 0x811c9dc5;
   for (var i = 0; i < str.length; i++) {
@@ -898,7 +875,7 @@ function applySchoolMenu(root, dl){
     if (href.indexOf('index.html#operaciones') !== -1) {
       span.textContent = 'Material Aéreo Escuela';
       child.setAttribute('href', dl);
-    } else if (href.indexOf('manuales/') !== -1) {
+    } else if (href.indexOf('documentacion/') !== -1) {
       span.textContent = 'Documentación Escuela';
     }
   });
@@ -933,7 +910,7 @@ function buildAccDropdown(p){
   var caretd = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="acc-caret-mini"><path d="M6 9l6 6 6-6"/></svg>';
 
   var root = document.createElement('div');
-  root.className = 'nav-acc desktop-only';
+  root.className = 'nav-acc';
   root.setAttribute('data-auth-nav', '1');
 
   root.innerHTML =
@@ -961,11 +938,11 @@ function buildAccDropdown(p){
             '</div>' +
           '</div>' +
           '<a href="' + DL + 'liveries/"><span>Liveries</span></a>' +
-          '<a href="' + DL + 'manuales/"><span>Manuales</span></a>' +
+          '<a href="' + DL + 'documentacion/manuales/"><span>Manuales</span></a>' +
         '</div>' +
       '</div>' +
       '<a href="' + UI + 'index.html#operaciones"><span>Material Aéreo</span></a>' +
-      '<a href="' + DL + 'manuales/"><span>Documentación</span></a>' +
+      '<a href="' + DL + 'documentacion/"><span>Documentación</span></a>' +
       '<button type="button" class="acc-logout"><span>Cerrar sesión</span></button>' +
     '</div>';
 
@@ -1033,6 +1010,10 @@ function initAuthNav() {
   function apply() {
     var cta = document.querySelector('.navcta');
     if (cta) {
+      /* quitar links "Ingresar" estáticos del header (los reemplaza el auth nav) */
+      cta.querySelectorAll('a[href*="login.html"]').forEach(function (a) {
+        if (!a.getAttribute('data-auth-nav') && a.parentNode) a.parentNode.removeChild(a);
+      });
       var oldBtn = cta.querySelector('[data-auth-nav]');
       if (oldBtn && oldBtn.parentNode) oldBtn.parentNode.removeChild(oldBtn);
       var el = null;
@@ -1053,8 +1034,18 @@ function initAuthNav() {
       else cta.appendChild(el);
     }
 
+    /* CTA "Sumarme": solo se ven para usuarios sin sesión */
+    document.querySelectorAll('.navcta a[href="#sumate"], .mobile-nav-btn[href="#sumate"], .hero-actions a[href="#sumate"]').forEach(function (a) {
+      a.style.display = logged ? 'none' : '';
+    });
+
     var mobs = document.querySelectorAll('.mobile-nav-btn');
     mobs.forEach(function (m) {
+      var href = m.getAttribute('href') || '';
+      if (href.indexOf('sumate') !== -1) {
+        m.style.display = logged ? 'none' : '';
+        return;
+      }
       if (!m.getAttribute('data-auth-nav')) {
         m.setAttribute('data-auth-nav', '1');
       }
@@ -1073,5 +1064,37 @@ function initAuthNav() {
     resolveStorageGate();
   }
 }
+
+/* ---------- visor de documentos (documentacion/) ---------- */
+function openDoc(url){
+  var m = document.getElementById('docModal');
+  if (!m) { window.open(url, '_blank', 'noopener'); return; }
+  var f = document.getElementById('docFrame');
+  var dl = document.getElementById('docDl');
+  if (dl) dl.setAttribute('href', url);
+  if (f) f.src = url + (url.indexOf('?') === -1 ? '?' : '&') + 'toolbar=0&view=FitH';
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDoc(){
+  var m = document.getElementById('docModal');
+  var f = document.getElementById('docFrame');
+  if (f) f.removeAttribute('src');
+  if (m) m.classList.remove('open');
+  document.body.style.overflow = '';
+}
+(function(){
+  var m = document.getElementById('docModal');
+  if (!m) return;
+  m.addEventListener('click', function(e){ if (e.target === m) closeDoc(); });
+  var esc = m.querySelector('.doc-close');
+  if (esc) esc.addEventListener('click', closeDoc);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeDoc(); });
+})();
+document.addEventListener('click', function(e){
+  var t = e.target;
+  var b = t && t.closest ? t.closest('.doc-view') : null;
+  if (b) { e.preventDefault(); openDoc(b.getAttribute('data-f')); }
+});
 
 initAuthNav();
