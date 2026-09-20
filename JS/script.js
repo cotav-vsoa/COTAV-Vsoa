@@ -421,7 +421,7 @@ function updateMap(livePilots) {
       const live = livePilots ? livePilots.find(lp => lp.cid === p.cid) : null;
       const card = document.createElement('div');
       card.className = live ? 'pilot-card lockframe pilot-online' : 'pilot-card lockframe pilot-offline';
-      let meCs = ''; try { meCs = (localStorage.getItem('faav_pilot') || '').trim(); } catch(e){}
+      let meCs = ''; try { if(!sessionStorage.getItem('faav_pilot') && sessionStorage.getItem('faav_pilot')) sessionStorage.removeItem('faav_pilot'); try{ localStorage.removeItem('faav_pilot'); }catch(e){} meCs = (sessionStorage.getItem('faav_pilot') || '').trim(); } catch(e){}
       if(meCs && p.callsign && p.callsign.toUpperCase() === meCs.toUpperCase()) card.classList.add('pilot-me');
       const corners = '<span class="lc-tl"></span><span class="lc-tr"></span><span class="lc-bl"></span><span class="lc-br"></span>';
 
@@ -782,7 +782,7 @@ function handleLogin(e) {
   }
 }
 function loginOk(p){
-  try { localStorage.setItem('faav_pilot', p.callsign); } catch(e){}
+  try {       sessionStorage.setItem('faav_pilot', p.callsign); } catch(e){}
   window.location.href = 'pilotos.html';
 }
 function loginFail(){
@@ -946,7 +946,7 @@ function buildAccDropdown(p){
       return;
     }
     if (target.closest && target.closest('.acc-logout')) {
-      localStorage.removeItem('faav_pilot');
+      sessionStorage.removeItem('faav_pilot'); try{ localStorage.removeItem('faav_pilot'); }catch(e){}
       window.location.href = loginUrl;
       return;
     }
@@ -964,7 +964,7 @@ function buildAccDropdown(p){
 
 function initAuthNav() {
   if (/login\.html$/i.test(location.pathname)) return;
-  var logged = !!localStorage.getItem('faav_pilot');
+  var logged = !!sessionStorage.getItem('faav_pilot');
 
   function render(btn) {
     if (!btn) return;
@@ -975,7 +975,7 @@ function initAuthNav() {
       btn.removeAttribute('href');
       btn.onclick = function (e) {
         e.preventDefault();
-        localStorage.removeItem('faav_pilot');
+        sessionStorage.removeItem('faav_pilot'); try{ localStorage.removeItem('faav_pilot'); }catch(e){}
         window.location.href = 'index.html';
       };
     } else {
@@ -993,7 +993,7 @@ function initAuthNav() {
     if (oldBtn && oldBtn.parentNode) oldBtn.parentNode.removeChild(oldBtn);
     var el = null;
     if (logged) {
-      var pilot = findPilotByCallsign(localStorage.getItem('faav_pilot'));
+      var pilot = findPilotByCallsign(sessionStorage.getItem('faav_pilot'));
       if (pilot) el = buildAccDropdown(pilot);
     }
     if (!el) {
