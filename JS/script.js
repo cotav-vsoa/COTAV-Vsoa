@@ -868,6 +868,7 @@ function applySchoolMenu(root, dl, ui){
   if (descSpan && descSpan.textContent === 'Descargas') descSpan.textContent = 'Descargas Escuela';
   var menu = root.querySelector('.acc-menu');
   if (!menu) return;
+  var escuelaRoot = dl.replace(/\/+$/, '') + '/index.html';
   [].slice.call(menu.children).forEach(function(child){
     if (child.tagName !== 'A') return;
     var span = child.querySelector('span');
@@ -875,7 +876,7 @@ function applySchoolMenu(root, dl, ui){
     var href = child.getAttribute('href') || '';
     if (href.indexOf('index.html#operaciones') !== -1) {
       span.textContent = 'Material Aéreo Escuela';
-      child.setAttribute('href', ui + 'index.html#operaciones');
+      child.setAttribute('href', escuelaRoot);
     } else if (href.indexOf('documentacion/') !== -1) {
       span.textContent = 'Documentación Escuela';
     }
