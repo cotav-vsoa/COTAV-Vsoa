@@ -862,6 +862,7 @@ function resolveStorageGate(){
   window.location.replace(dest);
 }
 function applySchoolMenu(root, dl, ui){
+  console.log('[applySchoolMenu] called, root:', !!root, 'dl:', dl, 'ui:', ui);
   if (!root) return;
   var descSpan = root.querySelector('.acc-sub-btn > span');
   if (descSpan && descSpan.textContent === 'Descargas') descSpan.textContent = 'Descargas Escuela';
@@ -897,9 +898,11 @@ function closeAccDropdown(root){
 }
 
 function buildAccDropdown(p){
+  console.log('[buildAccDropdown] called for:', p.callsign);
   var inStorage = /\/storage\//.test(location.pathname);
   var inSub = inStorage ? false : /\/brigadas\//i.test(location.pathname);
   var scRole = ''; try { scRole = roleOfCallSign && roleOfCallSign(p.callsign); } catch(e){}
+  console.log('[buildAccDropdown] scRole:', scRole, 'inStorage:', inStorage, 'inSub:', inSub);
   var catRoot = (scRole === 'piloto_escuela' ? 'escuela-de-aviacion-militar-virtual/' : 'pilotos/');
   var DL = inStorage ? '../' : (inSub ? '../../storage/' + catRoot : '../storage/' + catRoot);
   var UI = inStorage ? '../HTML/' : (inSub ? '../' : '');
@@ -1018,7 +1021,10 @@ function initAuthNav() {
       if (oldBtn && oldBtn.parentNode) oldBtn.parentNode.removeChild(oldBtn);
       var el = null;
       if (logged) {
-        var pilot = findPilotByCallsign(sessionStorage.getItem('faav_pilot'));
+        var cs = sessionStorage.getItem('faav_pilot');
+        console.log('[initAuthNav] sessionStorage faav_pilot:', cs);
+        var pilot = findPilotByCallsign(cs);
+        console.log('[initAuthNav] findPilotByCallsign result:', pilot);
         if (pilot) el = buildAccDropdown(pilot);
       }
       if (!el) {
