@@ -319,7 +319,9 @@
   ct("Ver perfil VATSIM", "View VATSIM profile");
   ct("Perfil", "Profile");
   ct("Descargas", "Downloads");
-  ct("Escuela", "School");
+  ct("Descargas Escuela", "School Downloads");
+  ct("Material Aéreo Escuela", "School Air Material");
+  ct("Documentación Escuela", "School Documentation");
   ct("Subir foto", "Upload photo");
   ct("Quitar foto", "Remove photo");
   ct("Paquetes de aeropuertos y scenery packs para Prepar3D. Incluye bases aéreas, aeropuertos civiles y escenarios especiales del COTA.", "Airport and scenery packs for Prepar3D. Includes air bases, civil airports and special COTA scenarios.");

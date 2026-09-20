@@ -831,22 +831,30 @@ function roleOfCallSign(cs){
   if (r.asignacion && r.asignacion[cs]) return r.asignacion[cs];
   return 'piloto';
 }
-function addEscuelaItem(root, dl){
-  var sub = root && root.querySelector('.acc-sub-body');
-  if (!sub) return;
-  if (sub.querySelector('[data-escuela]')) return;
-  var a = document.createElement('a');
-  a.href = dl + 'escuela-de-aviacion-militar-virtual/';
-  a.setAttribute('data-escuela', '1');
-  var s = document.createElement('span');
-  s.textContent = 'Escuela';
-  a.appendChild(s);
-  sub.appendChild(a);
+function applySchoolMenu(root, dl){
+  if (!root) return;
+  var descSpan = root.querySelector('.acc-sub-btn > span');
+  if (descSpan && descSpan.textContent === 'Descargas') descSpan.textContent = 'Descargas Escuela';
+  var menu = root.querySelector('.acc-menu');
+  if (!menu) return;
+  [].slice.call(menu.children).forEach(function(child){
+    if (child.tagName !== 'A') return;
+    var span = child.querySelector('span');
+    if (!span) return;
+    var href = child.getAttribute('href') || '';
+    if (href.indexOf('index.html#operaciones') !== -1) {
+      span.textContent = 'Material Aéreo Escuela';
+      child.setAttribute('href', dl + 'escuela-de-aviacion-militar-virtual/');
+    } else if (href.indexOf('manuales/') !== -1) {
+      span.textContent = 'Documentación Escuela';
+      child.setAttribute('href', dl + 'escuela-de-aviacion-militar-virtual/');
+    }
+  });
 }
 function menuForRole(root, pilot, dl){
   if (!root) return;
   loadRoles().then(function(){
-    if (roleOfCallSign(pilot && pilot.callsign) === 'piloto_escuela') addEscuelaItem(root, dl);
+    if (roleOfCallSign(pilot && pilot.callsign) === 'piloto_escuela') applySchoolMenu(root, dl);
   });
 }
 
