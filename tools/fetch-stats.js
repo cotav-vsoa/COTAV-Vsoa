@@ -131,6 +131,9 @@ function computeStats(historyResult, fpsRaw) {
     return r.includes('vsoa') || r.includes('faav');
   });
 
+  // Fallback: if no COTA-marked flights, show the recent flights anyway
+  if (filtered.length === 0) filtered = deduped;
+
   return {
     hours: hoursStr,
     last: lastStr,

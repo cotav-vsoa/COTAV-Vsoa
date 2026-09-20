@@ -5,7 +5,64 @@
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
-    "lastFlights": []
+    "lastFlights": [
+      {
+        "callsign": "CONDOR3",
+        "aircraft": "F16",
+        "route": "SBAN → SBAN",
+        "date": "07 de sept de 2026",
+        "remark": "DOF/260907 REG/M-1008 OPR/FAG /V/"
+      },
+      {
+        "callsign": "CONDR14",
+        "aircraft": "F16",
+        "route": "SAWC → SAWC",
+        "date": "29 de ago de 2026",
+        "remark": "DOF/260829 REG/M-1020 /V/"
+      },
+      {
+        "callsign": "CONDR12",
+        "aircraft": "F16",
+        "route": "SAOC → SAME",
+        "date": "27 de ago de 2026",
+        "remark": "DOF/260826 REG/M-1020 OPR/FAG /V/"
+      },
+      {
+        "callsign": "PUMA",
+        "aircraft": "F16",
+        "route": "SAOC → SAOC",
+        "date": "26 de ago de 2026",
+        "remark": "DOF/260826 REG/M-1020 OPR/FAG /V/"
+      },
+      {
+        "callsign": "TC66",
+        "aircraft": "C130",
+        "route": "PGUA → RJTY",
+        "date": "25 de ago de 2026",
+        "remark": "DOF/260825 OPR/FAG /V/"
+      },
+      {
+        "callsign": "TC66",
+        "aircraft": "C130",
+        "route": "YPTN → PGUA",
+        "date": "23 de ago de 2026",
+        "remark": "DOF/260823 OPR/FAG ORGN/SADP /V/"
+      },
+      {
+        "callsign": "PUMA",
+        "aircraft": "F16",
+        "route": "SAOC → SAOC",
+        "date": "17 de ago de 2026",
+        "remark": "DOF/260817 REG/M1009 /V/"
+      },
+      {
+        "callsign": "PUMA",
+        "aircraft": "F16",
+        "route": "SAOC → SAOC",
+        "date": "15 de ago de 2026",
+        "remark": "DOF/260815 REG/M1020 OPR/FAG /V/"
+      }
+    ]
   },
   "1462350": {
     "hours": "103h 27m",
@@ -19,6 +76,13 @@
         "aircraft": "F16",
         "route": "SADP → SADP",
         "date": "11 de ago de 2026",
+        "remark": "DOF/260811 RMK/DOF/260811 REG/M1001 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR 1-3 FFLTEND VSOA/FAAV.COM.AR /V/ /V/"
+      },
+      {
+        "callsign": "CONDOR1",
+        "aircraft": "F16",
+        "route": "SADP → SADP",
+        "date": "10 de ago de 2026",
         "remark": "DOF/260811 RMK/DOF/260811 REG/M1001 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR 1-3 FFLTEND VSOA/FAAV.COM.AR /V/ /V/"
       },
       {
@@ -36,7 +100,71 @@
     "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">EKSP</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">LEZG</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SABE",
     "aircraft": "GLF5",
-    "lastFlights": []
+    "lastFlights": [
+      {
+        "callsign": "CONDOR1",
+        "aircraft": "F16",
+        "route": "EKSP → LEZG",
+        "date": "19 de sept de 2026",
+        "remark": "DOF/260919 REG/M-1010 OPR/FAG RMK/RMK/ OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/CONDOR1-CONDOR6 FFLTEND /V/"
+      },
+      {
+        "callsign": "N650BL",
+        "aircraft": "GLF6",
+        "route": "SABE → LEZL",
+        "date": "19 de sept de 2026",
+        "remark": "PBN/A1B1C1D1L1O1S2 DOF/260919 REG/N650SB EET/SUEO0007 SBCW0036 SBBS0143 SBRE0240 SBAO0432 GOOO0527 GVSC0642 GCCC0742 GMMM0903 LPPC0952 LECM1005 OPR/N65 PER/C RALT/SBFZ GVAC RMK/TCAS SIMBRIEF /V/"
+      },
+      {
+        "callsign": "ARG1001",
+        "aircraft": "B732",
+        "route": "SAEZ → SAZM",
+        "date": "15 de sept de 2026",
+        "remark": "PBN/A1B2 DOF/260915 REG/LV-LIW OPR/ARG PER/C RMK/TCAS SIMBRIEF /V/"
+      },
+      {
+        "callsign": "ARG1301",
+        "aircraft": "—",
+        "route": "—",
+        "date": "12 de sept de 2026",
+        "remark": ""
+      },
+      {
+        "callsign": "ARG01",
+        "aircraft": "B752",
+        "route": "SABE → SABE",
+        "date": "10 de sept de 2026",
+        "remark": "PBN/A1B1D1L1O1S1 DOF/260911 REG/ARG01 OPR/ARG PER/D /V/"
+      },
+      {
+        "callsign": "ABX3139",
+        "aircraft": "B752",
+        "route": "SABE → SABE",
+        "date": "10 de sept de 2026",
+        "remark": "PBN/A1B1D1L1O1S1 DOF/260911 REG/ARG01 OPR/ARG PER/D /V/"
+      },
+      {
+        "callsign": "ABX3181",
+        "aircraft": "B763",
+        "route": "KCVG → KMHT",
+        "date": "10 de sept de 2026",
+        "remark": "PBN/A1B1C1D1L1O1 DOF/260910 REG/N1489A EET/KZOB0019 KZNY0052 KZBW0054 OPR/ABX PER/D RMK/TCAS SIMBRIEF /V/"
+      },
+      {
+        "callsign": "AXB3181",
+        "aircraft": "B763",
+        "route": "KCVG → KMHT",
+        "date": "10 de sept de 2026",
+        "remark": "PBN/A1B1C1D1L1O1 DOF/260910 REG/N1489A EET/KZOB0019 KZNY0052 KZBW0054 OPR/ABX PER/D RMK/TCAS SIMBRIEF /V/"
+      },
+      {
+        "callsign": "CONDOR2",
+        "aircraft": "F16",
+        "route": "SBAN → SBAN",
+        "date": "07 de sept de 2026",
+        "remark": "DOF/260907 /V/"
+      }
+    ]
   },
   "1562806": {
     "hours": "464h 54m",
@@ -44,7 +172,71 @@
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
-    "lastFlights": []
+    "lastFlights": [
+      {
+        "callsign": "ARG1672",
+        "aircraft": "B737",
+        "route": "SABE → SAZS",
+        "date": "16 de sept de 2026",
+        "remark": "PBN/A1B1C1D1S1S2 DOF/260916 REG/LVBYY OPR/ARG PER/C RMK/TCAS SIMBRIEF /V/"
+      },
+      {
+        "callsign": "ARG1838",
+        "aircraft": "A332",
+        "route": "SAEZ → SAWC",
+        "date": "15 de sept de 2026",
+        "remark": "PBN/A1B1C1D1O1S2 DOF/260915 REG/LVGKO EET/SAVF0054 OPR/ARG PER/C RMK/TCAS SIMBRIEF /V/"
+      },
+      {
+        "callsign": "ARG1878",
+        "aircraft": "A343",
+        "route": "SAEZ → SAWH",
+        "date": "11 de sept de 2026",
+        "remark": "PBN/A1B1C1D1O1S2 DOF/260911 REG/LVCXS EET/SAVF0047 OPR/ARG PER/C RMK/TCAS SIMBRIEF /V/"
+      },
+      {
+        "callsign": "CONDR11",
+        "aircraft": "F16",
+        "route": "SAWC → SAWC",
+        "date": "29 de ago de 2026",
+        "remark": "DOF/260829 REG/M-1020 OPR/FAG /V/"
+      },
+      {
+        "callsign": "CONDR11",
+        "aircraft": "F16",
+        "route": "SAOC → SAME",
+        "date": "27 de ago de 2026",
+        "remark": "DOF/260827 REG/M-1008 OPR/FAG /V/"
+      },
+      {
+        "callsign": "FAG212",
+        "aircraft": "—",
+        "route": "—",
+        "date": "23 de ago de 2026",
+        "remark": ""
+      },
+      {
+        "callsign": "FAG212",
+        "aircraft": "—",
+        "route": "—",
+        "date": "22 de ago de 2026",
+        "remark": ""
+      },
+      {
+        "callsign": "ARG1630",
+        "aircraft": "—",
+        "route": "—",
+        "date": "19 de ago de 2026",
+        "remark": ""
+      },
+      {
+        "callsign": "ARG1630",
+        "aircraft": "B738",
+        "route": "SABE → SAZN",
+        "date": "18 de ago de 2026",
+        "remark": "PBN/B2B3D2D3O2S1T1T2 NAV/B4 B5 O3 O4 D4 S2 DOF/260818 REG/LVGVB SEL/KRFH CODE/E07582 OPR/ARG PER/C RMK/TCAS II SIMBRIEF /V/"
+      }
+    ]
   },
   "1665183": {
     "hours": "159h 43m",
@@ -57,7 +249,7 @@
         "callsign": "TRUENO2",
         "aircraft": "F16",
         "route": "SAZT → SAZT",
-        "date": "06 de jun de 2026",
+        "date": "05 de jun de 2026",
         "remark": "OPR/ARGENTINA AIR FORCE STS/STATE STAYINFO/PASAJE AEREO MARSA FFLT/TRUENO1-4 FFLTEND VSOA/FAAV.COM.AR   /V/ SEL/AHJL"
       },
       {
@@ -117,7 +309,7 @@
         "callsign": "CONDOR2",
         "aircraft": "F16",
         "route": "SADP → SADP",
-        "date": "11 de ago de 2026",
+        "date": "10 de ago de 2026",
         "remark": "DOF/260811 REG/M1004 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR 1-3 FFLTEND VSOA/FAAV.COM.AR /V/"
       },
       {
@@ -131,7 +323,7 @@
         "callsign": "HURON3",
         "aircraft": "BE20",
         "route": "SAAP → SAAP",
-        "date": "04 de jul de 2026",
+        "date": "03 de jul de 2026",
         "remark": "PBN/B2C2D2L1O2S1S2 DOF/260704 REG/TC-117 OPR/FAG PER/B RMK/RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/HURON 1-4 FFLTEND VSOA/FAAV.COM.AR /V/ /V/"
       },
       {
@@ -145,7 +337,7 @@
         "callsign": "DAGA",
         "aircraft": "IA63",
         "route": "SAOR → SAME",
-        "date": "26 de jun de 2026",
+        "date": "25 de jun de 2026",
         "remark": "DOF/260626 REG/E-822 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA VSOA/FAAV.COM.AR /V/"
       },
       {
@@ -159,7 +351,7 @@
   },
   "1785540": {
     "hours": "152h 45m",
-    "last": "PAMPA2 · 20 de ago de 2026",
+    "last": "PAMPA2 · 19 de ago de 2026",
     "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SATR</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SATR</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">IA63</span>",
     "airport": "SADP",
     "aircraft": "IA63",
@@ -168,7 +360,7 @@
         "callsign": "PAMPA2",
         "aircraft": "IA63",
         "route": "SATR → SATR",
-        "date": "20 de ago de 2026",
+        "date": "19 de ago de 2026",
         "remark": "DOF/260820 RMK/REG/E-815 OPR/ARGENTINA AIR FORCE VSOA/FAAV.COM.AR FFLT/PAMPA1-2 FFLTEND PAC /V/"
       },
       {
@@ -182,28 +374,28 @@
         "callsign": "PAMPA1",
         "aircraft": "IA63",
         "route": "SACE → SAME",
-        "date": "04 de ago de 2026",
+        "date": "03 de ago de 2026",
         "remark": "DOF/260804 RMK/OPR/ARGENTINA AIR FORCE REG/A-701 VSOA/FAAV.COM.AR FFLT/PAMPA1-2-3-4 FFLTEND /V/"
       },
       {
         "callsign": "TIZA3",
         "aircraft": "IA58",
         "route": "SADP → SADP",
-        "date": "31 de jul de 2026",
+        "date": "30 de jul de 2026",
         "remark": "DOF/260731 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/TIZA1-3 FFLTEND STAYINFO/PRACTICAS DE FORMACION PAL/NIN FL100 NIN/PAL FL110 VSOA/FAAV.COM.AR /V/"
       },
       {
         "callsign": "LITRO2",
         "aircraft": "C130",
         "route": "SADP → SADP",
-        "date": "30 de jul de 2026",
+        "date": "29 de jul de 2026",
         "remark": "DOF/260730 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/LITRO1-2 FFLTEND STAYINFO/PRACTICAS DE FORMACION PAL/NIN FL100 NIN/PAL FL110 VSOA/FAAV.COM.AR /V/"
       },
       {
         "callsign": "ERCULES",
         "aircraft": "C130",
         "route": "SADP → SADP",
-        "date": "30 de jul de 2026",
+        "date": "29 de jul de 2026",
         "remark": "DOF/260730 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/LITRO1-2 FFLTEND STAYINFO/PRACTICAS DE FORMACION PAL/NIN FL100 NIN/PAL FL110 VSOA/FAAV.COM.AR /V/"
       },
       {
@@ -211,6 +403,13 @@
         "aircraft": "LJ35",
         "route": "SARE → SPJC",
         "date": "06 de jul de 2026",
+        "remark": "DOF/260706 EET/0400 RMK/DOF/260706 REG/T-22 OPR/ARGENTINA AIR FORCE STS/FAAV.COM.AR /V/"
+      },
+      {
+        "callsign": "FAG256",
+        "aircraft": "LJ35",
+        "route": "SARE → SPJC",
+        "date": "05 de jul de 2026",
         "remark": "DOF/260706 EET/0400 RMK/DOF/260706 REG/T-22 OPR/ARGENTINA AIR FORCE STS/FAAV.COM.AR /V/"
       }
     ]
@@ -240,14 +439,14 @@
         "callsign": "LITRO2",
         "aircraft": "C130",
         "route": "SADP → SADP",
-        "date": "11 de ago de 2026",
+        "date": "10 de ago de 2026",
         "remark": "PBN/B2B3B4D2D3O2O3S1 DAT/V DOF/260811 REG/8TCA SEL/AHJL OPR/FAG PER/C RMK/VATSIM RMK/ OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/(FOKKER 1-2)(LITRO1-2) FFLTEND VSOA/FAAV.COM.AR /V/"
       },
       {
         "callsign": "FAG251",
         "aircraft": "C130",
         "route": "SADP → SADP",
-        "date": "11 de ago de 2026",
+        "date": "10 de ago de 2026",
         "remark": "PBN/B2B3B4D2D3O2O3S1 DAT/V DOF/260811 REG/8TCA SEL/AHJL OPR/FAG PER/C RMK/VATSIM RMK/ OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/(FOKKER 1-2)(LITRO1-2) FFLTEND VSOA/FAAV.COM.AR /V/"
       },
       {
@@ -284,7 +483,7 @@
         "callsign": "PAMPA1",
         "aircraft": "IA63",
         "route": "SATR → SATR",
-        "date": "20 de ago de 2026",
+        "date": "19 de ago de 2026",
         "remark": "DOF/260820 RMK/OPR/ARGENTINA AIR FORCE VSOA/FAAV.COM.AR FFLT/PAMPA1-2 FFLTEND /V/"
       },
       {
