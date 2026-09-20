@@ -128,7 +128,7 @@ function computeStats(historyResult, fpsRaw) {
   var filtered = deduped.filter(function(f) {
     if (!f.remark) return false;
     var r = f.remark.toLowerCase();
-    return r.includes('vsoa') || r.includes('faav');
+    return r.includes('vsoa') || r.includes('faav') || r.includes('cotav');
   });
 
   // Fallback: if no COTA-marked flights, show the recent flights anyway
