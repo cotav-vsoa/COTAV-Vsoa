@@ -16,6 +16,8 @@
   --blue-light:#ffb45e;  /* hover / online */
   --border-sign:#c94f00;
   --school:#ff8c1a;      /* badge Piloto Escuela + lockframe escuela */
+  --line: rgba(255,140,26,0.18);        /* bordes/divisores -> naranja */
+  --line-strong: rgba(255,140,26,0.36); /* bordes/divisores marcados -> naranja */
 }
 /* refinamientos propios de la escuela (solo adornos, misma estructura) */
 .pilot-name .school-tag,

@@ -842,8 +842,12 @@ function sha256Hex(str){
 /* ---------- roles ---------- */
 var rolesCache = null;
 function rolesJsonUrl(){
-  if (/\/storage\//.test(location.pathname) || /\/brigadas\//i.test(location.pathname)) return '../../data/roles.json';
-  return '../data/roles.json';
+  var p = window.location.pathname || '/';
+  var segs = p.slice(0, p.lastIndexOf('/') + 1).split('/').filter(Boolean);
+  if (segs.length) segs.shift();
+  var ups = '';
+  for (var i = 0; i < segs.length; i++) ups += '../';
+  return ups + 'data/roles.json';
 }
 function loadRoles(){
   if (rolesCache) return Promise.resolve(rolesCache);
@@ -858,6 +862,28 @@ function roleOfCallSign(cs){
   if (r.asignacion && r.asignacion[cs]) return r.asignacion[cs];
   return 'piloto';
 }
+/* ---------- gate por rol (páginas de storage) ---------- */
+/* El snippet inline en <head> de cada página de storage prepara
+   window.__FAAV_GATE = { isPil, isEsc, ups } y oculta la página
+   (visibility hiddden) mientras se resuelve el rol. */
+function resolveStorageGate(){
+  var g = window.__FAAV_GATE;
+  if (!g) return;
+  var cs = ''; try { cs = (sessionStorage.getItem('faav_pilot') || '').trim(); } catch(e){}
+  var role = roleOfCallSign(cs);
+  var req = g.isEsc ? 'piloto_escuela' : 'piloto';
+  var doc = document.documentElement;
+  if (cs && role === req) {
+    if (doc) { doc.removeAttribute('data-gate'); doc.style.removeProperty('visibility'); }
+    return;
+  }
+  var dest;
+  if (!cs) dest = g.ups + 'HTML/login.html';
+  else if (g.isEsc) dest = g.ups + 'storage/pilotos/';
+  else dest = g.ups + 'storage/escuela-de-aviacion-militar-virtual/';
+  if (doc) doc.setAttribute('data-gate', 'denied');
+  window.location.replace(dest);
+}
 function applySchoolMenu(root, dl){
   if (!root) return;
   var descSpan = root.querySelector('.acc-sub-btn > span');
@@ -871,20 +897,12 @@ function applySchoolMenu(root, dl){
     var href = child.getAttribute('href') || '';
     if (href.indexOf('index.html#operaciones') !== -1) {
       span.textContent = 'Material Aéreo Escuela';
-      child.setAttribute('href', dl + 'escuela-de-aviacion-militar-virtual/');
+      child.setAttribute('href', dl);
     } else if (href.indexOf('manuales/') !== -1) {
       span.textContent = 'Documentación Escuela';
-      child.setAttribute('href', dl + 'escuela-de-aviacion-militar-virtual/');
     }
   });
 }
-function menuForRole(root, pilot, dl){
-  if (!root) return;
-  loadRoles().then(function(){
-    if (roleOfCallSign(pilot && pilot.callsign) === 'piloto_escuela') applySchoolMenu(root, dl);
-  });
-}
-
 /* ---------- i18n textos ---------- */
 
 /* ---------- auth navbar (sesion global) ---------- */
@@ -905,7 +923,7 @@ function buildAccDropdown(p){
   var inStorage = /\/storage\//.test(location.pathname);
   var inSub = inStorage ? false : /\/brigadas\//i.test(location.pathname);
   var scRole = ''; try { scRole = roleOfCallSign && roleOfCallSign(p.callsign); } catch(e){}
-  var catRoot = (scRole === 'piloto_escuela' ? 'escuela-de-aviacio-n-militar-virtual/' : 'pilotos/');
+  var catRoot = (scRole === 'piloto_escuela' ? 'escuela-de-aviacion-militar-virtual/' : 'pilotos/');
   var DL = inStorage ? '../' : (inSub ? '../../storage/' + catRoot : '../storage/' + catRoot);
   var UI = inStorage ? '../HTML/' : (inSub ? '../' : '');
   var loginUrl = inStorage ? '../HTML/login.html' : (inSub ? '../login.html' : 'login.html');
@@ -943,7 +961,7 @@ function buildAccDropdown(p){
             '</div>' +
           '</div>' +
           '<a href="' + DL + 'liveries/"><span>Liveries</span></a>' +
-          '<a href="' + DL + 'manuales/"><span>MTL\'s</span></a>' +
+          '<a href="' + DL + 'manuales/"><span>Manuales</span></a>' +
         '</div>' +
       '</div>' +
       '<a href="' + UI + 'index.html#operaciones"><span>Material Aéreo</span></a>' +
@@ -982,7 +1000,7 @@ function buildAccDropdown(p){
     if (root.isConnected && !root.contains(e.target)) closeAccDropdown(root);
   });
 
-  menuForRole(root, p, DL);
+  if (scRole === 'piloto_escuela') applySchoolMenu(root, DL);
 
   return root;
 }
@@ -1012,36 +1030,48 @@ function initAuthNav() {
     }
   }
 
-  var cta = document.querySelector('.navcta');
-  if (cta) {
-    var oldBtn = cta.querySelector('[data-auth-nav]');
-    if (oldBtn && oldBtn.parentNode) oldBtn.parentNode.removeChild(oldBtn);
-    var el = null;
-    if (logged) {
-      var pilot = findPilotByCallsign(sessionStorage.getItem('faav_pilot'));
-      if (pilot) el = buildAccDropdown(pilot);
+  function apply() {
+    var cta = document.querySelector('.navcta');
+    if (cta) {
+      var oldBtn = cta.querySelector('[data-auth-nav]');
+      if (oldBtn && oldBtn.parentNode) oldBtn.parentNode.removeChild(oldBtn);
+      var el = null;
+      if (logged) {
+        var pilot = findPilotByCallsign(sessionStorage.getItem('faav_pilot'));
+        if (pilot) el = buildAccDropdown(pilot);
+      }
+      if (!el) {
+        el = document.createElement('a');
+        el.className = 'btn btn-ghost desktop-only';
+        el.setAttribute('data-auth-nav', '1');
+        render(el);
+      }
+      var burger = cta.querySelector('button.burger, #burger, button[id*="burger"]');
+      var sumarme = cta.querySelector('a[href*="sumate"], a[data-i18n*="sumarme"], a[data-i18n*="nav.sumarme"]');
+      if (sumarme) cta.insertBefore(el, sumarme);
+      else if (burger) cta.insertBefore(el, burger);
+      else cta.appendChild(el);
     }
-    if (!el) {
-      el = document.createElement('a');
-      el.className = 'btn btn-ghost desktop-only';
-      el.setAttribute('data-auth-nav', '1');
-      render(el);
-    }
-    var burger = cta.querySelector('button.burger, #burger, button[id*="burger"]');
-    var sumarme = cta.querySelector('a[href*="sumate"], a[data-i18n*="sumarme"], a[data-i18n*="nav.sumarme"]');
-    if (sumarme) cta.insertBefore(el, sumarme);
-    else if (burger) cta.insertBefore(el, burger);
-    else cta.appendChild(el);
+
+    var mobs = document.querySelectorAll('.mobile-nav-btn');
+    mobs.forEach(function (m) {
+      if (!m.getAttribute('data-auth-nav')) {
+        m.setAttribute('data-auth-nav', '1');
+      }
+      render(m);
+      if (!logged) m.setAttribute('href', 'login.html');
+    });
   }
 
-  var mobs = document.querySelectorAll('.mobile-nav-btn');
-  mobs.forEach(function (m) {
-    if (!m.getAttribute('data-auth-nav')) {
-      m.setAttribute('data-auth-nav', '1');
-    }
-    render(m);
-    if (!logged) m.setAttribute('href', 'login.html');
-  });
+  /* Esperamos a que carguen los roles (roles.json) ANTES de armar el menú
+     desplegable, así el rol (piloto / piloto_escuela) queda bien resuelto
+     desde el primer render y no hace falta "corregir" el menú después. */
+  if (logged && typeof loadRoles === 'function') {
+    loadRoles().then(function(){ apply(); resolveStorageGate(); }).catch(function(){ apply(); resolveStorageGate(); });
+  } else {
+    apply();
+    resolveStorageGate();
+  }
 }
 
 initAuthNav();

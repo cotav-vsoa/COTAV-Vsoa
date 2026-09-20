@@ -1,6 +1,6 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="es">
-<head>  <link rel="icon" type="image/x-icon" href="../../../../img/Logo FAAV/Logo-Faav.ico?v=9"><link rel="apple-touch-icon" href="../../../../img/Logo FAAV/Logo Faav.png?v=4">
+<head>  <link rel="icon" type="image/x-icon" href="../../../img/Logo FAAV/Logo-Faav.ico?v=9"><link rel="apple-touch-icon" href="../../../img/Logo FAAV/Logo Faav.png?v=4">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manuales y documentos · COTAV</title>  <meta name="description" content="Manuales y documentos del COTAV - VIRTUAL.">
@@ -18,6 +18,21 @@
 
 
 <link rel="stylesheet" href="../../../CSS/styles.css">
+<script>
+(function(){
+  var cs=''; try{ cs=(sessionStorage.getItem('faav_pilot')||'').trim(); }catch(e){}
+  var p=window.location.pathname||'';
+  var isPil=/\/storage\/pilotos\//.test(p), isEsc=/\/storage\/escuela-de-aviacion-militar-virtual\//.test(p);
+  if(!(isPil||isEsc)) return;
+  var segs=(p.slice(0,p.lastIndexOf('/')+1)).split('/').filter(Boolean);
+  if(segs.length) segs.shift();
+  var ups=''; for(var i=0;i<segs.length;i++) ups+='../';
+  if(!cs){ window.location.replace(ups+'HTML/login.html'); return; }
+  document.documentElement.setAttribute('data-gate','pending');
+  document.documentElement.style.visibility='hidden';
+  window.__FAAV_GATE={ isPil:isPil, isEsc:isEsc, ups:ups };
+})();
+</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute">
@@ -41,19 +56,19 @@
 </svg>
 <header>
  <nav class="wrap">
-  <a href="../../../../HTML/index.html#top" class="brand">
-      <img src="../../../../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV">
+  <a href="../../../HTML/index.html#top" class="brand">
+      <img src="../../../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV">
       <span class="brand-text"><b>COTAV - VIRTUAL</b> <span>Comando Aéreo Táctico Argentino</span></span>
     </a>
   <div class="header-links-row">
   <div class="navlinks" id="navlinks">
-   <a href="../../../../HTML/index.html#mision">Institución</a>
-   <a href="../../../../HTML/index.html#operaciones">Operaciones</a>
-   <a href="../../../../HTML/pilotos.html">Pilotos</a>
-   <a href="../../../../HTML/index.html#brigadas">Brigadas</a>
-   <a href="../../../../HTML/index.html#comunidad">Comunidad</a>
-   <a href="../../../../HTML/reglamento.html">Reglamento</a>
-   <a href="../../../../HTML/redes.html">REDES</a>
+   <a href="../../../HTML/index.html#mision">Institución</a>
+   <a href="../../../HTML/index.html#operaciones">Operaciones</a>
+   <a href="../../../HTML/pilotos.html">Pilotos</a>
+   <a href="../../../HTML/index.html#brigadas">Brigadas</a>
+   <a href="../../../HTML/index.html#comunidad">Comunidad</a>
+   <a href="../../../HTML/reglamento.html">Reglamento</a>
+   <a href="../../../HTML/redes.html">REDES</a>
 
   </div>
   <div class="navcta">
@@ -62,7 +77,7 @@
       <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
     </div>
 
-   <a href="../../../../HTML/login.html" class="btn btn-ghost">Ingresar</a>
+   <a href="../../../HTML/login.html" class="btn btn-ghost">Ingresar</a>
      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   </div>
   </div>
@@ -71,7 +86,7 @@
 <main id="top">
  <section style="padding-top:180px;">
   <div class="wrap" style="max-width:960px;">
-   <a href="../../../../HTML/pilotos.html" class="back-link" style="margin-bottom:24px; display:inline-flex;">
+   <a href="../../../HTML/pilotos.html" class="back-link" style="margin-bottom:24px; display:inline-flex;">
     <svg style="width:14px;height:14px; transform:scaleX(-1)"><use href="#ic-arrow"/></svg>
     <span>Volver a Sala de pilotos</span>
    </a>
@@ -89,11 +104,46 @@
        <th style="padding:12px 14px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;"></th>
       </tr>
      </thead>
-      <tbody><tr style="border-bottom:1px solid var(--line-weak);">
- <td style="padding:12px 14px;"><a href="C130-Hercules.zip" style="color:var(--blue-light); text-decoration:none;">C130-Hercules.zip</a></td>
- <td style="padding:12px 14px; color:var(--muted);">C-130 Hercules material</td>
- <td style="padding:12px 14px; color:var(--muted);">11.9 MB</td>
- <td style="padding:12px 14px;"><a href="C130-Hercules.zip" style="color:var(--ivory); text-decoration:none;">Descargar</a></td>
+<tbody><tr style="border-bottom:1px solid var(--line-weak);">
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/C130H-OPS.pdf" style="color:var(--blue-light); text-decoration:none;">C130H-OPS.pdf</a></td>
+ <td style="padding:12px 14px; color:var(--muted);">Manual de operaciones C-130H (OPS)</td>
+ <td style="padding:12px 14px; color:var(--muted);">242 KB</td>
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/C130H-OPS.pdf" style="color:var(--ivory); text-decoration:none;">Descargar</a></td>
+</tr><tr style="border-bottom:1px solid var(--line-weak);">
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/Normal%20Procedures.pdf" style="color:var(--blue-light); text-decoration:none;">Normal Procedures.pdf</a></td>
+ <td style="padding:12px 14px; color:var(--muted);">Procedimientos normales</td>
+ <td style="padding:12px 14px; color:var(--muted);">1.2 MB</td>
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/Normal%20Procedures.pdf" style="color:var(--ivory); text-decoration:none;">Descargar</a></td>
+</tr><tr style="border-bottom:1px solid var(--line-weak);">
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/Performance%20Data.pdf" style="color:var(--blue-light); text-decoration:none;">Performance Data.pdf</a></td>
+ <td style="padding:12px 14px; color:var(--muted);">Datos de performance</td>
+ <td style="padding:12px 14px; color:var(--muted);">874 KB</td>
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/Performance%20Data.pdf" style="color:var(--ivory); text-decoration:none;">Descargar</a></td>
+</tr><tr style="border-bottom:1px solid var(--line-weak);">
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/Pilot%20Manual.pdf" style="color:var(--blue-light); text-decoration:none;">Pilot Manual.pdf</a></td>
+ <td style="padding:12px 14px; color:var(--muted);">Manual de piloto C-130</td>
+ <td style="padding:12px 14px; color:var(--muted);">2.4 MB</td>
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/Pilot%20Manual.pdf" style="color:var(--ivory); text-decoration:none;">Descargar</a></td>
+</tr><tr style="border-bottom:1px solid var(--line-weak);">
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/Systems%20%26%20Equipments.pdf" style="color:var(--blue-light); text-decoration:none;">Systems &amp; Equipments.pdf</a></td>
+ <td style="padding:12px 14px; color:var(--muted);">Sistemas y equipos</td>
+ <td style="padding:12px 14px; color:var(--muted);">7.0 MB</td>
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/Systems%20%26%20Equipments.pdf" style="color:var(--ivory); text-decoration:none;">Descargar</a></td>
+</tr><tr style="border-bottom:1px solid var(--line-weak);">
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/1_Climb_Speed.jpg" style="color:var(--blue-light); text-decoration:none;">1_Climb_Speed.jpg</a></td>
+ <td style="padding:12px 14px; color:var(--muted);">Gráfico de velocidad de ascenso</td>
+ <td style="padding:12px 14px; color:var(--muted);">1.2 MB</td>
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/1_Climb_Speed.jpg" style="color:var(--ivory); text-decoration:none;">Descargar</a></td>
+</tr><tr style="border-bottom:1px solid var(--line-weak);">
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/1_Speed_Limitations.png" style="color:var(--blue-light); text-decoration:none;">1_Speed_Limitations.png</a></td>
+ <td style="padding:12px 14px; color:var(--muted);">Limitaciones de velocidad (1)</td>
+ <td style="padding:12px 14px; color:var(--muted);">58 KB</td>
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/1_Speed_Limitations.png" style="color:var(--ivory); text-decoration:none;">Descargar</a></td>
+</tr><tr style="border-bottom:1px solid var(--line-weak);">
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/2_Speed_Limitations.png" style="color:var(--blue-light); text-decoration:none;">2_Speed_Limitations.png</a></td>
+ <td style="padding:12px 14px; color:var(--muted);">Limitaciones de velocidad (2)</td>
+ <td style="padding:12px 14px; color:var(--muted);">91 KB</td>
+ <td style="padding:12px 14px;"><a href="C130%20Hercules/2_Speed_Limitations.png" style="color:var(--ivory); text-decoration:none;">Descargar</a></td>
 </tr><tr style="border-bottom:1px solid var(--line-weak);">
  <td style="padding:12px 14px;"><a href="Manual_de_Sda_OA-A-4AR_Fightinghawk_V3.pdf" style="color:var(--blue-light); text-decoration:none;">Manual_de_Sda_OA-A-4AR_Fightinghawk_V3.pdf</a></td>
  <td style="padding:12px 14px; color:var(--muted);">Manual de Sda OA-A-4AR Fightinghawk</td>
@@ -119,7 +169,7 @@
  <div class="wrap">
   <div class="foot-grid">
    <div class="foot-brand">
-    <img src="../../../../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV" style="height:42px;width:auto;">
+    <img src="../../../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV" style="height:42px;width:auto;">
     <div>
      <b style="font-family:'Oswald',sans-serif; letter-spacing:0.03em; display:block;">COTAV - VIRTUAL</b>
      <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.03em; color:var(--muted); display:block; margin-top:4px; max-width:280px;">Comando Aéreo Táctico Argentino Virtual - VATSIM SPECIAL OPERATION ASOCIATED</span>
@@ -128,15 +178,15 @@
    </div>
    <div class="foot-col">
     <h5>Institución</h5>
-    <a href="../../../../HTML/index.html#mision">Bienvenida</a>
-    <a href="../../../../HTML/index.html#brigadas">Brigadas</a>
-    <a href="../../../../HTML/reglamento.html">Reglamento</a>
+    <a href="../../../HTML/index.html#mision">Bienvenida</a>
+    <a href="../../../HTML/index.html#brigadas">Brigadas</a>
+    <a href="../../../HTML/reglamento.html">Reglamento</a>
    </div>
    <div class="foot-col">
     <h5>Operaciones</h5>
-    <a href="../../../../HTML/pilotos.html">Sala de pilotos</a>
-    <a href="../../../../HTML/index.html#operaciones">Material aéreo</a>
-    <a href="../../../../HTML/index.html#operaciones">Escenarios</a>
+    <a href="../../../HTML/pilotos.html">Sala de pilotos</a>
+    <a href="../../../HTML/index.html#operaciones">Material aéreo</a>
+    <a href="../../../HTML/index.html#operaciones">Escenarios</a>
    </div>
    <div class="foot-col">
     <h5>Redes</h5>
@@ -154,8 +204,8 @@
   </div>
  </div>
 </footer>
-<script src="../../../../JS/script.js?v=36"></script>
-<script src="../../../../JS/i18n.js?v=16"></script>
+<script src="../../../JS/script.js?v=36"></script>
+<script src="../../../JS/i18n.js?v=16"></script>
 </body>
 </html>
 

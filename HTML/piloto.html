@@ -104,7 +104,7 @@
       </div>
       <p id="p-name" style="margin:8px 0 4px; font-size:18px; color:var(--ivory);">—</p>
       <p id="p-meta" style="margin:0; font-size:13px; color:var(--muted);">—</p>
-      <p id="p-cid" style="margin:4px 0 0; font-size:13px; color:var(--blue-light);"><a id="p-cid-link" href="#" target="_blank" rel="noopener" style="color:var(--blue-light);text-decoration:none;border-bottom:1px dotted rgba(0,210,255,0.3);">CID —</a></p>
+      <p id="p-cid" style="margin:4px 0 0; font-size:13px; color:var(--blue-light);"><a id="p-cid-link" href="#" target="_blank" rel="noopener" style="color:var(--blue-light);text-decoration:none;border-bottom:1px dotted var(--line-strong);">CID —</a></p>
      </div>
     </div>
     <input type="file" id="p-avatar-file" accept="image/*" style="display:none;">
@@ -147,7 +147,7 @@
     </div>
    </div>
 
-   <div id="pilot-map" style="height:350px; width:100%; margin-bottom:24px; position:relative; border:1px solid rgba(0,210,255,0.2); background:#080d14; border-radius:2px; display:none;"></div>
+   <div id="pilot-map" style="height:350px; width:100%; margin-bottom:24px; position:relative; border:1px solid var(--line-strong); background:#080d14; border-radius:2px; display:none;"></div>
 
    <div id="pilot-details" style="margin-bottom:24px;"></div>
 
@@ -220,26 +220,23 @@
   }
 
   try {
-    var _myRole = (typeof window.roleOfCallSign === 'function') ? window.roleOfCallSign(pilot.callsign) : null;
-    if(_myRole === 'piloto_escuela'){
-      var _scLink = document.createElement('link');
-      _scLink.rel = 'stylesheet';
-      _scLink.href = '../CSS/styles-escuela.css?v=13';
-      document.head.appendChild(_scLink);
-      document.documentElement.setAttribute('data-theme', 'escuela');
+    var _applySchoolTheme = function(){
+      if (typeof window.roleOfCallSign === 'function' && window.roleOfCallSign(pilot && pilot.callsign) === 'piloto_escuela') {
+        var _scLink = document.createElement('link');
+        _scLink.rel = 'stylesheet';
+        _scLink.href = '../CSS/styles-escuela.css?v=14';
+        document.head.appendChild(_scLink);
+        document.documentElement.setAttribute('data-theme', 'escuela');
+      }
+    };
+    if (typeof window.loadRoles === 'function') {
+      window.loadRoles().then(_applySchoolTheme).catch(_applySchoolTheme);
+    } else {
+      _applySchoolTheme();
     }
   } catch(_e){}
 
   var callsignEl = document.getElementById('p-callsign');
-  try {
-    if (typeof window.roleOfCallSign === 'function' && window.roleOfCallSign(pilot && pilot.callsign) === 'piloto_escuela') {
-      var escuelaTheme = document.createElement('link');
-      escuelaTheme.rel = 'stylesheet';
-      escuelaTheme.href = '../CSS/styles-escuela.css?v=13';
-      document.head.appendChild(escuelaTheme);
-      document.documentElement.setAttribute('data-theme', 'escuela');
-    }
-  } catch(_e){}
   var nameEl = document.getElementById('p-name');
   var metaEl = document.getElementById('p-meta');
   var cidEl = document.getElementById('p-cid');

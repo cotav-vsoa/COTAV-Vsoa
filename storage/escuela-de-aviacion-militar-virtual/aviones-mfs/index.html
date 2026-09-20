@@ -1,24 +1,39 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="es">
-<head>  <link rel="icon" type="image/x-icon" href="../../img/Logo FAAV/Logo-Faav.ico?v=9"><link rel="apple-touch-icon" href="../../img/Logo FAAV/Logo Faav.png?v=4">
+<head>  <link rel="icon" type="image/x-icon" href="../../../img/Logo FAAV/Logo-Faav.ico?v=9"><link rel="apple-touch-icon" href="../../../img/Logo FAAV/Logo Faav.png?v=4">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escenarios Prepar3D · COTAV</title>  <meta name="description" content="Escenarios del COTAV para Prepar3D.">
+<title>Aviones Escuela MFS 2020/24 · COTAV</title>  <meta name="description" content="Aviones del COTAV para la Escuela de Aviasión Militar Virtual (MFS 2020/24).">
   <link rel="canonical" href="https://faav-vsoa.github.io/FAAV-Vsoa/storage/escuela-de-aviacion-militar-virtual/aviones-mfs/index.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="COTAV - VIRTUAL">
-  <meta property="og:title" content="Escenarios Prepar3D · COTAV">
-  <meta property="og:description" content="Escenarios del COTAV para Prepar3D.">
+  <meta property="og:title" content="Aviones Escuela MFS 2020/24 · COTAV">
+  <meta property="og:description" content="Aviones del COTAV para la Escuela de Aviasión Militar Virtual (MFS 2020/24).">
   <meta property="og:image" content="https://faav-vsoa.github.io/FAAV-Vsoa/img/og-faav.png">
   <meta property="og:url" content="https://faav-vsoa.github.io/FAAV-Vsoa/storage/escuela-de-aviacion-militar-virtual/aviones-mfs/index.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Escenarios Prepar3D · COTAV">
-  <meta name="twitter:description" content="Escenarios del COTAV para Prepar3D.">
+  <meta name="twitter:title" content="Aviones Escuela MFS 2020/24 · COTAV">
+  <meta name="twitter:description" content="Aviones del COTAV para la Escuela de Aviasión Militar Virtual (MFS 2020/24).">
   <meta name="twitter:image" content="https://faav-vsoa.github.io/FAAV-Vsoa/img/og-faav.png">
 
 
 <link rel="stylesheet" href="../../../CSS/styles.css">
     <link rel="stylesheet" href="../../../CSS/styles-escuela.css">
+<script>
+(function(){
+  var cs=''; try{ cs=(sessionStorage.getItem('faav_pilot')||'').trim(); }catch(e){}
+  var p=window.location.pathname||'';
+  var isPil=/\/storage\/pilotos\//.test(p), isEsc=/\/storage\/escuela-de-aviacion-militar-virtual\//.test(p);
+  if(!(isPil||isEsc)) return;
+  var segs=(p.slice(0,p.lastIndexOf('/')+1)).split('/').filter(Boolean);
+  if(segs.length) segs.shift();
+  var ups=''; for(var i=0;i<segs.length;i++) ups+='../';
+  if(!cs){ window.location.replace(ups+'HTML/login.html'); return; }
+  document.documentElement.setAttribute('data-gate','pending');
+  document.documentElement.style.visibility='hidden';
+  window.__FAAV_GATE={ isPil:isPil, isEsc:isEsc, ups:ups };
+})();
+</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute">
@@ -42,19 +57,19 @@
 </svg>
 <header>
  <nav class="wrap">
-  <a href="../../HTML/index.html#top" class="brand">
-      <img src="../../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV">
+  <a href="../../../HTML/index.html#top" class="brand">
+      <img src="../../../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV">
       <span class="brand-text"><b>COTAV - VIRTUAL</b> <span>Comando Aéreo Táctico Argentino</span></span>
     </a>
   <div class="header-links-row">
   <div class="navlinks" id="navlinks">
-   <a href="../../HTML/index.html#mision">Institución</a>
-   <a href="../../HTML/index.html#operaciones">Operaciones</a>
-   <a href="../../HTML/pilotos.html">Pilotos</a>
-   <a href="../../HTML/index.html#brigadas">Brigadas</a>
-   <a href="../../HTML/index.html#comunidad">Comunidad</a>
-   <a href="../../HTML/reglamento.html">Reglamento</a>
-   <a href="../../HTML/redes.html">REDES</a>
+   <a href="../../../HTML/index.html#mision">Institución</a>
+   <a href="../../../HTML/index.html#operaciones">Operaciones</a>
+   <a href="../../../HTML/pilotos.html">Pilotos</a>
+   <a href="../../../HTML/index.html#brigadas">Brigadas</a>
+   <a href="../../../HTML/index.html#comunidad">Comunidad</a>
+   <a href="../../../HTML/reglamento.html">Reglamento</a>
+   <a href="../../../HTML/redes.html">REDES</a>
 
   </div>
   <div class="navcta">
@@ -63,7 +78,7 @@
       <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
     </div>
 
-   <a href="../../HTML/login.html" class="btn btn-ghost">Ingresar</a>
+   <a href="../../../HTML/login.html" class="btn btn-ghost">Ingresar</a>
      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   </div>
   </div>
@@ -72,13 +87,13 @@
 <main id="top">
  <section style="padding-top:180px;">
   <div class="wrap" style="max-width:960px;">
-   <a href="../../HTML/pilotos.html" class="back-link" style="margin-bottom:24px; display:inline-flex;">
+   <a href="../../../HTML/pilotos.html" class="back-link" style="margin-bottom:24px; display:inline-flex;">
     <svg style="width:14px;height:14px; transform:scaleX(-1)"><use href="#ic-arrow"/></svg>
     <span>Volver a Sala de pilotos</span>
    </a>
    <div class="section-head" data-reveal>
-    <h2>Escenarios Prepar3D</h2>
-    <p>Paquetes de aeropuertos y scenery packs para Prepar3D.</p>
+    <h2>Aviones Escuela MFS 2020/24</h2>
+    <p>Aviones del COTAV para la Escuela de Aviasión Militar Virtual (MFS 2020/24), de libre descarga para alumnos.</p>
    </div>
    <div style="overflow-x:auto;" data-reveal>
     <table style="width:100%; border-collapse:collapse; font-family:'JetBrains Mono',monospace; font-size:13px;">
@@ -104,7 +119,7 @@
  <div class="wrap">
   <div class="foot-grid">
    <div class="foot-brand">
-    <img src="../../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV" style="height:42px;width:auto;">
+    <img src="../../../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV" style="height:42px;width:auto;">
     <div>
      <b style="font-family:'Oswald',sans-serif; letter-spacing:0.03em; display:block;">COTAV - VIRTUAL</b>
      <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.03em; color:var(--muted); display:block; margin-top:4px; max-width:280px;">Comando Aéreo Táctico Argentino Virtual - VATSIM SPECIAL OPERATION ASOCIATED</span>
@@ -113,15 +128,15 @@
    </div>
    <div class="foot-col">
     <h5>Institución</h5>
-    <a href="../../HTML/index.html#mision">Bienvenida</a>
-    <a href="../../HTML/index.html#brigadas">Brigadas</a>
-    <a href="../../HTML/reglamento.html">Reglamento</a>
+    <a href="../../../HTML/index.html#mision">Bienvenida</a>
+    <a href="../../../HTML/index.html#brigadas">Brigadas</a>
+    <a href="../../../HTML/reglamento.html">Reglamento</a>
    </div>
    <div class="foot-col">
     <h5>Operaciones</h5>
-    <a href="../../HTML/pilotos.html">Sala de pilotos</a>
-    <a href="../../HTML/index.html#operaciones">Material aéreo</a>
-    <a href="../../HTML/index.html#operaciones">Escenarios</a>
+    <a href="../../../HTML/pilotos.html">Sala de pilotos</a>
+    <a href="../../../HTML/index.html#operaciones">Material aéreo</a>
+    <a href="../../../HTML/index.html#operaciones">Escenarios</a>
    </div>
    <div class="foot-col">
     <h5>Redes</h5>
@@ -139,8 +154,8 @@
   </div>
  </div>
 </footer>
-<script src="../../JS/script.js?v=36"></script>
-<script src="../../JS/i18n.js?v=16"></script>
+<script src="../../../JS/script.js?v=36"></script>
+<script src="../../../JS/i18n.js?v=16"></script>
 </body>
 </html>
 
