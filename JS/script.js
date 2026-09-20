@@ -831,61 +831,22 @@ function roleOfCallSign(cs){
   if (r.asignacion && r.asignacion[cs]) return r.asignacion[cs];
   return 'piloto';
 }
-function categoriesForRole(role){
-  var r = rolesCache || {};
-  return (r.roles && r.roles[role]) || null;
+function addEscuelaItem(root, dl){
+  var sub = root && root.querySelector('.acc-sub-body');
+  if (!sub) return;
+  if (sub.querySelector('[data-escuela]')) return;
+  var a = document.createElement('a');
+  a.href = dl + 'escuela-de-aviacion-militar-virtual/';
+  a.setAttribute('data-escuela', '1');
+  var s = document.createElement('span');
+  s.textContent = 'Escuela';
+  a.appendChild(s);
+  sub.appendChild(a);
 }
-function applyRolesToMenu(root, pilot){
+function menuForRole(root, pilot, dl){
   if (!root) return;
   loadRoles().then(function(){
-    var role = roleOfCallSign(pilot && pilot.callsign);
-    var allowed = categoriesForRole(role);
-    if (!allowed) return;
-    var sub = root.querySelector('.acc-sub-body');
-    if (!sub) return;
-    sub.querySelectorAll('[data-dl]').forEach(function(el){
-      if (allowed.indexOf(el.getAttribute('data-dl')) === -1) el.style.display = 'none';
-    });
-    sub.querySelectorAll(':scope > .acc-sub').forEach(function(s){
-      var anyVisible = false;
-      var links = s.querySelectorAll('a,button');
-      for (var i = 0; i < links.length; i++) { if (links[i].style.display !== 'none') { anyVisible = true; break; } }
-      if (!anyVisible) s.style.display = 'none';
-    });
-    var anyVisible = false;
-    var kids = sub.children;
-    for (var j = 0; j < kids.length; j++) { if (kids[j].style.display !== 'none') { anyVisible = true; break; } }
-    if (!anyVisible) {
-      var dlBtn = root.querySelector('.acc-sub-btn');
-      if (dlBtn && dlBtn.parentElement) dlBtn.parentElement.style.display = 'none';
-    }
-  });
-}
-function enforceStorageAccess(){
-  if (!/\/storage\//.test(location.pathname)) return;
-  var m = location.pathname.match(/\/storage\/([^\/]+)\/?$/);
-  var cat = m ? m[1] : null;
-  if (!cat) return;
-  loadRoles().then(function(){
-    var cs = localStorage.getItem('faav_pilot');
-    var role = roleOfCallSign(cs);
-    var allowed = categoriesForRole(role);
-    if (!allowed || allowed.indexOf(cat) !== -1) return;
-    var mainEl = document.querySelector('main');
-    if (mainEl) mainEl.style.display = 'none';
-    var overlay = document.createElement('div');
-    overlay.style.cssText = 'position:fixed;inset:0;z-index:120;background:rgba(6,10,18,0.98);display:flex;align-items:center;justify-content:center;padding:24px;font-family:\'Barlow\',sans-serif;';
-    overlay.innerHTML =
-      '<div style="text-align:center;max-width:480px;background:var(--card-bg,#0a1120);border:1px solid var(--line-strong,#22314a);border-radius:4px;padding:36px 30px;">' +
-      '<svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="var(--gold,#f0b45c)" stroke-width="1.4" style="display:block;margin:0 auto 16px;">' +
-      '<path d="M12 3l10 5-10 5L2 8l10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>' +
-      '<h2 style="margin:0 0 10px;font-family:\'Oswald\',sans-serif;text-transform:uppercase;letter-spacing:0.05em;color:var(--ivory,#e8eef4);font-size:22px;">Acceso restringido</h2>' +
-      '<p style="margin:0 auto 22px;max-width:360px;font-size:14px;color:var(--muted,#8fa3b8);line-height:1.7;">Tu rol no tiene permiso para ver esta categoría. Si creés que deberías tener acceso, contactá a la administración del COTA.</p>' +
-      (cs
-        ? '<a href="../../HTML/pilotos.html" class="btn btn-ghost">Sala de pilotos</a>'
-        : '<a href="../../HTML/login.html" class="btn btn-primary">Iniciar sesión</a>');
-    document.body.appendChild(overlay);
-    document.body.style.overflow = 'hidden';
+    if (roleOfCallSign(pilot && pilot.callsign) === 'piloto_escuela') addEscuelaItem(root, dl);
   });
 }
 
@@ -933,23 +894,23 @@ function buildAccDropdown(p){
           '<div class="acc-sub sub2">' +
             '<button type="button" class="acc-sub-btn"><span>Escenarios</span>' + caretd + '</button>' +
             '<div class="acc-sub-body">' +
-              '<a href="' + DL + 'escenarios-p3d/" data-dl="escenarios-p3d"><span>Prepar3D</span></a>' +
-              '<a href="' + DL + 'escenarios-mfs/" data-dl="escenarios-mfs"><span>MFS 2020/24</span></a>' +
+              '<a href="' + DL + 'escenarios-p3d/"><span>Prepar3D</span></a>' +
+              '<a href="' + DL + 'escenarios-mfs/"><span>MFS 2020/24</span></a>' +
             '</div>' +
           '</div>' +
           '<div class="acc-sub sub2">' +
             '<button type="button" class="acc-sub-btn"><span>Aviones</span>' + caretd + '</button>' +
             '<div class="acc-sub-body">' +
-              '<a href="' + DL + 'aviones-p3d/" data-dl="aviones-p3d"><span>Prepar3D</span></a>' +
-              '<a href="' + DL + 'aviones-mfs/" data-dl="aviones-mfs"><span>MFS 2020/24</span></a>' +
+              '<a href="' + DL + 'aviones-p3d/"><span>Prepar3D</span></a>' +
+              '<a href="' + DL + 'aviones-mfs/"><span>MFS 2020/24</span></a>' +
             '</div>' +
           '</div>' +
-          '<a href="' + DL + 'liveries/" data-dl="liveries"><span>Liveries</span></a>' +
-          '<a href="' + DL + 'manuales/" data-dl="manuales"><span>MTL\'s</span></a>' +
+          '<a href="' + DL + 'liveries/"><span>Liveries</span></a>' +
+          '<a href="' + DL + 'manuales/"><span>MTL\'s</span></a>' +
         '</div>' +
       '</div>' +
       '<a href="' + UI + 'index.html#operaciones"><span>Material Aéreo</span></a>' +
-      '<a href="' + DL + 'manuales/" data-dl="manuales"><span>Documentación</span></a>' +
+      '<a href="' + DL + 'manuales/"><span>Documentación</span></a>' +
       '<button type="button" class="acc-logout"><span>Cerrar sesión</span></button>' +
     '</div>';
 
@@ -984,7 +945,7 @@ function buildAccDropdown(p){
     if (root.isConnected && !root.contains(e.target)) closeAccDropdown(root);
   });
 
-  applyRolesToMenu(root, p);
+  menuForRole(root, p, DL);
 
   return root;
 }
@@ -1047,4 +1008,3 @@ function initAuthNav() {
 }
 
 initAuthNav();
-enforceStorageAccess();

@@ -279,9 +279,6 @@
   ct("La contraseña debe tener al menos 6 caracteres.", "The password must be at least 6 characters long.");
   ct("Ingresá tu contraseña actual.", "Enter your current password.");
   ct("El navegador no permitió guardar la contraseña.", "The browser did not allow saving the password.");
-  /* acceso restringido por rol */
-  ct("Acceso restringido", "Restricted access");
-  ct("Tu rol no tiene permiso para ver esta categoría. Si creés que deberías tener acceso, contactá a la administración del COTA.", "Your role does not have permission to view this category. If you believe you should have access, contact the COTA administration.");
   /* operaciones */
   ct("INSTRUCCIÓN - CAZA - TRANSPORTE", "TRAINING - FIGHTER - TRANSPORT");
   ct("INSTRUCCIÓN", "TRAINING");
@@ -322,6 +319,7 @@
   ct("Ver perfil VATSIM", "View VATSIM profile");
   ct("Perfil", "Profile");
   ct("Descargas", "Downloads");
+  ct("Escuela", "School");
   ct("Subir foto", "Upload photo");
   ct("Quitar foto", "Remove photo");
   ct("Paquetes de aeropuertos y scenery packs para Prepar3D. Incluye bases aéreas, aeropuertos civiles y escenarios especiales del COTA.", "Airport and scenery packs for Prepar3D. Includes air bases, civil airports and special COTA scenarios.");

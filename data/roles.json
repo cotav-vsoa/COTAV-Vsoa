@@ -1,11 +1,5 @@
 {
-  "roles": {
-    "admin": ["escenarios-p3d", "escenarios-mfs", "aviones-p3d", "aviones-mfs", "liveries", "manuales", "procedimientos", "escuela-de-aviacion-militar-virtual"],
-    "piloto": ["escenarios-p3d", "escenarios-mfs", "aviones-p3d", "aviones-mfs", "liveries", "manuales", "procedimientos", "escuela-de-aviacion-militar-virtual"],
-    "piloto_escuela": ["escenarios-p3d", "escenarios-mfs", "aviones-p3d", "aviones-mfs", "escuela-de-aviacion-militar-virtual"],
-    "anonimo": ["escenarios-p3d", "escenarios-mfs", "aviones-p3d", "aviones-mfs"]
-  },
   "asignacion": {
-    "FAG-212": "admin"
+    "FAG-999": "piloto_escuela"
   }
 }
