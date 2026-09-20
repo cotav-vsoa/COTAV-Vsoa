@@ -104,14 +104,60 @@
      <span class="hero-coord">COTA <b> - ACCESO RESTRINGIDO </b></span>
      <h1>Sala de <em>pilotos</em></h1>
      <p class="lead"><span>No tenés acceso a esta sección. Iniciá sesión con tu usuario del COTA para continuar.</span></p>
+     <div style="margin-top:24px;">
+      <a href="login.html" class="btn btn-primary"><span>Iniciar sesión</span> <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></a>
+     </div>
     </div>
    </div>
 
    <div id="pilotContent" style="display:none;">
-    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:36px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px; margin-bottom:28px;">
      <div>
       <span class="hero-coord">COTA <b> - SALA DE PILOTOS </b></span>
       <h1 style="font-family:'Oswald',sans-serif; font-size:clamp(28px,3.4vw,42px); text-transform:uppercase; letter-spacing:0.02em; margin-top:8px;">Bienvenido, <em id="pilotName" style="font-style:normal; color:var(--blue-light);"></em></h1>
+      <p id="pilotBadge" style="margin:6px 0 0; font-family:'JetBrains Mono',monospace; font-size:13px; letter-spacing:0.04em; color:var(--muted);"></p>
+     </div>
+     <div style="display:flex; gap:10px; flex-wrap:wrap;">
+      <a id="pilotCidLink" href="#" target="_blank" rel="noopener" class="btn btn-ghost">Ver perfil VATSIM</a>
+      <button type="button" onclick="logout()" class="btn btn-ghost" style="color:var(--gold);"><span>Cerrar sesión</span></button>
+     </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div id="pilotStats" data-reveal style="display:none; margin-bottom:36px;">
+     <div class="section-head" style="margin-bottom:20px;">
+      <h2 style="font-size:clamp(18px,2vw,22px);">Estadísticas de vuelo</h2>
+     </div>
+     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:18px;background:var(--card-bg);border:1px solid var(--line);border-radius:2px;">
+      <div style="padding:6px 0;text-align:center;">
+       <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:6px;">Horas voladas</div>
+       <b id="stat-hours-v" style="color:var(--gold);font-size:20px;font-family:'Oswald',sans-serif;">—</b>
+      </div>
+      <div style="padding:6px 0;text-align:center;">
+       <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:6px;">Último vuelo</div>
+       <b id="stat-last-v" style="color:var(--ivory);font-size:13px;line-height:1.5;">—</b>
+      </div>
+      <div style="padding:6px 0;text-align:center;">
+       <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:6px;">Aeropuerto + usado</div>
+       <b id="stat-airport-v" style="color:var(--gold);font-size:20px;font-family:'Oswald',sans-serif;">—</b>
+      </div>
+      <div style="padding:6px 0;text-align:center;">
+       <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:6px;">Avión + usado</div>
+       <b id="stat-aircraft-v" style="color:var(--gold);font-size:20px;font-family:'Oswald',sans-serif;">—</b>
+      </div>
+     </div>
+    </div>
+
+    <!-- Últimos vuelos -->
+    <div id="pilotFlights" data-reveal style="display:none; margin-bottom:36px;">
+     <div class="section-head" style="margin-bottom:20px;">
+      <h2 style="font-size:clamp(18px,2vw,22px);">Tus últimos vuelos</h2>
+     </div>
+     <div style="padding:12px 16px;background:var(--card-bg);border:1px solid var(--line);border-radius:2px;">
+      <div style="display:grid;grid-template-columns:1.2fr .9fr 1.4fr 1fr;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);">
+       <span>Callsign</span><span>Aeronave</span><span>Vuelo</span><span>Fecha</span>
+      </div>
+      <div id="flights-v"></div>
      </div>
     </div>
 
@@ -315,18 +361,66 @@
  </div>
 </footer>
 
-<script src="../JS/i18n.js?v=10"></script>
+<script src="../JS/i18n.js?v=11"></script>
 <script src="../JS/script.js?v=32"></script>
 <script>
 (function(){
- var pilot = localStorage.getItem('faav_pilot');
- if (!pilot) {
+ var pilotCallsign = (localStorage.getItem('faav_pilot') || '').trim();
+ if(!pilotCallsign){
   document.getElementById('authGate').style.display = 'block';
   return;
  }
  document.getElementById('pilotContent').style.display = 'block';
- var names = { faav: 'COTA', fag212: 'FAG212' };
- document.getElementById('pilotName').textContent = names[pilot] || pilot;
+
+ var pilot = null;
+ try {
+  pilot = (window.PILOTS || []).find(function(p){ return p.callsign && normAlnum(p.callsign) === normAlnum(pilotCallsign); });
+ } catch(e){}
+
+ document.getElementById('pilotName').textContent = pilot ? pilot.name : pilotCallsign;
+
+ var badge = document.getElementById('pilotBadge');
+ var parts = [];
+ if(pilot){
+  if(pilot.callsign) parts.push(pilot.callsign);
+  if(pilot.indicativo) parts.push(pilot.indicativo.replace(/"/g,''));
+  if(pilot.cid) parts.push('CID ' + pilot.cid);
+  var cidLink = document.getElementById('pilotCidLink');
+  if(pilot.cid) cidLink.href = 'https://stats.vatsim.net/stats/' + pilot.cid;
+ } else {
+  parts.push(pilotCallsign);
+ }
+ badge.textContent = parts.join(' \u00b7 ') || '—';
+
+ if(pilot && pilot.cid){
+  fetch('../data/stats.json?t=' + Date.now()).then(function(r){
+   if(!r.ok) throw new Error('HTTP ' + r.status);
+   return r.json();
+  }).then(function(data){
+   var d = data && data[pilot.cid];
+   if(!d) return;
+   if(d.hours) document.getElementById('stat-hours-v').textContent = d.hours;
+   if(d.last) document.getElementById('stat-last-v').textContent = d.last;
+   if(d.airport) document.getElementById('stat-airport-v').textContent = d.airport;
+   if(d.aircraft) document.getElementById('stat-aircraft-v').textContent = d.aircraft;
+   document.getElementById('pilotStats').style.display = 'block';
+
+   var flights = d.lastFlights || [];
+   if(flights.length){
+    document.getElementById('flights-v').innerHTML = flights.slice(0,5).map(function(f){
+     var ac = (f.aircraft || '—');
+     var acIcon = '../icons/aircraft/' + ac.toLowerCase() + '.svg?v=3';
+     return '<div style="display:grid;grid-template-columns:1.2fr .9fr 1.4fr 1fr;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px;align-items:center;">' +
+      '<span style="color:var(--gold);font-weight:500;">' + (f.callsign||'—') + '</span>' +
+      '<span class="ac-cell">' + ac + '<img src="' + acIcon + '" class="ac-icon" style="' + acIconStyle(ac, 16) + '" onerror="this.style.display=\'none\'"></span>' +
+      '<span style="color:var(--blue-light);">' + (f.route||'—') + '</span>' +
+      '<span style="color:var(--muted);">' + (f.date||'—') + '</span>' +
+      '</div>';
+    }).join('');
+    document.getElementById('pilotFlights').style.display = 'block';
+   }
+  }).catch(function(){});
+ }
 })();
 function logout() {
  localStorage.removeItem('faav_pilot');

@@ -299,6 +299,9 @@
   ct("- SALA DE PILOTOS", "- PILOTS' ROOM");
   ct("No tenés acceso a esta sección. Iniciá sesión con tu usuario del COTA para continuar.", "You don't have access to this section. Sign in with your COTA account to continue.");
   ct("Bienvenido,", "Welcome,");
+  ct("Estadísticas de vuelo", "Flight statistics");
+  ct("Tus últimos vuelos", "Your recent flights");
+  ct("Ver perfil VATSIM", "View VATSIM profile");
   ct("Paquetes de aeropuertos y scenery packs para Prepar3D. Incluye bases aéreas, aeropuertos civiles y escenarios especiales del COTA.", "Airport and scenery packs for Prepar3D. Includes air bases, civil airports and special COTA scenarios.");
   ct("Paquetes de aeropuertos y scenery packs para Microsoft Flight Simulator 2020/24. Incluye bases aéreas, aeropuertos civiles y escenarios especiales del COTA.", "Airport and scenery packs for Microsoft Flight Simulator 2020/24. Includes air bases, civil airports and special COTA scenarios.");
   ct("Ir a descargas", "Go to downloads");
