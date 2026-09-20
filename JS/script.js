@@ -861,7 +861,7 @@ function resolveStorageGate(){
   if (doc) doc.setAttribute('data-gate', 'denied');
   window.location.replace(dest);
 }
-function applySchoolMenu(root, dl){
+function applySchoolMenu(root, dl, ui){
   if (!root) return;
   var descSpan = root.querySelector('.acc-sub-btn > span');
   if (descSpan && descSpan.textContent === 'Descargas') descSpan.textContent = 'Descargas Escuela';
@@ -874,7 +874,7 @@ function applySchoolMenu(root, dl){
     var href = child.getAttribute('href') || '';
     if (href.indexOf('index.html#operaciones') !== -1) {
       span.textContent = 'Material Aéreo Escuela';
-      child.setAttribute('href', UI + 'index.html#operaciones');
+      child.setAttribute('href', ui + 'index.html#operaciones');
     } else if (href.indexOf('documentacion/') !== -1) {
       span.textContent = 'Documentación Escuela';
     }
@@ -977,7 +977,7 @@ function buildAccDropdown(p){
     if (root.isConnected && !root.contains(e.target)) closeAccDropdown(root);
   });
 
-  if (scRole === 'piloto_escuela') applySchoolMenu(root, DL);
+  if (scRole === 'piloto_escuela') applySchoolMenu(root, DL, UI);
 
   return root;
 }
