@@ -917,6 +917,13 @@ function buildAccDropdown(p){
   root.className = 'nav-acc';
   root.setAttribute('data-auth-nav', '1');
 
+  var isEscuela = scRole === 'piloto_escuela';
+  var manualesHref = isEscuela ? DL + 'documentacion/MANUAL%20TEXAN/' : DL + 'documentacion/manuales/';
+  var procedimientosHref = isEscuela ? '' : DL + 'documentacion/procedimientos/';
+  var documentacionHref = DL + 'documentacion/';
+  var materialAereoHref = isEscuela ? DL.replace(/\/+$/, '') + '/index.html' : UI + 'index.html#operaciones';
+  var materialAereoLabel = isEscuela ? 'Material Aéreo Escuela' : 'Material Aéreo';
+
   root.innerHTML =
     '<button type="button" class="acc-btn" aria-haspopup="true" aria-expanded="false">' +
       '<span class="acc-label"></span>' +
@@ -942,11 +949,12 @@ function buildAccDropdown(p){
             '</div>' +
           '</div>' +
           '<a href="' + DL + 'liveries/"><span>Liveries</span></a>' +
-          '<a href="' + DL + 'documentacion/MANUAL%20TEXAN/"><span>Manuales</span></a>' +
+          '<a href="' + manualesHref + '"><span>Manuales</span></a>' +
+          (procedimientosHref ? '<a href="' + procedimientosHref + '"><span>Procedimientos</span></a>' : '') +
         '</div>' +
       '</div>' +
-      '<a href="' + UI + 'index.html#operaciones"><span>Material Aéreo</span></a>' +
-      '<a href="' + DL + 'documentacion/"><span>Documentación</span></a>' +
+      '<a href="' + materialAereoHref + '"><span>' + materialAereoLabel + '</span></a>' +
+      '<a href="' + documentacionHref + '"><span>Documentación</span></a>' +
       '<button type="button" class="acc-logout"><span>Cerrar sesión</span></button>' +
     '</div>';
 
@@ -980,8 +988,6 @@ function buildAccDropdown(p){
   document.addEventListener('click', function(e){
     if (root.isConnected && !root.contains(e.target)) closeAccDropdown(root);
   });
-
-  if (scRole === 'piloto_escuela') applySchoolMenu(root, DL, UI);
 
   return root;
 }
