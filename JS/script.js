@@ -874,7 +874,7 @@ function applySchoolMenu(root, dl){
     var href = child.getAttribute('href') || '';
     if (href.indexOf('index.html#operaciones') !== -1) {
       span.textContent = 'Material Aéreo Escuela';
-      child.setAttribute('href', dl);
+      child.setAttribute('href', UI + 'index.html#operaciones');
     } else if (href.indexOf('documentacion/') !== -1) {
       span.textContent = 'Documentación Escuela';
     }
@@ -938,7 +938,7 @@ function buildAccDropdown(p){
             '</div>' +
           '</div>' +
           '<a href="' + DL + 'liveries/"><span>Liveries</span></a>' +
-          '<a href="' + DL + 'documentacion/manuales/"><span>Manuales</span></a>' +
+          '<a href="' + DL + 'documentacion/MANUAL%20TEXAN/"><span>Manuales</span></a>' +
         '</div>' +
       '</div>' +
       '<a href="' + UI + 'index.html#operaciones"><span>Material Aéreo</span></a>' +
