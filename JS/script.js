@@ -65,7 +65,7 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
       a.innerHTML =
         '<span class="lc-tl"></span><span class="lc-tr"></span><span class="lc-bl"></span><span class="lc-br"></span>' +
         '<div class="ig-img-wrapper">' +
-          '<img src="' + p.img + '" alt="Post COTA" loading="lazy">' +
+          '<img src="' + p.img + '" alt="Post COTAV" loading="lazy">' +
           '<div class="ig-hover-overlay">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>' +
             '<span>VER EN INSTAGRAM</span>' +
@@ -421,6 +421,8 @@ function updateMap(livePilots) {
       const live = livePilots ? livePilots.find(lp => lp.cid === p.cid) : null;
       const card = document.createElement('div');
       card.className = live ? 'pilot-card lockframe pilot-online' : 'pilot-card lockframe pilot-offline';
+      let meCs = ''; try { meCs = (localStorage.getItem('faav_pilot') || '').trim(); } catch(e){}
+      if(meCs && p.callsign && p.callsign.toUpperCase() === meCs.toUpperCase()) card.classList.add('pilot-me');
       const corners = '<span class="lc-tl"></span><span class="lc-tr"></span><span class="lc-bl"></span><span class="lc-br"></span>';
 
       const callsignBadge = p.callsign ? ` <span style="color: #ff9d00; font-weight: bold; font-size: 0.85em;">[${p.callsign}]</span>` : '';
@@ -527,7 +529,7 @@ const FAAV_EVENTS = [
     desc: 'Welcome to the Northern Territory — where the scenery is spectacular, the weather is unforgiving, and the crocodiles are eagerly waiting for anyone brave enough to ignore the "No Swimming" signs and become their next floating entrée.',
     link: 'https://my.vatsim.net/events/uruguayan-vfr-tour',
     isVSOA: true,
-    participating: 'La COTA estará presente',
+    participating: 'La COTAV estará presente',
   },
   {
     name: 'SABE - SCEL Fly-In',
@@ -547,7 +549,7 @@ const FAAV_EVENTS = [
     desc: 'Operación en la FIR Resistencia (SARR). Aeropuerto principal: SARI – Cataratas del Iguazú. Cobertura ATC completa y vistas espectaculares.',
     link: 'https://my.vatsim.net/events/sarr-fly-inn-2',
     isFAAV: false,
-    participating: 'La COTA estará presente',
+    participating: 'La COTAV estará presente',
   },
 ];
 
@@ -646,13 +648,13 @@ function renderCalendarEvents(events, containerId) {
     const airports = (e.airports || []).map(a => '<span>' + a + '</span>').join('');
     const desc = e.desc ? '<div class="cal-desc">' + e.desc + '</div>' : '';
     const orgClass = e.isFAAV ? 'faav' : (e.isVatsimAR ? 'vatsim-ar' : 'vsoa');
-    const orgLabel = e.isFAAV ? 'COTA' : (e.isVatsimAR ? 'VATSIM ARGENTINA' : 'VSOA');
+    const orgLabel = e.isFAAV ? 'COTAV' : (e.isVatsimAR ? 'VATSIM ARGENTINA' : 'VSOA');
     const logoKey = e.isFAAV ? 'faav' : (e.isVatsimAR ? 'vatsim' : 'vsoa');
     const logoSrc = logoMap[logoKey] || '';
     const logoHtml = logoSrc ? '<img src="' + logoSrc + '" class="cal-logo' + (logoKey === 'vsoa' ? ' cal-logo-lg' : '') + '" alt="' + orgLabel + '">' : '';
     const link = e.link ? '<a href="' + e.link + '" target="_blank" rel="noopener" class="op-link">Ver evento <svg style="width:13px;height:13px"><use href="#ic-arrow"/></svg></a>' : '';
     const gcal = googleCalLink(e) ? '<a href="' + googleCalLink(e) + '" target="_blank" rel="noopener" class="op-link">Agregar a Google Calendar <svg style="width:13px;height:13px"><use href="#ic-arrow"/></svg></a>' : '';
-    const badge = e.participating ? '<span class="cal-badge">COTA PRESENTE</span>' : '';
+    const badge = e.participating ? '<span class="cal-badge">COTAV PRESENTE</span>' : '';
     const footer = '<div class="cal-footer"><div class="cal-footer-top"><span class="cal-org ' + orgClass + '">' + orgLabel + '</span>' + logoHtml + '</div>' + badge + '<div class="cal-footer-bottom">' + link + gcal + '</div></div>';
     card.innerHTML =
       '<span class="lc-tl"></span><span class="lc-tr"></span><span class="lc-bl"></span><span class="lc-br"></span>' +

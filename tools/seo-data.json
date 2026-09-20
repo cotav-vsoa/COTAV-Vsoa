@@ -9,12 +9,12 @@
   { "rel": "HTML/redes.html", "desc": "Redes sociales de la FAAV - VSOA: Instagram, YouTube y TikTok de la comunidad argentina de simulación aérea." },
   { "rel": "HTML/reglamento.html", "desc": "Reglamento de la FAAV - VSOA: normas y procedimientos de la comunidad y sus brigadas." },
   { "rel": "HTML/todos-pilotos.html", "desc": "Todos los pilotos de la FAAV - VSOA con horas de vuelo y registro en VATSIM." },
-  { "rel": "storage/aviones-mfs/index.html", "desc": "Aeronaves de la FAAV para Microsoft Flight Simulator 2020/2024." },
-  { "rel": "storage/aviones-p3d/index.html", "desc": "Aeronaves de la FAAV para Prepar3D." },
-  { "rel": "storage/escenarios-mfs/index.html", "desc": "Escenarios de la FAAV para Microsoft Flight Simulator 2020/2024." },
-  { "rel": "storage/escenarios-p3d/index.html", "desc": "Escenarios de la FAAV para Prepar3D." },
+  { "rel": "storage/pilotos/aviones-mfs/index.html", "desc": "Aeronaves de la FAAV para Microsoft Flight Simulator 2020/2024." },
+  { "rel": "storage/pilotos/aviones-p3d/index.html", "desc": "Aeronaves de la FAAV para Prepar3D." },
+  { "rel": "storage/pilotos/escenarios-mfs/index.html", "desc": "Escenarios de la FAAV para Microsoft Flight Simulator 2020/2024." },
+  { "rel": "storage/pilotos/escenarios-p3d/index.html", "desc": "Escenarios de la FAAV para Prepar3D." },
   { "rel": "storage/escuela-de-aviacion-militar-virtual/index.html", "desc": "Programa de entrenamiento de la Escuela de Aviación Militar Virtual de la FAAV." },
-  { "rel": "storage/liveries/index.html", "desc": "Liveries de la FAAV - VSOA: pinturas oficiales de las aeronaves de la comunidad." },
-  { "rel": "storage/manuales/index.html", "desc": "Manuales y documentos de la FAAV - VSOA." },
-  { "rel": "storage/procedimientos/index.html", "desc": "Procedimientos operativos de la FAAV - VSOA." }
+  { "rel": "storage/pilotos/liveries/index.html", "desc": "Liveries de la FAAV - VSOA: pinturas oficiales de las aeronaves de la comunidad." },
+  { "rel": "storage/pilotos/manuales/index.html", "desc": "Manuales y documentos de la FAAV - VSOA." },
+  { "rel": "storage/pilotos/procedimientos/index.html", "desc": "Procedimientos operativos de la FAAV - VSOA." }
 ]
