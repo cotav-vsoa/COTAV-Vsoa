@@ -230,7 +230,7 @@
 <script src="../JS/script.js?v=36"></script>
 <script>
 (function(){
- var pilotCallsign = (localStorage.getItem('faav_pilot') || '').trim();
+  var pilotCallsign = (sessionStorage.getItem('faav_pilot') || localStorage.getItem('faav_pilot') || '').trim();
  if(!pilotCallsign){
   document.getElementById('authGate').style.display = 'block';
   return;
