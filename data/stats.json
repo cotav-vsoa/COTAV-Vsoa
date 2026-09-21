@@ -88,12 +88,19 @@
     ]
   },
   "1502178": {
-    "hours": "2855h 17m",
-    "last": "CONDOR1 · 19 de sept de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">EKSP</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">LEZG</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "hours": "2854h 27m",
+    "last": "AAL953 · 21 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">KJFK</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B77W</span>",
     "airport": "SABE",
     "aircraft": "GLF5",
     "lastFlights": [
+      {
+        "callsign": "AAL953",
+        "aircraft": "B77W",
+        "route": "KJFK → SAEZ",
+        "date": "21 de sept de 2026",
+        "remark": "PBN/A1B1C1D1L1O1S2 DOF/260921 REG/N735AT EET/KZBW0003 KZNY0012 KZWY0035 KZMA0206 TJZS0236 TTZP0324 SVZM0346 SBAZ0444 SLLF0718 SBCW0746 SGFA0747 SBCW0800 SGFA0801 SARR0840 SAEF0906 OPR/AAL PER/D RMK/TCAS /V/"
+      },
       {
         "callsign": "CONDOR1",
         "aircraft": "F16",
@@ -149,13 +156,6 @@
         "route": "KCVG → KMHT",
         "date": "10 de sept de 2026",
         "remark": "PBN/A1B1C1D1L1O1 DOF/260910 REG/N1489A EET/KZOB0019 KZNY0052 KZBW0054 OPR/ABX PER/D RMK/TCAS SIMBRIEF /V/"
-      },
-      {
-        "callsign": "CONDOR2",
-        "aircraft": "F16",
-        "route": "SBAN → SBAN",
-        "date": "07 de sept de 2026",
-        "remark": "DOF/260907 /V/"
       }
     ]
   },
