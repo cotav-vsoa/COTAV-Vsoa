@@ -91,6 +91,7 @@ nav{
 .btn-primary{background:var(--blue); color:#04101f; font-weight:700;}
 .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(63,125,207,0.35);}
 .btn-ghost{border:1px solid var(--line-strong); color:var(--ivory);}
+button.btn-ghost{background:none;}
 .btn-ghost:hover{border-color:var(--blue-light); background:rgba(127,184,242,0.06);}
 .navcta{display:flex; align-items:center; gap:14px;}
 .lang-switch{display:flex; align-items:stretch; border:1px solid var(--line-strong); border-radius:2px; overflow:hidden; flex-shrink:0;}
