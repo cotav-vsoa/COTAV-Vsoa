@@ -489,7 +489,7 @@
         mapEl.style.display = 'block';
         if(!pilotMap){
           pilotMap = L.map('pilot-map', { attributionControl: false, zoomControl: false }).setView([live.latitude, live.longitude], 8);
-          L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark/{z}/{x}/{y}.png?key=cb1_3sya_1_43376c38911c7e4517362145', { maxZoom: 19 }).addTo(pilotMap);
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(pilotMap);
           L.control.zoom({ position: 'bottomright' }).addTo(pilotMap);
         }
         pilotMap.setView([live.latitude, live.longitude], 8);

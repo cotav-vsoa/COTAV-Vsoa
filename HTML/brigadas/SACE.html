@@ -50,7 +50,7 @@
 
   // Mapa Leaflet (EAM Córdoba)
   const map = L.map('brigada-map', { attributionControl: false }).setView([-31.444722, -64.283528], 13);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark/{z}/{x}/{y}.png?key=cb1_3sya_1_43376c38911c7e4517362145', { maxZoom: 19 }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
   L.marker([-31.444722, -64.283528]).addTo(map);
 
   // Fix de renderizado del mapa al aparecer en viewport
