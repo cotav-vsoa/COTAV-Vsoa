@@ -50,7 +50,7 @@
 
   // Inicialización de Leaflet (Coordenadas SARE Resistencia, Zoom 13)
   const map = L.map('brigada-map', { attributionControl: false }).setView([-27.45, -59.056111], 13);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark/{z}/{x}/{y}.png?key=cb1_3sya_1_43376c38911c7e4517362145', { maxZoom: 19 }).addTo(map);
   L.marker([-27.45, -59.056111]).addTo(map);
 
   // FIX: Recalcula dimensiones del mapa cuando se activa la animación data-reveal
@@ -97,6 +97,7 @@
 </script>
 <script src="../../JS/i18n.js?v=16"></script>
 </body></html>
+
 
 
 

@@ -1,0 +1,7 @@
+# Esta carpeta solo debe servir imágenes subidas por los pilotos.
+# Por seguridad, nunca ejecutar nada que no sea una imagen, aunque
+# alguien lograra subir un archivo con otra extensión.
+<FilesMatch "\.(php|phtml|php\d|pl|py|cgi|sh)$">
+  Require all denied
+</FilesMatch>
+Options -Indexes

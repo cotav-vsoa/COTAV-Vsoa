@@ -194,9 +194,9 @@
   <div class="foot-bottom">
    <p class="foot-legal">©2026 COTAV</p>
    <div class="foot-social">
-    <a href="https://www.instagram.com/faav_arg/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-insta"/></svg></a>
-    <a href="https://www.youtube.com/@cota_vsoa" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#ic-yt"/></svg></a>
-    <a href="https://www.tiktok.com/@cota_vsoa" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#ic-tiktok"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-insta"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#ic-yt"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#ic-tiktok"/></svg></a>
    </div>
   </div>
  </div>
@@ -489,7 +489,7 @@
         mapEl.style.display = 'block';
         if(!pilotMap){
           pilotMap = L.map('pilot-map', { attributionControl: false, zoomControl: false }).setView([live.latitude, live.longitude], 8);
-          L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(pilotMap);
+          L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark/{z}/{x}/{y}.png?key=cb1_3sya_1_43376c38911c7e4517362145', { maxZoom: 19 }).addTo(pilotMap);
           L.control.zoom({ position: 'bottomright' }).addTo(pilotMap);
         }
         pilotMap.setView([live.latitude, live.longitude], 8);
@@ -516,6 +516,7 @@
 
 </body>
 </html>
+
 
 
 

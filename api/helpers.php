@@ -1,0 +1,80 @@
+<?php
+require_once __DIR__ . '/config.php';
+
+/* ---------- sesión (cookie HttpOnly, no accesible desde JS) ---------- */
+function faav_start_session() {
+  if (session_status() === PHP_SESSION_ACTIVE) return;
+  $secure = APP_FORCE_SECURE_COOKIE || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+  session_set_cookie_params([
+    'lifetime' => 60 * 60 * 24 * 30, // 30 días
+    'path'     => '/',
+    'domain'   => '',
+    'secure'   => $secure,
+    'httponly' => true,
+    'samesite' => 'Lax',
+  ]);
+  session_name('faav_session');
+  session_start();
+}
+
+/* ---------- respuestas JSON ---------- */
+function faav_json($data, $status = 200) {
+  http_response_code($status);
+  header('Content-Type: application/json; charset=utf-8');
+  echo json_encode($data, JSON_UNESCAPED_UNICODE);
+  exit;
+}
+
+function faav_read_json_body() {
+  $raw = file_get_contents('php://input');
+  $data = json_decode($raw, true);
+  return is_array($data) ? $data : [];
+}
+
+/* ---------- normalización de callsign ----------
+   "FAG-212", "fag 212", "Fag212" -> "FAG212" */
+function faav_norm_callsign($s) {
+  $s = strtoupper((string)$s);
+  return preg_replace('/[^A-Z0-9]/', '', $s);
+}
+
+/* ---------- conexión PDO ---------- */
+function faav_db() {
+  static $pdo = null;
+  if ($pdo) return $pdo;
+  $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4';
+  try {
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, [
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]);
+  } catch (PDOException $e) {
+    faav_json(['ok' => false, 'error' => 'No se pudo conectar a la base de datos.'], 500);
+  }
+  return $pdo;
+}
+
+/* ---------- roster: lista oficial de callsigns válidos ---------- */
+function faav_roster() {
+  static $roster = null;
+  if ($roster !== null) return $roster;
+  $path = __DIR__ . '/../data/roster.json';
+  $json = @file_get_contents($path);
+  $arr = $json ? json_decode($json, true) : [];
+  $roster = is_array($arr) ? $arr : [];
+  return $roster;
+}
+
+function faav_roster_find($normCallsign) {
+  foreach (faav_roster() as $p) {
+    if (faav_norm_callsign($p['callsign'] ?? '') === $normCallsign) return $p;
+  }
+  return null;
+}
+
+/* ---------- solo permitir POST ---------- */
+function faav_require_post() {
+  if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    faav_json(['ok' => false, 'error' => 'Método no permitido.'], 405);
+  }
+}

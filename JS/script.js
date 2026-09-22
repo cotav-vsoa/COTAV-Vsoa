@@ -102,7 +102,7 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 let map = null;
 if(document.getElementById('vatsim-map')){
   map = L.map('vatsim-map', { attributionControl: false }).setView([-34.6, -58.4], 5);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark/{z}/{x}/{y}.png?key=cb1_3sya_1_43376c38911c7e4517362145', { maxZoom: 19 }).addTo(map);
   map.on('click', clearAllRoutes);
 }
 
