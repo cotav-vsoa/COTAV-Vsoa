@@ -1,5 +1,21 @@
 <?php
 require_once __DIR__ . '/helpers.php';
+
+/* ---------- CORS: permitir el login desde el sitio de GitHub Pages ---------- */
+$corsOrigin = 'https://cotav-vsoa.github.io';
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+  if (rtrim($_SERVER['HTTP_ORIGIN'], '/') === $corsOrigin) {
+    header('Access-Control-Allow-Origin: ' . $corsOrigin);
+    header('Vary: Origin');
+  }
+}
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  http_response_code(204);
+  exit;
+}
+
 cotav_require_post();
 
 $body = cotav_read_json_body();
