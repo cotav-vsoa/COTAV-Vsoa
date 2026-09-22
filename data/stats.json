@@ -160,74 +160,18 @@
     ]
   },
   "1562806": {
-    "hours": "464h 54m",
-    "last": "ARG1672 · 16 de sept de 2026",
+    "hours": "466h 12m",
+    "last": "CONDOR2 · 21 de sept de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
       {
-        "callsign": "ARG1672",
-        "aircraft": "B737",
-        "route": "SABE → SAZS",
-        "date": "16 de sept de 2026",
-        "remark": "PBN/A1B1C1D1S1S2 DOF/260916 REG/LVBYY OPR/ARG PER/C RMK/TCAS SIMBRIEF /V/"
-      },
-      {
-        "callsign": "ARG1838",
-        "aircraft": "A332",
-        "route": "SAEZ → SAWC",
-        "date": "15 de sept de 2026",
-        "remark": "PBN/A1B1C1D1O1S2 DOF/260915 REG/LVGKO EET/SAVF0054 OPR/ARG PER/C RMK/TCAS SIMBRIEF /V/"
-      },
-      {
-        "callsign": "ARG1878",
-        "aircraft": "A343",
-        "route": "SAEZ → SAWH",
-        "date": "11 de sept de 2026",
-        "remark": "PBN/A1B1C1D1O1S2 DOF/260911 REG/LVCXS EET/SAVF0047 OPR/ARG PER/C RMK/TCAS SIMBRIEF /V/"
-      },
-      {
-        "callsign": "CONDR11",
+        "callsign": "CONDOR2",
         "aircraft": "F16",
-        "route": "SAWC → SAWC",
-        "date": "29 de ago de 2026",
-        "remark": "DOF/260829 REG/M-1020 OPR/FAG /V/"
-      },
-      {
-        "callsign": "CONDR11",
-        "aircraft": "F16",
-        "route": "SAOC → SAME",
-        "date": "27 de ago de 2026",
-        "remark": "DOF/260827 REG/M-1008 OPR/FAG /V/"
-      },
-      {
-        "callsign": "FAG212",
-        "aircraft": "—",
-        "route": "—",
-        "date": "23 de ago de 2026",
-        "remark": ""
-      },
-      {
-        "callsign": "FAG212",
-        "aircraft": "—",
-        "route": "—",
-        "date": "22 de ago de 2026",
-        "remark": ""
-      },
-      {
-        "callsign": "ARG1630",
-        "aircraft": "—",
-        "route": "—",
-        "date": "19 de ago de 2026",
-        "remark": ""
-      },
-      {
-        "callsign": "ARG1630",
-        "aircraft": "B738",
-        "route": "SABE → SAZN",
-        "date": "18 de ago de 2026",
-        "remark": "PBN/B2B3D2D3O2S1T1T2 NAV/B4 B5 O3 O4 D4 S2 DOF/260818 REG/LVGVB SEL/KRFH CODE/E07582 OPR/ARG PER/C RMK/TCAS II SIMBRIEF /V/"
+        "route": "SAOC → SAOC",
+        "date": "21 de sept de 2026",
+        "remark": "DOF/260921 REG/M-1020 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR1-2 FFLTEND VSOA/FAAV.COM.AR /V/"
       }
     ]
   },
@@ -285,12 +229,19 @@
     ]
   },
   "1712199": {
-    "hours": "338h 15m",
-    "last": "CONDR12 · 29 de ago de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAWC</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAWC</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "hours": "339h 47m",
+    "last": "CONDOR1 · 21 de sept de 2026",
+    "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDOR1",
+        "aircraft": "F16",
+        "route": "SAOC → SAOC",
+        "date": "21 de sept de 2026",
+        "remark": "DOF/260921 REG/M-1007 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR1-2 FFLTEND VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "DAGA",
         "aircraft": "F16",
@@ -332,13 +283,6 @@
         "route": "SAOR → SAME",
         "date": "26 de jun de 2026",
         "remark": "DOF/260626 REG/E-822 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "CONDOR1",
-        "aircraft": "F16",
-        "route": "SAAP → SAOC",
-        "date": "23 de jun de 2026",
-        "remark": "DOF/260623 REG/M-1004 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/CONDOR1-2 FFLTEND VSOA/FAAV.COM.AR /V/"
       }
     ]
   },
@@ -452,8 +396,8 @@
     ]
   },
   "2005108": {
-    "hours": "40h 17m",
-    "last": "FAG255 · 21 de ago de 2026",
+    "hours": "40h 48m",
+    "last": "ANS618 · 22 de sept de 2026",
     "lastDetail": "",
     "airport": "SADP",
     "aircraft": "A4",
