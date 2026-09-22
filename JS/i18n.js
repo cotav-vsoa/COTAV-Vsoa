@@ -262,6 +262,7 @@
   ct("Contraseña", "Password");
   ct("Usuario o contraseña incorrectos.", "Incorrect username or password.");
   ct("(usuario: tu callsign FAG-xxx · contraseña: tu indicativo, ej. COBRA)", "(username: your callsign FAG-xxx · password: your callsign nickname, e.g. COBRA)");
+  ct("(usuario: tu callsign FAG-xxx · contraseña: la que elegiste al registrarte)", "(username: your callsign FAG-xxx · password: the one you chose when you registered)");
   ct("Usuario: tu callsign (ej. FAG-212) · Contraseña: tu indicativo (ej. COBRA) — sin comillas.", "Username: your callsign (e.g. FAG-212) · Password: your callsign nickname (e.g. COBRA) — without quotes.");
   ct("Ingresar", "Sign in");
   ct("¿No tenés cuenta?", "Don't have an account?");

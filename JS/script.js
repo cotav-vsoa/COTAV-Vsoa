@@ -756,6 +756,36 @@ document.querySelectorAll('.brig-row').forEach(function(el){
 function normAlnum(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]/gi,''); }
 function normPass(s){ var t = String(s||'').replace(/["'\s]+/g,''); try { t = t.normalize('NFD').replace(/[\u0300-\u036f]/g,''); } catch(e){} return t.toUpperCase(); }
 
+/* ---------- usuarios únicos (cuentas registradas en data/usuarios.json) ---------- */
+var __usuariosCache = null;
+function usuariosJsonUrl(){
+  var p = window.location.pathname || '/';
+  var segs = p.slice(0, p.lastIndexOf('/') + 1).split('/').filter(Boolean);
+  if (segs.length) segs.shift();
+  var ups = '';
+  for (var i = 0; i < segs.length; i++) ups += '../';
+  return ups + 'data/usuarios.json';
+}
+function fetchUsuarios(){
+  if (__usuariosCache) return Promise.resolve(__usuariosCache);
+  return fetch(usuariosJsonUrl(), { cache: 'no-cache' })
+    .then(function(r){ if (!r.ok) throw new Error('usuarios'); return r.json(); })
+    .then(function(list){
+      __usuariosCache = Array.isArray(list) ? list : [];
+      try { localStorage.setItem('cotav_usuarios_cache', JSON.stringify({ at: Date.now(), users: __usuariosCache })); } catch(e){}
+      return __usuariosCache;
+    })
+    .catch(function(e){
+      var cached = null;
+      try { cached = JSON.parse(localStorage.getItem('cotav_usuarios_cache') || 'null'); } catch(ex){}
+      if (cached && Array.isArray(cached.users) && (Date.now() - cached.at) < 10*60*1000) {
+        __usuariosCache = cached.users;
+        return __usuariosCache;
+      }
+      throw e;
+    });
+}
+
 function handleLogin(e) {
   e.preventDefault();
   var user = document.getElementById('loginUser').value.trim();
@@ -766,31 +796,51 @@ function handleLogin(e) {
     var p = PILOTS[i];
     if (un && normAlnum(p.callsign) === un) { found = p; break; }
   }
-  if (!found) { loginFail(); return; }
-  var key = 'cotav_pass_' + normAlnum(found.callsign);
-  var stored = null;
-  try { stored = localStorage.getItem(key); } catch(ex){}
-  if (stored) {
-    sha256Hex('cotav::' + normAlnum(found.callsign) + '::' + pass).then(function(h){
-      if (h === stored.toLowerCase()) loginOk(found);
-      else loginFail();
+  if (!found) { loginFail(null); return; }
+
+  var csKey = normAlnum(found.callsign);
+  var localHash = null;
+  try { localHash = localStorage.getItem('cotav_pass_' + csKey); } catch(ex){}
+
+  sha256Hex('cotav::' + csKey + '::' + pass).then(function(h){
+    h = (h || '').toLowerCase();
+
+    /* 1) Contraseña propia cambiada en este navegador */
+    if (localHash && h === String(localHash).toLowerCase()) { loginOk(found); return; }
+
+    /* 2) Cuenta única registrada en data/usuarios.json */
+    fetchUsuarios().then(function(list){
+      var entry = null;
+      for (var j = 0; j < list.length; j++) {
+        if (normAlnum(list[j].callsign || '') === csKey) { entry = list[j]; break; }
+      }
+      if (entry) {
+        if (entry.hash && h === String(entry.hash).toLowerCase()) { loginOk(found); return; }
+        loginFail(entry);
+        return;
+      }
+      /* 3) Piloto sin registro único: acceso inicial por indicativo */
+      if (!localHash && normPass(found.indicativo) === normPass(pass)) { loginOk(found); return; }
+      loginFail(null);
+    }).catch(function(){
+      /* Sin datos de usuarios disponibles: comportamiento original */
+      if (!localHash && normPass(found.indicativo) === normPass(pass)) { loginOk(found); return; }
+      loginFail(null);
     });
-  } else if (normPass(found.indicativo) === normPass(pass)) {
-    loginOk(found);
-  } else {
-    loginFail();
-  }
+  });
 }
 function loginOk(p){
   try {       sessionStorage.setItem('cotav_pilot', p.callsign); } catch(e){}
   window.location.href = 'pilotos.html';
 }
-function loginFail(){
+function loginFail(entry){
   var err = document.getElementById('loginError');
   var inp = document.getElementById('loginPass');
   if (err) {
     err.style.display = 'block';
-    err.textContent = __T('Usuario o contraseña incorrectos.') + ' ' + __T('(usuario: tu callsign FAG-xxx · contraseña: tu indicativo, ej. COBRA)');
+    err.textContent = __T('Usuario o contraseña incorrectos.') + ' ' + (entry
+      ? __T('(usuario: tu callsign FAG-xxx · contraseña: la que elegiste al registrarte)')
+      : __T('(usuario: tu callsign FAG-xxx · contraseña: tu indicativo, ej. COBRA)'));
   }
   if (inp) inp.value = '';
 }
