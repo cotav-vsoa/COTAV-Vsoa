@@ -1,1 +1,6 @@
 ﻿COTAV.zip
+Pagina COTA.zip
+
+# Credenciales de la base de datos: no versionar.
+# En cada servidor se crea api/config.php a mano (ver api/config.example.php).
+api/config.php
