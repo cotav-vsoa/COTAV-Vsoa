@@ -1,19 +1,19 @@
 <?php
 require_once __DIR__ . '/helpers.php';
-faav_start_session();
+cotav_start_session();
 
 $cs = $_SESSION['callsign'] ?? '';
 if ($cs === '') {
-  faav_json(['ok' => true, 'logged' => false]);
+  cotav_json(['ok' => true, 'logged' => false]);
 }
 
-$pilot = faav_roster_find($cs);
+$pilot = cotav_roster_find($cs);
 if (!$pilot) {
   // El callsign quedó en sesión pero ya no está en el roster.
-  faav_json(['ok' => true, 'logged' => false]);
+  cotav_json(['ok' => true, 'logged' => false]);
 }
 
-faav_json([
+cotav_json([
   'ok' => true,
   'logged' => true,
   'pilot' => [

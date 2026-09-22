@@ -421,7 +421,7 @@ function updateMap(livePilots) {
       const live = livePilots ? livePilots.find(lp => lp.cid === p.cid) : null;
       const card = document.createElement('div');
       card.className = live ? 'pilot-card lockframe pilot-online' : 'pilot-card lockframe pilot-offline';
-      let meCs = ''; try { if(!sessionStorage.getItem('faav_pilot') && sessionStorage.getItem('faav_pilot')) sessionStorage.removeItem('faav_pilot'); try{ localStorage.removeItem('faav_pilot'); }catch(e){} meCs = (sessionStorage.getItem('faav_pilot') || '').trim(); } catch(e){}
+      let meCs = ''; try { if(!sessionStorage.getItem('cotav_pilot') && sessionStorage.getItem('cotav_pilot')) sessionStorage.removeItem('cotav_pilot'); try{ localStorage.removeItem('cotav_pilot'); }catch(e){} meCs = (sessionStorage.getItem('cotav_pilot') || '').trim(); } catch(e){}
       if(meCs && p.callsign && p.callsign.toUpperCase() === meCs.toUpperCase()) card.classList.add('pilot-me');
       const corners = '<span class="lc-tl"></span><span class="lc-tr"></span><span class="lc-bl"></span><span class="lc-br"></span>';
 
@@ -482,12 +482,12 @@ function updateMap(livePilots) {
       const res = await fetch('https://data.vatsim.net/v3/vatsim-data.json');
       const data = await res.json();
       const cache = { at: new Date().toISOString(), pilots: (data.pilots||[]).filter(p => PILOTS.some(x => p.callsign === x.callsign)) };
-      try { localStorage.setItem('faav_live_cache', JSON.stringify(cache)); } catch(e){}
+      try { localStorage.setItem('cotav_live_cache', JSON.stringify(cache)); } catch(e){}
       renderPilots(data.pilots || []);
       updateMap(data.pilots || []);
     }catch(err){
       let cached = null;
-      try { cached = JSON.parse(localStorage.getItem('faav_live_cache') || 'null'); } catch(e){}
+      try { cached = JSON.parse(localStorage.getItem('cotav_live_cache') || 'null'); } catch(e){}
       const totalCountEl = document.getElementById('tracker-total-count');
       const errMsg = err instanceof TypeError
         ? 'Sin conexión a Internet — verificá tu red o abrí desde GitHub Pages (file:// bloquea el fetch).'
@@ -508,11 +508,11 @@ function updateMap(livePilots) {
 
 /* ══════════════════════════════════════════════════════════════════
    CALENDARIO DE EVENTOS
-   - FAAV: agregar con isFAAV: true en FAAV_EVENTS
-   - VATSIM ARGENTINA: se sincroniza de la API de VATSIM (división SAM + aeropuertos SA); agregar fijos con isFAAV: false
-   - EVENTOS VSOA: eventos de otras VSOAs, se cargan manualmente con isVSOA: true en FAAV_EVENTS
+   - COTAV: agregar con isCOTAV: true en COTAV_EVENTS
+   - VATSIM ARGENTINA: se sincroniza de la API de VATSIM (división SAM + aeropuertos SA); agregar fijos con isCOTAV: false
+   - EVENTOS VSOA: eventos de otras VSOAs, se cargan manualmente con isVSOA: true en COTAV_EVENTS
 ═════════════════════════════════════════════════════════════════ */
-const FAAV_EVENTS = [
+const COTAV_EVENTS = [
   {
     name: 'FERRY F16 II',
     start: '2026-09-26T22:00:00Z',
@@ -520,7 +520,7 @@ const FAAV_EVENTS = [
     airports: ['EKSP', 'SAOC'],
     desc: 'Segundo vuelo ferry de los F-16 de la Fuerza Aerea Argentina.',
     link: '',
-    isFAAV: true,
+    isCOTAV: true,
     participating: '',
   },
   {
@@ -540,7 +540,7 @@ const FAAV_EVENTS = [
     airports: ['SABE', 'SCEL'],
     desc: 'Cruzá los Andes en una de las rutas más impresionantes de Sudamérica. Aeroparque Jorge Newbery (SABE) a Santiago de Chile (SCEL).',
     link: 'https://my.vatsim.net/events/sabe-scel-fly-in',
-    isFAAV: false,
+    isCOTAV: false,
     participating: '',
   },
   {
@@ -550,7 +550,7 @@ const FAAV_EVENTS = [
     airports: ['SARI', 'SARE', 'SARF', 'SARC'],
     desc: 'Operación en la FIR Resistencia (SARR). Aeropuerto principal: SARI – Cataratas del Iguazú. Cobertura ATC completa y vistas espectaculares.',
     link: 'https://my.vatsim.net/events/sarr-fly-inn-2',
-    isFAAV: false,
+    isCOTAV: false,
     participating: 'La COTAV estará presente',
   },
 ];
@@ -569,12 +569,12 @@ function stripHTML(html) {
 }
 
 function classifyEvents(vatsimEvents) {
-  const faav = [];
+  const cotav = [];
   const vsoa = [];
   const argar = [];
 
-  FAAV_EVENTS.forEach(e => {
-    if (e.isFAAV) { faav.push({ ...e, isFAAV: true }); }
+  COTAV_EVENTS.forEach(e => {
+    if (e.isCOTAV) { cotav.push({ ...e, isCOTAV: true }); }
     else if (e.isVSOA) { vsoa.push({ ...e, isVSOA: true }); }
     else { argar.push({ ...e, isVatsimAR: true }); }
   });
@@ -597,7 +597,7 @@ function classifyEvents(vatsimEvents) {
     if (hasARG && !argarLinks.has(card.link)) { argar.push({ ...card, isVatsimAR: true }); }
   });
 
-  faav.sort((a, b) => new Date(a.start) - new Date(b.start));
+  cotav.sort((a, b) => new Date(a.start) - new Date(b.start));
   vsoa.sort((a, b) => new Date(a.start) - new Date(b.start));
   argar.sort((a, b) => new Date(a.start) - new Date(b.start));
 
@@ -607,12 +607,12 @@ function classifyEvents(vatsimEvents) {
     return (!isNaN(t) ? t : new Date(e.start).getTime()) < now;
   };
   const upcoming = function(arr) { return arr.filter(e => !isPast(e)); };
-  const past = faav.concat(vsoa).concat(argar)
+  const past = cotav.concat(vsoa).concat(argar)
     .filter(isPast)
     .sort((a, b) => new Date(b.start) - new Date(a.start))
     .slice(0, 5);
 
-  return { faav: upcoming(faav), vsoa: upcoming(vsoa), argar: upcoming(argar), past };
+  return { cotav: upcoming(cotav), vsoa: upcoming(vsoa), argar: upcoming(argar), past };
 }
 
 function toGoogleDT(iso){
@@ -639,7 +639,7 @@ function renderCalendarEvents(events, containerId) {
     return;
   }
   const logoMap = {
-    faav: '../img/Logo FAAV/Logo Faav.png?v=4',
+    cotav: '../img/Logo COTAV/Logo Cotav.png?v=4',
     vatsim: '../img/Logo Vatsim Argentina/Logo Vatsim Argentina.png',
     vsoa: '../img/Logo VSOA/Logo VSOA.png'
   };
@@ -649,9 +649,9 @@ function renderCalendarEvents(events, containerId) {
     card.className = 'cal-card lockframe';
     const airports = (e.airports || []).map(a => '<span>' + a + '</span>').join('');
     const desc = e.desc ? '<div class="cal-desc">' + e.desc + '</div>' : '';
-    const orgClass = e.isFAAV ? 'faav' : (e.isVatsimAR ? 'vatsim-ar' : 'vsoa');
-    const orgLabel = e.isFAAV ? 'COTAV' : (e.isVatsimAR ? 'VATSIM ARGENTINA' : 'VSOA');
-    const logoKey = e.isFAAV ? 'faav' : (e.isVatsimAR ? 'vatsim' : 'vsoa');
+    const orgClass = e.isCOTAV ? 'cotav' : (e.isVatsimAR ? 'vatsim-ar' : 'vsoa');
+    const orgLabel = e.isCOTAV ? 'COTAV' : (e.isVatsimAR ? 'VATSIM ARGENTINA' : 'VSOA');
+    const logoKey = e.isCOTAV ? 'cotav' : (e.isVatsimAR ? 'vatsim' : 'vsoa');
     const logoSrc = logoMap[logoKey] || '';
     const logoHtml = logoSrc ? '<img src="' + logoSrc + '" class="cal-logo' + (logoKey === 'vsoa' ? ' cal-logo-lg' : '') + '" alt="' + orgLabel + '">' : '';
     const link = e.link ? '<a href="' + e.link + '" target="_blank" rel="noopener" class="op-link">Ver evento <svg style="width:13px;height:13px"><use href="#ic-arrow"/></svg></a>' : '';
@@ -672,7 +672,7 @@ function renderCalendarEvents(events, containerId) {
 function initCalendar() {
   const tabs = document.querySelectorAll('.cal-tab');
   const grids = {
-    faav: document.getElementById('cal-grid-faav'),
+    cotav: document.getElementById('cal-grid-cotav'),
     vsoa: document.getElementById('cal-grid-vsoa'),
     argar: document.getElementById('cal-grid-argar'),
     past: document.getElementById('cal-grid-past'),
@@ -694,7 +694,7 @@ function initCalendar() {
     if(el) el.textContent = text;
   };
   const renderAll = function(result){
-    renderCalendarEvents(result.faav, 'cal-grid-faav');
+    renderCalendarEvents(result.cotav, 'cal-grid-cotav');
     renderCalendarEvents(result.vsoa, 'cal-grid-vsoa');
     renderCalendarEvents(result.argar, 'cal-grid-argar');
     renderCalendarEvents(result.past, 'cal-grid-past');
@@ -704,14 +704,14 @@ function initCalendar() {
     .then(function(res) { return res.json(); })
     .then(function(data) {
       const events = data.data || data || [];
-      try { localStorage.setItem('faav_events_cache', JSON.stringify({ at: new Date().toISOString(), events: events })); } catch(e){}
+      try { localStorage.setItem('cotav_events_cache', JSON.stringify({ at: new Date().toISOString(), events: events })); } catch(e){}
       const result = classifyEvents(events);
       renderAll(result);
       setCalStatus(__T('Sincronizado con VATSIM') + ' · ' + new Date().toLocaleTimeString(__LC(), {hour:'2-digit', minute:'2-digit'}));
     })
     .catch(function() {
       let cached = null;
-      try { cached = JSON.parse(localStorage.getItem('faav_events_cache') || 'null'); } catch(e){}
+      try { cached = JSON.parse(localStorage.getItem('cotav_events_cache') || 'null'); } catch(e){}
       if (cached && Array.isArray(cached.events)) {
         const result = classifyEvents(cached.events);
         renderAll(result);
@@ -767,11 +767,11 @@ function handleLogin(e) {
     if (un && normAlnum(p.callsign) === un) { found = p; break; }
   }
   if (!found) { loginFail(); return; }
-  var key = 'faav_pass_' + normAlnum(found.callsign);
+  var key = 'cotav_pass_' + normAlnum(found.callsign);
   var stored = null;
   try { stored = localStorage.getItem(key); } catch(ex){}
   if (stored) {
-    sha256Hex('faav::' + normAlnum(found.callsign) + '::' + pass).then(function(h){
+    sha256Hex('cotav::' + normAlnum(found.callsign) + '::' + pass).then(function(h){
       if (h === stored.toLowerCase()) loginOk(found);
       else loginFail();
     });
@@ -782,7 +782,7 @@ function handleLogin(e) {
   }
 }
 function loginOk(p){
-  try {       sessionStorage.setItem('faav_pilot', p.callsign); } catch(e){}
+  try {       sessionStorage.setItem('cotav_pilot', p.callsign); } catch(e){}
   window.location.href = 'pilotos.html';
 }
 function loginFail(){
@@ -841,12 +841,12 @@ function roleOfCallSign(cs){
 }
 /* ---------- gate por rol (páginas de storage) ---------- */
 /* El snippet inline en <head> de cada página de storage prepara
-   window.__FAAV_GATE = { isPil, isEsc, ups } y oculta la página
+   window.__COTAV_GATE = { isPil, isEsc, ups } y oculta la página
    (visibility hiddden) mientras se resuelve el rol. */
 function resolveStorageGate(){
-  var g = window.__FAAV_GATE;
+  var g = window.__COTAV_GATE;
   if (!g) return;
-  var cs = ''; try { cs = (sessionStorage.getItem('faav_pilot') || '').trim(); } catch(e){}
+  var cs = ''; try { cs = (sessionStorage.getItem('cotav_pilot') || '').trim(); } catch(e){}
   var role = roleOfCallSign(cs);
   var req = g.isEsc ? 'piloto_escuela' : 'piloto';
   var doc = document.documentElement;
@@ -978,7 +978,7 @@ function buildAccDropdown(p){
       return;
     }
     if (target.closest && target.closest('.acc-logout')) {
-      sessionStorage.removeItem('faav_pilot'); try{ localStorage.removeItem('faav_pilot'); }catch(e){}
+      sessionStorage.removeItem('cotav_pilot'); try{ localStorage.removeItem('cotav_pilot'); }catch(e){}
       window.location.href = loginUrl;
       return;
     }
@@ -993,9 +993,9 @@ function buildAccDropdown(p){
 }
 
 function initAuthNav() {
-  console.log('[initAuthNav] starting, pathname:', location.pathname, 'sessionStorage faav_pilot:', sessionStorage.getItem('faav_pilot'));
+  console.log('[initAuthNav] starting, pathname:', location.pathname, 'sessionStorage cotav_pilot:', sessionStorage.getItem('cotav_pilot'));
   if (/login\.html$/i.test(location.pathname)) return;
-  var logged = !!sessionStorage.getItem('faav_pilot');
+  var logged = !!sessionStorage.getItem('cotav_pilot');
   console.log('[initAuthNav] logged:', logged);
 
   function render(btn) {
@@ -1007,7 +1007,7 @@ function initAuthNav() {
       btn.removeAttribute('href');
       btn.onclick = function (e) {
         e.preventDefault();
-        sessionStorage.removeItem('faav_pilot'); try{ localStorage.removeItem('faav_pilot'); }catch(e){}
+        sessionStorage.removeItem('cotav_pilot'); try{ localStorage.removeItem('cotav_pilot'); }catch(e){}
         window.location.href = 'index.html';
       };
     } else {
@@ -1030,8 +1030,8 @@ function initAuthNav() {
       if (oldBtn && oldBtn.parentNode) oldBtn.parentNode.removeChild(oldBtn);
       var el = null;
       if (logged) {
-        var cs = sessionStorage.getItem('faav_pilot');
-        console.log('[initAuthNav] sessionStorage faav_pilot:', cs);
+        var cs = sessionStorage.getItem('cotav_pilot');
+        console.log('[initAuthNav] sessionStorage cotav_pilot:', cs);
         var pilot = findPilotByCallsign(cs);
         console.log('[initAuthNav] findPilotByCallsign result:', pilot);
         if (pilot) el = buildAccDropdown(pilot);

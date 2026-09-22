@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://faav-vsoa.github.io/FAAV-Vsoa/sitemap.xml
+Sitemap: https://cotav-vsoa.github.io/COTAV-Vsoa/sitemap.xml

@@ -1,5 +1,5 @@
 {
-  "name": "faav-auth-worker",
+  "name": "cotav-auth-worker",
   "version": "1.0.0",
   "private": true,
   "description": "Backend serverless de autenticacion COTA - VSOA (Cloudflare Workers): login con bcrypt + sesion firmada HttpOnly.",

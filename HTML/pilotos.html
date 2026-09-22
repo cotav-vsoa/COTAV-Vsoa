@@ -1,20 +1,20 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-<head>  <link rel="icon" type="image/x-icon" href="../img/Logo FAAV/Logo-Faav.ico?v=9"><link rel="apple-touch-icon" href="../img/Logo FAAV/Logo Faav.png?v=4">
+<head>  <link rel="icon" type="image/x-icon" href="../img/Logo COTAV/Logo-Cotav.ico?v=9"><link rel="apple-touch-icon" href="../img/Logo COTAV/Logo Cotav.png?v=4">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sala de pilotos · COTA - VIRTUAL</title>  <meta name="description" content="Sala de pilotos del COTA - VIRTUAL: conocé a los pilotos activos de la comunidad y sus horas de vuelo.">
-  <link rel="canonical" href="https://faav-vsoa.github.io/FAAV-Vsoa/HTML/pilotos.html">
+  <link rel="canonical" href="https://cotav-vsoa.github.io/COTAV-Vsoa/HTML/pilotos.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="COTA - VIRTUAL">
   <meta property="og:title" content="Sala de pilotos · COTA - VIRTUAL">
   <meta property="og:description" content="Sala de pilotos del COTA - VIRTUAL: conocé a los pilotos activos de la comunidad y sus horas de vuelo.">
-  <meta property="og:image" content="https://faav-vsoa.github.io/FAAV-Vsoa/img/og-faav.png">
-  <meta property="og:url" content="https://faav-vsoa.github.io/FAAV-Vsoa/HTML/pilotos.html">
+  <meta property="og:image" content="https://cotav-vsoa.github.io/COTAV-Vsoa/img/og-cotav.png">
+  <meta property="og:url" content="https://cotav-vsoa.github.io/COTAV-Vsoa/HTML/pilotos.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sala de pilotos · COTA - VIRTUAL">
   <meta name="twitter:description" content="Sala de pilotos del COTA - VIRTUAL: conocé a los pilotos activos de la comunidad y sus horas de vuelo.">
-  <meta name="twitter:image" content="https://faav-vsoa.github.io/FAAV-Vsoa/img/og-faav.png">
+  <meta name="twitter:image" content="https://cotav-vsoa.github.io/COTAV-Vsoa/img/og-cotav.png">
 
 
 <link rel="stylesheet" href="../CSS/styles.css?v=13">
@@ -65,7 +65,7 @@
 <header>
  <nav class="wrap">
   <a href="index.html#top" class="brand">
-      <img src="../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV">
+      <img src="../img/Logo COTAV/Logo Cotav.png?v=4" alt="Escudo COTAV">
       <span class="brand-text"><b>COTA - VIRTUAL</b> <span>Comando Aéreo Táctico Argentino</span></span>
     </a>
   <div class="header-links-row">
@@ -189,7 +189,7 @@
  <div class="wrap">
   <div class="foot-grid">
    <div class="foot-brand">
-    <img src="../img/Logo FAAV/Logo Faav.png?v=4" alt="Escudo COTAV" style="height:38px;width:auto;" alt="Escudo COTAV">
+    <img src="../img/Logo COTAV/Logo Cotav.png?v=4" alt="Escudo COTAV" style="height:38px;width:auto;" alt="Escudo COTAV">
     <div>
      <b style="font-family:'Oswald',sans-serif; letter-spacing:0.03em; display:block;">COTA - VIRTUAL</b>
      <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.03em; color:var(--muted); display:block; margin-top:4px; max-width:280px;">Comando Aéreo Táctico Argentino Virtual - VATSIM SPECIAL OPERATION ASOCIATED</span>
@@ -230,7 +230,7 @@
 <script src="../JS/script.js?v=36"></script>
 <script>
 (function(){
-  var pilotCallsign = (sessionStorage.getItem('faav_pilot') || localStorage.getItem('faav_pilot') || '').trim();
+  var pilotCallsign = (sessionStorage.getItem('cotav_pilot') || localStorage.getItem('cotav_pilot') || '').trim();
  if(!pilotCallsign){
   document.getElementById('authGate').style.display = 'block';
   return;
@@ -292,7 +292,7 @@
   var passSection = document.getElementById('passSection');
   if (passSection) {
    passSection.style.display = '';
-   var passKey = 'faav_pass_' + normAlnum(pilotCallsign);
+   var passKey = 'cotav_pass_' + normAlnum(pilotCallsign);
    var passMsg = document.getElementById('passMsg');
    function showPassMsg(text, ok){
     passMsg.style.color = ok ? '#7ef29a' : '#e74c3c';
@@ -311,7 +311,7 @@
     if(a !== b){ showPassMsg('Las contraseñas no coinciden.', false); return; }
     var stored = storedHash();
     function save(){
-     sha256Hex('faav::' + normAlnum(pilotCallsign) + '::' + a).then(function(h){
+     sha256Hex('cotav::' + normAlnum(pilotCallsign) + '::' + a).then(function(h){
       try { localStorage.setItem(passKey, h); } catch(e){ showPassMsg('El navegador no permitió guardar la contraseña.', false); return; }
       document.getElementById('passCurrent').value = '';
       document.getElementById('passNew1').value = '';
@@ -320,7 +320,7 @@
      });
     }
     if(stored){
-     sha256Hex('faav::' + normAlnum(pilotCallsign) + '::' + cur).then(function(h){
+     sha256Hex('cotav::' + normAlnum(pilotCallsign) + '::' + cur).then(function(h){
       if(h === stored.toLowerCase()) save();
       else showPassMsg('La contraseña actual es incorrecta.', false);
      });

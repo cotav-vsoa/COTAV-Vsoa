@@ -1,5 +1,5 @@
 -- Ejecutar este script una vez desde phpMyAdmin (cPanel -> phpMyAdmin),
--- dentro de la base de datos que creaste para el sitio (ej: tuusuario_faav).
+-- dentro de la base de datos que creaste para el sitio (ej: tuusuario_cotav).
 --
 -- Si ya habías creado la tabla ANTES (versión sin email) y ya tenés pilotos
 -- registrados, no vuelvas a correr el CREATE TABLE: corré en cambio esto

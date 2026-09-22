@@ -1,11 +1,11 @@
-name = "faav-auth"
+name = "cotav-auth"
 main = "src/index.js"
 compatibility_date = "2026-09-01"
 
 # Nombre del subdominio workers.dev donde queda publicada la API.
 # Cogelo despues del primer `wrangler deploy` y pegalo en JS/script.js -> AUTH_API.
 #
-# Worker name: https://faav-auth.<TU-CUENTA>.workers.dev
+# Worker name: https://cotav-auth.<TU-CUENTA>.workers.dev
 #
 # [vars]
 #   SECRET_SESSION:  clave para firmar los tokens de sesion (HMAC).

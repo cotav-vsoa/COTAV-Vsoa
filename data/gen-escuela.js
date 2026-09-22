@@ -14,7 +14,7 @@ const cats = [
   { id: 'manuales', tit: "MTL's Escuela \u00b7 COTAV", desc: "Manuales t\u00e9cnicos del COTAV para la Escuela de Aviaci\u00f3n Militar Virtual.", h2: "MTL's Escuela", p: "Manuales t\u00e9cnicos y material de lectura del COTAV para la Escuela de Aviaci\u00f3n Militar Virtual." }
 ];
 
-const baseAbs = 'https://faav-vsoa.github.io/FAAV-Vsoa/storage/escuela-de-aviacion-militar-virtual/';
+const baseAbs = 'https://cotav-vsoa.github.io/COTAV-Vsoa/storage/escuela-de-aviacion-militar-virtual/';
 
 cats.forEach(function (cat) {
   const url = baseAbs + cat.id + '/index.html';

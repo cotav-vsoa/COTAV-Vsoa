@@ -124,11 +124,11 @@ function computeStats(historyResult, fpsRaw) {
     if (!seen[key]) { seen[key] = true; deduped.push(f); }
   }
 
-  // Filter: keep flights with VSOA OR FAAV in remark (case-insensitive)
+  // Filter: keep flights with VSOA, FAAV o COTA/COTAV en el remark (case-insensitive)
   var filtered = deduped.filter(function(f) {
     if (!f.remark) return false;
     var r = f.remark.toLowerCase();
-    return r.includes('vsoa') || r.includes('faav') || r.includes('cotav');
+    return r.includes('vsoa') || r.includes('faav') || r.includes('cota');
   });
 
   // Fallback: if no COTA-marked flights, show the recent flights anyway

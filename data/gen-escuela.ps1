@@ -4,7 +4,7 @@ $root=(Get-Location).Path
 $src=Join-Path $root 'storage\escenarios-p3d\index.html'
 $tpl=[IO.File]::ReadAllText($src,([Text.UTF8Encoding]::new($false)))
 $enc=[Text.UTF8Encoding]::new($true)
-$base='https://faav-vsoa.github.io/FAAV-Vsoa/storage/escuela-de-aviacion-militar-virtual/'
+$base='https://cotav-vsoa.github.io/COTAV-Vsoa/storage/escuela-de-aviacion-militar-virtual/'
 
 $cats=@(
   @{id='escenarios-p3d'; tit='Escenarios Escuela Prepar3D · COTA'; desc='Escenarios del COTA para la Escuela de Aviación Militar Virtual (Prepar3D).'; h2='Escenarios Escuela Prepar3D'; p='Escenarios del COTA para la Escuela de Aviación Militar Virtual (Prepar3D), de libre descarga para alumnos.'},

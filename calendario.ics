@@ -1,11 +1,11 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//FAAV VSOA//Calendario de eventos//ES
+PRODID:-//COTAV VSOA//Calendario de eventos//ES
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:FAAV - VSOA
+X-WR-CALNAME:COTAV - VSOA
 BEGIN:VEVENT
-UID:faav-ferry-f16-ii@faav-vsoa
+UID:cotav-ferry-f16-ii@cotav-vsoa
 DTSTAMP:20260827T000000Z
 DTSTART:20260926T220000Z
 DTEND:20260927T020000Z
@@ -14,7 +14,7 @@ DESCRIPTION:Segundo vuelo ferry de los F-16 de la Fuerza Aerea Argentina.
 LOCATION:EKSP, SAOC
 END:VEVENT
 BEGIN:VEVENT
-UID:faav-sabe-scel-fly-in@faav-vsoa
+UID:cotav-sabe-scel-fly-in@cotav-vsoa
 DTSTAMP:20260827T000000Z
 DTSTART:20260823T200000Z
 DTEND:20260823T230000Z
@@ -24,7 +24,7 @@ LOCATION:SABE, SCEL
 URL;VALUE=URI:https://my.vatsim.net/events/sabe-scel-fly-in
 END:VEVENT
 BEGIN:VEVENT
-UID:faav-sarr-fly-inn@faav-vsoa
+UID:cotav-sarr-fly-inn@cotav-vsoa
 DTSTAMP:20260827T000000Z
 DTSTART:20260809T200000Z
 DTEND:20260809T230000Z
@@ -34,12 +34,12 @@ LOCATION:SARI, SARE, SARF, SARC
 URL;VALUE=URI:https://my.vatsim.net/events/sarr-fly-inn-2
 END:VEVENT
 BEGIN:VEVENT
-UID:faav-pitch-black@faav-vsoa
+UID:cotav-pitch-black@cotav-vsoa
 DTSTAMP:20260827T000000Z
 DTSTART:20260718T173000Z
 DTEND:20260719T173000Z
 SUMMARY:Exercice Pitch Black
-DESCRIPTION:Evento internacional de la Fuerza Aerea Australiana en Darwin, Australia. La FAAV estara presente.
+DESCRIPTION:Evento internacional de la Fuerza Aerea Australiana en Darwin, Australia. La COTAV estara presente.
 LOCATION:YPTN, YPDN
 URL;VALUE=URI:https://my.vatsim.net/events/uruguayan-vfr-tour
 END:VEVENT

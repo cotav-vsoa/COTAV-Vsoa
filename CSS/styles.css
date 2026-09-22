@@ -746,7 +746,7 @@ footer{border-top:1px solid var(--line); padding:64px 0 32px; background:#040914
   padding:3px 10px; border:1px solid var(--line-strong); color:var(--muted); display:inline-block; margin-top:auto; align-self:flex-start;
   border-radius:1px;
 }
-.cal-org.faav{color:var(--gold); border-color:rgba(204,156,92,0.4);}
+.cal-org.cotav{color:var(--gold); border-color:rgba(204,156,92,0.4);}
 .cal-org.vatsim-ar{color:var(--blue-light); border-color:rgba(127,184,242,0.4);}
 .cal-org.vsoa{color:#8b5cf6; border-color:rgba(139,92,246,0.4);}
 .cal-card .op-link{margin-top:4px;}

@@ -1,8 +1,8 @@
 $ErrorActionPreference = 'Stop'
 git checkout -- HTML/brigadas
 $root = (Get-Location).Path
-$base = 'https://faav-vsoa.github.io/FAAV-Vsoa'
-$img = $base + '/img/og-faav.png'
+$base = 'https://cotav-vsoa.github.io/COTAV-Vsoa'
+$img = $base + '/img/og-cotav.png'
 $patterns = @(
   '\s*<meta name="description"[^>]*>\s*',
   '\s*<meta (?:property|name)="(?:og|twitter):[^"]*"[^>]*>\s*',
@@ -21,12 +21,12 @@ foreach ($bf in Get-ChildItem (Join-Path $root 'HTML\brigadas\*.html')) {
   $p = $bf.FullName
   $t = [System.IO.File]::ReadAllText($p)
   $icao = $bf.BaseName
-  $desc = 'Brigada ' + $icao + ' de la FAAV - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.'
-  $icon = '../../img/Logo FAAV/Logo Faav.png?v=2'
+  $desc = 'Brigada ' + $icao + ' de la COTAV - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.'
+  $icon = '../../img/Logo COTAV/Logo Cotav.png?v=2'
   $url = $base + '/HTML/brigadas/' + $icao + '.html'
 
   $tm = [regex]::Match($t, '<title>(.*?)</title>')
-  $title = if ($tm.Success) { $tm.Groups[1].Value } else { ('Brigada ' + $icao + ' | FAAV - VSOA') }
+  $title = if ($tm.Success) { $tm.Groups[1].Value } else { ('Brigada ' + $icao + ' | COTAV - VSOA') }
 
   foreach ($pat in $patterns) { $t = [regex]::Replace($t, $pat, "`r`n") }
   $t = $t.Replace('../../CSS/styles.css?v=2', '../../CSS/styles.css?v=3')
@@ -35,7 +35,7 @@ foreach ($bf in Get-ChildItem (Join-Path $root 'HTML\brigadas\*.html')) {
   $block = "<meta name=`"description`" content=`"" + $desc + "`">`r`n" +
            "<link rel=`"canonical`" href=`"" + $url + "`">`r`n" +
            "<meta property=`"og:type`" content=`"website`">`r`n" +
-           "<meta property=`"og:site_name`" content=`"FAAV - VSOA`">`r`n" +
+           "<meta property=`"og:site_name`" content=`"COTAV - VSOA`">`r`n" +
            "<meta property=`"og:title`" content=`"" + $title + "`">`r`n" +
            "<meta property=`"og:description`" content=`"" + $desc + "`">`r`n" +
            "<meta property=`"og:image`" content=`"" + $img + "`">`r`n" +

@@ -1,7 +1,7 @@
 ﻿(function(){
   var I18N = window.I18N = window.I18N || {};
   var D = I18N._dict = I18N._dict || {};
-  var STORE = 'faav_lang';
+  var STORE = 'cotav_lang';
 
   /* ---------- dictionary (index) ---------- */
   D.DUMMY = { es:'', en:'' };

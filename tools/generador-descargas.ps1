@@ -1,5 +1,5 @@
 ﻿# ============================================================
-#  FAAV - COTAV :: GENERADOR AUTOM�TICO DE DESCARGAS
+#  COTAV :: GENERADOR AUTOM�TICO DE DESCARGAS
 #  -----------------------------------------------------------
 #  Escanea las carpetas de storage/ y reconstruye las tablas
 #  de cada index.html de descargas autom�ticamente.
@@ -19,7 +19,7 @@
 
 $ErrorActionPreference = 'Stop'
 
-# --- ra�z del sitio (repo FAAV) -----------------------------
+# --- ra�z del sitio (repo COTAV) -----------------------------
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $root      = (Resolve-Path (Join-Path $scriptDir '..')).Path
 $storage   = Join-Path $root 'storage'

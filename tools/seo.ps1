@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 $root = (Get-Location).Path
-$base = 'https://faav-vsoa.github.io/FAAV-Vsoa'
+$base = 'https://cotav-vsoa.github.io/COTAV-Vsoa'
 $data = [System.IO.File]::ReadAllText((Join-Path $root 'tools\seo-data.json')) | ConvertFrom-Json
 
 function Write-Bom([string]$p, [string]$text) {
@@ -23,9 +23,9 @@ foreach ($entry in $data) {
   $t = [System.IO.File]::ReadAllText($p)
   $isStorage = $entry.rel.StartsWith('storage\') -or $entry.rel.StartsWith('storage/')
   $relPrefix = if ($isStorage) { '../../' } else { '../' }
-  $icon = $relPrefix + 'img/Logo FAAV/Logo Faav.png?v=2'
+  $icon = $relPrefix + 'img/Logo COTAV/Logo Cotav.png?v=2'
   $url = $base + '/' + ($entry.rel -replace '\\', '/')
-  $img = $base + '/img/og-faav.png'
+  $img = $base + '/img/og-cotav.png'
   $tm = [regex]::Match($t, '<title>(.*?)</title>')
   $title = if ($tm.Success) { $tm.Groups[1].Value } else { '' }
 
@@ -36,7 +36,7 @@ foreach ($entry in $data) {
     $block = "  <meta name=`"description`" content=`"" + $entry.desc + "`">`r`n" +
              "  <link rel=`"canonical`" href=`"" + $url + "`">`r`n" +
              "  <meta property=`"og:type`" content=`"website`">`r`n" +
-             "  <meta property=`"og:site_name`" content=`"FAAV - VSOA`">`r`n" +
+             "  <meta property=`"og:site_name`" content=`"COTAV - VSOA`">`r`n" +
              "  <meta property=`"og:title`" content=`"" + $title + "`">`r`n" +
              "  <meta property=`"og:description`" content=`"" + $entry.desc + "`">`r`n" +
              "  <meta property=`"og:image`" content=`"" + $img + "`">`r`n" +
@@ -56,11 +56,11 @@ foreach ($bf in Get-ChildItem (Join-Path $root 'HTML\brigadas\*.html')) {
   $p = $bf.FullName
   $t = [System.IO.File]::ReadAllText($p)
   $icao = $bf.BaseName
-  $title = 'Brigada ' + $icao + ' | FAAV - VSOA'
-  $desc = 'Brigada ' + $icao + ' de la FAAV - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.'
-  $icon = '../../img/Logo FAAV/Logo Faav.png?v=2'
+  $title = 'Brigada ' + $icao + ' | COTAV - VSOA'
+  $desc = 'Brigada ' + $icao + ' de la COTAV - VSOA: base, ubicacion y unidades de la comunidad argentina de simulacion aerea.'
+  $icon = '../../img/Logo COTAV/Logo Cotav.png?v=2'
   $url = $base + '/HTML/brigadas/' + $icao + '.html'
-  $img = $base + '/img/og-faav.png'
+  $img = $base + '/img/og-cotav.png'
 
   foreach ($pat in $patterns) { $t = [regex]::Replace($t, $pat, "`r`n") }
   $t = $t.Replace('../../CSS/styles.css?v=2', '../../CSS/styles.css?v=3')
@@ -72,7 +72,7 @@ foreach ($bf in Get-ChildItem (Join-Path $root 'HTML\brigadas\*.html')) {
           "<link rel=`"icon`" type=`"image/png`" href=`"" + $icon + "`"><link rel=`"apple-touch-icon`" href=`"" + $icon + "`">`r`n" +
           "<link rel=`"canonical`" href=`"" + $url + "`">`r`n" +
           "<meta property=`"og:type`" content=`"website`">`r`n" +
-          "<meta property=`"og:site_name`" content=`"FAAV - VSOA`">`r`n" +
+          "<meta property=`"og:site_name`" content=`"COTAV - VSOA`">`r`n" +
           "<meta property=`"og:title`" content=`"" + $title + "`">`r`n" +
           "<meta property=`"og:description`" content=`"" + $desc + "`">`r`n" +
           "<meta property=`"og:image`" content=`"" + $img + "`">`r`n" +
@@ -102,7 +102,7 @@ $g = [System.Drawing.Graphics]::FromImage($og)
 $g.SmoothingMode = 'AntiAlias'
 $g.InterpolationMode = 'HighQualityBicubic'
 $g.Clear([System.Drawing.Color]::FromArgb(8, 13, 20))
-$logo = [System.Drawing.Image]::FromFile((Join-Path $root 'img\Logo FAAV\Logo Faav.png'))
+$logo = [System.Drawing.Image]::FromFile((Join-Path $root 'img\Logo COTAV\Logo Cotav.png'))
 $dw = 330; $dh = 330
 $dst = New-Object System.Drawing.Rectangle (([int](($og.Width - $dw) / 2))), ([int](($og.Height - $dh) / 2 - 34)), $dw, $dh
 $g.DrawImage($logo, $dst)
@@ -110,11 +110,11 @@ $font = New-Object System.Drawing.Font('Segoe UI', 30, [System.Drawing.FontStyle
 $brush = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(215, 222, 235))
 $sf2 = New-Object System.Drawing.StringFormat
 $sf2.Alignment = 'Center'
-$g.DrawString('FAAV - VSOA', $font, $brush, [System.Drawing.RectangleF]::new(0, $og.Height - 150, $og.Width, 80), $sf2)
+$g.DrawString('COTAV - VSOA', $font, $brush, [System.Drawing.RectangleF]::new(0, $og.Height - 150, $og.Width, 80), $sf2)
 $font2 = New-Object System.Drawing.Font('Segoe UI', 20)
 $brush2 = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(150, 165, 185))
 $g.DrawString('Fuerzas Armadas Argentinas VSOA', $font2, $brush2, [System.Drawing.RectangleF]::new(0, $og.Height - 100, $og.Width, 60), $sf2)
-$og.Save((Join-Path $root 'img\og-faav.png'), [System.Drawing.Imaging.ImageFormat]::Png)
+$og.Save((Join-Path $root 'img\og-cotav.png'), [System.Drawing.Imaging.ImageFormat]::Png)
 $g.Dispose(); $og.Dispose(); $logo.Dispose()
 
 $robots = "User-agent: *`r`nAllow: /`r`n`r`nSitemap: " + $base + "/sitemap.xml`r`n"
@@ -130,4 +130,4 @@ foreach ($u in $all) {
 [System.IO.File]::WriteAllBytes((Join-Path $root 'sitemap.xml'), [System.Text.Encoding]::UTF8.GetBytes($sb.ToString()))
 
 Write-Output ('pages procesadas: ' + $all.Count)
-Write-Output ('og image: ' + ((Get-Item (Join-Path $root 'img\og-faav.png')).Length) + ' bytes')
+Write-Output ('og image: ' + ((Get-Item (Join-Path $root 'img\og-cotav.png')).Length) + ' bytes')
