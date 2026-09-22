@@ -786,22 +786,33 @@ function fetchUsuarios(){
     });
 }
 
-function handleLogin(e) {
-  e.preventDefault();
-  var user = document.getElementById('loginUser').value.trim();
-  var pass = document.getElementById('loginPass').value;
-  var un = normAlnum(user);
-  var found = null;
-  for (var i = 0; i < PILOTS.length; i++) {
-    var p = PILOTS[i];
-    if (un && normAlnum(p.callsign) === un) { found = p; break; }
+/* ---------- login contra el backend PHP de www.cotavirtual.com.ar ---------- */
+var APP_API_LOGIN = 'https://www.cotavirtual.com.ar/api/login.php';
+
+function apiLogin(callsign, password){
+  var controller = null;
+  try { controller = new AbortController(); } catch(ex){}
+  var opts = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ callsign: callsign, password: password }),
+  };
+  if (controller) {
+    opts.signal = controller.signal;
+    setTimeout(function(){ try { controller.abort(); } catch(ex){} }, 8000);
   }
-  if (!found) { loginFail(null); return; }
+  return fetch(APP_API_LOGIN, opts)
+    .then(function(r){
+      return r.json().catch(function(){ return null; }).then(function(j){
+        return { status: r.status, json: j };
+      });
+    })
+    .catch(function(){ return Promise.reject(); });
+}
 
+/* ---------- validación local (fallback cuando la API no responde) ---------- */
+function clientLogin(found, pass, localHash){
   var csKey = normAlnum(found.callsign);
-  var localHash = null;
-  try { localHash = localStorage.getItem('cotav_pass_' + csKey); } catch(ex){}
-
   sha256Hex('cotav::' + csKey + '::' + pass).then(function(h){
     h = (h || '').toLowerCase();
 
@@ -827,6 +838,39 @@ function handleLogin(e) {
       if (!localHash && normPass(found.indicativo) === normPass(pass)) { loginOk(found); return; }
       loginFail(null);
     });
+  });
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  var user = document.getElementById('loginUser').value.trim();
+  var pass = document.getElementById('loginPass').value;
+  var un = normAlnum(user);
+  var found = null;
+  for (var i = 0; i < PILOTS.length; i++) {
+    var p = PILOTS[i];
+    if (un && normAlnum(p.callsign) === un) { found = p; break; }
+  }
+  if (!found) { loginFail(null); return; }
+
+  var csKey = normAlnum(found.callsign);
+  var localHash = null;
+  try { localHash = localStorage.getItem('cotav_pass_' + csKey); } catch(ex){}
+
+  /* Paso 1: cuenta única en el backend PHP (las contraseñas reales están ahí) */
+  apiLogin(user, pass).then(function(res){
+    var j = res.json;
+    if (j && res.status === 200 && j.ok === true) { loginOk(found); return; }
+    if (j && j.not_registered) {
+      /* Todavía no tiene cuenta en la base: se valida en local */
+      clientLogin(found, pass, localHash);
+      return;
+    }
+    /* Tiene cuenta pero la contraseña no coincide */
+    loginFail(true);
+  }).catch(function(){
+    /* La API no está disponible (red/CORS): se valida en local */
+    clientLogin(found, pass, localHash);
   });
 }
 function loginOk(p){

@@ -1,5 +1,21 @@
 Options -Indexes
 
+# CORS: permitir que el sitio de GitHub Pages consulte esta API (login.php).
+# Si mod_headers no estuviera disponible, no haría daño.
+<IfModule mod_headers.c>
+  Header always set Access-Control-Allow-Origin "https://cotav-vsoa.github.io"
+  Header always set Access-Control-Allow-Methods "POST, OPTIONS"
+  Header always set Access-Control-Allow-Headers "Content-Type"
+  Header always set Access-Control-Max-Age "86400"
+</IfModule>
+
+# Responder 200 a los preflight OPTIONS sin llegar a ejecutar el PHP
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_METHOD} OPTIONS
+  RewriteRule ^(.*)$ - [R=200,L]
+</IfModule>
+
 <FilesMatch "\.(sql|md)$">
   Require all denied
 </FilesMatch>
