@@ -265,7 +265,7 @@
   ct("Usuario: tu callsign (ej. FAG-212) · Contraseña: tu indicativo (ej. COBRA) — sin comillas.", "Username: your callsign (e.g. FAG-212) · Password: your callsign nickname (e.g. COBRA) — without quotes.");
   ct("Ingresar", "Sign in");
   ct("¿No tenés cuenta?", "Don't have an account?");
-  ct("Sumate", "Join");
+  ct("Registrate", "Register");
   ct("¿Olvidaste tu contraseña?", "Forgot your password?");
   ct("Escribinos a", "Write to us at");
   ct("y te ayudamos a restablecerla.", "and we'll help you reset it.");
