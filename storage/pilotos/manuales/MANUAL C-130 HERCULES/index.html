@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>  <link rel="icon" type="image/x-icon" href="../../../../img/Logo COTAV/Logo-Cotav.ico?v=9"><link rel="apple-touch-icon" href="../../../../img/Logo COTAV/Logo Cotav.png?v=4">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MANUAL C-130 HERCULES · COTAV</title>  <meta name="description" content="Documentación del C-130H Hercules para pilotos del COTAV.">
+  <link rel="canonical" href="https://cotav-vsoa.github.io/COTAV-Vsoa/storage/pilotos/manuales/MANUAL%20C-130%20HERCULES/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="COTAV - VIRTUAL">
+  <meta property="og:title" content="MANUAL C-130 HERCULES · COTAV">
+  <meta property="og:description" content="Documentación del C-130H Hercules para pilotos del COTAV.">
+  <meta property="og:image" content="https://cotav-vsoa.github.io/COTAV-Vsoa/img/og-cotav.png">
+  <meta property="og:url" content="https://cotav-vsoa.github.io/COTAV-Vsoa/storage/pilotos/manuales/MANUAL%20C-130%20HERCULES/index.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MANUAL C-130 HERCULES · COTAV">
+  <meta name="twitter:description" content="Documentación del C-130H Hercules para pilotos del COTAV.">
+  <meta name="twitter:image" content="https://cotav-vsoa.github.io/COTAV-Vsoa/img/og-cotav.png">
+
+
+<link rel="stylesheet" href="../../../../CSS/styles.css">
+<style>
+    .download-link { color: var(--ivory); text-decoration: none; transition: color 0.2s ease, text-shadow 0.2s ease; }
+    .download-link:hover { color: var(--blue-light); text-shadow: 0 0 8px var(--blue-light); }
+    .file-link { color: var(--blue-light); text-decoration: none; transition: color 0.2s ease; }
+    .file-link:hover { color: var(--blue-light); text-decoration: underline; }
+</style>
+<script>
+(function(){
+  var cs=''; try{ cs=(sessionStorage.getItem('cotav_pilot')||'').trim(); }catch(e){}
+  var p=window.location.pathname||'';
+  var isPil=/\/storage\/pilotos\//.test(p), isEsc=/\/storage\/escuela-de-aviacion-militar-virtual\//.test(p);
+  if(!(isPil||isEsc)) return;
+  var segs=(p.slice(0,p.lastIndexOf('/')+1)).split('/').filter(Boolean);
+  if(segs.length) segs.shift();
+  var ups=''; for(var i=0;i<segs.length;i++) ups+='../';
+  if(!cs){ window.location.replace(ups+'HTML/login.html'); return; }
+  document.documentElement.setAttribute('data-gate','pending');
+  document.documentElement.style.visibility='hidden';
+  window.__COTAV_GATE={ isPil:isPil, isEsc:isEsc, ups:ups };
+})();
+</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="ic-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+   <path d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5"/><path d="M8.5 13.5l2 2 4.5-4.5"/>
+  </symbol>
+  <symbol id="ic-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+   <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/>
+  </symbol>
+  <symbol id="ic-yt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+   <rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ic-fb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+   <path d="M14 21v-8h3l.5-4H14V6.5A1.5 1.5 0 0 1 15.5 5H18V1.5S16.7 1 15.3 1C12.6 1 11 2.6 11 5.3V9H8v4h3v8z"/>
+  </symbol>
+  <symbol id="ic-tiktok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+  </symbol>
+ </defs>
+</svg>
+<header>
+ <nav class="wrap">
+  <a href="../../../../HTML/index.html#top" class="brand">
+      <img src="../../../../img/Logo COTAV/Logo Cotav.png?v=4" alt="Escudo COTAV">
+      <span class="brand-text"><b>COTAV - VIRTUAL</b> <span>Comando Aéreo Táctico Argentino</span></span>
+    </a>
+  <div class="header-links-row">
+  <div class="navlinks" id="navlinks">
+   <a href="../../../../HTML/index.html#mision">Institución</a>
+   <a href="../../../../HTML/index.html#operaciones">Operaciones</a>
+   <a href="../../../../HTML/pilotos.html">Pilotos</a>
+   <a href="../../../../HTML/index.html#brigadas">Brigadas</a>
+   <a href="../../../../HTML/index.html#comunidad">Comunidad</a>
+   <a href="../../../../HTML/reglamento.html">Reglamento</a>
+   <a href="../../../../HTML/redes.html">REDES</a>
+
+  </div>
+  <div class="navcta">
+    <div class="lang-switch" role="group" aria-label="Idioma / Language">
+      <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+
+   <a href="../../../../HTML/login.html" class="btn btn-ghost">Ingresar</a>
+     <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+  </div>
+ </nav>
+</header>
+<main id="top">
+ <section style="padding-top:180px;">
+  <div class="wrap" style="max-width:960px;">
+   <a href="../" class="back-link" style="margin-bottom:24px; display:inline-flex;">
+    <svg style="width:14px;height:14px; transform:scaleX(-1)"><use href="#ic-arrow"/></svg>
+    <span>Volver a Manuales</span>
+   </a>
+   <div class="section-head" data-reveal>
+    <h2>MANUAL C-130 HERCULES</h2>
+    <p>Documentación del C-130H Hercules: manual de piloto, operaciones, procedimientos y performance.</p>
+   </div>
+   <div style="overflow-x:auto;" data-reveal>
+    <table style="width:100%; border-collapse:collapse; font-family:'JetBrains Mono',monospace; font-size:13px;">
+     <thead>
+      <tr style="border-bottom:2px solid var(--line-strong); text-align:left;">
+       <th style="padding:12px 14px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Archivo</th>
+       <th style="padding:12px 14px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Descripción</th>
+       <th style="padding:12px 14px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;">Tamaño</th>
+       <th style="padding:12px 14px; color:var(--blue-light); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;"></th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr style="border-bottom:1px solid var(--line-weak);">
+       <td style="padding:12px 14px;"><a href="Pilot Manual.pdf" class="file-link">Pilot Manual.pdf</a></td>
+       <td style="padding:12px 14px; color:var(--muted);">Manual de piloto C-130H</td>
+       <td style="padding:12px 14px; color:var(--muted);">2.4 MB</td>
+       <td style="padding:12px 14px;"><a href="Pilot Manual.pdf" class="download-link">Descargar</a></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line-weak);">
+       <td style="padding:12px 14px;"><a href="C130H-OPS.pdf" class="file-link">C130H-OPS.pdf</a></td>
+       <td style="padding:12px 14px; color:var(--muted);">Operaciones C-130H</td>
+       <td style="padding:12px 14px; color:var(--muted);">0.2 MB</td>
+       <td style="padding:12px 14px;"><a href="C130H-OPS.pdf" class="download-link">Descargar</a></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line-weak);">
+       <td style="padding:12px 14px;"><a href="Normal Procedures.pdf" class="file-link">Normal Procedures.pdf</a></td>
+       <td style="padding:12px 14px; color:var(--muted);">Procedimientos normales</td>
+       <td style="padding:12px 14px; color:var(--muted);">1.2 MB</td>
+       <td style="padding:12px 14px;"><a href="Normal Procedures.pdf" class="download-link">Descargar</a></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line-weak);">
+       <td style="padding:12px 14px;"><a href="Performance Data.pdf" class="file-link">Performance Data.pdf</a></td>
+       <td style="padding:12px 14px; color:var(--muted);">Datos de performance</td>
+       <td style="padding:12px 14px; color:var(--muted);">0.9 MB</td>
+       <td style="padding:12px 14px;"><a href="Performance Data.pdf" class="download-link">Descargar</a></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line-weak);">
+       <td style="padding:12px 14px;"><a href="Systems &amp; Equipments.pdf" class="file-link">Systems &amp; Equipments.pdf</a></td>
+       <td style="padding:12px 14px; color:var(--muted);">Sistemas y equipamiento</td>
+       <td style="padding:12px 14px; color:var(--muted);">7.0 MB</td>
+       <td style="padding:12px 14px;"><a href="Systems &amp; Equipments.pdf" class="download-link">Descargar</a></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line-weak);">
+       <td style="padding:12px 14px;"><a href="1_Climb_Speed.jpg" class="file-link">1_Climb_Speed.jpg</a></td>
+       <td style="padding:12px 14px; color:var(--muted);">Gráfico velocidad de ascenso</td>
+       <td style="padding:12px 14px; color:var(--muted);">1.2 MB</td>
+       <td style="padding:12px 14px;"><a href="1_Climb_Speed.jpg" class="download-link">Descargar</a></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line-weak);">
+       <td style="padding:12px 14px;"><a href="1_Speed_Limitations.png" class="file-link">1_Speed_Limitations.png</a></td>
+       <td style="padding:12px 14px; color:var(--muted);">Limitaciones de velocidad (1)</td>
+       <td style="padding:12px 14px; color:var(--muted);">0.1 MB</td>
+       <td style="padding:12px 14px;"><a href="1_Speed_Limitations.png" class="download-link">Descargar</a></td>
+      </tr>
+      <tr style="border-bottom:1px solid var(--line-weak);">
+       <td style="padding:12px 14px;"><a href="2_Speed_Limitations.png" class="file-link">2_Speed_Limitations.png</a></td>
+       <td style="padding:12px 14px; color:var(--muted);">Limitaciones de velocidad (2)</td>
+       <td style="padding:12px 14px; color:var(--muted);">0.1 MB</td>
+       <td style="padding:12px 14px;"><a href="2_Speed_Limitations.png" class="download-link">Descargar</a></td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+ </section>
+</main>
+<footer id="footer">
+ <div class="wrap">
+  <div class="foot-grid">
+   <div class="foot-brand">
+    <img src="../../../../img/Logo COTAV/Logo Cotav.png?v=4" alt="Escudo COTAV" style="height:42px;width:auto;">
+    <div>
+     <b style="font-family:'Oswald',sans-serif; letter-spacing:0.03em; display:block;">COTAV - VIRTUAL</b>
+     <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.03em; color:var(--muted); display:block; margin-top:4px; max-width:280px;">Comando Aéreo Táctico Argentino Virtual - VATSIM SPECIAL OPERATION ASOCIATED</span>
+     <p>Comunidad de simulación aérea sin fines de lucro, con presencia federal en brigadas de todo el país.</p>
+    </div>
+   </div>
+   <div class="foot-col">
+    <h5>Institución</h5>
+    <a href="../../../../HTML/index.html#mision">Bienvenida</a>
+    <a href="../../../../HTML/index.html#brigadas">Brigadas</a>
+    <a href="../../../../HTML/reglamento.html">Reglamento</a>
+   </div>
+   <div class="foot-col">
+    <h5>Operaciones</h5>
+    <a href="../../../../HTML/pilotos.html">Sala de pilotos</a>
+    <a href="../../../../HTML/index.html#operaciones">Material aéreo</a>
+    <a href="../../../../HTML/index.html#operaciones">Escenarios</a>
+   </div>
+   <div class="foot-col">
+    <h5>Redes</h5>
+    <a href="https://www.vatsim.net/" target="_blank" rel="noopener">VATSIM</a>
+    <a href="https://www.argentina.gob.ar/fuerzaaerea" target="_blank" rel="noopener">FAA oficial</a>
+   </div>
+  </div>
+  <div class="foot-bottom">
+   <p class="foot-legal">©2026 COTAV</p>
+   <div class="foot-social">
+    <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-insta"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#ic-yt"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#ic-tiktok"/></svg></a>
+   </div>
+  </div>
+ </div>
+</footer>
+<script src="../../../../JS/script.js?v=36"></script>
+<script src="../../../../JS/i18n.js?v=16"></script>
+</body>
+</html>

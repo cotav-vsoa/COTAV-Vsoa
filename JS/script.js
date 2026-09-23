@@ -1026,8 +1026,8 @@ function buildAccDropdown(p){
   root.setAttribute('data-auth-nav', '1');
 
   var isEscuela = scRole === 'piloto_escuela';
-  var manualesHref = isEscuela ? DL + 'documentacion/MANUAL%20TEXAN/' : DL + 'documentacion/manuales/';
-  var procedimientosHref = isEscuela ? '' : DL + 'documentacion/procedimientos/';
+  var manualesHref = isEscuela ? DL + 'documentacion/MANUAL%20TEXAN/' : DL + 'manuales/';
+  var procedimientosHref = isEscuela ? '' : DL + 'procedimientos/';
   var documentacionHref = DL + 'documentacion/';
   var materialAereoHref = isEscuela ? DL.replace(/\/+$/, '') + '/index.html' : UI + 'index.html#operaciones';
   var materialAereoLabel = isEscuela ? 'Material Aéreo Escuela' : 'Material Aéreo';
