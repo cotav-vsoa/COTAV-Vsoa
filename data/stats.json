@@ -88,12 +88,26 @@
     ]
   },
   "1502178": {
-    "hours": "2855h 13m",
-    "last": "AAL953 · 21 de sept de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">KJFK</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B77W</span>",
+    "hours": "2856h 2m",
+    "last": "LVGQN · 23 de sept de 2026",
+    "lastDetail": "",
     "airport": "SABE",
     "aircraft": "GLF5",
     "lastFlights": [
+      {
+        "callsign": "LVGQN",
+        "aircraft": "E50P",
+        "route": "SAOD → SADF",
+        "date": "23 de sept de 2026",
+        "remark": "PBN/B2D2O2S2 DOF/260923 REG/LVGQN EET/SAEF0032 OPR/LV PER/B RMK/TCAS SIMBRIEF /V/"
+      },
+      {
+        "callsign": "LVGQN",
+        "aircraft": "E50P",
+        "route": "SADF → SAOD",
+        "date": "22 de sept de 2026",
+        "remark": "PBN/B2D2O2S2 DOF/260922 REG/LVGQN EET/SACF0041 OPR/FZR PER/B RMK/TCAS SIMBRIEF /V/"
+      },
       {
         "callsign": "AAL953",
         "aircraft": "B77W",
@@ -142,20 +156,6 @@
         "route": "SABE → SABE",
         "date": "11 de sept de 2026",
         "remark": "PBN/A1B1D1L1O1S1 DOF/260911 REG/ARG01 OPR/ARG PER/D /V/"
-      },
-      {
-        "callsign": "ABX3181",
-        "aircraft": "B763",
-        "route": "KCVG → KMHT",
-        "date": "10 de sept de 2026",
-        "remark": "PBN/A1B1C1D1L1O1 DOF/260910 REG/N1489A EET/KZOB0019 KZNY0052 KZBW0054 OPR/ABX PER/D RMK/TCAS SIMBRIEF /V/"
-      },
-      {
-        "callsign": "AXB3181",
-        "aircraft": "B763",
-        "route": "KCVG → KMHT",
-        "date": "10 de sept de 2026",
-        "remark": "PBN/A1B1C1D1L1O1 DOF/260910 REG/N1489A EET/KZOB0019 KZNY0052 KZBW0054 OPR/ABX PER/D RMK/TCAS SIMBRIEF /V/"
       }
     ]
   },
@@ -287,9 +287,9 @@
     ]
   },
   "1785540": {
-    "hours": "152h 45m",
-    "last": "PAMPA2 · 20 de ago de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SATR</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SATR</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">IA63</span>",
+    "hours": "154h 53m",
+    "last": "ANS618 · 23 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAZS</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B738</span>",
     "airport": "SADP",
     "aircraft": "IA63",
     "lastFlights": [
@@ -396,12 +396,19 @@
     ]
   },
   "2005108": {
-    "hours": "40h 48m",
-    "last": "ANS618 · 22 de sept de 2026",
+    "hours": "42h 21m",
+    "last": "FAG255 · 22 de sept de 2026",
     "lastDetail": "",
     "airport": "SADP",
     "aircraft": "A4",
     "lastFlights": [
+      {
+        "callsign": "FAG255",
+        "aircraft": "B737",
+        "route": "SADP → SAOC",
+        "date": "22 de sept de 2026",
+        "remark": "DOF/260922 REG/T-99 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "FAG255",
         "aircraft": "C130",
