@@ -40,8 +40,8 @@
   D['idx.bri.h2'] = { es:'Conoce nuestras Brigadas', en:'Meet our Brigades' };
 
   D['idx.com.h2'] = { es:'Mirá cómo volamos', en:'Watch how we fly' };
-  D['idx.com.sub'] = { es:'Videos recomendados del canal y las últimas publicaciones de Instagram del COTAV.', en:'Recommended videos from the channel and the latest Instagram posts from the COTAV.' };
-  D['idx.com.yt.feat'] = { es:'Video destacado del canal', en:'Featured channel video' };
+  D['idx.com.sub'] = { es:'Nuestro canal de YouTube y las últimas publicaciones de Instagram del COTAV.', en:'Our YouTube channel and the latest Instagram posts from the COTAV.' };
+  D['idx.com.yt.feat'] = { es:'Canal de YouTube del COTAV', en:'COTAV YouTube channel' };
   D['idx.com.yt.h'] = { es:'Canal de YouTube', en:'YouTube channel' };
   D['idx.com.yt.p'] = { es:'Vuelos en formación, demos y coberturas de nuestros eventos y operaciones conjuntas.', en:'Formation flights, demos and coverage of our events and joint operations.' };
   D['idx.com.yt.link'] = { es:'Ver canal completo', en:'Watch full channel' };
