@@ -423,6 +423,49 @@ try {
       applySaved();
     })();
 
+    function renderLastFlights(flights){
+      var listEl = document.getElementById('flights-list');
+      var toggleEl = document.getElementById('toggle-flights');
+      var wrapEl = document.getElementById('last-flights-wrapper');
+      if(!listEl || !toggleEl || !wrapEl) return;
+
+      var RMK = /(VSOA|FAAV|COTA|COTAV|COTAVIRTUAL|WWW\.COTAVIRTUAL)/i;
+      var filtered = [];
+      var seen = {};
+      (flights || []).slice(0, 50).forEach(function(f){
+        var r = String(f.remark || f.remarks || '');
+        if(!RMK.test(r)) return;
+        var key = (f.callsign || '') + '|' + (f.route || '') + '|' + (f.date || '');
+        if(seen[key]) return; seen[key] = true;
+        filtered.push(f);
+      });
+      filtered = filtered.slice(0, 10);
+
+      if(!filtered.length){
+        toggleEl.style.display = 'none';
+        wrapEl.style.display = 'none';
+        return;
+      }
+
+      listEl.innerHTML = filtered.map(function(f){
+        var ac = f.aircraft || '—';
+        var acIcon = '../icons/aircraft/' + String(ac).toLowerCase() + '.svg?v=3';
+        var remark = String(f.remark || f.remarks || '—');
+        var remarkShort = remark.length > 42 ? remark.slice(0, 42) + '…' : remark;
+        return '' +
+          '<div style="display:grid;grid-template-columns:1.2fr 1fr 1.5fr 1fr 1.5fr;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px;align-items:center;">' +
+          '<span style="color:var(--gold);font-weight:500;">' + (f.callsign || '—') + '</span>' +
+          '<span class="ac-cell">' + ac + '<img src="' + acIcon + '" class="ac-icon" style="' + acIconStyle(ac, 16) + '" onerror="this.style.display=\'none\'"></span>' +
+          '<span style="color:var(--blue-light);white-space:nowrap;">' + (f.route || '—') + '</span>' +
+          '<span style="color:var(--muted);">' + (f.date || '—') + '</span>' +
+          '<span title="' + remark.replace(/"/g, '&quot;') + '" style="color:var(--muted);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + remarkShort + '</span>' +
+          '</div>';
+      }).join('');
+
+      toggleEl.style.display = 'flex';
+      wrapEl.style.display = '';
+    }
+
     function loadStats(){
       try {
         if(statsEl) statsEl.style.display = 'block';
@@ -441,6 +484,7 @@ try {
             if(lastDetailEl) lastDetailEl.innerHTML = d.lastDetail || '';
             if(statAirport) statAirport.textContent = d.airport;
             if(statAircraft) statAircraft.textContent = d.aircraft;
+            renderLastFlights(d.lastFlights);
           } else {
             if(statHours) statHours.textContent = '—';
             if(statLast) statLast.textContent = 'Sin datos';

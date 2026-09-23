@@ -87,12 +87,16 @@ function computeStats(historyResult, fpsRaw) {
     }
   }
 
-  // Recorremos TODO el historial (no solo los últimos 10 en bruto) para
-  // juntar hasta 10 vuelos que cumplan el filtro VSOA/FAAV/COTA. Así, si
-  // alguno de los vuelos más recientes no tiene el remark correcto, seguimos
+  // Filtro de RMKs que identifican vuelos del COTAV en VATSIM.
+  // Ej: VSOA/FAAV.COM.AR, RMK/COTAV, www.cotavirtual.com.ar. Se comparan en
+  // minúsculas; 'cota' ya cubre 'cotav' y 'cotavirtual'.
+  var RMK_TOKENS = ['vsoa', 'faav', 'cota', 'cotav', 'cotavirtual'];
+
+  // Recorremos TODO el historial (no solo las últimas 10 sesiones en bruto)
+  // para juntar hasta 10 vuelos que cumplan el filtro COTAV. Así, si alguno
+  // de los vuelos más recientes no tiene el remark correcto, seguimos
   // buscando hacia atrás en vez de mostrar menos de 10.
   var seen = {};
-  var allDeduped = [];
   var matched = [];
   for (let i = 0; i < sessions.length; i++) {
     const s = sessions[i];
@@ -124,18 +128,16 @@ function computeStats(historyResult, fpsRaw) {
     if (seen[key]) continue;
     seen[key] = true;
 
-    if (allDeduped.length < 10) allDeduped.push(flight);
-
     const r = (remark || '').toLowerCase();
-    const isCota = r.includes('vsoa') || r.includes('faav') || r.includes('cota');
+    const isCota = RMK_TOKENS.some(function(t){ return r.includes(t); });
     if (isCota && matched.length < 10) matched.push(flight);
 
     // Si ya tenemos 10 vuelos filtrados, no hace falta seguir escaneando.
     if (matched.length >= 10) break;
   }
 
-  // Fallback: si no hay ningún vuelo marcado COTA en todo el historial, mostrar los últimos igual
-  var filtered = matched.length > 0 ? matched : allDeduped;
+  // Solo mostramos vuelos marcados con RMK COTAV. Si no hay ninguno, queda vacío.
+  var filtered = matched;
 
   return {
     hours: hoursStr,

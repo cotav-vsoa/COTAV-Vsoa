@@ -147,10 +147,15 @@ function compute_stats($historyResult, $fpsRaw) {
         }
     }
 
+    // Filtro de RMKs que identifican vuelos del COTAV en VATSIM.
+    // Ej: VSOA/FAAV.COM.AR, RMK/COTAV, www.cotavirtual.com.ar. Se comparan en
+    // minúsculas; 'cota' ya cubre 'cotav' y 'cotavirtual'.
+    $RMK_TOKENS = ['vsoa', 'faav', 'cota', 'cotav', 'cotavirtual'];
+
     // Recorremos TODO el historial (no solo las últimas 10 sesiones en bruto)
-    // para juntar hasta 10 vuelos que cumplan el filtro VSOA/FAAV/COTA. Así,
-    // si alguno de los vuelos más recientes no tiene el remark correcto,
-    // seguimos buscando hacia atrás en vez de mostrar menos de 10.
+    // para juntar hasta 10 vuelos que cumplan el filtro COTAV. Así, si alguno
+    // de los vuelos más recientes no tiene el remark correcto, seguimos
+    // buscando hacia atrás en vez de mostrar menos de 10.
     $seen = []; $matched = [];
     foreach ($sessions as $s) {
         $fp = $fpByConn[$s['id']] ?? null;
@@ -182,7 +187,10 @@ function compute_stats($historyResult, $fpsRaw) {
         $seen[$key] = true;
 
         $r = strtolower($remark);
-        $isCota = $remark !== '' && (strpos($r, 'vsoa') !== false || strpos($r, 'faav') !== false || strpos($r, 'cota') !== false);
+        $isCota = false;
+        foreach ($RMK_TOKENS as $t) {
+            if ($remark !== '' && strpos($r, $t) !== false) { $isCota = true; break; }
+        }
         if ($isCota) $matched[] = $flight;
 
         // Si ya tenemos 10 vuelos filtrados, no hace falta seguir escaneando.
