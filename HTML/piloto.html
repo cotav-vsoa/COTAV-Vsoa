@@ -1,12 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-<head>  <link rel="icon" type="image/x-icon" href="../img/Logo COTAV/Logo-Cotav.ico?v=9"><link rel="apple-touch-icon" href="../img/Logo COTAV/Logo Cotav.png?v=4">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Piloto · COTA - VIRTUAL</title>  <meta name="description" content="Perfil del piloto del COTA - VIRTUAL: horas de vuelo, aeronaves e historial en la comunidad.">
+<head>
+  <link rel="icon" type="image/x-icon" href="../img/Logo COTAV/Logo-Cotav.ico?v=9">
+  <link rel="apple-touch-icon" href="../img/Logo COTAV/Logo Cotav.png?v=4">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Piloto · COTA - VIRTUAL</title>
+  <meta name="description" content="Perfil del piloto del COTA - VIRTUAL: horas de vuelo, aeronaves e historial en la comunidad.">
   <link rel="canonical" href="https://cotav-vsoa.github.io/COTAV-Vsoa/HTML/piloto.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="COTA - VIRTUAL">
@@ -19,10 +22,58 @@
   <meta name="twitter:description" content="Perfil del piloto del COTA - VIRTUAL: horas de vuelo, aeronaves e historial en la comunidad.">
   <meta name="twitter:image" content="https://cotav-vsoa.github.io/COTAV-Vsoa/img/og-cotav.png">
 
+  <link rel="stylesheet" href="../CSS/styles.css?v=15">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<link rel="stylesheet" href="../CSS/styles.css?v=13">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    .p-avatar {
+      width: 160px;
+      height: 160px;
+      min-width: 160px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      background: var(--card-bg);
+      border: 2px solid var(--line-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .p-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .p-avatar.has-photo .p-avatar-ph {
+      display: none !important;
+    }
+    .p-avatar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .p-avatar-actions {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 8px;
+    }
+    .avatar-cta {
+      background: var(--card-bg);
+      border: 1px solid var(--line-strong);
+      color: var(--ivory);
+      font-size: 11px;
+      padding: 3px 8px;
+      cursor: pointer;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .avatar-cta.danger {
+      color: #f87171;
+    }
+  </style>
 </head>
 <body>
 
@@ -61,21 +112,18 @@
    <a href="index.html#comunidad">Comunidad</a>
    <a href="reglamento.html">Reglamento</a>
    <a href="redes.html">REDES</a>
-
   </div>
   <div class="navcta">
     <div class="lang-switch" role="group" aria-label="Idioma / Language">
       <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
       <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
     </div>
-
    <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   </div>
- </nav>
+ </div></nav>
 </header>
 
 <main id="top">
-
  <section class="tracker" style="padding-top:180px;">
   <div class="wrap" style="max-width:1100px;">
    <div style="margin-bottom:24px; display:flex; gap:16px; flex-wrap:wrap;">
@@ -87,11 +135,13 @@
 
    <div id="pilot-header" style="margin-bottom:24px;">
     <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
-     <div id="p-avatar" class="p-avatar">
-      <div class="p-avatar-ph" id="p-avatar-ph">
-       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-3.3 0-8 1.7-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-3.3-4.7-5-8-5z"/></svg>
+     <div class="p-avatar-wrap">
+      <div id="p-avatar" class="p-avatar">
+       <div class="p-avatar-ph" id="p-avatar-ph">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-3.3 0-8 1.7-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-3.3-4.7-5-8-5z"/></svg>
+       </div>
+       <img id="p-avatar-img" alt="Foto de perfil" style="display:none;">
       </div>
-      <img id="p-avatar-img" alt="Foto de perfil" style="display:none;">
       <div class="p-avatar-actions" id="p-avatar-actions" style="display:none;">
        <button type="button" class="avatar-cta" id="p-avatar-btn"><span>Subir foto</span></button>
        <button type="button" class="avatar-cta danger" id="p-avatar-clear" style="display:none;">Quitar foto</button>
@@ -116,11 +166,11 @@
       <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:4px;">Horas voladas</div>
       <b id="stat-hours" style="color:var(--gold);font-size:18px;font-family:'Oswald',sans-serif;">—</b>
      </div>
-      <div id="stat-last-block" style="padding:8px 0;text-align:center;">
-       <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:4px;">Último vuelo</div>
-       <b id="stat-lastflight" style="color:var(--ivory);font-size:14px;">—</b>
-       <div id="stat-last-detail" style="font-size:12px;color:var(--gold);margin-top:2px;font-weight:600;"></div>
-      </div>
+     <div id="stat-last-block" style="padding:8px 0;text-align:center;">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:4px;">Último vuelo</div>
+      <b id="stat-lastflight" style="color:var(--ivory);font-size:14px;">—</b>
+      <div id="stat-last-detail" style="font-size:12px;color:var(--gold);margin-top:2px;font-weight:600;"></div>
+     </div>
      <div style="padding:8px 0;text-align:center;">
       <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:4px;">Aeropuerto + usado</div>
       <b id="stat-airport" style="color:var(--gold);font-size:18px;font-family:'Oswald',sans-serif;">—</b>
@@ -129,20 +179,20 @@
       <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:4px;">Avión + usado</div>
       <div style="display:flex;justify-content:center;align-items:center;gap:6px;">
        <b id="stat-aircraft" style="color:var(--gold);font-size:18px;font-family:'Oswald',sans-serif;">—</b>
-        <img id="stat-ac-icon" style="height:22px;width:auto;display:none;" onerror="this.style.display='none'">
+       <img id="stat-ac-icon" style="height:22px;width:auto;display:none;" onerror="this.style.display='none'">
       </div>
      </div>
     </div>
    </div>
 
    <div id="toggle-flights" onclick="var c=document.getElementById('last-flights-wrapper');var open=c.style.display!=='none';c.style.display=open?'none':'';this.querySelector('svg').style.transform=open?'rotate(0deg)':'rotate(180deg)';" style="cursor:pointer;justify-content:center;align-items:center;gap:8px;margin-bottom:12px;display:none;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);">
-     Últimos Vuelos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition:transform 0.2s;"><path d="M6 9l6 6 6-6"/></svg>
+      Últimos Vuelos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition:transform 0.2s;"><path d="M6 9l6 6 6-6"/></svg>
    </div>
-    <div id="last-flights-wrapper" style="margin-bottom:24px;display:none;">
-     <div style="padding:12px 16px;background:var(--card-bg);border:1px solid var(--line);border-radius:2px;">
-<div id="last-flights-header" style="display:grid;grid-template-columns:1.2fr 1fr 1.5fr 1fr 1.5fr;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);">
+   <div id="last-flights-wrapper" style="margin-bottom:24px;display:none;">
+    <div style="padding:12px 16px;background:var(--card-bg);border:1px solid var(--line);border-radius:2px;">
+     <div id="last-flights-header" style="display:grid;grid-template-columns:1.2fr 1fr 1.5fr 1fr 1.5fr;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);">
        <span>Callsign</span><span>Aeronave</span><span>Vuelo</span><span>Fecha</span><span>Remark</span>
-      </div>
+     </div>
      <div id="flights-list"></div>
     </div>
    </div>
@@ -160,7 +210,6 @@
    </div>
   </div>
  </section>
-
 </main>
 
 <footer id="footer">
@@ -169,11 +218,11 @@
     <div class="foot-brand">
      <img src="../img/Logo COTAV/Logo Cotav.png?v=4" alt="Escudo COTAV" style="height:50px;width:auto;">
      <div>
-     <b style="font-family:'Oswald',sans-serif; letter-spacing:0.03em; display:block;">COTA - VIRTUAL</b>
-     <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.03em; color:var(--muted); display:block; margin-top:4px; max-width:280px;">Comando Aéreo Táctico Argentino Virtual - VATSIM SPECIAL OPERATION ASOCIATED</span>
-     <p>Comunidad de simulación aérea sin fines de lucro, con presencia federal en brigadas de todo el país.</p>
+      <b style="font-family:'Oswald',sans-serif; letter-spacing:0.03em; display:block;">COTA - VIRTUAL</b>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.03em; color:var(--muted); display:block; margin-top:4px; max-width:280px;">Comando Aéreo Táctico Argentino Virtual - VATSIM SPECIAL OPERATION ASOCIATED</span>
+      <p>Comunidad de simulación aérea sin fines de lucro, con presencia federal en brigadas de todo el país.</p>
+     </div>
     </div>
-   </div>
    <div class="foot-col">
     <h5>Institución</h5>
     <a href="index.html#mision">Bienvenida</a>
@@ -194,335 +243,296 @@
   <div class="foot-bottom">
    <p class="foot-legal">©2026 COTAV</p>
    <div class="foot-social">
-    <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-insta"/></svg></a>
+    <a href="https://www.instagram.com/cota_vsoa/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-insta"/></svg></a>
     <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#ic-yt"/></svg></a>
-    <a href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#ic-tiktok"/></svg></a>
+    <a href="https://www.tiktok.com/@cota_vsoa" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#ic-tiktok"/></svg></a>
    </div>
   </div>
  </div>
 </footer>
 
 <script src="../JS/i18n.js?v=16"></script>
-<script src="../JS/script.js?v=36"></script>
+<script src="../JS/script.js?v=39"></script>
 <script>
-(function(){
-  var PILOTS = window.PILOTS || [];
-  var params = new URLSearchParams(window.location.search);
-  var cid = parseInt(params.get('cid'), 10);
-  if(!cid){ document.getElementById('pilot-error').style.display = 'block'; return; }
-
-  var pilot = PILOTS.find(function(p){ return p.cid === cid; });
-  if(!pilot){
-
-    document.getElementById('pilot-error').style.display = 'block';
-    document.title = 'Piloto no encontrado · COTAV';
-    return;
-  }
-
-  try {
-    var _applySchoolTheme = function(){
-      console.log('[piloto.html] _applySchoolTheme called, pilot:', pilot && pilot.callsign);
-      var role = typeof window.roleOfCallSign === 'function' ? window.roleOfCallSign(pilot && pilot.callsign) : 'unknown';
-      console.log('[piloto.html] roleOfCallSign result:', role);
-      if (role === 'piloto_escuela') {
-        console.log('[piloto.html] Applying escuela theme');
-        var _scLink = document.createElement('link');
-        _scLink.rel = 'stylesheet';
-        _scLink.href = '../CSS/styles-escuela.css?v=14';
-        document.head.appendChild(_scLink);
-        document.documentElement.setAttribute('data-theme', 'escuela');
-      }
-    };
-    if (typeof window.loadRoles === 'function') {
-      window.loadRoles().then(function(){
-        console.log('[piloto.html] loadRoles resolved, applying school theme check');
-        _applySchoolTheme();
-      }).catch(function(e){
-        console.error('[piloto.html] loadRoles failed:', e);
-        _applySchoolTheme();
-      });
-    } else {
-      console.warn('[piloto.html] loadRoles not available');
-      _applySchoolTheme();
-    }
-  } catch(_e){}
-
-  var callsignEl = document.getElementById('p-callsign');
-  var nameEl = document.getElementById('p-name');
-  var metaEl = document.getElementById('p-meta');
-  var cidEl = document.getElementById('p-cid');
-  var statusEl = document.getElementById('p-status');
-  var mapEl = document.getElementById('pilot-map');
-  var detailsEl = document.getElementById('pilot-details');
-  var offlineEl = document.getElementById('pilot-offline');
-
-  var statsEl = document.getElementById('pilot-stats');
-  var statHours = document.getElementById('stat-hours');
-  var statLast = document.getElementById('stat-lastflight');
-  var statLastDetail = document.getElementById('stat-last-detail');
-  var statAirport = document.getElementById('stat-airport');
-  var statAircraft = document.getElementById('stat-aircraft');
-
-  document.title = pilot.callsign + ' · ' + pilot.name + ' · COTAV';
-  callsignEl.textContent = pilot.callsign || '—';
-  nameEl.textContent = pilot.name || '—';
-
-  var metaParts = [];
-  if(pilot.indicativo) metaParts.push(pilot.indicativo);
-  metaEl.textContent = metaParts.join(' · ') || '—';
-  var cidLink = document.getElementById('p-cid-link');
-  if(cidLink && pilot.cid){
-    cidLink.textContent = 'CID ' + pilot.cid;
-    cidLink.href = 'https://stats.vatsim.net/stats/' + pilot.cid;
-  }
-
-  (function avatarInit(){
-    var av = document.getElementById('p-avatar');
-    var img = document.getElementById('p-avatar-img');
-    var btn = document.getElementById('p-avatar-btn');
-    var clearBtn = document.getElementById('p-avatar-clear');
-    var file = document.getElementById('p-avatar-file');
-    var actions = document.getElementById('p-avatar-actions');
-    if(!av || !img || !btn || !clearBtn || !file) return;
-
-    var sessionCs = localStorage.getItem('cotav_pilot');
-    var isOwner = sessionCs && normAlnum(sessionCs) === normAlnum(pilot.callsign);
-    var key = 'cotav_avatar_' + normAlnum(pilot.callsign);
-
-    function show(url){
-      img.onload = function(){ av.classList.add('has-photo'); };
-      img.onerror = function(){
-        av.classList.remove('has-photo');
-        img.removeAttribute('src');
-      };
-      img.src = url;
+try {
+  (function(){
+    var PILOTS = window.PILOTS || [];
+    var params = new URLSearchParams(window.location.search);
+    var cid = parseInt(params.get('cid'), 10);
+    var errEl = document.getElementById('pilot-error');
+    
+    if(!cid){ 
+      if(errEl) errEl.style.display = 'block'; 
+      return; 
     }
 
-    function applySaved(){
-      var saved = null;
-      try { saved = localStorage.getItem(key); } catch(e){}
-      if(saved){
-        show(saved);
-        clearBtn.style.display = 'inline-block';
-      }
+    var pilot = PILOTS.find(function(p){ return p.cid === cid; });
+    if(!pilot){
+      if(errEl) errEl.style.display = 'block';
+      document.title = 'Piloto no encontrado · COTAV';
+      return;
     }
 
-    if(isOwner && actions) actions.style.display = 'flex';
-
-    btn.addEventListener('click', function(){ file.click(); });
-
-    file.addEventListener('change', function(){
-      var f = file.files && file.files[0];
-      if(!f) return;
-      if(!/^image\//.test(f.type)){ alert('Seleccioná una imagen.'); return; }
-      var rd = new FileReader();
-      rd.onload = function(){
-        var src = new Image();
-        src.onload = function(){
-          var size = Math.min(400, Math.max(src.width, src.height));
-          if(size < 100) size = 100;
-          var cv = document.createElement('canvas');
-          cv.width = size; cv.height = size;
-          var ctx = cv.getContext('2d');
-          var sx = 0, sy = 0, sw = src.width, sh = src.height;
-          if(src.width > src.height){ sx = (src.width - src.height) / 2; sw = src.height; }
-          else { sy = (src.height - src.width) / 2; sh = src.width; }
-          ctx.drawImage(src, sx, sy, sw, sh, 0, 0, size, size);
-          var dataUrl;
-          try {
-            dataUrl = cv.toDataURL('image/jpeg', 0.85);
-          } catch(e){ alert('No se pudo procesar la imagen.'); return; }
-          try {
-            localStorage.setItem(key, dataUrl);
-          } catch(e){
-            try {
-              var sm = document.createElement('canvas');
-              sm.width = 240; sm.height = 240;
-              sm.getContext('2d').drawImage(cv, 0, 0, 240, 240);
-              dataUrl = sm.toDataURL('image/jpeg', 0.72);
-              localStorage.setItem(key, dataUrl);
-            } catch(e2){ alert('El navegador no permitió guardar la imagen (almacenamiento lleno).'); return; }
-          }
-          show(dataUrl);
-          clearBtn.style.display = 'inline-block';
-          file.value = '';
-        };
-        src.onerror = function(){ alert('No se pudo leer la imagen.'); };
-        src.src = rd.result;
-      };
-      rd.readAsDataURL(f);
-    });
-
-    clearBtn.addEventListener('click', function(){
-      try { localStorage.removeItem(key); } catch(e){}
-      av.classList.remove('has-photo');
-      img.removeAttribute('src');
-      clearBtn.style.display = 'none';
-    });
-
-    applySaved();
-  })();
-
-  function pad2(n){ return n < 10 ? '0' + n : n; }
-
-  var statsCache = null;
-
-  function loadStats(){
     try {
-      statsEl.style.display = 'block';
-      if(statsCache){
-        var d = statsCache[pilot.cid];
-        if(d){ applyStats(d); return; }
-      }
-      statHours.textContent = 'Cargando…';
-      statLast.textContent = 'Cargando…';
-      fetch('../data/stats.json?t=' + Date.now()).then(function(r){
-        if(!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      }).then(function(data){
-        statsCache = data;
-        var d = data[pilot.cid];
-        if(d){ applyStats(d); }
-        else{
-          statHours.textContent = '—';
-          statLast.textContent = 'Sin datos';
+      var _applySchoolTheme = function(){
+        var role = typeof window.roleOfCallSign === 'function' ? window.roleOfCallSign(pilot && pilot.callsign) : 'unknown';
+        if (role === 'piloto_escuela') {
+          var _scLink = document.createElement('link');
+          _scLink.rel = 'stylesheet';
+          _scLink.href = '../CSS/styles-escuela.css?v=14';
+          document.head.appendChild(_scLink);
+          document.documentElement.setAttribute('data-theme', 'escuela');
         }
-      }).catch(function(){
-        statHours.textContent = '—';
-        statLast.textContent = 'Error al cargar';
-      });
-    } catch(e) { console.error('loadStats error:', e); }
-  }
-
-  function applyStats(data){
-    statHours.textContent = data.hours;
-    statLast.textContent = data.last;
-    document.getElementById('stat-last-detail').innerHTML = data.lastDetail || '';
-    statAirport.textContent = data.airport;
-    statAircraft.textContent = data.aircraft;
-    if(data.aircraft !== '—'){
-      var acCode = data.aircraft.toLowerCase();
-      var iconPath = '../icons/aircraft/' + acCode + '.svg?v=3';
-      var iconEl = document.getElementById('stat-ac-icon');
-      if(iconEl){
-        iconEl.src = iconPath;
-        iconEl.style.height = (22 * acScale(acCode)) + 'px';
-        iconEl.style.display = 'inline-block';
+      };
+      if (typeof window.loadRoles === 'function') {
+        window.loadRoles().then(function(){
+          _applySchoolTheme();
+        }).catch(function(e){
+          _applySchoolTheme();
+        });
+      } else {
+        _applySchoolTheme();
       }
+    } catch(_e){}
+
+    var callsignEl = document.getElementById('p-callsign');
+    var nameEl = document.getElementById('p-name');
+    var metaEl = document.getElementById('p-meta');
+    var statusEl = document.getElementById('p-status');
+    var mapEl = document.getElementById('pilot-map');
+    var detailsEl = document.getElementById('pilot-details');
+    var offlineEl = document.getElementById('pilot-offline');
+
+    var statsEl = document.getElementById('pilot-stats');
+    var statHours = document.getElementById('stat-hours');
+    var statLast = document.getElementById('stat-lastflight');
+    var statAirport = document.getElementById('stat-airport');
+    var statAircraft = document.getElementById('stat-aircraft');
+
+    document.title = (pilot.callsign || '') + ' · ' + (pilot.name || '') + ' · COTAV';
+    if(callsignEl) callsignEl.textContent = pilot.callsign || '—';
+    if(nameEl) nameEl.textContent = pilot.name || '—';
+
+    var metaParts = [];
+    if(pilot.indicativo) metaParts.push(pilot.indicativo);
+    if(metaEl) metaEl.textContent = metaParts.join(' · ') || '—';
+    var cidLink = document.getElementById('p-cid-link');
+    if(cidLink && pilot.cid){
+      cidLink.textContent = 'CID ' + pilot.cid;
+      cidLink.href = 'https://stats.vatsim.net/stats/' + pilot.cid;
     }
 
-    var flightsEl = document.getElementById('flights-list');
-    var container = document.getElementById('last-flights-wrapper');
-    var toggleEl = document.getElementById('toggle-flights');
-    var specials = (data.lastFlights || []).filter(function(f){
-      var r = String(f.remark || f.remarks || '').toUpperCase();
-      return /VSOA|FAAV|COTA|OPR\s*\/\s*FAG/.test(r);
-    });
-    if(specials.length){
-      flightsEl.innerHTML = specials.slice(0,5).map(function(f){
-        var acIcon = '../icons/aircraft/' + (f.aircraft || '').toLowerCase() + '.svg?v=3';
-        return '<div style="display:grid;grid-template-columns:1.2fr 1fr 1.5fr 1fr 1.5fr;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px;color:var(--ivory);align-items:center;">' +
-          '<span style="color:var(--gold);font-weight:500;">' + f.callsign + '</span>' +
-          '<span class="ac-cell">' + f.aircraft + '<img src="' + acIcon + '" class="ac-icon" style="' + acIconStyle(f.aircraft, 18) + '" onerror="this.style.display=\'none\'"></span>' +
-          '<span style="color:var(--blue-light);">' + f.route + '</span>' +
-          '<span style="color:var(--muted);">' + f.date + '</span>' +
-          '<span style="color:var(--gold);font-size:11px;font-family:\'JetBrains Mono\',monospace;">' + (f.remark || '—') + '</span>' +
-          '</div>';
-      }).join('');
-      if(toggleEl){ toggleEl.style.display = 'flex'; }
+    (function avatarInit(){
+      var av = document.getElementById('p-avatar');
+      var img = document.getElementById('p-avatar-img');
+      var btn = document.getElementById('p-avatar-btn');
+      var clearBtn = document.getElementById('p-avatar-clear');
+      var file = document.getElementById('p-avatar-file');
+      var actions = document.getElementById('p-avatar-actions');
+      if(!av || !img || !btn || !clearBtn || !file) return;
+
+      var safeCallsign = pilot.callsign ? String(pilot.callsign).replace(/[^a-zA-Z0-9]/g, '_') : 'unknown';
+      var key = 'cotav_avatar_' + safeCallsign;
+
+      // Solo el piloto dueño del perfil puede subir/quitar su foto
+      var loggedCallsign = (sessionStorage.getItem('cotav_pilot') || localStorage.getItem('cotav_pilot') || '').trim();
+      var isOwner = !!(loggedCallsign && pilot.callsign && normAlnum(loggedCallsign) === normAlnum(pilot.callsign));
+
+      function show(url){
+        img.onload = function(){ 
+          av.classList.add('has-photo'); 
+          img.style.display = 'block';
+        };
+        img.onerror = function(){
+          av.classList.remove('has-photo');
+          img.style.display = 'none';
+          img.removeAttribute('src');
+        };
+        img.src = url;
+        if(img.complete && img.naturalWidth > 0) {
+          av.classList.add('has-photo');
+          img.style.display = 'block';
+        }
+      }
+
+      function applySaved(){
+        var saved = null;
+        try { saved = localStorage.getItem(key); } catch(e){}
+        if(saved){
+          show(saved);
+          clearBtn.style.display = 'inline-block';
+        }
+      }
+
+      if(actions) actions.style.display = isOwner ? 'flex' : 'none';
+
+      if(isOwner){
+        btn.addEventListener('click', function(){ file.click(); });
+
+        file.addEventListener('change', function(){
+          var f = file.files && file.files[0];
+          if(!f) return;
+          if(!/^image\//.test(f.type)){ alert('Seleccioná una imagen.'); return; }
+          var rd = new FileReader();
+          rd.onload = function(){
+            var src = new Image();
+            src.onload = function(){
+              var size = Math.min(400, Math.max(src.width, src.height));
+              if(size < 100) size = 100;
+              var cv = document.createElement('canvas');
+              cv.width = size; cv.height = size;
+              var ctx = cv.getContext('2d');
+              var sx = 0, sy = 0, sw = src.width, sh = src.height;
+              if(src.width > src.height){ sx = (src.width - src.height) / 2; sw = src.height; }
+              else { sy = (src.height - src.width) / 2; sh = src.width; }
+              ctx.drawImage(src, sx, sy, sw, sh, 0, 0, size, size);
+              var dataUrl;
+              try {
+                dataUrl = cv.toDataURL('image/jpeg', 0.85);
+              } catch(e){ alert('No se pudo procesar la imagen.'); return; }
+              try {
+                localStorage.setItem(key, dataUrl);
+              } catch(e){
+                try {
+                  var sm = document.createElement('canvas');
+                  sm.width = 240; sm.height = 240;
+                  sm.getContext('2d').drawImage(cv, 0, 0, 240, 240);
+                  dataUrl = sm.toDataURL('image/jpeg', 0.72);
+                  localStorage.setItem(key, dataUrl);
+                } catch(e2){ alert('Almacenamiento lleno.'); return; }
+              }
+              show(dataUrl);
+              clearBtn.style.display = 'inline-block';
+              file.value = '';
+            };
+            src.onerror = function(){ alert('No se pudo leer la imagen.'); };
+            src.src = rd.result;
+          };
+          rd.readAsDataURL(f);
+        });
+
+        clearBtn.addEventListener('click', function(){
+          try { localStorage.removeItem(key); } catch(e){}
+          av.classList.remove('has-photo');
+          img.removeAttribute('src');
+          img.style.display = 'none';
+          clearBtn.style.display = 'none';
+        });
+      }
+
+      applySaved();
+    })();
+
+    function loadStats(){
+      try {
+        if(statsEl) statsEl.style.display = 'block';
+        if(statHours) statHours.textContent = 'Cargando…';
+        if(statLast) statLast.textContent = 'Cargando…';
+        
+        fetch('../data/stats.json?t=' + Date.now()).then(function(r){
+          if(!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        }).then(function(data){
+          var d = data[pilot.cid];
+          if(d){
+            if(statHours) statHours.textContent = d.hours;
+            if(statLast) statLast.textContent = d.last;
+            var lastDetailEl = document.getElementById('stat-last-detail');
+            if(lastDetailEl) lastDetailEl.innerHTML = d.lastDetail || '';
+            if(statAirport) statAirport.textContent = d.airport;
+            if(statAircraft) statAircraft.textContent = d.aircraft;
+          } else {
+            if(statHours) statHours.textContent = '—';
+            if(statLast) statLast.textContent = 'Sin datos';
+          }
+        }).catch(function(){
+          if(statHours) statHours.textContent = '—';
+          if(statLast) statLast.textContent = 'Error al cargar';
+        });
+      } catch(e) { console.error('loadStats error:', e); }
     }
-  }
-  loadStats();
+    loadStats();
 
-  if(!pilot.cid){
-    statusEl.className = 'pilot-status offline';
-    statusEl.innerHTML = '<span class="dot"></span>Sin conexión a VATSIM';
-    offlineEl.style.display = 'block';
-    return;
-  }
+    if(pilot.cid){
+      var pilotMap = null;
+      var pilotMarker = null;
 
-  var pilotMap = null;
-  var pilotMarker = null;
+      function loadData(){
+        fetch('https://data.vatsim.net/v3/vatsim-data.json')
+          .then(function(r){ return r.json(); })
+          .then(function(data){
+            var pilotsList = data.pilots || [];
+            var live = pilotsList.find(function(lp){ return lp.cid === cid; });
 
-  function loadData(){
-    fetch('https://data.vatsim.net/v3/vatsim-data.json')
-      .then(function(r){ return r.json(); })
-      .then(function(data){
-        var pilots = data.pilots || [];
-        var live = pilots.find(function(lp){ return lp.cid === cid; });
+            if(!live){
+              if(statusEl){
+                statusEl.className = 'pilot-status offline';
+                statusEl.innerHTML = '<span class="dot"></span>Sin conexión';
+              }
+              if(mapEl) mapEl.style.display = 'none';
+              if(offlineEl) offlineEl.style.display = 'block';
+              if(detailsEl) detailsEl.innerHTML = '';
+              return;
+            }
 
-        if(!live){
-          statusEl.className = 'pilot-status offline';
-          statusEl.innerHTML = '<span class="dot"></span>Sin conexión';
-          mapEl.style.display = 'none';
-          offlineEl.style.display = 'block';
-          if(detailsEl) detailsEl.innerHTML = '';
-          if(pilotMarker && pilotMap){ pilotMap.removeLayer(pilotMarker); pilotMarker = null; }
-          return;
-        }
+            if(statusEl){
+              statusEl.className = 'pilot-status online';
+              statusEl.innerHTML = '<span class="dot"></span>En vuelo';
+            }
+            if(offlineEl) offlineEl.style.display = 'none';
 
-        statusEl.className = 'pilot-status online';
-        statusEl.innerHTML = '<span class="dot"></span>En vuelo';
-        offlineEl.style.display = 'none';
+            var fp = live.flight_plan;
+            var heading = live.heading || 0;
+            var onGround = (live.groundspeed || 0) < 40 && (live.altitude || 0) < 1000;
+            var aircraft = fp && fp.aircraft_short ? fp.aircraft_short : '—';
+            var route = fp ? ((fp.departure || '????') + ' → ' + (fp.arrival || '????')) : 'Sin plan de vuelo';
+            var altitude = onGround ? 'Suelo' : Math.round(live.altitude || 0).toLocaleString() + ' ft';
+            var speed = (live.groundspeed || 0) + ' kt';
+            var squawk = live.transponder || '----';
 
-        var fp = live.flight_plan;
-        var heading = live.heading || 0;
-        var onGround = (live.groundspeed || 0) < 40 && (live.altitude || 0) < 1000;
-        var aircraft = fp && fp.aircraft_short ? fp.aircraft_short : '—';
-        var route = fp ? ((fp.departure || '????') + ' ? ' + (fp.arrival || '????')) : 'Sin plan de vuelo';
-        var altitude = onGround ? 'Suelo' : Math.round(live.altitude || 0).toLocaleString(__LC()) + ' ft';
-        var speed = (live.groundspeed || 0) + ' kt';
-        var squawk = live.transponder || '----';
+            if(detailsEl){
+              detailsEl.innerHTML =
+                '<div class="vm-popup-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding:16px;background:var(--card-bg);border:1px solid var(--line);border-radius:2px;">' +
+                '<div class="vm-popup-cell"><span>Callsign VATSIM</span><b>' + (live.callsign || '—') + '</b></div>' +
+                '<div class="vm-popup-cell"><span>Aeronave</span><b>' + aircraft + '</b></div>' +
+                '<div class="vm-popup-cell"><span>Ruta</span><b>' + route + '</b></div>' +
+                '<div class="vm-popup-cell"><span>Altitud</span><b>' + altitude + '</b></div>' +
+                '<div class="vm-popup-cell"><span>Velocidad</span><b>' + speed + '</b></div>' +
+                '<div class="vm-popup-cell"><span>Rumbo</span><b>' + Math.round(heading) + '°</b></div>' +
+                '<div class="vm-popup-cell"><span>Squawk</span><b>' + squawk + '</b></div>' +
+                '</div>';
+            }
 
-        var acIconPath = '../icons/aircraft/' + (aircraft || '').toLowerCase() + '.svg?v=3';
-        detailsEl.innerHTML =
-          '<div class="vm-popup-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;padding:16px;background:var(--card-bg);border:1px solid var(--line);border-radius:2px;">' +
-          '<div class="vm-popup-cell"><span>Callsign VATSIM</span><b>' + (live.callsign || '—') + '</b></div>' +
-          '<div class="vm-popup-cell"><span>Aeronave</span><b><span class="ac-cell">' + aircraft + '<img src="' + acIconPath + '" class="ac-icon" style="' + acIconStyle(aircraft, 14) + '" onerror="this.style.display=\'none\'"></span></b></div>' +
-          '<div class="vm-popup-cell"><span>Ruta</span><b>' + route + '</b></div>' +
-          '<div class="vm-popup-cell"><span>Altitud</span><b>' + altitude + '</b></div>' +
-          '<div class="vm-popup-cell"><span>Velocidad</span><b>' + speed + '</b></div>' +
-          '<div class="vm-popup-cell"><span>Rumbo</span><b>' + Math.round(heading) + '°</b></div>' +
-          '<div class="vm-popup-cell"><span>Squawk</span><b>' + squawk + '</b></div>' +
-          '</div>';
-
-        mapEl.style.display = 'block';
-        if(!pilotMap){
-          pilotMap = L.map('pilot-map', { attributionControl: false, zoomControl: false }).setView([live.latitude, live.longitude], 8);
-          L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(pilotMap);
-          L.control.zoom({ position: 'bottomright' }).addTo(pilotMap);
-        }
-        pilotMap.setView([live.latitude, live.longitude], 8);
-        if(pilotMarker) pilotMap.removeLayer(pilotMarker);
-        pilotMarker = L.marker([live.latitude, live.longitude], {
-          icon: L.divIcon({
-            className: 'vatsim-marker',
-            html: '<div class="vm-plane" style="transform:rotate(' + heading + 'deg);"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2l9 7-2 1-7-3-7 3-2-1 9-7z"/></svg></div>',
-            iconSize: [0, 0],
-            iconAnchor: [12, 12]
+            if(mapEl && typeof L !== 'undefined'){
+              mapEl.style.display = 'block';
+              if(!pilotMap){
+                pilotMap = L.map('pilot-map', { attributionControl: false, zoomControl: false }).setView([live.latitude, live.longitude], 8);
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png?key=cb1_3sya_1_43376c38911c7e4517362145', { maxZoom: 19 }).addTo(pilotMap);
+                L.control.zoom({ position: 'bottomright' }).addTo(pilotMap);
+              }
+              pilotMap.setView([live.latitude, live.longitude], 8);
+              if(pilotMarker) pilotMap.removeLayer(pilotMarker);
+              pilotMarker = L.marker([live.latitude, live.longitude], {
+                icon: L.divIcon({
+                  className: 'vatsim-marker',
+                  html: '<div class="vm-plane" style="transform:rotate(' + heading + 'deg);"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2l9 7-2 1-7-3-7 3-2-1 9-7z"/></svg></div>',
+                  iconSize: [0, 0],
+                  iconAnchor: [12, 12]
+                })
+              }).addTo(pilotMap);
+            }
           })
-        }).addTo(pilotMap);
-      })
-      .catch(function(){
-        statusEl.className = 'pilot-status offline';
-        statusEl.innerHTML = '<span class="dot"></span>Error al conectar con VATSIM';
-      });
-  }
+          .catch(function(){});
+      }
 
-  loadData();
-  setInterval(loadData, 60000);
-})();
+      loadData();
+      setInterval(loadData, 60000);
+    }
+  })();
+} catch(err) {
+  console.error("Error crítico en script de piloto:", err);
+}
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

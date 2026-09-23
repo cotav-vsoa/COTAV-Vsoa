@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/helpers.php';
+cotav_cors();
 cotav_start_session();
 
 $cs = $_SESSION['callsign'] ?? '';

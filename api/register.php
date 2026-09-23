@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/helpers.php';
+cotav_cors();
 cotav_require_post();
 
 $body = cotav_read_json_body();

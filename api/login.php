@@ -1,25 +1,10 @@
 <?php
 require_once __DIR__ . '/helpers.php';
-
-/* ---------- CORS: permitir el login desde el sitio de GitHub Pages ---------- */
-$corsOrigin = 'https://cotav-vsoa.github.io';
-if (isset($_SERVER['HTTP_ORIGIN'])) {
-  if (rtrim($_SERVER['HTTP_ORIGIN'], '/') === $corsOrigin) {
-    header('Access-Control-Allow-Origin: ' . $corsOrigin);
-    header('Vary: Origin');
-  }
-}
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-  http_response_code(204);
-  exit;
-}
-
+cotav_cors();
 cotav_require_post();
 
 $body = cotav_read_json_body();
-$callsignRaw = trim($body['callsign'] ?? '');
+$callsignRaw = trim($body['callsign'] ?? $body['username'] ?? '');
 $pass = (string)($body['password'] ?? '');
 
 $cs = cotav_norm_callsign($callsignRaw);
@@ -30,12 +15,12 @@ if ($cs === '' || $pass === '') {
 }
 
 $pdo = cotav_db();
-$stmt = $pdo->prepare('SELECT id, password_hash, failed_attempts, locked_until FROM pilotos_auth WHERE callsign = ?');
+// Cambiado a la tabla usuarios y campo password
+$stmt = $pdo->prepare('SELECT id, password, failed_attempts, locked_until FROM usuarios WHERE callsign = ?');
 $stmt->execute([$cs]);
 $row = $stmt->fetch();
 
 if (!$row) {
-  // No existe la cuenta: puede que el piloto todavía no se haya registrado.
   cotav_json(['ok' => false, 'error' => $genericError, 'not_registered' => true], 401);
 }
 
@@ -48,21 +33,23 @@ if (!empty($row['locked_until'])) {
   }
 }
 
-if (!password_verify($pass . APP_PEPPER, $row['password_hash'])) {
-  $attempts = (int)$row['failed_attempts'] + 1;
+$pepper = defined('APP_PEPPER') ? APP_PEPPER : '';
+
+if (!password_verify($pass . $pepper, $row['password'])) {
+  $attempts = (int)($row['failed_attempts'] ?? 0) + 1;
   $lockSql = '';
   $params = [$attempts];
   if ($attempts >= 5) {
     $lockSql = ', locked_until = DATE_ADD(NOW(), INTERVAL 15 MINUTE)';
   }
-  $stmt = $pdo->prepare("UPDATE pilotos_auth SET failed_attempts = ?$lockSql WHERE id = ?");
+  $stmt = $pdo->prepare("UPDATE usuarios SET failed_attempts = ?$lockSql WHERE id = ?");
   $params[] = $row['id'];
   $stmt->execute($params);
   cotav_json(['ok' => false, 'error' => $genericError], 401);
 }
 
-// Login correcto: resetear contador y guardar sesión.
-$stmt = $pdo->prepare('UPDATE pilotos_auth SET failed_attempts = 0, locked_until = NULL, last_login_at = NOW() WHERE id = ?');
+// Login correcto
+$stmt = $pdo->prepare('UPDATE usuarios SET failed_attempts = 0, locked_until = NULL, last_login_at = NOW() WHERE id = ?');
 $stmt->execute([$row['id']]);
 
 $pilot = cotav_roster_find($cs);

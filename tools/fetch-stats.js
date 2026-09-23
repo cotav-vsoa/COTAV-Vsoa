@@ -87,9 +87,14 @@ function computeStats(historyResult, fpsRaw) {
     }
   }
 
-  const lastFlights = [];
-  const maxSessions = Math.min(sessions.length, 10);
-  for (let i = 0; i < maxSessions; i++) {
+  // Recorremos TODO el historial (no solo los últimos 10 en bruto) para
+  // juntar hasta 10 vuelos que cumplan el filtro VSOA/FAAV/COTA. Así, si
+  // alguno de los vuelos más recientes no tiene el remark correcto, seguimos
+  // buscando hacia atrás en vez de mostrar menos de 10.
+  var seen = {};
+  var allDeduped = [];
+  var matched = [];
+  for (let i = 0; i < sessions.length; i++) {
     const s = sessions[i];
     let fp = fpByConn[s.id] || null;
     if (!fp) {
@@ -107,32 +112,30 @@ function computeStats(historyResult, fpsRaw) {
     const route = fp ? ((fp.dep || '??') + ' → ' + (fp.arr || '??')) : '—';
     const d = new Date(s.start);
     const remark = fp && fp.rmks ? fp.rmks : '';
-    lastFlights.push({
+    const flight = {
       callsign: s.callsign || '—',
       aircraft: ac,
       route: route,
       date: d.toLocaleDateString('es-AR', { day: '2-digit', month: 'short', year: 'numeric' }),
       remark: remark
-    });
+    };
+
+    const key = flight.callsign + '|' + flight.aircraft + '|' + flight.route + '|' + flight.date;
+    if (seen[key]) continue;
+    seen[key] = true;
+
+    if (allDeduped.length < 10) allDeduped.push(flight);
+
+    const r = (remark || '').toLowerCase();
+    const isCota = r.includes('vsoa') || r.includes('faav') || r.includes('cota');
+    if (isCota && matched.length < 10) matched.push(flight);
+
+    // Si ya tenemos 10 vuelos filtrados, no hace falta seguir escaneando.
+    if (matched.length >= 10) break;
   }
 
-  // Deduplicate lastFlights by callsign+aircraft+route+date
-  var seen = {};
-  var deduped = [];
-  for (var f of lastFlights) {
-    var key = f.callsign + '|' + f.aircraft + '|' + f.route + '|' + f.date;
-    if (!seen[key]) { seen[key] = true; deduped.push(f); }
-  }
-
-  // Filter: keep flights with VSOA, FAAV o COTA/COTAV en el remark (case-insensitive)
-  var filtered = deduped.filter(function(f) {
-    if (!f.remark) return false;
-    var r = f.remark.toLowerCase();
-    return r.includes('vsoa') || r.includes('faav') || r.includes('cota');
-  });
-
-  // Fallback: if no COTA-marked flights, show the recent flights anyway
-  if (filtered.length === 0) filtered = deduped;
+  // Fallback: si no hay ningún vuelo marcado COTA en todo el historial, mostrar los últimos igual
+  var filtered = matched.length > 0 ? matched : allDeduped;
 
   return {
     hours: hoursStr,

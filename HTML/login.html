@@ -1,9 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-<head>  <link rel="icon" type="image/x-icon" href="../img/Logo COTAV/Logo-Cotav.ico?v=9"><link rel="apple-touch-icon" href="../img/Logo COTAV/Logo Cotav.png?v=4">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ingresar · COTA - VIRTUAL</title>  <meta name="description" content="Acceso al perfil de piloto del COTA - VIRTUAL.">
+<head>
+  <link rel="icon" type="image/x-icon" href="../img/Logo COTAV/Logo-Cotav.ico?v=9">
+  <link rel="apple-touch-icon" href="../img/Logo COTAV/Logo Cotav.png?v=4">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingresar · COTA - VIRTUAL</title>
+  <meta name="description" content="Acceso al perfil de piloto del COTA - VIRTUAL.">
   <link rel="canonical" href="https://cotav-vsoa.github.io/COTAV-Vsoa/HTML/login.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="COTA - VIRTUAL">
@@ -16,8 +19,7 @@
   <meta name="twitter:description" content="Acceso al perfil de piloto del COTA - VIRTUAL.">
   <meta name="twitter:image" content="https://cotav-vsoa.github.io/COTAV-Vsoa/img/og-cotav.png">
 
-
-<link rel="stylesheet" href="../CSS/styles.css?v=14">
+  <link rel="stylesheet" href="../CSS/styles.css?v=15">
 </head>
 <body>
 
@@ -116,19 +118,53 @@
        style="font-family:'Barlow',sans-serif; font-size:15px; padding:14px 16px; background:var(--bg); border:1px solid var(--line-strong); color:var(--ivory); border-radius:2px; outline:none; transition:border-color .25s ease;"
        onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='var(--line-strong)'">
      </div>
+
+     <!-- CAMPO DE CONTRASEÑA CON EL BOTÓN DEL OJO -->
      <div style="display:flex; flex-direction:column; gap:6px;">
       <label for="loginPass" style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted);">Contraseña</label>
-      <input type="password" id="loginPass" required autocomplete="current-password"
-       style="font-family:'Barlow',sans-serif; font-size:15px; padding:14px 16px; background:var(--bg); border:1px solid var(--line-strong); color:var(--ivory); border-radius:2px; outline:none; transition:border-color .25s ease;"
-       onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='var(--line-strong)'">
+      <div style="position:relative; width:100%; display:flex; align-items:center;">
+        <input type="password" id="loginPass" required autocomplete="current-password"
+         style="width:100%; font-family:'Barlow',sans-serif; font-size:15px; padding:14px 45px 14px 16px; background:var(--bg); border:1px solid var(--line-strong); color:var(--ivory); border-radius:2px; outline:none; transition:border-color .25s ease;"
+         onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='var(--line-strong)'">
+        
+        <button type="button" onclick="toggleLoginPassword()" aria-label="Mostrar u ocultar contraseña"
+          style="position:absolute; right:12px; background:none; border:none; color:var(--muted); cursor:pointer; padding:4px; display:flex; align-items:center; justify-content:center; transition:color .2s ease;"
+          onmouseover="this.style.color='var(--ivory)'" onmouseleave="this.style.color='var(--muted)'">
+          <svg id="eyeIcon" style="width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.6;" viewBox="0 0 24 24">
+            <path class="eye-open" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle class="eye-open" cx="12" cy="12" r="3"/>
+            <path class="eye-closed" style="display:none;" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+            <line class="eye-closed" style="display:none;" x1="1" y1="1" x2="23" y2="23"/>
+          </svg>
+        </button>
+      </div>
      </div>
+
      <div id="loginError" style="font-family:'JetBrains Mono',monospace; font-size:12px; color:#e74c3c; display:none; letter-spacing:0.04em;">Usuario o contraseña incorrectos.</div>
-<button type="submit" class="btn btn-primary" style="align-self:flex-start; margin-top:8px;"><span>Ingresar</span> <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></button>
+     <button type="submit" class="btn btn-primary" style="align-self:flex-start; margin-top:8px;"><span>Ingresar</span> <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></button>
     </form>
     <div style="display:flex; flex-direction:column; gap:12px; margin-top:20px; padding-top:18px; border-top:1px solid var(--line-strong);">
-     <span style="font-family:'Barlow',sans-serif; font-size:14px; color:var(--muted); display:flex; align-items:center; gap:10px; flex-wrap:wrap;">¿No tenés cuenta? <a href="inscripcion.html" class="btn btn-ghost" style="padding:8px 16px; font-size:11px; text-decoration:none;">Registrate</a></span>
+     <span style="font-family:'Barlow',sans-serif; font-size:14px; color:var(--muted); display:flex; align-items:center; gap:10px; flex-wrap:wrap;">¿No tenés cuenta? <a href="crear-cuenta.html" class="btn btn-ghost" style="padding:8px 16px; font-size:11px; text-decoration:none;">Registrate</a></span>
+     
      <button type="button" id="forgotPassBtn" class="btn btn-ghost" style="width:100%; justify-content:center; padding:10px 20px;">¿Olvidaste tu contraseña?</button>
-     <div id="forgotPassBox" style="display:none; font-family:'Barlow',sans-serif; color:var(--muted); line-height:1.6; font-size:13px;">Escribinos a <a href="mailto:cotavsoa@gmail.com" style="color:var(--blue-light); text-decoration:underline;">cotavsoa@gmail.com</a> y te ayudamos a restablecerla.</div>
+     
+     <!-- FORMULARIO DE RECUPERACIÓN INTERACTIVO -->
+     <div id="forgotPassBox" style="display:none; margin-top:6px; padding:16px; background:var(--bg); border:1px solid var(--line-strong); border-radius:2px;">
+       <form id="forgotForm" onsubmit="return handleForgotPassword(event)" style="display:flex; flex-direction:column; gap:12px;">
+         <div style="display:flex; flex-direction:column; gap:6px;">
+           <label for="forgotEmail" style="font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted);">Email de tu cuenta</label>
+           <input type="email" id="forgotEmail" required placeholder="correo@ejemplo.com"
+             style="font-family:'Barlow',sans-serif; font-size:14px; padding:10px 12px; background:var(--bg); border:1px solid var(--line-strong); color:var(--ivory); border-radius:2px; outline:none;"
+             onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='var(--line-strong)'">
+         </div>
+         
+         <div id="forgotMsg" style="font-family:'JetBrains Mono',monospace; font-size:11px; display:none; line-height:1.4;"></div>
+         
+         <button type="submit" id="forgotSubmitBtn" class="btn btn-primary" style="padding:10px 16px; font-size:12px; align-self:flex-start;">
+           <span>Enviar correo</span>
+         </button>
+       </form>
+     </div>
     </div>
    </div>
   </div>
@@ -140,7 +176,7 @@
  <div class="wrap">
   <div class="foot-grid">
    <div class="foot-brand">
-    <img src="../img/Logo COTAV/Logo Cotav.png?v=4" alt="Escudo COTAV" style="height:50px;width:auto;" alt="Escudo COTAV">
+    <img src="../img/Logo COTAV/Logo Cotav.png?v=4" alt="Escudo COTAV" style="height:50px;width:auto;">
     <div>
      <b style="font-family:'Oswald',sans-serif; letter-spacing:0.03em; display:block;">COTA - VIRTUAL</b>
      <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.03em; color:var(--muted); display:block; margin-top:4px; max-width:280px;">Comando Aéreo Táctico Argentino Virtual - VATSIM SPECIAL OPERATION ASOCIATED</span>
@@ -169,16 +205,16 @@
   <div class="foot-bottom">
    <p class="foot-legal">©2026 COTAV</p>
    <div class="foot-social">
-    <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-insta"/></svg></a>
+    <a href="https://www.instagram.com/cota_vsoa/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-insta"/></svg></a>
     <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#ic-yt"/></svg></a>
-    <a href="#" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#ic-tiktok"/></svg></a>
+    <a href="https://www.tiktok.com/@cota_vsoa" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#ic-tiktok"/></svg></a>
    </div>
   </div>
  </div>
 </footer>
 
 <script src="../JS/i18n.js?v=18"></script>
-<script src="../JS/script.js?v=38"></script>
+<script src="../JS/script.js?v=39"></script>
 <script>
 (function(){
   var forgotBtn = document.getElementById('forgotPassBtn');
@@ -187,18 +223,62 @@
     forgotBox.style.display = forgotBox.style.display === 'block' ? 'none' : 'block';
   });
 })();
+
+// Manejo del envío de correo de recuperación
+function handleForgotPassword(e) {
+  e.preventDefault();
+  var email = document.getElementById('forgotEmail').value.trim();
+  var msg = document.getElementById('forgotMsg');
+  var btn = document.getElementById('forgotSubmitBtn');
+
+  btn.disabled = true;
+  msg.style.display = 'block';
+  msg.style.color = 'var(--muted)';
+  msg.textContent = 'Enviando correo...';
+
+  fetch('https://www.cotavirtual.com.ar/api/forgot-password.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(res) {
+    btn.disabled = false;
+    if (res.ok) {
+      msg.style.color = '#3ecf8e';
+      msg.textContent = 'Te enviamos las instrucciones al correo si la cuenta existe.';
+      document.getElementById('forgotEmail').value = '';
+    } else {
+      msg.style.color = '#e74c3c';
+      msg.textContent = res.error || 'No se pudo procesar la solicitud.';
+    }
+  })
+  .catch(function() {
+    btn.disabled = false;
+    msg.style.color = '#e74c3c';
+    msg.textContent = 'Error al conectar con el servidor.';
+  });
+
+  return false;
+}
+
+// Función para alternar visibilidad de la contraseña
+function toggleLoginPassword() {
+  var passInput = document.getElementById('loginPass');
+  var eyeOpen = document.querySelectorAll('#eyeIcon .eye-open');
+  var eyeClosed = document.querySelectorAll('#eyeIcon .eye-closed');
+
+  if (passInput.type === 'password') {
+    passInput.type = 'text';
+    eyeOpen.forEach(function(el){ el.style.display = 'none'; });
+    eyeClosed.forEach(function(el){ el.style.display = 'inline'; });
+  } else {
+    passInput.type = 'password';
+    eyeOpen.forEach(function(el){ el.style.display = 'inline'; });
+    eyeClosed.forEach(function(el){ el.style.display = 'none'; });
+  }
+}
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

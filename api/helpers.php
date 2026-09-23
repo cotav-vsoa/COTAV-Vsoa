@@ -1,6 +1,30 @@
 <?php
 require_once __DIR__ . '/config.php';
 
+/* ---------- CORS: permitir llamadas desde GitHub Pages y el sitio principal ---------- */
+function cotav_cors() {
+  $allowedOrigins = [
+    'https://cotav-vsoa.github.io',
+    'https://cotavirtual.com.ar',
+    'https://www.cotavirtual.com.ar'
+  ];
+  
+  if (isset($_SERVER['HTTP_ORIGIN'])) {
+    $origin = rtrim($_SERVER['HTTP_ORIGIN'], '/');
+    if (in_array($origin, $allowedOrigins, true)) {
+      header('Access-Control-Allow-Origin: ' . $origin);
+      header('Vary: Origin');
+      header('Access-Control-Allow-Credentials: true');
+    }
+  }
+  header('Access-Control-Allow-Methods: POST, OPTIONS');
+  header('Access-Control-Allow-Headers: Content-Type');
+  if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+  }
+}
+
 /* ---------- sesión (cookie HttpOnly, no accesible desde JS) ---------- */
 function cotav_start_session() {
   if (session_status() === PHP_SESSION_ACTIVE) return;
@@ -32,10 +56,10 @@ function cotav_read_json_body() {
 }
 
 /* ---------- normalización de callsign ----------
-   "FAG-212", "fag 212", "Fag212" -> "FAG212" */
+   Permite conservar el guion medio (ej. "FAG-212") tal como se guarda en la BD */
 function cotav_norm_callsign($s) {
-  $s = strtoupper((string)$s);
-  return preg_replace('/[^A-Z0-9]/', '', $s);
+  $s = strtoupper(trim((string)$s));
+  return preg_replace('/[^A-Z0-9-]/', '', $s);
 }
 
 /* ---------- conexión PDO ---------- */

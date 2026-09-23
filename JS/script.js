@@ -1,4 +1,4 @@
-﻿const burger = document.getElementById('burger');
+const burger = document.getElementById('burger');
 const navlinks = document.getElementById('navlinks');
 const mobileOverlay = document.getElementById('mobileMenuOverlay');
 
@@ -102,7 +102,7 @@ document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
 let map = null;
 if(document.getElementById('vatsim-map')){
   map = L.map('vatsim-map', { attributionControl: false }).setView([-34.6, -58.4], 5);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png?key=cb1_3sya_1_43376c38911c7e4517362145', { maxZoom: 19 }).addTo(map);
   map.on('click', clearAllRoutes);
 }
 
@@ -874,7 +874,21 @@ function handleLogin(e) {
   });
 }
 function loginOk(p){
-  try {       sessionStorage.setItem('cotav_pilot', p.callsign); } catch(e){}
+  try { 
+    // Guardamos tanto en sessionStorage como en localStorage para mayor compatibilidad
+    sessionStorage.setItem('cotav_pilot', p.callsign);
+    localStorage.setItem('cotav_pilot', p.callsign);
+  } catch(e){}
+
+  // Sincronizar el avatar guardado en la navegación antes de redirigir
+  try {
+    var safeCs = String(p.callsign).replace(/[^a-zA-Z0-9]/g, '_');
+    var savedAvatar = localStorage.getItem('cotav_avatar_' + safeCs);
+    if (savedAvatar) {
+      localStorage.setItem('cotav_active_avatar', savedAvatar);
+    }
+  } catch(e){}
+
   window.location.href = 'pilotos.html';
 }
 function loginFail(entry){
@@ -1020,6 +1034,9 @@ function buildAccDropdown(p){
 
   root.innerHTML =
     '<button type="button" class="acc-btn" aria-haspopup="true" aria-expanded="false">' +
+      '<span class="acc-avatar">' +
+        '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0 2c-3.3 0-8 1.7-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-3.3-4.7-5-8-5z"/></svg>' +
+      '</span>' +
       '<span class="acc-label"></span>' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="acc-caret"><path d="M6 9l6 6 6-6"/></svg>' +
     '</button>' +
@@ -1053,6 +1070,24 @@ function buildAccDropdown(p){
     '</div>';
 
   root.querySelector('.acc-label').textContent = label;
+
+  (function loadAccAvatar(){
+    try {
+      var safeCallsign = p.callsign ? String(p.callsign).replace(/[^a-zA-Z0-9]/g, '_') : 'unknown';
+      var saved = localStorage.getItem('cotav_avatar_' + safeCallsign);
+      if(saved){
+        var avatarEl = root.querySelector('.acc-avatar');
+        var img = document.createElement('img');
+        img.alt = 'Foto de perfil';
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'cover';
+        img.style.display = 'block';
+        img.onload = function(){ avatarEl.innerHTML = ''; avatarEl.appendChild(img); };
+        img.src = saved;
+      }
+    } catch(e){}
+  })();
 
   var menu = root.querySelector('.acc-menu');
   var btn = root.querySelector('.acc-btn');
@@ -1206,6 +1241,25 @@ document.addEventListener('click', function(e){
   var t = e.target;
   var b = t && t.closest ? t.closest('.doc-view') : null;
   if (b) { e.preventDefault(); openDoc(b.getAttribute('data-f')); }
+
 });
+
+/* ----------------- Gestor de avatar de piloto ----------------- */
+function gestionarAvatarPiloto(imageUrl) {
+    var imgElement = document.getElementById('p-avatar-img');
+    var phElement = document.getElementById('p-avatar-ph');
+
+    if (!imgElement || !phElement) return;
+
+    if (imageUrl && imageUrl.trim() !== "") {
+        imgElement.src = imageUrl;
+        imgElement.style.display = "block";
+        phElement.style.display = "none";
+    } else {
+        imgElement.src = "";
+        imgElement.style.display = "none";
+        phElement.style.display = "flex";
+    }
+}
 
 initAuthNav();

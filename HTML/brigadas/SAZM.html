@@ -50,7 +50,7 @@
 
   // Inicialización de Leaflet (Coordenadas SAZM Mar del Plata, Zoom 13)
   const map = L.map('brigada-map', { attributionControl: false }).setView([-37.934167, -57.573333], 13);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png?key=cb1_3sya_1_43376c38911c7e4517362145', { maxZoom: 19 }).addTo(map);
   L.marker([-37.934167, -57.573333]).addTo(map);
 
   // FIX: Recalcula dimensiones del mapa cuando se activa la animación data-reveal
