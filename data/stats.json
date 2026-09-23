@@ -88,12 +88,19 @@
     ]
   },
   "1502178": {
-    "hours": "2856h 2m",
-    "last": "LVGQN · 23 de sept de 2026",
-    "lastDetail": "",
+    "hours": "2855h 46m",
+    "last": "ARG1001 · 23 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SUMU</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A332</span>",
     "airport": "SABE",
     "aircraft": "GLF5",
     "lastFlights": [
+      {
+        "callsign": "ARG1001",
+        "aircraft": "A332",
+        "route": "SUMU → SAEZ",
+        "date": "23 de sept de 2026",
+        "remark": "PBN/A1B1C1D1O1S2 DOF/260923 REG/N315SB EET/SAEF0016 OPR/ARG PER/C RMK/TCAS SIMBRIEF /V/"
+      },
       {
         "callsign": "LVGQN",
         "aircraft": "E50P",
@@ -145,13 +152,6 @@
       },
       {
         "callsign": "ARG01",
-        "aircraft": "B752",
-        "route": "SABE → SABE",
-        "date": "11 de sept de 2026",
-        "remark": "PBN/A1B1D1L1O1S1 DOF/260911 REG/ARG01 OPR/ARG PER/D /V/"
-      },
-      {
-        "callsign": "ABX3139",
         "aircraft": "B752",
         "route": "SABE → SABE",
         "date": "11 de sept de 2026",
