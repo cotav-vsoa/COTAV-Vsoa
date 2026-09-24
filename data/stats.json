@@ -485,12 +485,19 @@
     ]
   },
   "2005108": {
-    "hours": "42h 21m",
-    "last": "FAG255 · 22 de sept de 2026",
+    "hours": "43h 48m",
+    "last": "FAG255 · 23 de sept de 2026",
     "lastDetail": "",
     "airport": "SADP",
     "aircraft": "A4",
     "lastFlights": [
+      {
+        "callsign": "FAG255",
+        "aircraft": "B737",
+        "route": "SADP → SATR",
+        "date": "23 de sept de 2026",
+        "remark": "DOF/260923 REG/T-99 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "FAG255",
         "aircraft": "B737",
@@ -525,13 +532,6 @@
         "route": "SACE → SAME",
         "date": "04 de ago de 2026",
         "remark": "DOF/260804 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/PAMPA1-4 FFLTEND VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "TIZA1",
-        "aircraft": "C130",
-        "route": "SADP → SADP",
-        "date": "31 de jul de 2026",
-        "remark": "DOF/260731 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/TIZA1-3 FFLTEND STAYINFO/PRACTICAS DE FORMACION PAL/NIN FL120 NIN/PAL FL110 VSOA/FAAV.COM.AR /V/"
       }
     ]
   }
