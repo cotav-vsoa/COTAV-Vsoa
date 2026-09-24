@@ -244,7 +244,7 @@
    <p class="foot-legal">©2026 COTAV</p>
    <div class="foot-social">
     <a href="https://www.instagram.com/cota_vsoa/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-insta"/></svg></a>
-    <a href="https://www.youtube.com/@cota_virtual" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#ic-yt"/></svg></a>
+    <a href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#ic-yt"/></svg></a>
     <a href="https://www.tiktok.com/@cota_vsoa" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#ic-tiktok"/></svg></a>
    </div>
   </div>
@@ -331,8 +331,8 @@ try {
       var actions = document.getElementById('p-avatar-actions');
       if(!av || !img || !btn || !clearBtn || !file) return;
 
-      var safeCallsign = pilot.callsign ? String(pilot.callsign).replace(/[^a-zA-Z0-9]/g, '_') : 'unknown';
-      var key = 'cotav_avatar_' + safeCallsign;
+      var safeCallsign = pilot.callsign ? String(pilot.callsign).replace(/[^A-Za-z0-9\-]/g, '') : 'unknown';
+      var photoUrl = '../img/pilotos/' + safeCallsign + '.jpg';
 
       // Solo el piloto dueño del perfil puede subir/quitar su foto
       var loggedCallsign = (sessionStorage.getItem('cotav_pilot') || localStorage.getItem('cotav_pilot') || '').trim();
@@ -342,26 +342,15 @@ try {
         img.onload = function(){ 
           av.classList.add('has-photo'); 
           img.style.display = 'block';
+          clearBtn.style.display = isOwner ? 'inline-block' : 'none';
         };
         img.onerror = function(){
           av.classList.remove('has-photo');
           img.style.display = 'none';
           img.removeAttribute('src');
+          clearBtn.style.display = 'none';
         };
         img.src = url;
-        if(img.complete && img.naturalWidth > 0) {
-          av.classList.add('has-photo');
-          img.style.display = 'block';
-        }
-      }
-
-      function applySaved(){
-        var saved = null;
-        try { saved = localStorage.getItem(key); } catch(e){}
-        if(saved){
-          show(saved);
-          clearBtn.style.display = 'inline-block';
-        }
       }
 
       if(actions) actions.style.display = isOwner ? 'flex' : 'none';
@@ -373,57 +362,56 @@ try {
           var f = file.files && file.files[0];
           if(!f) return;
           if(!/^image\//.test(f.type)){ alert('Seleccioná una imagen.'); return; }
-          var rd = new FileReader();
-          rd.onload = function(){
-            var src = new Image();
-            src.onload = function(){
-              var size = Math.min(400, Math.max(src.width, src.height));
-              if(size < 100) size = 100;
-              var cv = document.createElement('canvas');
-              cv.width = size; cv.height = size;
-              var ctx = cv.getContext('2d');
-              var sx = 0, sy = 0, sw = src.width, sh = src.height;
-              if(src.width > src.height){ sx = (src.width - src.height) / 2; sw = src.height; }
-              else { sy = (src.height - src.width) / 2; sh = src.width; }
-              ctx.drawImage(src, sx, sy, sw, sh, 0, 0, size, size);
-              var dataUrl;
-              try {
-                dataUrl = cv.toDataURL('image/jpeg', 0.85);
-              } catch(e){ alert('No se pudo procesar la imagen.'); return; }
-              try {
-                localStorage.setItem(key, dataUrl);
-              } catch(e){
-                try {
-                  var sm = document.createElement('canvas');
-                  sm.width = 240; sm.height = 240;
-                  sm.getContext('2d').drawImage(cv, 0, 0, 240, 240);
-                  dataUrl = sm.toDataURL('image/jpeg', 0.72);
-                  localStorage.setItem(key, dataUrl);
-                } catch(e2){ alert('Almacenamiento lleno.'); return; }
-              }
-              show(dataUrl);
-              clearBtn.style.display = 'inline-block';
-              file.value = '';
-            };
-            src.onerror = function(){ alert('No se pudo leer la imagen.'); };
-            src.src = rd.result;
-          };
-          rd.readAsDataURL(f);
+          if(f.size > 5 * 1024 * 1024){ alert('La imagen no puede pesar más de 5 MB.'); return; }
+
+          btn.disabled = true;
+          btn.querySelector('span').textContent = 'Subiendo…';
+
+          var fd = new FormData();
+          fd.append('avatar', f);
+
+          fetch('../api/upload_avatar.php', {
+            method: 'POST',
+            credentials: 'include',
+            body: fd
+          }).then(function(r){ return r.json(); }).then(function(data){
+            if(data && data.ok){
+              show(data.avatar_url);
+            } else {
+              alert((data && data.error) || 'No se pudo subir la imagen.');
+            }
+          }).catch(function(){
+            alert('No se pudo conectar con el servidor.');
+          }).finally(function(){
+            btn.disabled = false;
+            btn.querySelector('span').textContent = 'Subir foto';
+            file.value = '';
+          });
         });
 
         clearBtn.addEventListener('click', function(){
-          try { localStorage.removeItem(key); } catch(e){}
-          av.classList.remove('has-photo');
-          img.removeAttribute('src');
-          img.style.display = 'none';
-          clearBtn.style.display = 'none';
+          clearBtn.disabled = true;
+          fetch('../api/delete_avatar.php', {
+            method: 'POST',
+            credentials: 'include'
+          }).then(function(r){ return r.json(); }).then(function(data){
+            av.classList.remove('has-photo');
+            img.removeAttribute('src');
+            img.style.display = 'none';
+            clearBtn.style.display = 'none';
+          }).catch(function(){
+            alert('No se pudo conectar con el servidor.');
+          }).finally(function(){
+            clearBtn.disabled = false;
+          });
         });
       }
 
-      applySaved();
+      show(photoUrl);
     })();
 
-    function renderLastFlights(flights){
+    
+function renderLastFlights(flights){
       var listEl = document.getElementById('flights-list');
       var toggleEl = document.getElementById('toggle-flights');
       var wrapEl = document.getElementById('last-flights-wrapper');
@@ -448,16 +436,16 @@ try {
       }
 
       listEl.innerHTML = filtered.map(function(f){
-        var ac = f.aircraft || '—';
+        var ac = f.aircraft || 'ÔÇö';
         var acIcon = '../icons/aircraft/' + String(ac).toLowerCase() + '.svg?v=3';
-        var remark = String(f.remark || f.remarks || '—');
-        var remarkShort = remark.length > 42 ? remark.slice(0, 42) + '…' : remark;
+        var remark = String(f.remark || f.remarks || 'ÔÇö');
+        var remarkShort = remark.length > 42 ? remark.slice(0, 42) + 'ÔÇª' : remark;
         return '' +
           '<div style="display:grid;grid-template-columns:1.2fr 1fr 1.5fr 1fr 1.5fr;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px;align-items:center;">' +
-          '<span style="color:var(--gold);font-weight:500;">' + (f.callsign || '—') + '</span>' +
+          '<span style="color:var(--gold);font-weight:500;">' + (f.callsign || 'ÔÇö') + '</span>' +
           '<span class="ac-cell">' + ac + '<img src="' + acIcon + '" class="ac-icon" style="' + acIconStyle(ac, 16) + '" onerror="this.style.display=\'none\'"></span>' +
-          '<span style="color:var(--blue-light);white-space:nowrap;">' + (f.route || '—') + '</span>' +
-          '<span style="color:var(--muted);">' + (f.date || '—') + '</span>' +
+          '<span style="color:var(--blue-light);white-space:nowrap;">' + (f.route || 'ÔÇö') + '</span>' +
+          '<span style="color:var(--muted);">' + (f.date || 'ÔÇö') + '</span>' +
           '<span title="' + remark.replace(/"/g, '&quot;') + '" style="color:var(--muted);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + remarkShort + '</span>' +
           '</div>';
       }).join('');
@@ -466,7 +454,7 @@ try {
       wrapEl.style.display = '';
     }
 
-    function loadStats(){
+function loadStats(){
       try {
         if(statsEl) statsEl.style.display = 'block';
         if(statHours) statHours.textContent = 'Cargando…';
@@ -484,8 +472,8 @@ try {
             if(lastDetailEl) lastDetailEl.innerHTML = d.lastDetail || '';
             if(statAirport) statAirport.textContent = d.airport;
             if(statAircraft) statAircraft.textContent = d.aircraft;
-            renderLastFlights(d.lastFlights);
-          } else {
+
+            renderLastFlights(d.lastFlights);          } else {
             if(statHours) statHours.textContent = '—';
             if(statLast) statLast.textContent = 'Sin datos';
           }

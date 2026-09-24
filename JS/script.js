@@ -880,15 +880,6 @@ function loginOk(p){
     localStorage.setItem('cotav_pilot', p.callsign);
   } catch(e){}
 
-  // Sincronizar el avatar guardado en la navegación antes de redirigir
-  try {
-    var safeCs = String(p.callsign).replace(/[^a-zA-Z0-9]/g, '_');
-    var savedAvatar = localStorage.getItem('cotav_avatar_' + safeCs);
-    if (savedAvatar) {
-      localStorage.setItem('cotav_active_avatar', savedAvatar);
-    }
-  } catch(e){}
-
   window.location.href = 'pilotos.html';
 }
 function loginFail(entry){
@@ -1073,19 +1064,17 @@ function buildAccDropdown(p){
 
   (function loadAccAvatar(){
     try {
-      var safeCallsign = p.callsign ? String(p.callsign).replace(/[^a-zA-Z0-9]/g, '_') : 'unknown';
-      var saved = localStorage.getItem('cotav_avatar_' + safeCallsign);
-      if(saved){
-        var avatarEl = root.querySelector('.acc-avatar');
-        var img = document.createElement('img');
-        img.alt = 'Foto de perfil';
-        img.style.width = '100%';
-        img.style.height = '100%';
-        img.style.objectFit = 'cover';
-        img.style.display = 'block';
-        img.onload = function(){ avatarEl.innerHTML = ''; avatarEl.appendChild(img); };
-        img.src = saved;
-      }
+      var safeCallsign = p.callsign ? String(p.callsign).replace(/[^A-Za-z0-9\-]/g, '') : 'unknown';
+      var avatarEl = root.querySelector('.acc-avatar');
+      var img = document.createElement('img');
+      img.alt = 'Foto de perfil';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.display = 'block';
+      img.onload = function(){ avatarEl.innerHTML = ''; avatarEl.appendChild(img); };
+      img.onerror = function(){}; // se queda con el ícono de silueta por defecto
+      img.src = '../img/pilotos/' + safeCallsign + '.jpg';
     } catch(e){}
   })();
 
