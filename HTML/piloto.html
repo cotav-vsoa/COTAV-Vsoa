@@ -417,12 +417,26 @@ function renderLastFlights(flights){
       var wrapEl = document.getElementById('last-flights-wrapper');
       if(!listEl || !toggleEl || !wrapEl) return;
 
-      var RMK = /(VSOA|FAAV|COTA|COTAV|COTAVIRTUAL|WWW\.COTAVIRTUAL)/i;
+      var RMK_ACTUAL = /(VSOA|COTA|COTAV|COTAVIRTUAL|WWW\.COTAVIRTUAL)/i;
+      var RMK_FAAV = /FAAV/i;
+      var MESES = { ene:0, feb:1, mar:2, abr:3, may:4, jun:5, jul:6, ago:7, sep:8, sept:8, oct:9, nov:10, dic:11 };
+      function parseFechaLegible(s){
+        var m = /^(\d{1,2})\s+de\s+([a-z]+)\s+de\s+(\d{4})$/i.exec(String(s||'').trim());
+        if(!m) return null;
+        var mes = MESES[String(m[2]).toLowerCase()];
+        if(mes === undefined) return null;
+        return new Date(+m[3], mes, +m[1]);
+      }
+      var HOY0 = new Date(); HOY0.setHours(0,0,0,0);
       var filtered = [];
       var seen = {};
       (flights || []).slice(0, 50).forEach(function(f){
         var r = String(f.remark || f.remarks || '');
-        if(!RMK.test(r)) return;
+        if(!RMK_ACTUAL.test(r) && !RMK_FAAV.test(r)) return;
+        if(RMK_FAAV.test(r) && !RMK_ACTUAL.test(r)){
+          var fd = parseFechaLegible(String(f.date || ''));
+          if(fd && fd.getTime() >= HOY0.getTime()) return;
+        }
         var key = (f.callsign || '') + '|' + (f.route || '') + '|' + (f.date || '');
         if(seen[key]) return; seen[key] = true;
         filtered.push(f);
