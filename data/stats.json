@@ -1,19 +1,34 @@
 {
   "1282428": {
-    "hours": "826h 16m",
-    "last": "CONDOR3 · 07 de sept de 2026",
+    "hours": "829h 7m",
+    "last": "CONDR14 · 25 de sept de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
-    "lastFlights": []
+    "lastFlights": [
+      {
+        "callsign": "CONDR14",
+        "aircraft": "F16",
+        "route": "LEZG → GCLP",
+        "date": "25 de sept de 2026",
+        "remark": "DOF/260925 REG/M-1011 ORGN/EKSP RMK/OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/CONDR11-CONDR16 FFLTEND VSOA/COTAVIRTUAL.COM.AR /V/"
+      }
+    ]
   },
   "1462350": {
-    "hours": "103h 27m",
-    "last": "CONDOR1 · 11 de ago de 2026",
+    "hours": "105h 46m",
+    "last": "CONDR12 · 25 de sept de 2026",
     "lastDetail": "",
     "airport": "LERS",
     "aircraft": "C25B",
     "lastFlights": [
+      {
+        "callsign": "CONDR12",
+        "aircraft": "F16",
+        "route": "LEZG → GCLP",
+        "date": "25 de sept de 2026",
+        "remark": "DOF/260925 RMK/DOF/260925 REG/M-1001 RMK/RMK/ VSOA/COTAVIRTUAL.COM.AR STS/MARSA FFLT/CONDR11--CONDOR16 FFLTEND /V/ /V/"
+      },
       {
         "callsign": "CONDOR1",
         "aircraft": "F16",
@@ -27,23 +42,24 @@
         "route": "YPDN → YPDN",
         "date": "24 de jul de 2026",
         "remark": "DOF/260724 RMK/DOF/260724  OPR/FAG RMK/ARGENTINA AIR FORCE STS/MARSA FFLT/TIGER1-4 FFLTEND RMK/OPERATION PITCH BLACK VSOA/FAAV.COM.AR /V/ /V/"
-      },
-      {
-        "callsign": "CONDR11",
-        "aircraft": "F16",
-        "route": "SPHI → MMSM",
-        "date": "16 de mar de 2026",
-        "remark": "DOF/260316 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA WITH OME81 FOR AAR FFLT/CONDR11-12 FFLTEND VSOA/FAAV.COM.AR /V/"
       }
     ]
   },
   "1502178": {
-    "hours": "2855h 46m",
-    "last": "ARG1001 · 23 de sept de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SUMU</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A332</span>",
+    "hours": "2858h 29m",
+    "last": "CONDR11 · 25 de sept de 2026",
+    "lastDetail": "",
     "airport": "SABE",
     "aircraft": "GLF5",
-    "lastFlights": []
+    "lastFlights": [
+      {
+        "callsign": "CONDR11",
+        "aircraft": "F16",
+        "route": "LEZG → GCLP",
+        "date": "25 de sept de 2026",
+        "remark": "DOF/260925 REG/M-1001 RMK/RMK/ VSOA/COTAVIRTUAL.COM.AR STS/MARSA FFLT/CONDR11--CONDOR16 FFLTEND /V/"
+      }
+    ]
   },
   "1562806": {
     "hours": "466h 12m",
@@ -104,9 +120,9 @@
     ]
   },
   "1665183": {
-    "hours": "159h 43m",
-    "last": "CONDOR1 · 07 de sept de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SBAN</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SBAN</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "hours": "162h 7m",
+    "last": "CONDR13 · 25 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">LEZG</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">GCLP</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SAZT",
     "aircraft": "F16",
     "lastFlights": [
@@ -262,12 +278,19 @@
     ]
   },
   "1712199": {
-    "hours": "339h 47m",
-    "last": "CONDOR1 · 21 de sept de 2026",
+    "hours": "342h 3m",
+    "last": "CONDR15 · 25 de sept de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDR15",
+        "aircraft": "F16",
+        "route": "LEZG → GCLP",
+        "date": "25 de sept de 2026",
+        "remark": "DOF/260925 REG/M-1002 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/CONDR11-CONDR16 FFLTEND VSOA/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "CONDOR1",
         "aircraft": "F16",
@@ -326,13 +349,6 @@
       },
       {
         "callsign": "DAGA",
-        "aircraft": "F16",
-        "route": "SAAP → SAOC",
-        "date": "23 de jun de 2026",
-        "remark": "DOF/260623 REG/M-1004 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/CONDOR1-2 FFLTEND VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "TANGO",
         "aircraft": "F16",
         "route": "SAAP → SAOC",
         "date": "23 de jun de 2026",
@@ -486,10 +502,10 @@
   },
   "2005108": {
     "hours": "43h 48m",
-    "last": "FAG255 · 23 de sept de 2026",
+    "last": "FAG062 · 25 de sept de 2026",
     "lastDetail": "",
     "airport": "SADP",
-    "aircraft": "A4",
+    "aircraft": "B737",
     "lastFlights": [
       {
         "callsign": "FAG255",
@@ -525,13 +541,6 @@
         "route": "SADP → SAZT",
         "date": "12 de ago de 2026",
         "remark": "DOF/260812 REG/M-1004 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "PAMPA4",
-        "aircraft": "IA63",
-        "route": "SACE → SAME",
-        "date": "04 de ago de 2026",
-        "remark": "DOF/260804 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/PAMPA1-4 FFLTEND VSOA/FAAV.COM.AR /V/"
       }
     ]
   }
