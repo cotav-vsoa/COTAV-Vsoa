@@ -501,12 +501,19 @@
     ]
   },
   "2005108": {
-    "hours": "43h 48m",
+    "hours": "46h 54m",
     "last": "FAG062 · 25 de sept de 2026",
     "lastDetail": "",
     "airport": "SADP",
     "aircraft": "B737",
     "lastFlights": [
+      {
+        "callsign": "FAG062",
+        "aircraft": "B737",
+        "route": "LEZG → GCLP",
+        "date": "25 de sept de 2026",
+        "remark": "DOF/260925 REG/T-99 RMK/VSOA/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "FAG255",
         "aircraft": "B737",
