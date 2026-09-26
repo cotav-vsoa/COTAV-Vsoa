@@ -62,12 +62,19 @@
     ]
   },
   "1562806": {
-    "hours": "466h 12m",
-    "last": "CONDOR2 · 21 de sept de 2026",
-    "lastDetail": "",
+    "hours": "466h 40m",
+    "last": "FAG212 · 26 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAWH</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAVC</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B737</span>",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "FAG212",
+        "aircraft": "B737",
+        "route": "SAWH → SAVC",
+        "date": "26 de sept de 2026",
+        "remark": "PBN/B2B3D2D3O2S1T1T2 DOF/260926 REG/T99 EET/SAVF0004 SCCZ0023 SAVF0027 SEL/EHBM OPR/ARGENTINA AIR FORCE PER/C RMK/OPR/ARGENTINA AIR FORCE VSOA/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "CONDOR2",
         "aircraft": "F16",
