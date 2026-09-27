@@ -364,12 +364,19 @@
     ]
   },
   "1785540": {
-    "hours": "154h 53m",
-    "last": "ANS618 · 23 de sept de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAZS</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B738</span>",
+    "hours": "156h 19m",
+    "last": "CONDOR2 · 27 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAOC</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SADP</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SADP",
     "aircraft": "IA63",
     "lastFlights": [
+      {
+        "callsign": "CONDOR2",
+        "aircraft": "F16",
+        "route": "SAOC → SADP",
+        "date": "27 de sept de 2026",
+        "remark": "DOF/260927 REG/M-1009 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR1-2 FFLTEND PASAJE SOBRE AEP VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "PAMPA2",
         "aircraft": "IA63",
@@ -508,12 +515,19 @@
     ]
   },
   "2005108": {
-    "hours": "46h 54m",
-    "last": "FAG062 · 25 de sept de 2026",
-    "lastDetail": "",
+    "hours": "48h 3m",
+    "last": "CONDOR1 · 27 de sept de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAOC</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SADP</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SADP",
     "aircraft": "B737",
     "lastFlights": [
+      {
+        "callsign": "CONDOR1",
+        "aircraft": "F16",
+        "route": "SAOC → SADP",
+        "date": "27 de sept de 2026",
+        "remark": "DOF/260927 REG/M-1007 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR1-2 FFLTEND PASAJE SOBRE AEP VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "FAG062",
         "aircraft": "B737",
