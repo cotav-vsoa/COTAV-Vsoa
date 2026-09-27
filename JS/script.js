@@ -537,7 +537,7 @@ const COTAV_EVENTS = [
     name: 'Ejercicio Ícaro',
     start: '2026-04-12T20:00:00Z',
     end: '2026-04-12T23:00:00Z',
-    airports: ['SABE', 'SACO'],
+    airports: ['SABE', 'SACE'],
     desc: 'Entrenamiento de interceptación y vuelo táctico en formación entre Aeroparque y Córdoba.',
     link: '',
     isCOTAV: true,
