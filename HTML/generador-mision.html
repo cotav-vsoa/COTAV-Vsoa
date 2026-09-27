@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>  <link rel="icon" type="image/x-icon" href="../img/Logo COTAV/Logo-Cotav.ico?v=9"><link rel="apple-touch-icon" href="../img/Logo COTAV/Logo Cotav.png?v=4">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Misión · COTA - VIRTUAL</title>  <meta name="description" content="Generador de vuelos tácticos del COTAV: armá briefings de misión con base, aeronave, objetivo y plan de 3 fases.">
+  <link rel="canonical" href="https://cotav-vsoa.github.io/COTAV-Vsoa/HTML/generador-mision.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="COTA - VIRTUAL">
+  <meta property="og:title" content="Generador de Misión · COTA - VIRTUAL">
+  <meta property="og:description" content="Generador de vuelos tácticos del COTAV: armá briefings de misión con base, aeronave, objetivo y plan de 3 fases.">
+  <meta property="og:image" content="https://cotav-vsoa.github.io/COTAV-Vsoa/img/og-cotav.png">
+  <meta property="og:url" content="https://cotav-vsoa.github.io/COTAV-Vsoa/HTML/generador-mision.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Generador de Misión · COTA - VIRTUAL">
+  <meta name="twitter:description" content="Generador de vuelos tácticos del COTAV: armá briefings de misión con base, aeronave, objetivo y plan de 3 fases.">
+  <meta name="twitter:image" content="https://cotav-vsoa.github.io/COTAV-Vsoa/img/og-cotav.png">
+
+<link rel="stylesheet" href="../CSS/styles.css?v=15">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    gray: { 50:'#edf1f6',100:'#dbe3ee',200:'#c3cee0',300:'#9fb0c9',400:'#7c8ba3',500:'#5f6f89',600:'#455267',700:'#243756',800:'#0d1a30',900:'#050b17',950:'#02050c' },
+                    emerald: { 50:'#faf5ec',100:'#f3e6d0',200:'#e6cda1',300:'#dab473',400:'#cc9c5c',500:'#b98a4d',600:'#a37a42',700:'#8a6636',800:'#5c4424',900:'#3d2d18',950:'#241a0e' },
+                    tactical: { 900:'#050b17', 800:'#0d1a30', 700:'#12203c', 600:'#1b2c4a' }
+                },
+                fontFamily: {
+                    mono: ['JetBrains Mono', 'monospace']
+                }
+            }
+        }
+    }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    .font-mono-tech { font-family:'JetBrains Mono', monospace; }
+    #generadorMision ::-webkit-scrollbar { width: 6px; height: 6px; }
+    #generadorMision ::-webkit-scrollbar-track { background: #0d1a30; }
+    #generadorMision ::-webkit-scrollbar-thumb { background: #243756; border-radius: 3px; }
+    #generadorMision ::-webkit-scrollbar-thumb:hover { background: #cc9c5c; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <symbol id="ic-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+   <path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>
+  </symbol>
+  <symbol id="ic-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+   <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/>
+  </symbol>
+  <symbol id="ic-yt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+   <rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="ic-tiktok" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+   <path d="M16.5 2c.4 2.1 1.7 3.6 3.9 3.9v3.1c-1.4.1-2.7-.3-3.9-1.1v6.4c0 3.4-2.7 5.7-5.7 5.7-1.6 0-3.1-.7-4.1-1.9-1.6-1.9-1.7-4.8.1-6.7 1.3-1.5 3.2-2 5-1.6v3.2c-.4-.2-.9-.2-1.4-.1-1 .3-1.7 1.2-1.7 2.3 0 1.4 1.1 2.5 2.5 2.5 1.5 0 2.7-1.2 2.7-2.7V2h2.6z"/>
+  </symbol>
+ </defs>
+</svg>
+
+<header>
+ <nav class="wrap">
+  <a href="index.html#top" class="brand">
+      <img src="../img/Logo COTAV/Logo Cotav.png?v=4" alt="Escudo COTAV">
+      <span class="brand-text"><b>COTA - VIRTUAL</b> <span>Comando Aéreo Táctico Argentino</span></span>
+    </a>
+  <div class="header-links-row">
+  <div class="navlinks" id="navlinks">
+   <a href="index.html#mision">Institución</a>
+   <a href="index.html#operaciones">Operaciones</a>
+   <a href="pilotos-online.html">Pilotos</a>
+   <a href="index.html#brigadas">Brigadas</a>
+   <a href="index.html#comunidad">Comunidad</a>
+   <a href="reglamento.html">Reglamento</a>
+   <a href="redes.html">REDES</a>
+  </div>
+  <div class="navcta">
+    <div class="lang-switch" role="group" aria-label="Idioma / Language">
+      <button class="lang-btn active" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+   <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+ </div></nav>
+</header>
+
+<main id="top">
+ <section style="padding-top:140px;">
+  <div class="wrap" style="max-width:1180px;">
+   <a href="index.html#operaciones" class="back-link" style="display:inline-flex;margin-bottom:24px;">
+    <svg style="width:14px;height:14px; transform:scaleX(-1)"><use href="#ic-arrow"/></svg>
+    <span>Volver a Operaciones</span>
+   </a>
+
+   <div id="authGate" style="display:none;">
+    <div class="social-hero" data-reveal>
+     <span class="hero-coord">COTAV <b> - ACCESO RESTRINGIDO </b></span>
+     <h1>Generador de <em>Misión</em></h1>
+     <p class="lead"><span>Esta herramienta es exclusiva para pilotos con sesión iniciada. Ingresá con tu usuario del COTAV para armar briefings tácticos.</span></p>
+     <div style="margin-top:24px;">
+      <a href="login.html" class="btn btn-primary"><span>Iniciar sesión</span> <svg style="width:14px;height:14px"><use href="#ic-arrow"/></svg></a>
+     </div>
+    </div>
+   </div>
+
+   <div id="pilotContent" style="display:none;">
+    <div class="section-head" data-reveal style="margin-bottom:28px;">
+     <div class="eyebrow gold">Operaciones Tácticas</div>
+     <h2>Generador de Misión</h2>
+     <p style="max-width:640px;">Armá un perfil de vuelo táctico con base, aeronave, tipo de misión y objetivo, y copiá el briefing listo para Discord.</p>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:24px;">
+     <div style="display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line-strong);border-radius:2px;padding:8px 14px;">
+      <label for="pilotCount" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Pilotos</label>
+      <input type="number" id="pilotCount" min="1" max="16" value="1" style="width:46px;background:var(--bg);border:1px solid var(--line-strong);border-radius:2px;color:var(--ivory);text-align:center;font-family:'JetBrains Mono',monospace;font-size:13px;padding:4px;">
+     </div>
+     <button type="button" onclick="randomizeAll()" class="btn btn-primary"><i class="fa-solid fa-dice" style="margin-right:8px;"></i><span>Aleatorio</span></button>
+     <button type="button" onclick="exportDiscordBriefing()" class="btn btn-ghost"><i class="fa-brands fa-discord" style="margin-right:8px;color:#7fb8f2;"></i><span>Copiar briefing</span></button>
+     <button type="button" onclick="copyMFF()" class="btn btn-ghost"><i class="fa-solid fa-file-lines" style="margin-right:8px;color:#cc9c5c;"></i><span>Copiar MFF</span></button>
+    </div>
+
+    <div id="generadorMision" class="text-gray-100" data-reveal>
+     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- LEFT CONTROL PANEL (5 Columns) -->
+        <div class="lg:col-span-5 space-y-6">
+            
+            <!-- SECTION 1: Base & Origin Selection -->
+            <div class="bg-tactical-800 border border-gray-700 rounded-xl p-5 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 text-gray-700 text-4xl pointer-events-none opacity-20">
+                    <i class="fa-solid fa-warehouse"></i>
+                </div>
+                <h2 class="text-sm font-bold uppercase tracking-wider text-emerald-400 font-mono-tech mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 01. Base / Brigada de Origen
+                </h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Seleccionar Brigada / Base Aérea</label>
+                        <select id="originBase" onchange="safeExecute(onBaseChange)" class="w-full bg-tactical-900 border border-gray-700 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none focus:border-emerald-500 font-mono-tech">
+                            <!-- Populated dynamically via JS -->
+                        </select>
+                    </div>
+                    <div id="baseInfoBox" class="bg-tactical-900/60 rounded-lg p-3 border border-gray-700/60 text-xs space-y-1">
+                        <div class="text-gray-400 font-mono">UBICACIÓN: <span id="baseLoc" class="text-gray-200 font-semibold">-</span></div>
+                        <div class="text-gray-400 font-mono">AERONAVES ASIGNADAS: <span id="baseAircrafts" class="text-emerald-400 font-semibold">-</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: Aircraft Selection & Range Check -->
+            <div class="bg-tactical-800 border border-gray-700 rounded-xl p-5 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 text-gray-700 text-4xl pointer-events-none opacity-20">
+                    <i class="fa-solid fa-plane"></i>
+                </div>
+                <h2 class="text-sm font-bold uppercase tracking-wider text-emerald-400 font-mono-tech mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 02. Aeronave y Rango Operativo
+                </h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Modelo de Aeronave</label>
+                        <select id="aircraftSelect" onchange="safeExecute(onAircraftChange)" class="w-full bg-tactical-900 border border-gray-700 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none focus:border-emerald-500 font-mono-tech">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+                    
+                    <!-- Range Indicator Bar & Status -->
+                    <div class="bg-tactical-900/80 rounded-lg p-3 border border-gray-700 space-y-2">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-gray-400 font-mono">RADIO DE ACCIÓN:</span>
+                            <span id="aircraftRangeText" class="font-mono font-bold text-emerald-400">-</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden border border-gray-700">
+                            <div id="rangeBar" class="bg-emerald-500 h-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                        <div id="rangeWarning" class="hidden text-xs text-amber-400 bg-amber-950/40 border border-amber-900/50 rounded p-2 flex items-center gap-2 mt-1">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>Advertencia: Distancia al objetivo supera el radio óptimo de la aeronave. Requiere reabastecimiento o escala.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: Mission Type Selection -->
+            <div class="bg-tactical-800 border border-gray-700 rounded-xl p-5 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 text-gray-700 text-4xl pointer-events-none opacity-20">
+                    <i class="fa-solid fa-crosshairs"></i>
+                </div>
+                <h2 class="text-sm font-bold uppercase tracking-wider text-emerald-400 font-mono-tech mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 03. Perfil de Misión Táctica
+                </h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1">Tipo de Misión Compatible</label>
+                        <select id="missionTypeSelect" onchange="safeExecute(onMissionTypeChange)" class="w-full bg-tactical-900 border border-gray-700 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none focus:border-emerald-500 font-mono-tech">
+                            <!-- Populated dynamically based on aircraft roles -->
+                        </select>
+                    </div>
+                    <div id="missionDescBox" class="text-xs text-gray-400 bg-tactical-900/60 p-3 rounded-lg border border-gray-700/60 leading-relaxed">
+                        Seleccione una misión lógica acorde a las capacidades de la aeronave.
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 4: VATSIM MILITARY FLIGHT PLAN (MFF) -->
+            <div class="bg-tactical-800 border border-gray-700 rounded-xl p-5 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 text-gray-700 text-4xl pointer-events-none opacity-20">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+                <h2 class="text-sm font-bold uppercase tracking-wider text-emerald-400 font-mono-tech mb-1 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> 04. Plan de Vuelo MFF (VATSIM)
+                </h2>
+                <p class="text-[11px] text-gray-500 font-mono mb-4 leading-relaxed">
+                    DEP sale de la base. Elegí destino y alterno, y la ruta se arma sola con puntos reales del AIP.
+                </p>
+
+                <div class="space-y-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase mb-1" for="mffArr">Destino (ARR)</label>
+                            <select id="mffArr" onchange="safeExecute(renderMFFPreview)" class="w-full bg-tactical-900 border border-gray-700 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none focus:border-emerald-500 font-mono-tech"></select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase mb-1" for="mffAltn">Alterno (ALTN)</label>
+                            <select id="mffAltn" onchange="safeExecute(renderMFFPreview)" class="w-full bg-tactical-900 border border-gray-700 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none focus:border-emerald-500 font-mono-tech"></select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase mb-1" for="mffGrupo">Grupo</label>
+                            <input type="text" id="mffGrupo" value="G6C" maxlength="12" oninput="safeExecute(renderMFFPreview)" class="w-full bg-tactical-900 border border-gray-700 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none focus:border-emerald-500 font-mono-tech">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase mb-1" for="mffNombre">Nombre</label>
+                            <input type="text" id="mffNombre" maxlength="24" placeholder="F16 VIPER" oninput="safeExecute(renderMFFPreview)" class="w-full bg-tactical-900 border border-gray-700 rounded-lg p-2.5 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-emerald-500 font-mono-tech">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-400 uppercase mb-1" for="mffMsn">Tipo (MSN)</label>
+                            <input type="text" id="mffMsn" maxlength="14" oninput="safeExecute(renderMFFPreview)" class="w-full bg-tactical-900 border border-gray-700 rounded-lg p-2.5 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-emerald-500 font-mono-tech">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 uppercase mb-1" for="mffComb">COMB / combustible</label>
+                        <input type="text" id="mffComb" maxlength="48" oninput="safeExecute(renderMFFPreview)" class="w-full bg-tactical-900 border border-gray-700 rounded-lg p-2.5 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-emerald-500 font-mono-tech">
+                    </div>
+
+                    <pre id="mffPreview" class="bg-tactical-900 border border-gray-700 rounded-lg p-3 text-[10px] leading-relaxed text-gray-300 font-mono whitespace-pre-wrap break-words max-h-72 overflow-y-auto"></pre>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT BRIEFING & 3-PHASE ASSAULT PANEL (7 Columns) -->
+        <div class="lg:col-span-7 space-y-6 flex flex-col">
+            
+            <!-- TARGET & DISTANCE METRICS -->
+            <div class="bg-tactical-800 border border-gray-700 rounded-xl p-5 shadow-xl">
+                <h2 class="text-sm font-bold uppercase tracking-wider text-emerald-400 font-mono-tech mb-4 flex items-center justify-between">
+                    <span><i class="fa-solid fa-map-location-dot mr-2"></i> Zona de Operaciones / Objetivo</span>
+                    <span id="distanceBadge" class="text-xs px-2.5 py-1 bg-gray-900 border border-gray-700 text-gray-300 rounded font-mono">Distancia: -- NM</span>
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-tactical-900 p-3.5 rounded-lg border border-gray-700">
+                        <span class="text-xs text-gray-400 block font-mono">ZONA / OBJETIVO ASIGNADO</span>
+                        <span id="targetName" class="text-sm font-bold text-gray-100 font-mono mt-1 block">--</span>
+                        <span id="targetCoords" class="text-xs text-emerald-400 font-mono mt-0.5 block">--</span>
+                    </div>
+                    <div class="bg-tactical-900 p-3.5 rounded-lg border border-gray-700">
+                        <span class="text-xs text-gray-400 block font-mono">AMENAZA / DEFENSA AA EN ZONA</span>
+                        <span id="threatLevel" class="text-sm font-bold text-amber-400 font-mono mt-1 block">--</span>
+                        <span id="threatDesc" class="text-xs text-gray-400 font-mono mt-0.5 block">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3-PHASE AIR ASSAULT / TACTICAL PLAN -->
+            <div class="bg-tactical-800 border border-gray-700 rounded-xl p-5 shadow-xl flex-1 flex flex-col">
+                <h2 class="text-sm font-bold uppercase tracking-wider text-emerald-400 font-mono-tech mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-list-check"></i> Plan Táctico de 3 Fases (Air Assault / Operación)
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1">
+                    <!-- Phase 1 -->
+                    <div class="bg-tactical-900 border border-gray-700 rounded-lg p-4 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono font-bold text-emerald-400 px-2 py-0.5 bg-emerald-950 border border-emerald-800 rounded">FASE 01</span>
+                                <i class="fa-solid fa-plane-circle-exclamation text-gray-500"></i>
+                            </div>
+                            <h3 id="phase1Title" class="font-bold text-sm text-gray-200 mb-1">Infiltración / Despegue</h3>
+                            <p id="phase1Desc" class="text-xs text-gray-400 leading-relaxed">Configuración de despegue y ruta inicial bajo cobertura radar.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-800 text-xs font-mono text-gray-500">
+                            Alt: <span id="phase1Alt" class="text-gray-300">--</span> | Vel: <span id="phase1Vel" class="text-gray-300">--</span>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="bg-tactical-900 border border-gray-700 rounded-lg p-4 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono font-bold text-emerald-400 px-2 py-0.5 bg-emerald-950 border border-emerald-800 rounded">FASE 02</span>
+                                <i class="fa-solid fa-crosshairs text-gray-500"></i>
+                            </div>
+                            <h3 id="phase2Title" class="font-bold text-sm text-gray-200 mb-1">Acción en Objetivo</h3>
+                            <p id="phase2Desc" class="text-xs text-gray-400 leading-relaxed">Ejecución del ataque, desembarco o reconocimiento en zona caliente.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-800 text-xs font-mono text-gray-500">
+                            Acción: <span id="phase2Action" class="text-emerald-400 font-semibold">--</span>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="bg-tactical-900 border border-gray-700 rounded-lg p-4 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono font-bold text-emerald-400 px-2 py-0.5 bg-emerald-950 border border-emerald-800 rounded">FASE 03</span>
+                                <i class="fa-solid fa-house-chimney-crack text-gray-500"></i>
+                            </div>
+                            <h3 id="phase3Title" class="font-bold text-sm text-gray-200 mb-1">Exfiltración / Retorno</h3>
+                            <p id="phase3Desc" class="text-xs text-gray-400 leading-relaxed">Ruta de escape táctica hacia base segura o alternativa.</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-800 text-xs font-mono text-gray-500">
+                            Ruta Alt: <span id="phase3Alt" class="text-gray-300">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- METADATA FOOTER -->
+                <div class="mt-5 pt-4 border-t border-gray-700 flex flex-wrap justify-between items-center text-xs font-mono text-gray-400 gap-2">
+                    <div>CONDICIÓN MET: <span id="meteoCond" class="text-emerald-400">VMC / CAVOK</span></div>
+                    <div>FRECUENCIA COTAV: <span class="text-gray-200">123.45 MHz (SECURE)</span></div>
+                    <div>PILOTOS ASIGNADOS: <span id="pilotCountDisplay" class="text-emerald-400 font-bold">1</span></div>
+                    <div>AUTORIZACIÓN: <span id="authStatus" class="text-emerald-400 font-bold">AUTORIZADO</span></div>
+                </div>
+            </div>
+
+        </div>
+     </div>
+    </div>
+
+   </div>
+  </div>
+ </section>
+
+ <!-- SECCIÓN DE CALENDARIO DE EVENTOS AGREGADA -->
+ <section id="eventos" style="padding-top:60px; padding-bottom:60px;">
+  <div class="wrap" style="max-width:1180px;">
+   <div class="section-head" data-reveal style="margin-bottom:28px;">
+    <div class="eyebrow gold">Cronograma Operativo</div>
+    <h2>Calendario de Eventos</h2>
+    <p style="max-width:640px;">Consultá los próximos eventos programados por el COTAV, VSOA y VATSIM Argentina.</p>
+   </div>
+
+   <!-- PESTAÑAS DEL CALENDARIO DE EVENTOS -->
+   <div class="cal-tabs">
+    <button type="button" class="cal-tab active" data-tab="cotav">COTAV</button>
+    <button type="button" class="cal-tab" data-tab="vsoa">VSOA</button>
+    <button type="button" class="cal-tab" data-tab="argar">VATSIM ARGENTINA</button>
+    <button type="button" class="cal-tab" data-tab="past">PASADOS</button>
+   </div>
+
+   <!-- ESTADO DE LA SINCRONIZACIÓN -->
+   <div id="cal-status" class="cal-status">Cargando eventos…</div>
+
+   <!-- CONTENEDORES DE LAS GRILLAS DE EVENTOS -->
+   <div id="cal-grid-cotav" class="cal-grid"></div>
+   <div id="cal-grid-vsoa" class="cal-grid" style="display: none;"></div>
+   <div id="cal-grid-argar" class="cal-grid" style="display: none;"></div>
+   <div id="cal-grid-past" class="cal-grid" style="display: none;"></div>
+  </div>
+ </section>
+</main>
+
+<div id="toast" class="fixed bottom-6 right-6 bg-emerald-600 text-white px-4 py-3 rounded-xl shadow-2xl border border-emerald-400 text-sm font-mono flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 z-50">
+    <i class="fa-solid fa-circle-check text-lg"></i>
+    <span id="toastText">Briefing copiado al portapapeles en formato Discord.</span>
+</div>
+
+<footer id="footer">
+ <div class="wrap">
+  <div class="foot-grid">
+   <div class="foot-brand">
+    <img src="../img/Logo COTAV/Logo Cotav.png?v=4" alt="Escudo COTAV" style="height:38px;width:auto;">
+    <div>
+     <b style="font-family:'Oswald',sans-serif; letter-spacing:0.03em; display:block;">COTA - VIRTUAL</b>
+     <span style="font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.03em; color:var(--muted); display:block; margin-top:4px; max-width:280px;">Comando Aéreo Táctico Argentino Virtual - VATSIM SPECIAL OPERATION ASOCIATED</span>
+     <p>Comunidad de simulación aérea sin fines de lucro, con presencia federal en brigadas de todo el país.</p>
+    </div>
+   </div>
+   <div class="foot-col">
+    <h5>Institución</h5>
+    <a href="index.html#mision">Bienvenida</a>
+    <a href="index.html#brigadas">Brigadas</a>
+    <a href="reglamento.html">Reglamento</a>
+   </div>
+   <div class="foot-col">
+    <h5>Operaciones</h5>
+    <a href="index.html#pilotos">Sala de pilotos</a>
+    <a href="index.html#operaciones">Material aéreo</a>
+    <a href="generador-mision.html">Generador de Misión</a>
+   </div>
+   <div class="foot-col">
+    <h5>Redes</h5>
+    <a href="mailto:cotavsoa@gmail.com">cotavsoa@gmail.com</a>
+    <a href="https://www.vatsim.net/" target="_blank" rel="noopener">VATSIM</a>
+    <a href="https://www.argentina.gob.ar/fuerzaaerea" target="_blank" rel="noopener">FAA oficial</a>
+   </div>
+  </div>
+  <div class="foot-bottom">
+   <p class="foot-legal">©2026 COTAV</p>
+   <div class="foot-social">
+    <a href="https://www.instagram.com/cota_vsoa/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#ic-insta"/></svg></a>
+    <a href="https://www.youtube.com/@cota_virtual" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#ic-yt"/></svg></a>
+    <a href="https://www.tiktok.com/@cota_vsoa" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#ic-tiktok"/></svg></a>
+   </div>
+  </div>
+ </div>
+</footer>
+
+<script src="../JS/i18n.js?v=16"></script>
+<script src="../JS/script.js?v=40"></script>
+<script>
+var pilotCallsign = '';
+(function(){
+  pilotCallsign = (sessionStorage.getItem('cotav_pilot') || localStorage.getItem('cotav_pilot') || '').trim();
+  if(!pilotCallsign){
+    document.getElementById('authGate').style.display = 'block';
+    return;
+  }
+  document.getElementById('pilotContent').style.display = 'block';
+})();
+</script>
+    <script>
+        function safeExecute(fn) {
+            try {
+                fn();
+            } catch (err) {
+                console.error("COTAV Execution Error:", err);
+            }
+        }
+
+        // Brigades and Bases database
+        const basesData = [
+            { id: "i_brigada", name: "I Brigada Aérea (El Palomar)", icao: "SADP", location: "Buenos Aires (SADP)", lat: -34.609, lon: -58.613, aircrafts: ["C-130 Hércules", "Boeing 737", "Fokker F-28"] },
+            { id: "ii_brigada", name: "II Brigada Aérea (Paraná)", icao: "SAAP", location: "Entre Ríos (SAAP)", lat: -31.783, lon: -60.482, aircrafts: ["Learjet 35A", "TC-12 Huron"] },
+            { id: "iii_brigada", name: "III Brigada Aérea (Reconquista)", icao: "SATR", location: "Santa Fe (SATR)", lat: -29.213, lon: -59.697, aircrafts: ["IA-58 Pucará Fénix", "T-6C Texan II"] },
+            { id: "iv_brigada", name: "IV Brigada Aérea (El Plumerillo)", icao: "SAME", location: "Mendoza (SAME)", lat: -32.831, lon: -68.792, aircrafts: ["A-4AR Fightinghawk", "SA315B Lama", "GroB 120TP"] },
+            { id: "v_brigada", name: "V Brigada Aérea (Villa Reynolds)", icao: "SAOR", location: "San Luis (SAOR)", lat: -33.729, lon: -65.378, aircrafts: ["A-4AR Fightinghawk", "T-6C Texan II"] },
+            { id: "vi_brigada", name: "VI Brigada Aérea (Tandil)", icao: "SAZT", location: "Buenos Aires (SAZT)", lat: -37.238, lon: -59.227, aircrafts: ["F-16AM/BM Fighting Falcon", "IA-63 Pampa III"] },
+            { id: "vii_brigada", name: "VII Brigada Aérea (Moreno)", icao: "SADJ", location: "Buenos Aires (SADJ)", lat: -34.551, lon: -58.789, aircrafts: ["Bell 412EP", "Hughes 500D", "Mi-171E"] },
+            { id: "viii_brigada", name: "VIII Brigada Aérea (Comodoro Rivadavia)", icao: "SAVC", location: "Chubut (SAVC)", lat: -45.787, lon: -67.465, aircrafts: ["Learjet 35A", "Twin Otter DHC-6"] },
+            { id: "ix_brigada", name: "IX Brigada Aérea (Comodoro Rivadavia)", icao: "SAVC", location: "Chubut (SAVC)", lat: -45.787, lon: -67.465, aircrafts: ["SAAB 340B", "Twin Otter DHC-6"] },
+            { id: "x_brigada", name: "X Brigada Aérea (Río Gallegos)", icao: "SAWG", location: "Santa Cruz (SAWG)", lat: -51.607, lon: -69.313, aircrafts: ["IA-63 Pampa III", "Twin Otter DHC-6"] },
+            { id: "eam", name: "Escuela de Aviación Militar (Córdoba)", icao: "SACE", location: "Córdoba (SACE)", lat: -31.332, lon: -64.264, aircrafts: ["GroB 120TP", "T-6C Texan II"] },
+            { id: "bam_quilmes", name: "Área Material Quilmes (BAMQ)", icao: "SOQ", location: "Buenos Aires (SOQ)", lat: -34.725, lon: -58.256, aircrafts: ["Fokker F-28", "TC-12 Huron"] },
+            { id: "bam_moron", name: "BAM Morón", icao: "SADM", location: "Buenos Aires (SADM)", lat: -34.6792, lon: -58.6436, aircrafts: ["TC-12 Huron", "Cessna 182", "Beechcraft B-45 Mentor"] },
+            { id: "bam_aeroparque", name: "BAM Aeroparque", icao: "SABE", location: "Buenos Aires (SABE)", lat: -34.559167, lon: -58.415556, aircrafts: ["Boeing 737", "Boeing 757", "Fokker F-28", "Embraer ERJ-140"] },
+            { id: "bam_mar_del_plata", name: "BAM Mar del Plata", icao: "SAZM", location: "Buenos Aires (SAZM)", lat: -37.934167, lon: -57.573333, aircrafts: ["SAAB 340B", "Learjet 35A", "Twin Otter DHC-6"] },
+            { id: "bam_resistencia", name: "BAM Resistencia", icao: "SARE", location: "Chaco (SARE)", lat: -27.45, lon: -59.056111, aircrafts: ["F-16AM/BM Fighting Falcon", "A-4AR Fightinghawk", "IA-63 Pampa III", "C-130 Hércules"] },
+            { id: "bc_marambio", name: "BC Marambio", icao: "SAWB", location: "Antártida Argentina (SAWB)", lat: -64.2333, lon: -56.6167, aircrafts: ["C-130 Hércules", "Bell 412EP", "Hughes 500D", "Twin Otter DHC-6", "SAAB 340B"] }
+        ];
+
+        // Aircraft database with designated logical roles ('caza', 'transporte', 'helicoptero', 'entrenador', 'reconocimiento')
+        /* Aeródromos de la red de LADE. La mayoría no son bases COTAV, pero
+           aparecen como origen o destino de los tramos de línea, así que el
+           generador los conoce para armar DEP/ARR y la cadena de puntos. */
+        const airportsData = [
+            { icao: "SABE", name: "Aeroparque Jorge Newbery", city: "Buenos Aires", lat: -34.559167, lon: -58.415556 },
+            { icao: "SAEZ", name: "Ministro Pistarini", city: "Buenos Aires", lat: -34.822222, lon: -58.535833 },
+            { icao: "SAZM", name: "Astor Piazzolla", city: "Mar del Plata", lat: -37.934167, lon: -57.573333 },
+            { icao: "SAZB", name: "Presidente Néstor Kirchner", city: "Bahía Blanca", lat: -38.726111, lon: -62.270556 },
+            { icao: "SAWM", name: "El Tehuelche", city: "Puerto Madryn", lat: -42.769167, lon: -65.049444 },
+            { icao: "SAZS", name: "San Carlos de Bariloche", city: "San Carlos de Bariloche", lat: -41.133167, lon: -71.188333 },
+            { icao: "SAVC", name: "Comodoro Rivadavia", city: "Comodoro Rivadavia", lat: -45.787, lon: -67.465 },
+            { icao: "SAFN", name: "Perito Moreno", city: "Perito Moreno", lat: -46.788889, lon: -69.098611 },
+            { icao: "SAFA", name: "El Calafate", city: "El Calafate", lat: -50.280278, lon: -72.053056 },
+            { icao: "SAWG", name: "Río Gallegos", city: "Río Gallegos", lat: -51.607, lon: -69.313 },
+            { icao: "SAWR", name: "Presidente Órigen Names", city: "Río Grande", lat: -53.776944, lon: -67.749722 },
+            { icao: "SAUSH", name: "Aeropuerto Internacional", city: "Ushuaia", lat: -54.843333, lon: -68.295556 }
+        ];
+
+        // code: abreviatura usada en el plan de vuelo (MFF) y en los callsigns
+        const aircraftData = {
+            "Bell 412EP": { code: "B412", mach: 0.25, type: "Helicóptero", role: "helicoptero", range: 350, speed: 120, ceiling: "15,000 ft" },
+            "Hughes 500D": { code: "H500", mach: 0.20, type: "Helicóptero", role: "helicoptero", range: 250, speed: 110, ceiling: "12,000 ft" },
+            "Mi-171E": { code: "MI17", mach: 0.25, type: "Helicóptero Pesado", role: "helicoptero", range: 500, speed: 130, ceiling: "19,000 ft" },
+            "SA315B Lama": { code: "LAMA", mach: 0.20, type: "Helicóptero de Montaña", role: "helicoptero", range: 200, speed: 95, ceiling: "21,000 ft" },
+            "GroB 120TP": { code: "GRB12", mach: 0.36, type: "Entrenador", role: "entrenador", range: 800, speed: 200, ceiling: "25,000 ft" },
+            "T-6C Texan II": { code: "T6C", mach: 0.45, type: "Entrenador / Ataque Ligero", role: "entrenador", range: 900, speed: 270, ceiling: "31,000 ft" },
+            "IA-63 Pampa III": { code: "PA34", mach: 0.75, type: "Ataque Ligero / Entrenador", role: "caza", range: 850, speed: 450, ceiling: "42,000 ft" },
+            "A-4AR Fightinghawk": { code: "A4AR", mach: 0.80, type: "Caza-Bombardero", role: "caza", range: 1700, speed: 550, ceiling: "40,000 ft" },
+            "F-16AM/BM Fighting Falcon": { code: "F16", mach: 0.95, type: "Caza Polivalente", role: "caza", range: 2200, speed: 850, ceiling: "50,000 ft" },
+            "IA-58 Pucará Fénix": { code: "P28", mach: 0.40, type: "COIN / Reconocimiento", role: "reconocimiento", range: 650, speed: 280, ceiling: "30,000 ft" },
+            "C-130 Hércules": { code: "C130", mach: 0.52, type: "Transporte Táctico", role: "transporte", range: 2500, speed: 300, ceiling: "33,000 ft" },
+            "Boeing 737": { code: "B737", mach: 0.78, type: "Transporte Estratégico", role: "transporte", range: 3000, speed: 450, ceiling: "37,000 ft" },
+            "Fokker F-28": { code: "F28", mach: 0.74, type: "Transporte Mediano", role: "transporte", range: 1100, speed: 400, ceiling: "35,000 ft" },
+            "Learjet 35A": { code: "LJ35", mach: 0.78, type: "Verificación / Enlace", role: "reconocimiento", range: 1500, speed: 460, ceiling: "45,000 ft" },
+            "TC-12 Huron": { code: "TC12", mach: 0.45, type: "Enlace / Transporte Liviano", role: "transporte", range: 1100, speed: 250, ceiling: "31,000 ft" },
+            "SAAB 340B": { code: "SB34", mach: 0.43, type: "Transporte / Líneas Aéreas", role: "transporte", range: 900, speed: 260, ceiling: "25,000 ft" },
+            "Twin Otter DHC-6": { code: "DHC6", mach: 0.25, type: "Transporte STOL", role: "transporte", range: 750, speed: 150, ceiling: "25,000 ft" },
+            "Cessna 182": { code: "C182", mach: 0.13, type: "Avión Ligero / Enlace", role: "reconocimiento", range: 350, speed: 120, ceiling: "15,000 ft" },
+            "Beechcraft B-45 Mentor": { code: "B45M", mach: 0.30, type: "Trenador Histórico", role: "entrenador", range: 800, speed: 200, ceiling: "19,000 ft" },
+            "Boeing 757": { code: "B757", mach: 0.80, type: "Transporte Estratégico / Presidencial", role: "transporte", range: 3900, speed: 460, ceiling: "42,000 ft" },
+            "Embraer ERJ-140": { code: "E140", mach: 0.75, type: "Enlace / Regional", role: "transporte", range: 1800, speed: 300, ceiling: "37,000 ft" }
+        };
+
+        // Mission types with role compatibility mapping
+        const missionsData = [
+            {
+                id: "cas",
+                name: "CAS - Apoyo Aéreo Cercano (Close Air Support)",
+                roles: ["caza", "reconocimiento"],
+                desc: "Ataque táctico de precisión sobre posiciones enemigas fortificadas o columnas blindadas en apoyo directo a fuerzas terrestres amigas.",
+                threat: "Alto (Artillería Antiaérea y MANPADS)",
+                threatDesc: "Presencia confirmada de radares de tiro y misiles superficie-aire de corto alcance.",
+                p1Title: "Tránsito Táctico a Baja Cota", p1Desc: "Infiltración volando bajo perfil radar utilizando accidentes geográficos.", p1Alt: "500 - 1,000 ft", p1Vel: "380 KTS",
+                p2Action: "Ataque en Picada / Pasaje de Fuego",
+                p3Title: "Escape Rasante (Breakaway)", p3Desc: "Maniobra evasiva post-ataque y rumbo de repliegue hacia zona segura.", p3Alt: "200 ft"
+            },
+            {
+                id: "air_assault",
+                name: "Air Assault - Asalto Aéreo y Desembarco",
+                roles: ["helicoptero"],
+                desc: "Operación aeromóvil profunda para inserción de tropas de operaciones especiales en zona disputada o tras líneas enemigas.",
+                threat: "Medio-Alto (Fuego de Infantería / AAA Ligera)",
+                threatDesc: "Posible actividad de milicias con armamento antiaéreo portátil en LZ.",
+                p1Title: "Escolta y Vuelo de Inserción", p1Desc: "Transporte de tropas protegido por aeronaves de ala rotativa o caza táctico.", p1Alt: "300 ft AGL", p1Vel: "110 KTS",
+                p2Action: "Desembarque Rápido en LZ (Zona de Aterrizaje)",
+                p3Title: "Exfiltración de Fuerza de Asalto", p3Desc: "Retirada inmediata del LZ bajo cobertura de fuego supresivo.", p3Alt: "500 ft AGL"
+            },
+            {
+                id: "recg",
+                name: "RECG - Reconocimiento Armado y Patrulla",
+                roles: ["caza", "reconocimiento", "entrenador"],
+                desc: "Exploración táctica de rutas logísticas, detección de objetivos móviles y recopilación de inteligencia en tiempo real.",
+                threat: "Medio (Vigilancia Radar / Alerta Temprana)",
+                threatDesc: "Red de alerta temprana activa en el sector asignado.",
+                p1Title: "Patrullaje de Sector Asignado", p1Desc: "Ingreso en patrón de búsqueda con sensores ópticos y radar encendido.", p1Alt: "10,000 ft", p1Vel: "300 KTS",
+                p2Action: "Marcación y Reporte de Blancos",
+                p3Title: "Retorno a Base por Ruta Alternativa", p3Desc: "Repliegue discreto evitando zonas de interceptación.", p3Alt: "12,000 ft"
+            },
+            {
+                id: "sar",
+                name: "CSAR / SAR - Búsqueda y Rescate en Combate",
+                roles: ["helicoptero", "transporte", "reconocimiento"],
+                desc: "Localización y extracción de pilotos eyectados o personal aislado en territorio hostil.",
+                threat: "Crítico (Zona Hostil Controlada)",
+                threatDesc: "Fuerzas opuestas en búsqueda activa de sobrevivientes.",
+                p1Title: "Vuelo de Búsqueda en Cuadrícula", p1Desc: "Barrede visual y electrónico de la zona de eyección estimada.", p1Alt: "1,500 ft", p1Vel: "140 KTS",
+                p2Action: "Hover y Rescate con Grúa / Inserción",
+                p3Title: "Evacuación Médica Urgente (MEDEVAC)", p3Desc: "Vuelo de traslado prioritario a centro médico militar.", p3Alt: "2,000 ft"
+            },
+            {
+                id: "log_drop",
+                name: "LOG-DROP - Lanzamiento de Carga / Abastecimiento",
+                roles: ["transporte"],
+                desc: "Lanzamiento paracaidista de suministros críticos, munición o víveres a guarniciones aisladas.",
+                threat: "Bajo-Medio (Amenaza de Sanciones Electrónicas)",
+                threatDesc: "Zona semi-asegurada con posibles hostigamientos periféricos.",
+                p1Title: "Aproximación de Precisión a Cota Fija", p1Desc: "Enfilamiento al punto de impacto (PDI) con velocidad sustained.", p1Alt: "800 ft AGL", p1Vel: "160 KTS",
+                p2Action: "Lanzamiento de Carga (Extraction/Free Fall)",
+                p3Title: "Ascenso Rápido y Salida de Zona", p3Desc: "Giro de alejamiento y ganancia de altura táctica.", p3Alt: "15,000 ft"
+            },
+            {
+                id: "intercept",
+                name: "INTERCEPT - Intercepción Aérea de Aeronave Intrusa",
+                roles: ["caza"],
+                desc: "Scramble y despegue de reacción rápida para interceptar traza no identificada penetrando el espacio aéreo soberano.",
+                threat: "Variable (Posible Tránsito Hostil)",
+                threatDesc: "Identificación visual y seguimiento táctico bajo guía GCI.",
+                p1Title: "Scramble y Ascenso Supersónico / Rápido", p1Desc: "Despegue inmediato con vector de intercepción asignado.", p1Alt: "25,000 ft", p1Vel: "600 KTS",
+                p2Action: "Interceptación Visual (ID) y Custodia",
+                p3Title: "Regreso a Base e Informes de Interceptación", p3Desc: "Ruta de descenso y aproximación instrumental directa.", p3Alt: "FL100"
+            },
+            {
+                id: "training",
+                name: "TRAIN - Navegación Táctica e Instrucción Instrumental",
+                roles: ["entrenador", "reconocimiento"],
+                desc: "Misión de entrenamiento de cadetes y pilotos en navegación por instrumentos, formaciones y procedimientos tácticos.",
+                threat: "Nulo / Zona Segura",
+                threatDesc: "Espacio aéreo controlado de entrenamiento (MOA).",
+                p1Title: "Despegue Instrumental y Salida SID", p1Desc: "Ascenso controlado según carta de salida estandarizada.", p1Alt: "8,000 ft", p1Vel: "220 KTS",
+                p2Action: "Ejecución de Procedimientos y Navegación VOR/TACAN",
+                p3Title: "Aproximación ILS y Aterrizaje", p3Desc: "Retorno a la base de origen bajo supervisión de torre.", p3Alt: "Circuito de Tránsito"
+            },
+            {
+                id: "lade_linea",
+                name: "LÍNEA (LADE) - Servicio Regular de Pasajeros y Carga",
+                roles: ["transporte"],
+                linea: true,
+                aircraft: ["Boeing 737", "Fokker F-28", "Embraer ERJ-140"],
+                desc: "Vuelo de línea regular operado por LADE. Conexiones desde Aeroparque (Buenos Aires) hacia Mar del Plata, Bahía Blanca, Puerto Madryn y San Carlos de Bariloche, con reactores y aviones regionales (Boeing 737, Fokker F28 y Embraer ERJ-140).",
+                threat: "Bajo (Tránsito Comercial Controlado)",
+                threatDesc: "Espacio aéreo controlado con coordinación ATS normal.",
+                p1Title: "Salida IFR (SID)", p1Desc: "Despegue y ascenso según procedimiento de salida del aeropuerto de origen, con autorización de torre/control en ruta.", p1Alt: "FL180 – FL240", p1Vel: "250 KTS",
+                p2Action: "Cruce en Ruta (En-route IFR)",
+                p3Title: "Descenso, Aproximación y Aterrizaje", p3Desc: "Descenso según STAR, aproximación IFR y aterrizaje en destino. Carga/pasajeros transportados conforme a plan de vuelo comercial.", p3Alt: "Circuito IFR / Final"
+            },
+            {
+                id: "patagonico_austral",
+                name: "PATAGÓNICO AUSTRAL - Tramo Regional de la Patagonia",
+                roles: ["transporte"],
+                linea: true,
+                aircraft: ["SAAB 340B", "Twin Otter DHC-6"],
+                desc: "Tranche patagónico conectando Comodoro Rivadavia, Perito Moreno, El Calafate, Río Gallegos, Río Grande y Ushuaia. Operación regional con turbohélices (Saab 340 y de Havilland Canada DHC-6 Twin Otter), apta para pasajeros, carga y logística regional.",
+                threat: "Bajo (Condiciones Meteorológicas Variables)",
+                threatDesc: "Viento fuerte y condiciones cambiantes típicas de la Patagonia austral. Navegación IFR/VFR según condiciones.",
+                p1Title: "Ascenso y Salida Regional", p1Desc: "Salida IFR o VFR según METAR/NOTAM. Ascenso controlado para optimizar tramo entre destinos.", p1Alt: "FL120 – FL190", p1Vel: "180 KTS",
+                p2Action: "Navegación por Tramos Cortos entre Puntos Regionales",
+                p3Title: "Descenso y Aproximación a Destino", p3Desc: "Descenso gradual y aproximación a aeródromos patagónicos. Atención a restricciones orográficas y viento cruzado.", p3Alt: "Patrón de Aproximación"
+            }
+        ];
+
+        const targetsData = [
+            { name: "Puesto de Comando Avanzado 'Alfa'", coords: "32°14'S 65°45'W", dist: 240 },
+            { name: "Nodo Logístico y Depósito de Combustible", coords: "35°40'S 58°12'W", dist: 180 },
+            { name: "Base de Lanzadores Antiaéreos Móviles", coords: "28°10'S 59°30'W", dist: 410 },
+            { name: "Zona de Aterrizaje Clandestina (LZ 'Delta')", coords: "41°20'S 68°15'W", dist: 650 },
+            { name: "Estación de Radar Primario Opositor", coords: "38°50'S 62°05'W", dist: 310 },
+            { name: "Columna Blindada en Desplazamiento", coords: "31°05'S 64°50'W", dist: 150 },
+            { name: "Puerto Estratégico Controlado", coords: "51°45'S 59°10'W", dist: 1100 },
+            { name: "Refugio Subterráneo en Área Montañosa", coords: "32°50'S 69°30'W", dist: 195 }
+        ];
+
+        /* Red de puntos significativos reales (VOR/DME y fixes RNAV del AIP de
+           ANAC, coordenadas convertidas a decimal) para armar la ruta en
+           automático. No hace falta cargar una ruta por base: el generador
+           elige solo los puntos que caen sobre el gran círculo y los encadena.
+           Para sumar más corredores alcanza con agregar una línea con
+           { id, lat, lon } — no hay que tocar la lógica. */
+        const navPointsData = [
+            { id: "EZE",  lat: -34.8236, lon: -58.5341 },  // Ezeiza VOR/DME
+            { id: "PTA",  lat: -34.9753, lon: -57.8983 },  // La Plata VOR
+            { id: "GUA",  lat: -33.0097, lon: -58.6139 },  // Gualeguaychú VOR/DME
+            { id: "PAR",  lat: -31.8083, lon: -60.4847 },  // Paraná VOR/DME
+            { id: "OPUPO",lat: -32.2164, lon: -59.3746 },  // fix RNAV
+            { id: "MDP",  lat: -37.9297, lon: -57.5764 },  // Mar del Plata VOR/DME
+            { id: "CBA",  lat: -31.3133, lon: -64.2036 },  // Córdoba VOR/DME
+            { id: "GPI",  lat: -35.6922, lon: -63.4244 },  // General Pico VOR
+            { id: "JUA",  lat: -31.5639, lon: -68.2547 },  // San Juan VOR/DME
+            { id: "NEU",  lat: -38.6169, lon: -68.1547 },  // Neuquén VOR
+            { id: "ESITO",lat: -33.5661, lon: -68.8675 },  // fix RNAV
+            { id: "POS",  lat: -27.3856, lon: -55.6136 },  // Posadas VOR/DME
+            { id: "SOLVI",lat: -27.2786, lon: -61.0406 },  // fix RNAV
+            { id: "IGU",  lat: -25.7344, lon: -54.4864 },  // Cataratas del Iguazú VOR/DME
+            { id: "GAL",  lat: -51.6117, lon: -69.3306 },  // Río Gallegos VOR/DME
+            { id: "PALIX",lat: -52.0667, lon: -69.8000 },  // fix RNAV
+            { id: "GRA",  lat: -53.7753, lon: -67.7486 },  // Río Grande VOR/DME
+            { id: "TOGOR",lat: -53.5733, lon: -68.6106 }   // fix RNAV
+        ];
+
+        // Tipo de vuelo (campo MSN del MFF) según el perfil de misión táctica
+        const flightTypeByMission = {
+            cas: "CAS", air_assault: "ASSAULT", recg: "RECO", sar: "SAR",
+            log_drop: "LOG", intercept: "INTERCEPT", training: "TRAIN",
+            lade_linea: "LINEA", patagonico_austral: "TRAMO"
+        };
+
+        /* Tramos reales de línea, como pares [origen, destino] de ICAO.
+           Rutas destacadas desde Aeroparque (Buenos Aires) hacia Mar del Plata,
+           Bahía Blanca, Puerto Madryn y San Carlos de Bariloche, con 737, F28 y
+           ERJ-140. Tranches de la Patagonia austral conectando Comodoro
+           Rivadavia, Perito Moreno, El Calafate, Río Gallegos, Río Grande y
+           Ushuaia, con Saab 340 y Twin Otter. */
+        const ladeRoutes = {
+            lade_linea: [
+                ["SABE", "SAZM"], ["SABE", "SAZB"],
+                ["SABE", "SAWM"], ["SABE", "SAZS"]
+            ],
+            patagonico_austral: [
+                ["SAVC", "SAFN"], ["SAFN", "SAFA"], ["SAVC", "SAFA"],
+                ["SAFA", "SAWG"], ["SAWG", "SAWR"], ["SAWR", "SAUSH"],
+                ["SAFA", "SAUSH"], ["SAVC", "SAWG"], ["SAWG", "SAUSH"]
+            ]
+        };
+
+        // Prefijo VATSIM de la división y constante de conexión del ejemplo MFF
+        const VATSIM_PREFIX = "FAAV";
+        const VATSIM_CONNECTION = "JOIN FS ->DIGITALTHEMEPARK // VATSIM";
+        const COTAV_REMARK = "VSOA/COTAVIRTUAL.COM.AR";
+
+        /* ── Estado de la misión en curso ──────────────────────────────────
+           Fuente de verdad única para la pantalla y para los textos que se
+           copian (briefing de Discord y MFF), así nunca se exportan valores
+           viejos o desactualizados. */
+        let currentBase = null;      // objeto de basesData
+        let currentAircraft = '';    // nombre de la aeronave
+        let currentMission = null;   // objeto de missionsData
+        let currentTarget = null;    // objeto de targetsData
+        let currentDistance = 200;   // NM hasta el objetivo
+        let currentPilots = 1;
+
+        // Distancia aleatoria al objetivo. allowOverRange habilita el tramo
+        // fuera de radio, para que pueda aparecer la alerta de reabastecimiento.
+        function rollDistance(ac, allowOverRange) {
+            const span = (ac && ac.range ? ac.range : 1000) * (allowOverRange ? 1.2 : 0.9);
+            return Math.floor(Math.random() * span) + 80;
+        }
+
+        /* ── Utilidades de navegación (NM, grados) ─────────────────────── */
+        const EARTH_RADIUS_NM = 3440.065;
+        const rad = d => d * Math.PI / 180;
+        const deg = r => r * 180 / Math.PI;
+
+        function distanceNM(lat1, lon1, lat2, lon2) {
+            const dLat = rad(lat2 - lat1);
+            const dLon = rad(lon2 - lon1);
+            const a = Math.pow(Math.sin(dLat / 2), 2) +
+                Math.cos(rad(lat1)) * Math.cos(rad(lat2)) * Math.pow(Math.sin(dLon / 2), 2);
+            return 2 * EARTH_RADIUS_NM * Math.asin(Math.min(1, Math.sqrt(a)));
+        }
+
+        function bearingDeg(lat1, lon1, lat2, lon2) {
+            const y = Math.sin(rad(lon2 - lon1)) * Math.cos(rad(lat2));
+            const x = Math.cos(rad(lat1)) * Math.sin(rad(lat2)) -
+                Math.sin(rad(lat1)) * Math.cos(rad(lat2)) * Math.cos(rad(lon2 - lon1));
+            return (deg(Math.atan2(y, x)) + 360) % 360;
+        }
+
+        function normalizeDeg(a) {
+            return ((a % 360) + 360) % 360;
+        }
+
+        function angleDiff(a, b) {
+            return Math.abs(normalizeDeg(a) - normalizeDeg(b)) > 180
+                ? 360 - Math.abs(normalizeDeg(a) - normalizeDeg(b))
+                : Math.abs(normalizeDeg(a) - normalizeDeg(b));
+        }
+
+        /* Arma la cadena de puntos reales entre dos aeródromos: toma de la red
+           los puntos que caen dentro de un corredor alrededor del gran círculo,
+           los ordena por avance y descarta los que quedan pegados entre sí.
+           Devuelve los identificadores, ya en orden de vuelo. */
+        function buildRouteChain(dep, arr, maxCrossNM) {
+            if (!dep || !arr) return [];
+            if (dep.icao === arr.icao) return [];
+
+            const total = distanceNM(dep.lat, dep.lon, arr.lat, arr.lon);
+            const course = bearingDeg(dep.lat, dep.lon, arr.lat, arr.lon);
+            // Corredor proporcional al tramo, con piso y techo para que tanto
+            // los vuelos cortos como los largos queden cubiertos de puntos.
+            const corridor = maxCrossNM || Math.max(80, Math.min(200, total * 0.15));
+
+            const candidates = [];
+            navPointsData.forEach(p => {
+                const outbound = distanceNM(dep.lat, dep.lon, p.lat, p.lon);
+                const inbound = distanceNM(p.lat, p.lon, arr.lat, arr.lon);
+                if (outbound > total * 1.1 || inbound > total * 1.1) return;
+                const brg = bearingDeg(dep.lat, dep.lon, p.lat, p.lon);
+                const cross = rad(angleDiff(brg, course)) * outbound;
+                if (cross > corridor) return;
+                candidates.push({ p: p, cross: cross, along: outbound });
+            });
+
+            candidates.sort((a, b) => a.along - b.along);
+
+            const chain = [];
+            candidates.forEach(c => {
+                const last = chain[chain.length - 1];
+                const tooClose = last && distanceNM(last.p.lat, last.p.lon, c.p.lat, c.p.lon) < 35;
+                if (tooClose) return;
+                // No encadenar un punto que ya quedó atrás del anterior.
+                if (last && distanceNM(last.p.lat, last.p.lon, arr.lat, arr.lon) <= inboundDistance(c, arr)) return;
+                chain.push(c);
+            });
+
+            return chain.map(c => c.p);
+        }
+
+        function inboundDistance(c, arr) {
+            return distanceNM(c.p.lat, c.p.lon, arr.lat, arr.lon);
+        }
+
+        /* Nivel de crucero. Si la Fase 1 trae una altura sobre el nivel del mar
+           (ej. "10,000 ft") esa sirve directo como nivel. Si trae altura AGL
+           ("300 ft AGL") no sirve, porque el crucero va mucho más alto: se
+           deriva del techo de la aeronave, acotado a FL350 y, en helicópteros,
+           a FL030. */
+        function cruiseLevel(mission, ac) {
+            const c = /([\d,]+)\s*ft/i.exec((ac && ac.ceiling) || '');
+            const ceiling = c ? parseInt(c[1].replace(/,/g, ''), 10) : 25000;
+            const cap = (ac && ac.role === 'helicoptero') ? 3000 : 35000;
+
+            const p1 = (mission && mission.p1Alt) || '';
+
+            // Un perfil de línea declara la banda de crucero como "FL180 – FL240":
+            // se toma el nivel más bajo de la banda, que es por donde se entra.
+            const flRange = /\bFL\s?(\d{2,3})\b/i.exec(p1);
+
+            // Altura de una sola cifra ("10,000 ft"): esa sirve directo como nivel.
+            // Si trae altura AGL ("300 ft AGL") no sirve, porque el crucero va
+            // mucho más alto: se deriva del techo de la aeronave.
+            const plain = /^\s*([\d.,]+)\s*ft\s*$/i.exec(p1);
+
+            let ft;
+            if (flRange) {
+                ft = parseInt(flRange[1], 10) * 100;
+            } else if (plain) {
+                const v = parseInt(plain[1].replace(/[.,]/g, ''), 10);
+                ft = v >= 5000 ? v : ceiling;   // 5,000 ft o más ya es nivel de crucero
+            } else {
+                ft = ceiling;
+            }
+
+            const fl = Math.max(1, Math.round(Math.min(ft, ceiling, cap) / 100));
+            return 'FL' + String(fl).padStart(3, '0');
+        }
+
+        // Mach de crucero declarado por tipo. Antes se deducía del rol y eso
+        // daba valores absurdos (una C-182 a Mach 0.95).
+        function cruiseMach(ac) {
+            return (ac && ac.mach) || '0.75';
+        }
+
+        // Configuración de tanques por defecto. Solo los cazas llevan el
+        // esquema de tanques externos del ejemplo; el resto va con combustible
+        // interno. Es editable desde el panel 04.
+        function defaultComb(ac, pilots) {
+            if (!ac || ac.role !== 'caza') return 'FULL INTERNO';
+            return (pilots > 1 ? '2 x 370 + 1 x 300' : '1 x 370 + 1 x 300') + '  FULL INTERNO';
+        }
+
+        /* Convierte "32°14'S 65°45'W" al formato ICAO sin grados ni apóstrofes
+           ("3214S 6545W"), que es lo que se puede parsear en un campo de RMK. */
+        function coordsToICAO(coords) {
+            const m = /(\d+)\s*°\s*(\d+)?\s*'?\s*([NS])\s+(\d+)\s*°\s*(\d+)?\s*'?\s*([EW])/i.exec(coords || '');
+            if (!m) return coords || 'ZZZZ';
+            const pad = n => String(n || 0).padStart(2, '0');
+            return (m[1] + pad(m[2]) + m[3].toUpperCase()) + ' ' +
+                   (m[4] + pad(m[5]) + m[6].toUpperCase());
+        }
+
+        function fmtHM(minutes) {
+            const total = Math.max(0, Math.round(minutes));
+            return String(Math.floor(total / 60)).padStart(2, '0') + ':' + String(total % 60).padStart(2, '0');
+        }
+
+        function initApp() {
+            const baseSelect = document.getElementById('originBase');
+            if (baseSelect) {
+                baseSelect.innerHTML = "";
+                basesData.forEach(base => {
+                    const opt = document.createElement('option');
+                    opt.value = base.id;
+                    opt.textContent = base.name;
+                    baseSelect.appendChild(opt);
+                });
+            }
+            initMFFInputs();
+            onBaseChange();
+        }
+
+        /* Llena destino y alterno con los aeródromos que ya conoce el sitio
+           (mismo origen de datos que basesData, así tienen lat/lon reales) */
+        function initMFFInputs() {
+            const seen = {};
+            const airports = basesData.concat(airportsData).filter(b => {
+                if (!b.icao || seen[b.icao]) return false;
+                seen[b.icao] = true;
+                return true;
+            });
+
+            // Se elige por índice y no asignando .value: así no depende de en
+            // qué momento el navegador resuelva el valor de un <select> que
+            // recién se acaba de poblar. El índice 0 es el placeholder ZZZZ.
+            const preferIdx = icao => {
+                const i = airports.findIndex(b => b.icao === icao);
+                return i >= 0 ? i + 1 : 0;
+            };
+
+            [['mffArr', 1], ['mffAltn', 2]].forEach(pair => {
+                const sel = document.getElementById(pair[0]);
+                if (!sel) return;
+                sel.innerHTML = '';
+                const zzzz = document.createElement('option');
+                zzzz.value = '__ZZZZ__';
+                zzzz.textContent = '— sin definir (ZZZZ) —';
+                sel.appendChild(zzzz);
+                airports.forEach(b => {
+                    const opt = document.createElement('option');
+                    opt.value = b.icao;
+                    opt.textContent = b.icao + ' · ' + b.name;
+                    sel.appendChild(opt);
+                });
+                if (airports.length > pair[1]) sel.selectedIndex = preferIdx(airports[pair[1]].icao);
+            });
+        }
+
+        function onBaseChange() {
+            const baseSelect = document.getElementById('originBase');
+            if (!baseSelect) return;
+            const baseId = baseSelect.value;
+            const base = basesData.find(b => b.id === baseId) || basesData[0];
+            
+            const baseLoc = document.getElementById('baseLoc');
+            const baseAircrafts = document.getElementById('baseAircrafts');
+            if (baseLoc) baseLoc.textContent = base.location;
+            if (baseAircrafts) baseAircrafts.textContent = base.aircrafts.join(", ");
+
+            const aircraftSelect = document.getElementById('aircraftSelect');
+            if (aircraftSelect) {
+                aircraftSelect.innerHTML = "";
+                base.aircrafts.forEach(acName => {
+                    const opt = document.createElement('option');
+                    opt.value = acName;
+                    opt.textContent = acName;
+                    aircraftSelect.appendChild(opt);
+                });
+            }
+
+            onAircraftChange();
+        }
+
+        function onAircraftChange() {
+            const aircraftSelect = document.getElementById('aircraftSelect');
+            if (!aircraftSelect) return;
+            const acName = aircraftSelect.value;
+            const ac = aircraftData[acName] || { type: "Estándar", role: "caza", range: 1000, speed: 300 };
+
+            const rangeText = document.getElementById('aircraftRangeText');
+            if (rangeText) rangeText.textContent = `${ac.range} NM (${ac.type} - Max Vel: ${ac.speed} KTS)`;
+            
+            // Populate missions filtered by aircraft logical role
+            const missionSelect = document.getElementById('missionTypeSelect');
+            if (missionSelect) {
+                missionSelect.innerHTML = "";
+                /* Además del rol, un perfil puede declarar su flota: los tramos
+                   de línea solo existen para los aviones con los que LADE opera
+                   ese tramo. */
+                const compatibleMissions = missionsData.filter(m =>
+                    m.roles.includes(ac.role) && (!m.aircraft || m.aircraft.indexOf(acName) !== -1));
+                
+                // Fallback if none match strictly
+                const missionsToUse = compatibleMissions.length > 0 ? compatibleMissions : missionsData;
+                
+                missionsToUse.forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m.id;
+                    opt.textContent = m.name;
+                    missionSelect.appendChild(opt);
+                });
+            }
+
+            currentDistance = rollDistance(ac, false);
+            updateMissionDisplay();
+        }
+
+        function onMissionTypeChange() {
+            updateMissionDisplay();
+        }
+
+        /* Aeródromo por ICAO entre las bases COTAV y la red de línea. */
+        function airportByIcao(icao) {
+            return basesData.find(b => b.icao === icao) ||
+                airportsData.find(a => a.icao === icao) || null;
+        }
+
+        // Fija el valor de un <select> según el value de una de sus opciones.
+        function setSelectByValue(selectId, value) {
+            const sel = document.getElementById(selectId);
+            if (!sel) return;
+            for (let i = 0; i < sel.options.length; i++) {
+                if (sel.options[i].value === value) { sel.selectedIndex = i; return; }
+            }
+        }
+
+        // Grados decimales al formato de coordenadas que usa el sitio.
+        function formatLatLon(lat, lon) {
+            const part = (v, pos, neg) => {
+                const a = Math.abs(v);
+                return Math.floor(a) + '°' +
+                    String(Math.round((a % 1) * 60)).padStart(2, '0') + "'" + (v >= 0 ? pos : neg);
+            };
+            return part(lat, 'N', 'S') + ' ' + part(lon, 'E', 'W');
+        }
+
+        /* Una misión de línea no es "base → objetivo": es un tramo real de la
+           red de LADE. Cuando el perfil es de línea se pisan la base de salida,
+           la distancia y el destino del plan de vuelo con el tramo sorteado, de
+           modo que el briefing y el MFF muestren una ruta que la empresa opera.
+           Devuelve true si aplicó un tramo. */
+        function applyLineRoute() {
+            const table = currentMission && ladeRoutes[currentMission.id];
+            if (!table) return false;
+
+            const leg = table[Math.floor(Math.random() * table.length)];
+            const dep = airportByIcao(leg[0]);
+            const arr = airportByIcao(leg[1]);
+            if (!dep || !arr) return false;
+
+            // Si el aeródromo de salida es una base COTAV se usa esa base; si no,
+            // se arma una equivalente para que el MFF tenga DEP, coords y nombre.
+            currentBase = basesData.find(b => b.icao === leg[0]) || {
+                id: 'ap_' + leg[0],
+                name: dep.name,
+                icao: dep.icao,
+                location: (dep.city || dep.name) + ' (' + dep.icao + ')',
+                lat: dep.lat,
+                lon: dep.lon,
+                aircrafts: []
+            };
+
+            currentDistance = Math.max(1, Math.round(distanceNM(dep.lat, dep.lon, arr.lat, arr.lon)));
+
+            // El destino se nombra con el aeródromo, no con la brigada: en un
+            // vuelo de línea importa el aeropuerto, no la base COTAV.
+            const ap = airportsData.find(a => a.icao === leg[1]);
+            const arrName = (ap && ap.name) || arr.name || arr.icao;
+            const arrCity = ap ? ap.city : '';
+            currentTarget = {
+                name: (arrCity && arrCity !== arrName) ? arrName + ' · ' + arrCity : arrName,
+                coords: formatLatLon(arr.lat, arr.lon),
+                dist: currentDistance
+            };
+            setSelectByValue('mffArr', arr.icao);
+            return true;
+        }
+
+        function updateMissionDisplay() {
+            const missionSelect = document.getElementById('missionTypeSelect');
+            const aircraftSelect = document.getElementById('aircraftSelect');
+            const pilotCountInput = document.getElementById('pilotCount');
+
+            const missionId = missionSelect && missionSelect.value ? missionSelect.value : 'cas';
+            const mission = missionsData.find(m => m.id === missionId) || missionsData[0];
+            const acName = aircraftSelect ? aircraftSelect.value : 'C-130 Hércules';
+            const ac = aircraftData[acName] || { range: 1000 };
+            const pilotCount = pilotCountInput ? pilotCountInput.value : 1;
+
+            // Guardar el estado de la misión actual para reutilizarlo en el briefing
+            const baseSelect = document.getElementById('originBase');
+            currentBase = basesData.find(b => b.id === (baseSelect ? baseSelect.value : '')) || basesData[0];
+            currentAircraft = acName;
+            currentMission = mission;
+            currentTarget = targetsData[Math.floor(Math.random() * targetsData.length)];
+            currentPilots = pilotCount;
+
+            // En los perfiles de línea, el destino no es un blanco táctico sino
+            // el aeródromo real del tramo sorteado.
+            applyLineRoute();
+
+            const pilotCountDisplay = document.getElementById('pilotCountDisplay');
+            const missionDescBox = document.getElementById('missionDescBox');
+            if (pilotCountDisplay) pilotCountDisplay.textContent = pilotCount;
+            if (missionDescBox) missionDescBox.textContent = mission.desc;
+
+            const randomTarget = currentTarget;
+            const targetName = document.getElementById('targetName');
+            const targetCoords = document.getElementById('targetCoords');
+            const distanceBadge = document.getElementById('distanceBadge');
+
+            if (targetName) targetName.textContent = randomTarget.name;
+            if (targetCoords) targetCoords.textContent = randomTarget.coords;
+            if (distanceBadge) distanceBadge.textContent = `Distancia: ${currentDistance} NM`;
+
+            const threatLevel = document.getElementById('threatLevel');
+            const threatDesc = document.getElementById('threatDesc');
+            if (threatLevel) threatLevel.textContent = mission.threat;
+            if (threatDesc) threatDesc.textContent = mission.threatDesc;
+
+            const rangePercent = Math.min(Math.round((currentDistance / ac.range) * 100), 100);
+            const rangeBar = document.getElementById('rangeBar');
+            const warningBox = document.getElementById('rangeWarning');
+            const authStatus = document.getElementById('authStatus');
+
+            if (rangeBar) rangeBar.style.width = `${rangePercent}%`;
+
+            if (currentDistance > ac.range) {
+                if (rangeBar) rangeBar.className = "bg-red-500 h-full transition-all duration-500";
+                if (warningBox) warningBox.classList.remove('hidden');
+                if (authStatus) {
+                    authStatus.textContent = "REQUIERE REABASTECIMIENTO";
+                    authStatus.className = "text-amber-400 font-bold";
+                }
+            } else {
+                if (rangeBar) rangeBar.className = "bg-emerald-500 h-full transition-all duration-500";
+                if (warningBox) warningBox.classList.add('hidden');
+                if (authStatus) {
+                    authStatus.textContent = "AUTORIZADO";
+                    authStatus.className = "text-emerald-400 font-bold";
+                }
+            }
+
+            const phase1Title = document.getElementById('phase1Title');
+            const phase1Desc = document.getElementById('phase1Desc');
+            const phase1Alt = document.getElementById('phase1Alt');
+            const phase1Vel = document.getElementById('phase1Vel');
+            const phase2Title = document.getElementById('phase2Title');
+            const phase2Action = document.getElementById('phase2Action');
+            const phase3Title = document.getElementById('phase3Title');
+            const phase3Desc = document.getElementById('phase3Desc');
+            const phase3Alt = document.getElementById('phase3Alt');
+
+            if (phase1Title) phase1Title.textContent = mission.p1Title;
+            if (phase1Desc) phase1Desc.textContent = mission.p1Desc;
+            if (phase1Alt) phase1Alt.textContent = mission.p1Alt;
+            if (phase1Vel) phase1Vel.textContent = mission.p1Vel;
+
+            if (phase2Title) phase2Title.textContent = mission.p2Title || (mission.linea ? "Tramo en Ruta" : "Acción en Objetivo");
+            if (phase2Action) phase2Action.textContent = mission.p2Action;
+
+            if (phase3Title) phase3Title.textContent = mission.p3Title;
+            if (phase3Desc) phase3Desc.textContent = mission.p3Desc;
+            if (phase3Alt) phase3Alt.textContent = mission.p3Alt;
+
+            renderMFFPreview();
+        }
+
+        function randomizeAll() {
+            safeExecute(() => {
+                const baseSelect = document.getElementById('originBase');
+                if (baseSelect && baseSelect.options.length > 0) {
+                    const randomBaseIndex = Math.floor(Math.random() * baseSelect.options.length);
+                    baseSelect.selectedIndex = randomBaseIndex;
+                    onBaseChange();
+                }
+
+                const aircraftSelect = document.getElementById('aircraftSelect');
+                if (aircraftSelect && aircraftSelect.options.length > 0) {
+                    const randomAcIndex = Math.floor(Math.random() * aircraftSelect.options.length);
+                    aircraftSelect.selectedIndex = randomAcIndex;
+                    onAircraftChange();
+                }
+
+                const missionSelect = document.getElementById('missionTypeSelect');
+                if (missionSelect && missionSelect.options.length > 0) {
+                    const randomMissionIndex = Math.floor(Math.random() * missionSelect.options.length);
+                    missionSelect.selectedIndex = randomMissionIndex;
+                }
+
+                // La distancia se tira antes de repintar: si se calcula después,
+                // la barra de radio y el estado de autorización quedan viejos.
+                const acName = aircraftSelect ? aircraftSelect.value : 'C-130 Hércules';
+                currentDistance = rollDistance(aircraftData[acName], true);
+                updateMissionDisplay();
+
+                showToast("¡Parámetros tácticos lógicos aleatorios generados!");
+            });
+        }
+
+        function exportDiscordBriefing() {
+            safeExecute(() => {
+                // Todo se arma desde el estado de la misión en curso, no desde el
+                // DOM: así el briefing nunca copia valores viejos.
+                const pilotInput = document.getElementById('pilotCount');
+                const meteoEl = document.getElementById('meteoCond');
+
+                const pilots = parseInt(pilotInput ? pilotInput.value : currentPilots, 10) || currentPilots || 1;
+                const m = currentMission || missionsData[0];
+                const ac = aircraftData[currentAircraft] || { range: 0, type: '', speed: 0, ceiling: '' };
+                const t = currentTarget || targetsData[0];
+                const range = ac.range || 0;
+                const outOfRange = range > 0 && currentDistance > range;
+                const meteo = (meteoEl && meteoEl.textContent.trim()) || 'VMC / CAVOK';
+
+                const status = outOfRange
+                    ? `⚠️ **REQUIERE REABASTECIMIENTO** — La distancia al objetivo (${currentDistance} NM) supera el radio de acción de la aeronave (${range} NM). Escala táctica o reabastecimiento en ruta previo.`
+                    : `✅ **AUTORIZADO** — Dentro del radio de acción (${currentDistance} NM de ${range} NM).`;
+
+                /* Discord no colorea texto en markdown. El "color" del título se
+                   lleva con un cuadro de color que refleja el estado real de la
+                   misión: rojo si no hay cobertura, verde si está autorizada. */
+                const flag = outOfRange ? '🟥' : '🟩';
+
+                // En los perfiles de línea el "objetivo" es el aeródromo de
+                // destino del tramo, y no hay amenaza en zona que reportar.
+                const targetBlock = m.linea
+                    ? `🛬 **DESTINO:** \`${t.name}\`\n  \`${t.coords}\``
+                    : `🎯 **OBJETIVO:** \`${t.name}\`\n  \`${t.coords}\`\n⚠️ **AMENAZA EN ZONA:** \`${m.threat}\`\n  ${m.threatDesc}`;
+
+                const acBlock = [
+                    ac.type,
+                    ac.speed ? `Max Vel: ${ac.speed} KTS` : '',
+                    ac.ceiling ? `Techo: ${ac.ceiling}` : ''
+                ].filter(Boolean).join(' · ');
+
+                const discordText = `${flag} **__BRIEFING TÁCTICO · COTAV__**
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 **GENERA:** \`${currentPilotCallsign() || 'PILOTO COTAV'}\`
+📍 **BASE DE ORIGEN:** \`${currentBase ? currentBase.name : 'Base Central'}\` — ${currentBase ? currentBase.location : 'sin definir'}
+🛩️ **AERONAVE ASIGNADA:** \`${currentAircraft || 'C-130 Hércules'}\`
+  Tipo: ${acBlock || 'N/A'} — Radio de acción: \`${range || '--'} NM\`
+👥 **PILOTOS ASIGNADOS:** \`${pilots}\`
+🎯 **PERFIL DE MISIÓN:** \`${m.name}\`
+  ${m.desc}
+${targetBlock}
+📊 **DISTANCIA ${m.linea ? 'AL DESTINO' : 'AL OBJETIVO'}:** \`${currentDistance} NM\`
+🌤️ **CONDICIÓN MET:** \`${meteo}\`
+
+━━━━ **PLAN TÁCTICO · 3 FASES** ━━━━
+**FASE 01 — ${m.p1Title}**
+  Alt: \`${m.p1Alt}\` · Vel: \`${m.p1Vel}\`
+  ${m.p1Desc}
+**FASE 02 — ${m.p2Title || (m.linea ? 'Tramo en Ruta' : 'Acción en Objetivo')}**
+  Acción: \`${m.p2Action}\`
+**FASE 03 — ${m.p3Title}**
+  Ruta Alt: \`${m.p3Alt}\`
+  ${m.p3Desc}
+
+${status}
+💬 *Operación bajo protocolo COTAV · Frecuencia 123.45 MHz (SECURE)*`;
+
+exportDiscordTextToClipboard(discordText);
+            });
+        }
+
+        /* ── Plan de vuelo militar (MFF) para VATSIM ────────────────────
+           Arma el mismo esquema del ejemplo de la VSOA:
+           MSN/ = tipo de vuelo, TASK UNIT/ = grupo aéreo, DEP/ARR/ALTN,
+           ROUTE/ con puntos reales, CRUCERO, EET, FUEL, COMB y el RMK de
+           COTAV con el plan táctico de 3 fases. */
+        /* El callsign del piloto lo deja el gate de autenticacion, que corre en
+           un <script> anterior. Se lee defensivamente: si ese script no llegó a
+           ejecutarse, el briefing se arma igual en vez de romperse. */
+        function currentPilotCallsign() {
+            if (typeof pilotCallsign === 'string' && pilotCallsign) return pilotCallsign;
+            try {
+                return (sessionStorage.getItem('cotav_pilot') ||
+                        localStorage.getItem('cotav_pilot') || '').trim();
+            } catch (err) {
+                return '';
+            }
+        }
+
+        function getMffField(id, fallback) {
+            const el = document.getElementById(id);
+            const v = el ? el.value.trim() : '';
+            return v || fallback;
+        }
+
+        /* Lee el aeródromo elegido en un <select> de destinos. Busca en las
+           bases COTAV y también en la red de línea: los tramos de LADE terminan
+           en aeródromos que no son base del COTAV. */
+        function selectedAirport(selectId) {
+            const el = document.getElementById(selectId);
+            if (!el || el.value === '__ZZZZ__') return null;
+            return airportByIcao(el.value);
+        }
+
+        function pilotCallsignList(pilots, acCode) {
+            if (pilots <= 1) return acCode + '1';
+            return acCode + '1-' + acCode + pilots;
+        }
+
+        function buildMFF() {
+            const m = currentMission || missionsData[0];
+            const ac = aircraftData[currentAircraft] || {};
+            const t = currentTarget || targetsData[0];
+            const dep = currentBase || basesData[0];
+            const arr = selectedAirport('mffArr');
+            const altn = selectedAirport('mffAltn');
+
+            const pilots = parseInt(document.getElementById('pilotCount').value, 10) || 1;
+            const acCode = ac.code || 'ACFT';
+            const arrIcao = arr ? arr.icao : 'ZZZZ';
+            const altnIcao = altn ? altn.icao : 'ZZZZ';
+
+            const grupo = getMffField('mffGrupo', 'G6C');
+            const nombre = getMffField('mffNombre', acCode + ' VIPER');
+            const msn = getMffField('mffMsn', flightTypeByMission[m.id] || 'TRAIN');
+            const comb = getMffField('mffComb', defaultComb(ac, pilots));
+            const cca = pilotCallsignList(pilots, acCode);
+
+            // Ruta: cadena de puntos reales sobre el gran círculo DEP → ARR
+            let ruta;
+            if (arr) {
+                const chain = buildRouteChain(dep, arr);
+                ruta = [dep.icao].concat(chain.map(p => p.id)).concat([arrIcao]).join(' ');
+            } else {
+                ruta = dep.icao + ' DCT ' + arrIcao;
+            }
+
+            // EET estimado: distancia real gran círculo / velocidad de crucero
+            let eetMin = 0;
+            if (arr) {
+                const d = distanceNM(dep.lat, dep.lon, arr.lat, arr.lon);
+                const tas = (ac.speed || 300) * 0.9;
+                eetMin = d / tas * 60;
+            } else {
+                eetMin = currentDistance / ((ac.speed || 300) * 0.9) * 60;
+            }
+            const eet = fmtHM(eetMin);
+            const fuel = fmtHM(eetMin + 30); // EET + 30 min de reserva
+
+            const fl = cruiseLevel(m, ac);
+            const mach = cruiseMach(ac);
+            const outOfRange = ac.range && currentDistance > ac.range;
+
+            const fases =
+                'F1 ' + m.p1Title + ' ' + m.p1Alt + '/' + m.p1Vel + ' ' +
+                'F2 ' + (m.p2Title || (m.linea ? 'TRAMO EN RUTA' : 'ACCION EN OBJETIVO')) + ' ' + m.p2Action + ' ' +
+                'F3 ' + m.p3Title + ' ' + m.p3Alt;
+
+            return [
+                'MSN/ ' + msn + '//',
+                'TASK UNIT/' + VATSIM_PREFIX + '-' + grupo + '- ' + nombre + '//',
+                'ACFT/ ' + currentAircraft,
+                'DEP/ ' + dep.icao,
+                'ARR/ ' + arrIcao,
+                'ALTN/ ' + altnIcao,
+                'MSNTIME: ZZZZL RPV / TKOFF: ZZZZL',
+                'MSNACFT/X/ ' + cca,
+                'PARKING/ -',
+                'SQWK/Según ATC (o 1000 en caso de no tener control)',
+                'ROUTE/ ' + ruta,
+                'IFR MIL',
+                'CRUCERO: ' + mach + ' / ' + fl,
+                'EET/ ' + eet + ' FUEL/ ' + fuel,
+                'ACFT CFG/ NAV ',
+                'COMB/ ' + comb,
+                'CONN/ ' + VATSIM_CONNECTION,
+                'RMK/ OPR/ARGENTINA AIR FORCE STS/' + (outOfRange ? 'MARSA REQUIERE REABASTECIMIENTO' : 'MARSA WITH ZZZZ FOR AAR') +
+                    ' FFLT/' + cca + ' FFLTEND ' + COTAV_REMARK,
+                'RMK/ ' + m.name + ' ' + (m.linea ? 'DESTINO ' : 'OBJETIVO ') + t.name +
+                    ' COORD ' + coordsToICAO(t.coords) + ' DIST ' + currentDistance + 'NM' +
+                    (m.linea ? '' : ' AMENAZA ' + m.threat),
+                'RMK/ ' + fases
+            ].join('\n');
+        }
+
+        function renderMFFPreview() {
+            const pre = document.getElementById('mffPreview');
+            if (!pre) return;
+            pre.textContent = buildMFF();
+        }
+
+        function copyMFF() {
+            safeExecute(() => {
+                const text = buildMFF();
+                renderMFFPreview();
+                exportDiscordTextToClipboard(text, '¡Plan de vuelo MFF copiado!');
+            });
+        }
+
+        function exportDiscordTextToClipboard(text, okMessage) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast(okMessage || '¡Briefing copiado en formato Discord!');
+            } catch (err) {
+                showToast('Error al copiar al portapapeles.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toastText');
+            if (!toast || !toastText) return;
+            toastText.textContent = message;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3500);
+        }
+
+        window.onload = function() {
+            safeExecute(() => {
+                initApp();
+                const pilotInput = document.getElementById('pilotCount');
+                if (pilotInput) {
+                    pilotInput.addEventListener('change', updateMissionDisplay);
+                }
+            });
+        };
+    </script>
+</body>
+</html>

@@ -1,6 +1,13 @@
 ﻿COTAV.zip
 Pagina COTA.zip
 
-# Credenciales de la base de datos: no versionar.
-# En cada servidor se crea api/config.php a mano (ver api/config.example.php).
 api/config.php
+
+# cPanel genera estos dos en el servidor. Contienen rutas absolutas del
+# hosting (error_log = /home/cotavirt/logs/...), asi que no van al repo:
+# se crean solas en cada hosting.
+.htaccess
+.user.ini
+
+# Logs de herramientas.
+tools/*.log
