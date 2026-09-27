@@ -516,7 +516,7 @@ const COTAV_EVENTS = [
   {
     name: 'FERRY F16 II',
     start: '2026-09-26T22:00:00Z',
-    end: '2026-09-03T22:00:00Z',
+    end: '2026-09-27T02:00:00Z',
     airports: ['EKSP', 'SAOC'],
     desc: 'Segundo vuelo ferry de los F-16 de la Fuerza Aerea Argentina.',
     link: '',
@@ -524,9 +524,29 @@ const COTAV_EVENTS = [
     participating: '',
   },
   {
+    name: 'Operación Cruz del Sur',
+    start: '2026-03-28T21:00:00Z',
+    end: '2026-03-28T23:59:00Z',
+    airports: ['SAAR', 'SAZM'],
+    desc: 'Despliegue operativo estratégico y patrulla costera uniendo Rosario y Mar del Plata.',
+    link: '',
+    isCOTAV: true,
+    participating: '',
+  },
+  {
+    name: 'Ejercicio Ícaro',
+    start: '2026-04-12T20:00:00Z',
+    end: '2026-04-12T23:00:00Z',
+    airports: ['SABE', 'SACO'],
+    desc: 'Entrenamiento de interceptación y vuelo táctico en formación entre Aeroparque y Córdoba.',
+    link: '',
+    isCOTAV: true,
+    participating: '',
+  },
+  {
     name: 'Exercice Pitch Black',
     start: '2026-07-18T17:30:00Z',
-    end: '2026-08-01:30:00Z',
+    end: '2026-08-01T01:30:00Z',
     airports: ['YPTN', 'YPDN'],
     desc: 'Welcome to the Northern Territory — where the scenery is spectacular, the weather is unforgiving, and the crocodiles are eagerly waiting for anyone brave enough to ignore the "No Swimming" signs and become their next floating entrée.',
     link: 'https://my.vatsim.net/events/uruguayan-vfr-tour',
@@ -553,6 +573,26 @@ const COTAV_EVENTS = [
     isCOTAV: false,
     participating: 'La COTAV estará presente',
   },
+  {
+    name: 'Patrulla Antártica',
+    start: '2026-10-10T21:00:00Z',
+    end: '2026-10-11T01:00:00Z',
+    airports: ['SAWH', 'SAWB'],
+    desc: 'Operación de reabastecimiento y reconocimiento logístico conectando Ushuaia con la Base Antártica Marambio.',
+    link: '',
+    isCOTAV: true,
+    participating: '',
+  },
+  {
+    name: 'Operativo Halcón',
+    start: '2026-11-07T20:00:00Z',
+    end: '2026-11-07T23:30:00Z',
+    airports: ['SAVO', 'SANT'],
+    desc: 'Ejercicio de despliegue rápido y cobertura de espacio aéreo entre Villa Reynolds y Tucumán.',
+    link: '',
+    isCOTAV: true,
+    participating: '',
+  }
 ];
 
 function formatDateART(iso) {
@@ -1055,6 +1095,7 @@ function buildAccDropdown(p){
           (procedimientosHref ? '<a href="' + procedimientosHref + '"><span>Procedimientos</span></a>' : '') +
         '</div>' +
       '</div>' +
+      '<a href="' + UI + 'generador-mision.html"><span>Generador de Misión</span></a>' +
       '<a href="' + materialAereoHref + '"><span>' + materialAereoLabel + '</span></a>' +
       '<a href="' + documentacionHref + '"><span>Documentación</span></a>' +
       '<button type="button" class="acc-logout"><span>Cerrar sesión</span></button>' +
