@@ -53,9 +53,9 @@
     ]
   },
   "1502178": {
-    "hours": "2870h 9m",
-    "last": "ARG01 · 30 de sept de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">GCLP</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">LFPG</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B752</span>",
+    "hours": "2871h 52m",
+    "last": "ARG1001 · 01 de oct de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAZM</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B737</span>",
     "airport": "SABE",
     "aircraft": "GLF5",
     "lastFlights": [
