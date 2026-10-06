@@ -60,10 +60,10 @@
     ]
   },
   "1502178": {
-    "hours": "2875h 13m",
-    "last": "FAG230 · 05 de oct de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SADP</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAZM</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F28</span>",
-    "airport": "GCLP",
+    "hours": "2872h 37m",
+    "last": "LPR3140 · 06 de oct de 2026",
+    "lastDetail": "",
+    "airport": "SABE",
     "aircraft": "B752",
     "lastFlights": [
       {
@@ -76,12 +76,19 @@
     ]
   },
   "1562806": {
-    "hours": "470h 49m",
-    "last": "FAG212 · 05 de oct de 2026",
+    "hours": "473h 57m",
+    "last": "FAG212 · 06 de oct de 2026",
     "lastDetail": "",
     "airport": "SADP",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "FAG212",
+        "aircraft": "F28",
+        "route": "SAZM → SADP",
+        "date": "06 de oct de 2026",
+        "remark": "PBN/B2C2D2 DOF/261005 REG/T51 CODE/E14C32 OPR/ARGENTINA AIR FORCE PER/B RMK/RMK/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "FAG212",
         "aircraft": "F28",
@@ -130,13 +137,6 @@
         "route": "SADP → SADP",
         "date": "11 de ago de 2026",
         "remark": "PBN/B2C2D2 DOF/260811 REG/TC53 CODE/E14D73 OPR/ARGENTINA AIR FORCE PER/B RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/FOKKER 1-2 FFLTEND VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "FAG212",
-        "aircraft": "C130",
-        "route": "SAWG → SAWB",
-        "date": "09 de ago de 2026",
-        "remark": "PBN/A1B2B3B4B5C2C3C4D2D3D4L1O2O3O4 DOF/260809 REG/TC64 EET/SCCZ0014 SAVF0019 SCCZ0056 SAVF0116 SCCZ0145 CODE/E20008 OPR/ARGENTINA AIR FORCE PER/C RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
       }
     ]
   },
