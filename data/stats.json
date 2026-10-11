@@ -76,10 +76,10 @@
     ]
   },
   "1562806": {
-    "hours": "473h 57m",
-    "last": "FAG212 · 06 de oct de 2026",
-    "lastDetail": "",
-    "airport": "SADP",
+    "hours": "474h 25m",
+    "last": "ARG1983 · 11 de oct de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SVMI</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B77W</span>",
+    "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
       {
