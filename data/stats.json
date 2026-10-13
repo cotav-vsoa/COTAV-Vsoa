@@ -60,9 +60,9 @@
     ]
   },
   "1502178": {
-    "hours": "2870h 42m",
-    "last": "LPR3140 · 06 de oct de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SABE</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SACO</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B732</span>",
+    "hours": "2870h 34m",
+    "last": "ARG880 · 13 de oct de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">NZAA</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAWG</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B742</span>",
     "airport": "SABE",
     "aircraft": "B732",
     "lastFlights": [
