@@ -1,11 +1,18 @@
 {
   "1282428": {
-    "hours": "831h 30m",
-    "last": "CONDR13 · 03 de oct de 2026",
+    "hours": "832h 5m",
+    "last": "WOLF11 · 14 de oct de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "WOLF11",
+        "aircraft": "HAR",
+        "route": "LIBG → LIBG",
+        "date": "14 de oct de 2026",
+        "remark": "DOF/261014 REG/MM7207 OPR/AGR RMK/STS/STATE OPR/MARINA VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
+      },
       {
         "callsign": "CONDR13",
         "aircraft": "F16",
