@@ -1,11 +1,18 @@
 {
   "1282428": {
-    "hours": "832h 5m",
-    "last": "WOLF11 · 14 de oct de 2026",
+    "hours": "832h 52m",
+    "last": "IAM4691 · 15 de oct de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "IAM4691",
+        "aircraft": "C30J",
+        "route": "LIPR → LICA",
+        "date": "15 de oct de 2026",
+        "remark": "DOF/261015 REG/MM62191 RMK/STS/STATE VSOA/VIRTUAL-AGGRESSORS.COM /V/"
+      },
       {
         "callsign": "WOLF11",
         "aircraft": "HAR",
