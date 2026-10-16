@@ -1,11 +1,18 @@
 {
   "1282428": {
-    "hours": "835h 29m",
+    "hours": "835h 45m",
     "last": "IAM1428 · 16 de oct de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">LIRE</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">EGPK</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B762</span>",
+    "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "IAM1428",
+        "aircraft": "B762",
+        "route": "EGPK → BGTL",
+        "date": "16 de oct de 2026",
+        "remark": "DOF/261016 REG/MM62228 ORGN/LIRE RMK/STS/STATE OPR/ITALIAN AIR FORCE VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
+      },
       {
         "callsign": "IAM1428",
         "aircraft": "B762",
