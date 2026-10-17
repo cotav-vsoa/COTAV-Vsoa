@@ -1,11 +1,18 @@
 {
   "1282428": {
-    "hours": "840h 26m",
+    "hours": "844h 56m",
     "last": "IAM1428 · 16 de oct de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "IAM1428",
+        "aircraft": "B762",
+        "route": "BGTL → CYTR",
+        "date": "16 de oct de 2026",
+        "remark": "DOF/261016 REG/MM62228 ORGN/LIRE RMK/STS/STATE OPR/ITALIAN AIR FORCE VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
+      },
       {
         "callsign": "IAM1428",
         "aircraft": "B762",
