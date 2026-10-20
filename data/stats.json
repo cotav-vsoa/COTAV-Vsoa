@@ -1,11 +1,18 @@
 {
   "1282428": {
-    "hours": "852h 39m",
+    "hours": "855h 36m",
     "last": "IAM1428 · 20 de oct de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "IAM1428",
+        "aircraft": "B762",
+        "route": "BGTL → BIKF",
+        "date": "20 de oct de 2026",
+        "remark": "DOF/261020 REG/MM62228 ORGN/LIRE RMK/OPR/ITALIAN AIRFORCE STS/STATE VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
+      },
       {
         "callsign": "IAM1428",
         "aircraft": "B762",
@@ -68,13 +75,6 @@
         "route": "GCLP → SBNT",
         "date": "03 de oct de 2026",
         "remark": "DOF/261003 REG/M-1011 RMK/OPR/ARGENTINA AIR FORCE FFLT/CONDR11-CONDR13 FFLTEND RMK/COTAVIRTUAL.COM.AR /V/"
-      },
-      {
-        "callsign": "OME91",
-        "aircraft": "K35R",
-        "route": "EGUN → LIPA",
-        "date": "28 de sept de 2026",
-        "remark": "DOF/260928 REG/N707MQ OPR/OME RMK/OPR/OMEGA AIR TANKER FOR VSOA/COTAVIRTUAL.COM.AR /V/"
       }
     ]
   },
