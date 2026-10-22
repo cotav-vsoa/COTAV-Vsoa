@@ -585,12 +585,19 @@
     ]
   },
   "2005108": {
-    "hours": "49h 59m",
+    "hours": "51h 28m",
     "last": "FAG255 · 22 de oct de 2026",
-    "lastDetail": "",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SADP</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SACO</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">E135</span>",
     "airport": "SADP",
     "aircraft": "B737",
     "lastFlights": [
+      {
+        "callsign": "FAG255",
+        "aircraft": "E135",
+        "route": "SADP → SACO",
+        "date": "22 de oct de 2026",
+        "remark": "DOF/261022 REG/T-95 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "FAG255",
         "aircraft": "UH1",
