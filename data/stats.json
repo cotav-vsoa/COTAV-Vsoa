@@ -585,12 +585,19 @@
     ]
   },
   "2005108": {
-    "hours": "48h 53m",
-    "last": "CHAJA · 21 de oct de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SACE</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SACE</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">TEX2</span>",
+    "hours": "49h 59m",
+    "last": "FAG255 · 22 de oct de 2026",
+    "lastDetail": "",
     "airport": "SADP",
     "aircraft": "B737",
     "lastFlights": [
+      {
+        "callsign": "FAG255",
+        "aircraft": "UH1",
+        "route": "SARI → SARI",
+        "date": "22 de oct de 2026",
+        "remark": "DOF/261022 REG/AE-445 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "CHAJA",
         "aircraft": "TEX2",
