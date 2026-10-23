@@ -133,11 +133,18 @@
   },
   "1562806": {
     "hours": "476h 10m",
-    "last": "CONDR12 · 17 de oct de 2026",
-    "lastDetail": "",
+    "last": "BRUJO · 23 de oct de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SADP</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAVC</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B703</span>",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "BRUJO",
+        "aircraft": "B703",
+        "route": "SADP → SAVC",
+        "date": "23 de oct de 2026",
+        "remark": "PBN/A1B2 DOF/261023 REG/VR21 EET/SAVF0050 OPR/FAG PER/C RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "CONDR12",
         "aircraft": "F16",
@@ -585,12 +592,19 @@
     ]
   },
   "2005108": {
-    "hours": "51h 28m",
-    "last": "FAG255 · 22 de oct de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SADP</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SACO</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">E135</span>",
-    "airport": "SADP",
+    "hours": "52h 19m",
+    "last": "FAG255 · 23 de oct de 2026",
+    "lastDetail": "",
+    "airport": "SACE",
     "aircraft": "B737",
     "lastFlights": [
+      {
+        "callsign": "FAG255",
+        "aircraft": "SIRA",
+        "route": "SACE → SACE",
+        "date": "23 de oct de 2026",
+        "remark": "DOF/261023 REG/E-551 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "FAG255",
         "aircraft": "E135",
@@ -653,13 +667,6 @@
         "route": "SATR → SATR",
         "date": "20 de ago de 2026",
         "remark": "DOF/260820 RMK/OPR/ARGENTINA AIR FORCE VSOA/FAAV.COM.AR FFLT/PAMPA1-2 FFLTEND /V/"
-      },
-      {
-        "callsign": "VIPER",
-        "aircraft": "F16",
-        "route": "SADP → SAZT",
-        "date": "12 de ago de 2026",
-        "remark": "DOF/260812 REG/M-1004 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
       }
     ]
   }
