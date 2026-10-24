@@ -132,12 +132,19 @@
     ]
   },
   "1562806": {
-    "hours": "478h 9m",
+    "hours": "479h 9m",
     "last": "BRUJO · 24 de oct de 2026",
     "lastDetail": "",
     "airport": "SADP",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "BRUJO",
+        "aircraft": "B703",
+        "route": "SAVC → SAZS",
+        "date": "24 de oct de 2026",
+        "remark": "PBN/A1B2 DOF/261024 REG/VR21 EET/SAEF0043 OPR/FAG PER/C RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "BRUJO",
         "aircraft": "B703",
