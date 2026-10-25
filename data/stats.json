@@ -1,11 +1,18 @@
 {
   "1282428": {
-    "hours": "855h 36m",
-    "last": "IAM1428 · 20 de oct de 2026",
+    "hours": "856h 10m",
+    "last": "LEO11 · 24 de oct de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "LEO11",
+        "aircraft": "EUFI",
+        "route": "LIRS → LIRS",
+        "date": "24 de oct de 2026",
+        "remark": "DOF/261024 REG/MM7331 RMK/OPR/AERONAUTICA MILITARE VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
+      },
       {
         "callsign": "IAM1428",
         "aircraft": "B762",
@@ -68,13 +75,6 @@
         "route": "LIBG → LIBG",
         "date": "14 de oct de 2026",
         "remark": "DOF/261014 REG/MM7207 OPR/AGR RMK/STS/STATE OPR/MARINA VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
-      },
-      {
-        "callsign": "CONDR13",
-        "aircraft": "F16",
-        "route": "GCLP → SBNT",
-        "date": "03 de oct de 2026",
-        "remark": "DOF/261003 REG/M-1011 RMK/OPR/ARGENTINA AIR FORCE FFLT/CONDR11-CONDR13 FFLTEND RMK/COTAVIRTUAL.COM.AR /V/"
       }
     ]
   },
