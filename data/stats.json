@@ -116,12 +116,19 @@
     ]
   },
   "1502178": {
-    "hours": "2870h 59m",
-    "last": "JES3101 · 17 de oct de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SACO</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A20N</span>",
+    "hours": "2870h 49m",
+    "last": "ARG001 · 25 de oct de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">GCLP</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SABE</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B752</span>",
     "airport": "SABE",
-    "aircraft": "B732",
+    "aircraft": "B752",
     "lastFlights": [
+      {
+        "callsign": "ARG001",
+        "aircraft": "B752",
+        "route": "GCLP → SABE",
+        "date": "25 de oct de 2026",
+        "remark": "PBN/A1B1D1L1O1S1 DOF/261025 REG/ARG01 EET/GVSC0122 GOOO0233 SBAO0356 SBRE0457 SBBS0709 SBCW0817 SUEO0949 SAEF1028 OPR/ARG PER/D RALT/GVAC SBFZ RMK/RMK/ OPR/ARGENTINA AIR FORCE FFLT/ARG-01 FFLTEND RMK/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "CONDR11",
         "aircraft": "F16",
