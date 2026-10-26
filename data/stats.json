@@ -139,12 +139,19 @@
     ]
   },
   "1562806": {
-    "hours": "479h 9m",
-    "last": "BRUJO · 24 de oct de 2026",
+    "hours": "479h 12m",
+    "last": "T01 · 26 de oct de 2026",
     "lastDetail": "",
     "airport": "SADP",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "T01",
+        "aircraft": "B752",
+        "route": "SABE → SAWC",
+        "date": "26 de oct de 2026",
+        "remark": "PBN/A1B1C1D1L1O1S2 DAT/1FANS2PDC SUR/260B RSP180 DOF/261026 REG/T01 EET/SAVF0057 SEL/GRHL CODE/E200DD OPR/PRESIDENCIA DE LA NACION ARGENTINA PER/C RVR/50 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "BRUJO",
         "aircraft": "B703",
@@ -207,13 +214,6 @@
         "route": "SAWH → SAVC",
         "date": "26 de sept de 2026",
         "remark": "PBN/B2B3D2D3O2S1T1T2 DOF/260926 REG/T99 EET/SAVF0004 SCCZ0023 SAVF0027 SEL/EHBM OPR/ARGENTINA AIR FORCE PER/C RMK/OPR/ARGENTINA AIR FORCE VSOA/COTAVIRTUAL.COM.AR /V/"
-      },
-      {
-        "callsign": "CONDOR2",
-        "aircraft": "F16",
-        "route": "SAOC → SAOC",
-        "date": "21 de sept de 2026",
-        "remark": "DOF/260921 REG/M-1020 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR1-2 FFLTEND VSOA/FAAV.COM.AR /V/"
       }
     ]
   },
