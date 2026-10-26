@@ -1,11 +1,18 @@
 {
   "1282428": {
-    "hours": "856h 10m",
-    "last": "LEO11 · 24 de oct de 2026",
-    "lastDetail": "",
-    "airport": "SAOC",
-    "aircraft": "F16",
+    "hours": "859h 52m",
+    "last": "IAM1428 · 26 de oct de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">BIKF</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">LIRE</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B762</span>",
+    "airport": "SARI",
+    "aircraft": "B762",
     "lastFlights": [
+      {
+        "callsign": "IAM1428",
+        "aircraft": "B762",
+        "route": "BIKF → LIRE",
+        "date": "26 de oct de 2026",
+        "remark": "DOF/261026 REG/MM62228 ORGN/LIRE RMK/STS/STATE OPR/AERONAUTICA MILITARE ITALIANA VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
+      },
       {
         "callsign": "LEO11",
         "aircraft": "EUFI",
@@ -68,13 +75,6 @@
         "route": "LIPR → LICA",
         "date": "15 de oct de 2026",
         "remark": "DOF/261015 REG/MM62191 RMK/STS/STATE VSOA/VIRTUAL-AGGRESSORS.COM /V/"
-      },
-      {
-        "callsign": "WOLF11",
-        "aircraft": "HAR",
-        "route": "LIBG → LIBG",
-        "date": "14 de oct de 2026",
-        "remark": "DOF/261014 REG/MM7207 OPR/AGR RMK/STS/STATE OPR/MARINA VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
       }
     ]
   },
