@@ -218,12 +218,19 @@
     ]
   },
   "1665183": {
-    "hours": "162h 7m",
-    "last": "CONDR13 · 25 de sept de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">LEZG</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">GCLP</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "hours": "164h 17m",
+    "last": "CONDOR2 · 27 de oct de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAOC</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAZB</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SAZT",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDOR2",
+        "aircraft": "F16",
+        "route": "SAOC → SAZB",
+        "date": "27 de oct de 2026",
+        "remark": "RMK/ OPR/ARGENTINA AIR FORCE STS/ MARSA VSOA/FAAV.COM.AR FFLT/CONDOR1-2-3FFLTEND /V/ SEL/AHJL"
+      },
       {
         "callsign": "TRUENO2",
         "aircraft": "F16",
@@ -285,13 +292,6 @@
         "aircraft": "F16",
         "route": "SBNT → SAOC",
         "date": "06 de dic de 2025",
-        "remark": "OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA WITH OME81 AND BRUJO01 FOR AAR FFLT/CONDR11-16 FFLTEND VSOA/FAAV.COM.AR  /V/ SEL/AHJL"
-      },
-      {
-        "callsign": "CONDR13",
-        "aircraft": "F16",
-        "route": "SBNT → SAOC",
-        "date": "05 de dic de 2025",
         "remark": "OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA WITH OME81 AND BRUJO01 FOR AAR FFLT/CONDR11-16 FFLTEND VSOA/FAAV.COM.AR  /V/ SEL/AHJL"
       }
     ]
