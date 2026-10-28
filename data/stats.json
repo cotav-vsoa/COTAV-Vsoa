@@ -606,12 +606,19 @@
     ]
   },
   "2005108": {
-    "hours": "52h 19m",
-    "last": "FAG255 · 23 de oct de 2026",
-    "lastDetail": "",
+    "hours": "53h 31m",
+    "last": "HALCON · 28 de oct de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAOR</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAOR</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A4</span>",
     "airport": "SACE",
     "aircraft": "B737",
     "lastFlights": [
+      {
+        "callsign": "HALCON",
+        "aircraft": "A4",
+        "route": "SAOR → SAOR",
+        "date": "28 de oct de 2026",
+        "remark": "DOF/261028 REG/C-927 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "FAG255",
         "aircraft": "SIRA",
@@ -674,13 +681,6 @@
         "route": "SADP → SAVC",
         "date": "21 de ago de 2026",
         "remark": "DOF/260821 REG/TC-66 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "PAMPA1",
-        "aircraft": "IA63",
-        "route": "SATR → SATR",
-        "date": "20 de ago de 2026",
-        "remark": "DOF/260820 RMK/OPR/ARGENTINA AIR FORCE VSOA/FAAV.COM.AR FFLT/PAMPA1-2 FFLTEND /V/"
       }
     ]
   }
