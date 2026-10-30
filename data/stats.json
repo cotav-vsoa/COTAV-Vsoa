@@ -1,11 +1,18 @@
 {
   "1282428": {
-    "hours": "859h 52m",
-    "last": "IAM1428 · 26 de oct de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">BIKF</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">LIRE</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B762</span>",
+    "hours": "860h 33m",
+    "last": "GRAPP32 · 30 de oct de 2026",
+    "lastDetail": "",
     "airport": "SARI",
     "aircraft": "B762",
     "lastFlights": [
+      {
+        "callsign": "GRAPP32",
+        "aircraft": "EUFI",
+        "route": "LICT → LIED",
+        "date": "30 de oct de 2026",
+        "remark": "DOF/261030 REG/MM7331 RMK/OPR/AERONAUTICA MILITARE VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
+      },
       {
         "callsign": "IAM1428",
         "aircraft": "B762",
@@ -68,13 +75,6 @@
         "route": "LIRE → EGPK",
         "date": "16 de oct de 2026",
         "remark": "DOF/261015 REG/MM62228 RMK/STS/STATE VSOA/VIRTUAL-AGGRESSORS.COM /V/"
-      },
-      {
-        "callsign": "IAM4691",
-        "aircraft": "C30J",
-        "route": "LIPR → LICA",
-        "date": "15 de oct de 2026",
-        "remark": "DOF/261015 REG/MM62191 RMK/STS/STATE VSOA/VIRTUAL-AGGRESSORS.COM /V/"
       }
     ]
   },
