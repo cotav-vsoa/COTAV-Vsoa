@@ -606,12 +606,19 @@
     ]
   },
   "2005108": {
-    "hours": "53h 31m",
-    "last": "HALCON · 28 de oct de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAOR</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAOR</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A4</span>",
-    "airport": "SACE",
+    "hours": "55h 41m",
+    "last": "FAG255 · 30 de oct de 2026",
+    "lastDetail": "",
+    "airport": "SADP",
     "aircraft": "B737",
     "lastFlights": [
+      {
+        "callsign": "FAG255",
+        "aircraft": "C130",
+        "route": "SADP → SAME",
+        "date": "30 de oct de 2026",
+        "remark": "DOF/261030 REG/TC-64 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "HALCON",
         "aircraft": "A4",
@@ -674,13 +681,6 @@
         "route": "SADP → SAOC",
         "date": "22 de sept de 2026",
         "remark": "DOF/260922 REG/T-99 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "FAG255",
-        "aircraft": "C130",
-        "route": "SADP → SAVC",
-        "date": "21 de ago de 2026",
-        "remark": "DOF/260821 REG/TC-66 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
       }
     ]
   }
