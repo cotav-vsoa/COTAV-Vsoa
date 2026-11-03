@@ -79,10 +79,10 @@
     ]
   },
   "1462350": {
-    "hours": "106h 51m",
-    "last": "CONDR11 · 17 de oct de 2026",
-    "lastDetail": "",
-    "airport": "LERS",
+    "hours": "108h 44m",
+    "last": "VY8561 · 03 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">LEBL</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">LIMC</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A320</span>",
+    "airport": "SADP",
     "aircraft": "C25B",
     "lastFlights": [
       {
@@ -116,7 +116,7 @@
     ]
   },
   "1502178": {
-    "hours": "2876h 53m",
+    "hours": "2877h 34m",
     "last": "LVKAX · 03 de nov de 2026",
     "lastDetail": "",
     "airport": "SABE",
