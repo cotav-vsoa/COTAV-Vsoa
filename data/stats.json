@@ -1,11 +1,18 @@
 {
   "1282428": {
-    "hours": "861h 14m",
-    "last": "CONDOR2 · 02 de nov de 2026",
+    "hours": "861h 56m",
+    "last": "PUMA · 02 de nov de 2026",
     "lastDetail": "",
     "airport": "SARI",
     "aircraft": "B762",
     "lastFlights": [
+      {
+        "callsign": "PUMA",
+        "aircraft": "H47",
+        "route": "SAZS → SAZS",
+        "date": "02 de nov de 2026",
+        "remark": "DOF/261101 REG/H93 RMK/DOF/261102 RMK/OPR/ARGENTINA AIR FORCE STS/STATE VSOA/COTAVIRTUAL.COM.AR /V/ /V/"
+      },
       {
         "callsign": "CONDOR2",
         "aircraft": "C130",
@@ -68,13 +75,6 @@
         "route": "BGTL → CYTR",
         "date": "16 de oct de 2026",
         "remark": "DOF/261016 REG/MM62228 ORGN/LIRE RMK/STS/STATE OPR/ITALIAN AIR FORCE VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
-      },
-      {
-        "callsign": "IAM1428",
-        "aircraft": "B762",
-        "route": "EGPK → BGTL",
-        "date": "16 de oct de 2026",
-        "remark": "DOF/261016 REG/MM62228 ORGN/LIRE RMK/STS/STATE OPR/ITALIAN AIR FORCE VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
       }
     ]
   },
@@ -116,9 +116,9 @@
     ]
   },
   "1502178": {
-    "hours": "2876h 45m",
-    "last": "N3131A · 02 de nov de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SABE</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SULS</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">GLF5</span>",
+    "hours": "2876h 53m",
+    "last": "LVKAX · 03 de nov de 2026",
+    "lastDetail": "",
     "airport": "SABE",
     "aircraft": "B752",
     "lastFlights": [
