@@ -116,11 +116,11 @@
     ]
   },
   "1502178": {
-    "hours": "2892h 55m",
-    "last": "DAE1557 · 07 de nov de 2026",
-    "lastDetail": "",
-    "airport": "SABE",
-    "aircraft": "B752",
+    "hours": "2892h 46m",
+    "last": "LVGQN · 07 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SADF</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SUSO</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">E50P</span>",
+    "airport": "SAEZ",
+    "aircraft": "B77L",
     "lastFlights": [
       {
         "callsign": "ARG001",
@@ -128,13 +128,6 @@
         "route": "GCLP → SABE",
         "date": "25 de oct de 2026",
         "remark": "PBN/A1B1D1L1O1S1 DOF/261025 REG/ARG01 EET/GVSC0122 GOOO0233 SBAO0356 SBRE0457 SBBS0709 SBCW0817 SUEO0949 SAEF1028 OPR/ARG PER/D RALT/GVAC SBFZ RMK/RMK/ OPR/ARGENTINA AIR FORCE FFLT/ARG-01 FFLTEND RMK/COTAVIRTUAL.COM.AR /V/"
-      },
-      {
-        "callsign": "CONDR11",
-        "aircraft": "F16",
-        "route": "LEZG → GCLP",
-        "date": "25 de sept de 2026",
-        "remark": "DOF/260925 REG/M-1001 RMK/RMK/ VSOA/COTAVIRTUAL.COM.AR STS/MARSA FFLT/CONDR11--CONDOR16 FFLTEND /V/"
       }
     ]
   },
