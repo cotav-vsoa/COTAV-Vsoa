@@ -79,9 +79,9 @@
     ]
   },
   "1462350": {
-    "hours": "110h 29m",
-    "last": "EJU13CL · 04 de nov de 2026",
-    "lastDetail": "",
+    "hours": "112h 15m",
+    "last": "VLG24LA · 10 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">LPPR</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">LEBL</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A320</span>",
     "airport": "SADP",
     "aircraft": "C25B",
     "lastFlights": [
@@ -116,10 +116,10 @@
     ]
   },
   "1502178": {
-    "hours": "2893h 20m",
-    "last": "DAE1557 · 08 de nov de 2026",
-    "lastDetail": "",
-    "airport": "SABE",
+    "hours": "2892h 49m",
+    "last": "ARG1887 · 10 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAWH</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B742</span>",
+    "airport": "SAEZ",
     "aircraft": "B77L",
     "lastFlights": [
       {
