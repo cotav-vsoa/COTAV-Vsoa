@@ -599,12 +599,19 @@
     ]
   },
   "2005108": {
-    "hours": "55h 41m",
-    "last": "FAG255 · 30 de oct de 2026",
-    "lastDetail": "",
-    "airport": "SADP",
-    "aircraft": "B737",
+    "hours": "56h 59m",
+    "last": "ARG1901 · 10 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SUMU</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SABE</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B38M</span>",
+    "airport": "SACE",
+    "aircraft": "B38M",
     "lastFlights": [
+      {
+        "callsign": "ARG1901",
+        "aircraft": "B38M",
+        "route": "SUMU → SABE",
+        "date": "10 de nov de 2026",
+        "remark": "DOF/261110 REG/LV-KKD OPR/ARGENTINA AIR FORCE RMK/STS/STATE STS/MARSA TRASLADO PAPA VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "FAG255",
         "aircraft": "C130",
@@ -667,13 +674,6 @@
         "route": "SADP → SATR",
         "date": "23 de sept de 2026",
         "remark": "DOF/260923 REG/T-99 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "FAG255",
-        "aircraft": "B737",
-        "route": "SADP → SAOC",
-        "date": "22 de sept de 2026",
-        "remark": "DOF/260922 REG/T-99 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
       }
     ]
   }
