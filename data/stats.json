@@ -79,11 +79,11 @@
     ]
   },
   "1462350": {
-    "hours": "112h 15m",
-    "last": "VLG24LA · 10 de nov de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">LPPR</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">LEBL</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A320</span>",
-    "airport": "SADP",
-    "aircraft": "C25B",
+    "hours": "114h 29m",
+    "last": "EJU95TB · 11 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">LIML</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">LEBL</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A320</span>",
+    "airport": "LEBL",
+    "aircraft": "A320",
     "lastFlights": [
       {
         "callsign": "CONDR11",
@@ -116,9 +116,9 @@
     ]
   },
   "1502178": {
-    "hours": "2892h 49m",
-    "last": "ARG1887 · 10 de nov de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAWH</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B742</span>",
+    "hours": "2894h 12m",
+    "last": "ARG1878 · 11 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAWH</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A343</span>",
     "airport": "SAEZ",
     "aircraft": "B77L",
     "lastFlights": [
@@ -132,8 +132,8 @@
     ]
   },
   "1562806": {
-    "hours": "479h 55m",
-    "last": "CONDOR · 01 de nov de 2026",
+    "hours": "479h 58m",
+    "last": "ARG1886 · 11 de nov de 2026",
     "lastDetail": "",
     "airport": "SADP",
     "aircraft": "F16",
