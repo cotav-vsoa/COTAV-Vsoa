@@ -116,12 +116,19 @@
     ]
   },
   "1502178": {
-    "hours": "2894h 12m",
-    "last": "ARG1878 · 11 de nov de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAWH</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">A343</span>",
+    "hours": "2893h 13m",
+    "last": "DRAGON · 15 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAVC</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAVC</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B737</span>",
     "airport": "SAEZ",
     "aircraft": "B77L",
     "lastFlights": [
+      {
+        "callsign": "DRAGON",
+        "aircraft": "B737",
+        "route": "SAVC → SAVC",
+        "date": "15 de nov de 2026",
+        "remark": "DOF/261115 RMK/RMK/ OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/DRAGON FFLTEND RMK/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "ARG001",
         "aircraft": "B752",
@@ -132,12 +139,19 @@
     ]
   },
   "1562806": {
-    "hours": "479h 58m",
-    "last": "ARG1886 · 11 de nov de 2026",
+    "hours": "480h 9m",
+    "last": "CONDR11 · 15 de nov de 2026",
     "lastDetail": "",
-    "airport": "SADP",
+    "airport": "SAVC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDR11",
+        "aircraft": "F16",
+        "route": "SAVC → SAVC",
+        "date": "15 de nov de 2026",
+        "remark": "DOF/261115 REG/M-1018 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "CONDOR",
         "aircraft": "C130",
@@ -200,13 +214,6 @@
         "route": "GCLP → SNNT",
         "date": "03 de oct de 2026",
         "remark": "DOF/261003 REG/M-1018 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/CONDR11-CONDR13 FFLTEND RMK/COTAVIRTUAL.COM.AR /V/"
-      },
-      {
-        "callsign": "FAG212",
-        "aircraft": "B737",
-        "route": "SADP → SAWH",
-        "date": "28 de sept de 2026",
-        "remark": "PBN/B2B3D2D3O2S1T1T2 DOF/260928 REG/T99 EET/SAVF0051 SEL/EHBM OPR/ARGENTINA AIR FORCE PER/C RMK/OPR/ARGENTINA AIR FORCE STS/STATE VSOA/COTAVIRTUAL.COM.AR /V/"
       }
     ]
   },
@@ -369,12 +376,19 @@
     ]
   },
   "1712199": {
-    "hours": "347h 59m",
-    "last": "CONDOR3 · 02 de nov de 2026",
+    "hours": "348h 33m",
+    "last": "CONDOR1 · 15 de nov de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDOR1",
+        "aircraft": "F16",
+        "route": "SAVC → SAVC",
+        "date": "15 de nov de 2026",
+        "remark": "DOF/261115 REG/M1018 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA RMK/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "CONDOR3",
         "aircraft": "C130",
@@ -437,13 +451,6 @@
         "route": "YPDN → YPDN",
         "date": "24 de jul de 2026",
         "remark": "DOF/260724 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/TIGER1-5 FFLTEND RMK/OPERATION PITCH BLACK VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "HURON3",
-        "aircraft": "BE20",
-        "route": "SAAP → SAAP",
-        "date": "04 de jul de 2026",
-        "remark": "PBN/B2C2D2L1O2S1S2 DOF/260704 REG/TC-117 OPR/FAG PER/B RMK/RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/HURON 1-4 FFLTEND VSOA/FAAV.COM.AR /V/ /V/"
       }
     ]
   },
