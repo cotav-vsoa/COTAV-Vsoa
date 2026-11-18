@@ -116,9 +116,9 @@
     ]
   },
   "1502178": {
-    "hours": "2893h 13m",
-    "last": "DRAGON · 15 de nov de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAVC</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAVC</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B737</span>",
+    "hours": "2894h 2m",
+    "last": "LVJQF · 17 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SADF</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAZM</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">FA8X</span>",
     "airport": "SAEZ",
     "aircraft": "B77L",
     "lastFlights": [
@@ -128,13 +128,6 @@
         "route": "SAVC → SAVC",
         "date": "15 de nov de 2026",
         "remark": "DOF/261115 RMK/RMK/ OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/DRAGON FFLTEND RMK/COTAVIRTUAL.COM.AR /V/"
-      },
-      {
-        "callsign": "ARG001",
-        "aircraft": "B752",
-        "route": "GCLP → SABE",
-        "date": "25 de oct de 2026",
-        "remark": "PBN/A1B1D1L1O1S1 DOF/261025 REG/ARG01 EET/GVSC0122 GOOO0233 SBAO0356 SBRE0457 SBBS0709 SBCW0817 SUEO0949 SAEF1028 OPR/ARG PER/D RALT/GVAC SBFZ RMK/RMK/ OPR/ARGENTINA AIR FORCE FFLT/ARG-01 FFLTEND RMK/COTAVIRTUAL.COM.AR /V/"
       }
     ]
   },
