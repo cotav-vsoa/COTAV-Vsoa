@@ -132,12 +132,19 @@
     ]
   },
   "1562806": {
-    "hours": "480h 9m",
-    "last": "CONDR11 · 15 de nov de 2026",
-    "lastDetail": "",
+    "hours": "480h 20m",
+    "last": "CONDR11 · 20 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAZB</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAME</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SAVC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDR11",
+        "aircraft": "F16",
+        "route": "SAZB → SAME",
+        "date": "20 de nov de 2026",
+        "remark": "DOF/261120 REG/M1020 EET/SAMF0100 SAEF0101 CODE/SDGHTU OPR/ARGENTINA AIR FORCE PER/D RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDR11-CONDR12 FFLTEND VSOA/COTAVIRTUAL.COM.AR /V/"
+      },
       {
         "callsign": "CONDR11",
         "aircraft": "F16",
@@ -200,23 +207,23 @@
         "route": "SAZM → SADP",
         "date": "05 de oct de 2026",
         "remark": "PBN/B2C2D2 DOF/261005 REG/T51 CODE/E14C32 OPR/ARGENTINA AIR FORCE PER/B RMK/RMK/COTAVIRTUAL.COM.AR /V/"
-      },
-      {
-        "callsign": "CONDR12",
-        "aircraft": "F16",
-        "route": "GCLP → SNNT",
-        "date": "03 de oct de 2026",
-        "remark": "DOF/261003 REG/M-1018 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/CONDR11-CONDR13 FFLTEND RMK/COTAVIRTUAL.COM.AR /V/"
       }
     ]
   },
   "1665183": {
-    "hours": "164h 17m",
-    "last": "CONDOR2 · 27 de oct de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAOC</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAZB</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "hours": "164h 23m",
+    "last": "CONDR12 · 20 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAZB</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAME</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SAZT",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDR12",
+        "aircraft": "F16",
+        "route": "SAZB → SAME",
+        "date": "20 de nov de 2026",
+        "remark": "OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDR11-CONDR12 FFLTEND VSOA/COTAVIRTUAL.COM.AR /V/ SEL/AHJL"
+      },
       {
         "callsign": "CONDOR2",
         "aircraft": "F16",
@@ -279,13 +286,6 @@
         "route": "SAZT → SAZT",
         "date": "13 de dic de 2025",
         "remark": "OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/PUCARA1-3 FFLTEND VSOA/FAAV.COM.AR RMK/DESPEDIDA MIRAGE /V/ SEL/AHJL"
-      },
-      {
-        "callsign": "CONDR13",
-        "aircraft": "F16",
-        "route": "SBNT → SAOC",
-        "date": "06 de dic de 2025",
-        "remark": "OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA WITH OME81 AND BRUJO01 FOR AAR FFLT/CONDR11-16 FFLTEND VSOA/FAAV.COM.AR  /V/ SEL/AHJL"
       }
     ]
   },
