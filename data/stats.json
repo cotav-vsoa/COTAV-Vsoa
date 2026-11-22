@@ -1,11 +1,25 @@
 {
   "1282428": {
-    "hours": "862h 35m",
-    "last": "GHOST03 · 15 de nov de 2026",
+    "hours": "864h 55m",
+    "last": "AE046 · 22 de nov de 2026",
     "lastDetail": "",
     "airport": "SARI",
     "aircraft": "B762",
     "lastFlights": [
+      {
+        "callsign": "AE046",
+        "aircraft": "DA62",
+        "route": "SADO → SAZT",
+        "date": "22 de nov de 2026",
+        "remark": "DOF/261122 RMK/OPR/AVIACION DE EJERCITO STS/STATE VSOA/WWW.COTAVIRTUAL.COM.AR/ /V/"
+      },
+      {
+        "callsign": "JOLLY11",
+        "aircraft": "H60",
+        "route": "LIPA → LIPA",
+        "date": "22 de nov de 2026",
+        "remark": "DOF/261122 RMK/VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
+      },
       {
         "callsign": "PUMA",
         "aircraft": "H47",
@@ -61,20 +75,6 @@
         "route": "SAOC → SAOC",
         "date": "17 de oct de 2026",
         "remark": "DOF/261017 REG/M-1018 RMK/STS/MARSA FFLT/CONDR11 CONDR14 FFLTEND VSOA/COTAVIRTUAL.COM.AR/ /V/"
-      },
-      {
-        "callsign": "DIABLO1",
-        "aircraft": "F16",
-        "route": "SAOC → SAOC",
-        "date": "17 de oct de 2026",
-        "remark": "DOF/261017 REG/M-1018 RMK/STS/MARSA FFLT/CONDR11 CONDR14 FFLTEND VSOA/COTAVIRTUAL.COM.AR/ /V/"
-      },
-      {
-        "callsign": "IAM1428",
-        "aircraft": "B762",
-        "route": "BGTL → CYTR",
-        "date": "16 de oct de 2026",
-        "remark": "DOF/261016 REG/MM62228 ORGN/LIRE RMK/STS/STATE OPR/ITALIAN AIR FORCE VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
       }
     ]
   },
@@ -116,11 +116,11 @@
     ]
   },
   "1502178": {
-    "hours": "2902h 24m",
-    "last": "N8X · 18 de nov de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAEZ</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SUMU</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">FA8X</span>",
+    "hours": "2902h 56m",
+    "last": "N8X · 22 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SUMU</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SABE</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">FA8X</span>",
     "airport": "SAEZ",
-    "aircraft": "B77L",
+    "aircraft": "FA8X",
     "lastFlights": [
       {
         "callsign": "DRAGON",
