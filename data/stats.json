@@ -132,12 +132,19 @@
     ]
   },
   "1562806": {
-    "hours": "481h 2m",
-    "last": "CONDOR1 · 22 de nov de 2026",
-    "lastDetail": "",
+    "hours": "482h 8m",
+    "last": "CONDOR2 · 23 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAVV</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAVV</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SAVC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDOR2",
+        "aircraft": "F16",
+        "route": "SAVV → SAVV",
+        "date": "23 de nov de 2026",
+        "remark": "DOF/261122 REG/M-1024 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/COTAVIRTUAL.COM.AR RMK/GAUCHO2026 /V/"
+      },
       {
         "callsign": "CONDOR1",
         "aircraft": "F16",
@@ -200,13 +207,6 @@
         "route": "SAOC → SAOC",
         "date": "17 de oct de 2026",
         "remark": "DOF/261017 REG/M-1018 OPR/FAG RMK/VSOA/COTAVIRTUAL.COM.AR /V/"
-      },
-      {
-        "callsign": "FAG212",
-        "aircraft": "F28",
-        "route": "SAZM → SADP",
-        "date": "06 de oct de 2026",
-        "remark": "PBN/B2C2D2 DOF/261005 REG/T51 CODE/E14C32 OPR/ARGENTINA AIR FORCE PER/B RMK/RMK/COTAVIRTUAL.COM.AR /V/"
       }
     ]
   },
@@ -369,12 +369,26 @@
     ]
   },
   "1712199": {
-    "hours": "349h 30m",
-    "last": "CONDOR3 · 22 de nov de 2026",
+    "hours": "351h 41m",
+    "last": "CONDOR · 23 de nov de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDOR",
+        "aircraft": "F16",
+        "route": "SAVV → SAVV",
+        "date": "23 de nov de 2026",
+        "remark": "DOF/261123 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/COTAVIRTUAL.COM.AR RMK/GAUCHO2026 /V/"
+      },
+      {
+        "callsign": "DAGA",
+        "aircraft": "C130",
+        "route": "SAVC → SAVT",
+        "date": "23 de nov de 2026",
+        "remark": "PBN/B2B3B4D2D3O2O3S1 DAT/V DOF/261123 REG/TC69 SEL/AREA CODE/E20094 OPR/FAG PER/C RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/COTAVIRTUAL.COM.AR RMK/GAUCHO2026 /V/"
+      },
       {
         "callsign": "CONDOR3",
         "aircraft": "F16",
@@ -430,20 +444,6 @@
         "route": "SAOC → SAOC",
         "date": "21 de sept de 2026",
         "remark": "DOF/260921 REG/M-1007 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR1-2 FFLTEND VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "DAGA",
-        "aircraft": "F16",
-        "route": "SAOC → SAOC",
-        "date": "15 de ago de 2026",
-        "remark": "DOF/260815 REG/M1004 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "CONDOR2",
-        "aircraft": "F16",
-        "route": "SADP → SADP",
-        "date": "11 de ago de 2026",
-        "remark": "DOF/260811 REG/M1004 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR 1-3 FFLTEND VSOA/FAAV.COM.AR /V/"
       }
     ]
   },
