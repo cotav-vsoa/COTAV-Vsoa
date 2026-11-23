@@ -1,11 +1,25 @@
 {
   "1282428": {
-    "hours": "864h 55m",
-    "last": "AE046 · 22 de nov de 2026",
+    "hours": "867h 2m",
+    "last": "TRUENO1 · 22 de nov de 2026",
     "lastDetail": "",
     "airport": "SARI",
     "aircraft": "B762",
     "lastFlights": [
+      {
+        "callsign": "TRUENO1",
+        "aircraft": "E3",
+        "route": "SAME → SAME",
+        "date": "22 de nov de 2026",
+        "remark": "DOF/261122 RMK/STS/STATE OPR/NATO AEW SQN VSOA/COTAVIRTUAL.COM.AR RMK/GAUCHO2026 /V/"
+      },
+      {
+        "callsign": "PUMA11",
+        "aircraft": "E3",
+        "route": "SAME → SAME",
+        "date": "22 de nov de 2026",
+        "remark": "DOF/261122 RMK/STS/STATE OPR/NATO AEW SQN VSOA/COTAVIRTUAL.COM.AR RMK/GAUCHO2026 /V/"
+      },
       {
         "callsign": "AE046",
         "aircraft": "DA62",
@@ -61,20 +75,6 @@
         "route": "BGTL → BIKF",
         "date": "20 de oct de 2026",
         "remark": "DOF/261020 REG/MM62228 ORGN/LIRE RMK/OPR/ITALIAN AIRFORCE STS/STATE VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
-      },
-      {
-        "callsign": "IAM1428",
-        "aircraft": "B762",
-        "route": "CYTR → BGTL",
-        "date": "18 de oct de 2026",
-        "remark": "DOF/261017 REG/MM62228 ORGN/LIRE RMK/MSN/BOXTOP003 STS/STATE OPR/ITALIAN AIRFORCE FOR VSOA/VIRTUAL-AGGRESSORS.COM/ /V/"
-      },
-      {
-        "callsign": "CONDR14",
-        "aircraft": "F16",
-        "route": "SAOC → SAOC",
-        "date": "17 de oct de 2026",
-        "remark": "DOF/261017 REG/M-1018 RMK/STS/MARSA FFLT/CONDR11 CONDR14 FFLTEND VSOA/COTAVIRTUAL.COM.AR/ /V/"
       }
     ]
   },
@@ -132,12 +132,19 @@
     ]
   },
   "1562806": {
-    "hours": "480h 20m",
-    "last": "CONDR11 · 20 de nov de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAZB</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAME</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "hours": "481h 2m",
+    "last": "CONDOR1 · 22 de nov de 2026",
+    "lastDetail": "",
     "airport": "SAVC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDOR1",
+        "aircraft": "F16",
+        "route": "SAME → SAME",
+        "date": "22 de nov de 2026",
+        "remark": "DOF/261122 REG/M-1024 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/COTAVIRTUAL.COM.AR RMK/GAUCHO2026 /V/"
+      },
       {
         "callsign": "CONDR11",
         "aircraft": "F16",
@@ -200,23 +207,23 @@
         "route": "SAZM → SADP",
         "date": "06 de oct de 2026",
         "remark": "PBN/B2C2D2 DOF/261005 REG/T51 CODE/E14C32 OPR/ARGENTINA AIR FORCE PER/B RMK/RMK/COTAVIRTUAL.COM.AR /V/"
-      },
-      {
-        "callsign": "FAG212",
-        "aircraft": "F28",
-        "route": "SAZM → SADP",
-        "date": "05 de oct de 2026",
-        "remark": "PBN/B2C2D2 DOF/261005 REG/T51 CODE/E14C32 OPR/ARGENTINA AIR FORCE PER/B RMK/RMK/COTAVIRTUAL.COM.AR /V/"
       }
     ]
   },
   "1665183": {
-    "hours": "164h 23m",
-    "last": "CONDR12 · 20 de nov de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAZB</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAME</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "hours": "165h 33m",
+    "last": "CONDOR2 · 22 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SAME</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAMM</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
     "airport": "SAZT",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDOR2",
+        "aircraft": "F16",
+        "route": "SAME → SAMM",
+        "date": "22 de nov de 2026",
+        "remark": "OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR1-CONDOR2-CONDOR3  FFLTEND VSOA/COTAVIRTUAL.COM.AR RMK/GAUCHO2026 /V/ SEL/AHJL"
+      },
       {
         "callsign": "CONDR12",
         "aircraft": "F16",
@@ -278,13 +285,6 @@
         "aircraft": "MIRA",
         "route": "SAZT → SAZT",
         "date": "14 de dic de 2025",
-        "remark": "OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/PUCARA1-3 FFLTEND VSOA/FAAV.COM.AR RMK/DESPEDIDA MIRAGE /V/ SEL/AHJL"
-      },
-      {
-        "callsign": "PUCARA",
-        "aircraft": "MIRA",
-        "route": "SAZT → SAZT",
-        "date": "13 de dic de 2025",
         "remark": "OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/PUCARA1-3 FFLTEND VSOA/FAAV.COM.AR RMK/DESPEDIDA MIRAGE /V/ SEL/AHJL"
       }
     ]
@@ -369,12 +369,19 @@
     ]
   },
   "1712199": {
-    "hours": "348h 33m",
-    "last": "CONDOR1 · 15 de nov de 2026",
+    "hours": "349h 30m",
+    "last": "CONDOR3 · 22 de nov de 2026",
     "lastDetail": "",
     "airport": "SAOC",
     "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDOR3",
+        "aircraft": "F16",
+        "route": "SAME → SAME",
+        "date": "22 de nov de 2026",
+        "remark": "DOF/261122 REG/M1009 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/COTAVIRTUAL.COM.AR RMK/GAUCHO2026 /V/"
+      },
       {
         "callsign": "CONDOR1",
         "aircraft": "F16",
@@ -437,13 +444,6 @@
         "route": "SADP → SADP",
         "date": "11 de ago de 2026",
         "remark": "DOF/260811 REG/M1004 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR 1-3 FFLTEND VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "TIGER1",
-        "aircraft": "F16",
-        "route": "YPDN → YPDN",
-        "date": "24 de jul de 2026",
-        "remark": "DOF/260724 OPR/FAG RMK/OPR/ARGENTINA AIR FORCE STS/MARSA FFLT/TIGER1-5 FFLTEND RMK/OPERATION PITCH BLACK VSOA/FAAV.COM.AR /V/"
       }
     ]
   },
