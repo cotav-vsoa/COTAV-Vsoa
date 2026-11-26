@@ -599,12 +599,19 @@
     ]
   },
   "2005108": {
-    "hours": "56h 59m",
-    "last": "ARG1901 · 10 de nov de 2026",
-    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SUMU</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SABE</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">B38M</span>",
-    "airport": "SACE",
-    "aircraft": "B38M",
+    "hours": "58h 45m",
+    "last": "CONDOR1 · 26 de nov de 2026",
+    "lastDetail": "<span style=\"color:var(--blue-light);font-weight:400;\">SADP</span> <span style=\"color:var(--muted);font-size:10px;\">→</span> <span style=\"color:var(--blue-light);font-weight:400;\">SAOC</span> <span style=\"color:var(--muted);font-size:10px;\">·</span> <span style=\"color:var(--blue-light);font-weight:400;\">F16</span>",
+    "airport": "SADP",
+    "aircraft": "F16",
     "lastFlights": [
+      {
+        "callsign": "CONDOR1",
+        "aircraft": "F16",
+        "route": "SADP → SAOC",
+        "date": "26 de nov de 2026",
+        "remark": "DOF/261126 REG/M-1007 RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR1-3 FFLTEND VSOA/FAAV.COM.AR /V/"
+      },
       {
         "callsign": "ARG1901",
         "aircraft": "B38M",
@@ -646,34 +653,6 @@
         "route": "SARI → SARI",
         "date": "22 de oct de 2026",
         "remark": "DOF/261022 REG/AE-445 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "CHAJA",
-        "aircraft": "TEX2",
-        "route": "SACE → SACE",
-        "date": "21 de oct de 2026",
-        "remark": "DOF/261021 REG/E-301 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "CONDOR1",
-        "aircraft": "F16",
-        "route": "SAOC → SADP",
-        "date": "27 de sept de 2026",
-        "remark": "DOF/260927 REG/M-1007 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA FFLT/CONDOR1-2 FFLTEND PASAJE SOBRE AEP VSOA/FAAV.COM.AR /V/"
-      },
-      {
-        "callsign": "FAG062",
-        "aircraft": "B737",
-        "route": "LEZG → GCLP",
-        "date": "25 de sept de 2026",
-        "remark": "DOF/260925 REG/T-99 RMK/VSOA/COTAVIRTUAL.COM.AR /V/"
-      },
-      {
-        "callsign": "FAG255",
-        "aircraft": "B737",
-        "route": "SADP → SATR",
-        "date": "23 de sept de 2026",
-        "remark": "DOF/260923 REG/T-99 OPR/ARGENTINA AIR FORCE RMK/OPR/ARGENTINA AIR FORCE STS/STATE STS/MARSA VSOA/FAAV.COM.AR /V/"
       }
     ]
   }
